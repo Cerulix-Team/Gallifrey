@@ -176,34 +176,16 @@ public class SonicWorkshopScreen extends Screen {
     public boolean mouseScrolled(double mouseX, double mouseY, double verticalAmount) {
         int viewTop = top + CASING_VIEW_TOP;
         int viewBottom = top + CASING_VIEW_BOTTOM;
-
-        if (mouseX >= left + 12
-                && mouseX <= left + GUI_WIDTH - 12
-                && mouseY >= viewTop
-                && mouseY <= viewBottom) {
-
-            int maxRows = Math.max(
-                    0,
-                    (SonicCasing.values().length - 1) / 4
-                            - VISIBLE_CASING_ROWS + 1
-            );
-
-            int next = Math.max(
-                    0,
-                    Math.min(
-                            maxRows,
-                            casingScrollRows + (verticalAmount < 0 ? 1 : -1)
-                    )
-            );
-
+        if (mouseX >= left + 12 && mouseX <= left + GUI_WIDTH - 12
+                && mouseY >= viewTop && mouseY <= viewBottom) {
+            int maxRows = Math.max(0, (SonicCasing.values().length - 1) / 4 - VISIBLE_CASING_ROWS + 1);
+            int next = Math.max(0, Math.min(maxRows, casingScrollRows + (verticalAmount < 0 ? 1 : -1)));
             if (next != casingScrollRows) {
                 casingScrollRows = next;
                 updateCasingButtonPositions();
             }
-
             return true;
         }
-
         return super.mouseScrolled(mouseX, mouseY, verticalAmount);
     }
 

@@ -22,6 +22,11 @@ public enum SonicCasing {
             "C. Baker"
     ),
 
+    SEVENTH_DOCTOR(
+            "seventh_doctor",
+            "McCoy"
+    ),
+
     EIGHTH_DOCTOR(
             "eighth_doctor",
             "McGann"
