@@ -160,6 +160,6 @@ public enum SonicCasing {
         }
 
         // Default Sonic
-        return THIRD_DOCTOR;
+        return SECOND_DOCTOR;
     }
 }
