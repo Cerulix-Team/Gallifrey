@@ -9,8 +9,14 @@ import java.util.Set;
 
 public final class GallifreyMixinPlugin implements IMixinConfigPlugin {
 
+    private static final String TITLE_SCREEN_MIXIN =
+            "client.TitleScreenVortexMixin";
+
     @Override
     public void onLoad(String mixinPackage) {
+        System.out.println(
+                "[Gallifrey] Mixin plugin loaded: " + mixinPackage
+        );
     }
 
     @Override
@@ -23,6 +29,14 @@ public final class GallifreyMixinPlugin implements IMixinConfigPlugin {
             String targetClassName,
             String mixinClassName
     ) {
+        if (mixinClassName.endsWith(TITLE_SCREEN_MIXIN)) {
+            System.out.println(
+                    "[Gallifrey] Title screen mixin requested for "
+                            + targetClassName
+            );
+        }
+
+        // Allow Gallifrey's mixins to apply even when AiT is installed.
         return true;
     }
 
@@ -45,6 +59,12 @@ public final class GallifreyMixinPlugin implements IMixinConfigPlugin {
             String mixinClassName,
             IMixinInfo mixinInfo
     ) {
+        if (mixinClassName.endsWith(TITLE_SCREEN_MIXIN)) {
+            System.out.println(
+                    "[Gallifrey] Applying title screen mixin to "
+                            + targetClassName
+            );
+        }
     }
 
     @Override
@@ -54,5 +74,11 @@ public final class GallifreyMixinPlugin implements IMixinConfigPlugin {
             String mixinClassName,
             IMixinInfo mixinInfo
     ) {
+        if (mixinClassName.endsWith(TITLE_SCREEN_MIXIN)) {
+            System.out.println(
+                    "[Gallifrey] Title screen mixin applied to "
+                            + targetClassName
+            );
+        }
     }
 }
