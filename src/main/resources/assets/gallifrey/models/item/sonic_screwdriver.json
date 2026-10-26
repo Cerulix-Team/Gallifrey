@@ -3,7 +3,7 @@
   "overrides": [
     {
       "predicate": {
-        "gallifrey:sonic_casing": 0.041667
+        "gallifrey:sonic_casing": 0.041666
       },
       "model": "gallifrey:item/sonic_items/3rd_sonic"
     },
@@ -21,7 +21,7 @@
     },
     {
       "predicate": {
-        "gallifrey:sonic_casing": 0.166667
+        "gallifrey:sonic_casing": 0.166666
       },
       "model": "gallifrey:item/sonic_items/7th_sonic"
     },
@@ -39,7 +39,7 @@
     },
     {
       "predicate": {
-        "gallifrey:sonic_casing": 0.291667
+        "gallifrey:sonic_casing": 0.291666
       },
       "model": "gallifrey:item/sonic_items/10th_sonic"
     },
@@ -57,7 +57,7 @@
     },
     {
       "predicate": {
-        "gallifrey:sonic_casing": 0.416667
+        "gallifrey:sonic_casing": 0.416666
       },
       "model": "gallifrey:item/sonic_items/sonic_cane"
     },
@@ -75,7 +75,7 @@
     },
     {
       "predicate": {
-        "gallifrey:sonic_casing": 0.541667
+        "gallifrey:sonic_casing": 0.541666
       },
       "model": "gallifrey:item/sonic_items/14th_sonic"
     },
@@ -93,7 +93,7 @@
     },
     {
       "predicate": {
-        "gallifrey:sonic_casing": 0.666667
+        "gallifrey:sonic_casing": 0.666666
       },
       "model": "gallifrey:item/sonic_items/15th_sonic_red"
     },
@@ -111,7 +111,7 @@
     },
     {
       "predicate": {
-        "gallifrey:sonic_casing": 0.791667
+        "gallifrey:sonic_casing": 0.791666
       },
       "model": "gallifrey:item/sonic_items/laser_sonic"
     },
@@ -129,7 +129,7 @@
     },
     {
       "predicate": {
-        "gallifrey:sonic_casing": 0.916667
+        "gallifrey:sonic_casing": 0.916666
       },
       "model": "gallifrey:item/sonic_items/blue_sonic"
     },
