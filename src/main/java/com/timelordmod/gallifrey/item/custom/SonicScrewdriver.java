@@ -505,6 +505,27 @@ public class SonicScrewdriver extends Item {
     }
 
     // =========================================================
+    // CASING-SPECIFIC ACTIVATION SOUNDS
+    // =========================================================
+
+    /** Uses a dedicated sound when this casing has one, otherwise the generic sonic sound. */
+    private static net.minecraft.sound.SoundEvent getActivationSound(SonicCasing casing) {
+        return switch (casing) {
+            case SECOND_DOCTOR -> GallifreySounds.SONIC_SECOND;
+            case THIRD_DOCTOR -> GallifreySounds.SONIC_THIRD;
+            case FOURTH_DOCTOR -> GallifreySounds.SONIC_FOURTH;
+            case TENTH_DOCTOR -> GallifreySounds.SONIC_NINTH;
+            case SIXTH_DOCTOR -> GallifreySounds.SONIC_SIXTH;
+            case SEVENTH_DOCTOR -> GallifreySounds.SONIC_SEVEN;
+            case ELEVENTH_DOCTOR, ELEVENTH_CANE -> GallifreySounds.SONIC_ELEVENTH;
+            case THIRTEENTH_DOCTOR, FIFTEENTH_DOCTOR, FIFTEENTH_DOCTOR_GREEN,
+                    FIFTEENTH_DOCTOR_RED, FIFTEENTH_DOCTOR_YELLOW -> GallifreySounds.SONIC_THIRTEEN;
+            case FOURTEENTH_DOCTOR -> GallifreySounds.SONIC_FOURTEEN;
+            default -> GallifreySounds.SONIC;
+        };
+    }
+
+    // =========================================================
     // SHARED SONIC ACTIVATION
     // =========================================================
 
@@ -532,7 +553,7 @@ public class SonicScrewdriver extends Item {
             // message for what happened, so the power readout below is skipped.
             if (com.timelordmod.gallifrey.compat.ait.AitSonics.useTardisMode(player, world, stack)) {
                 world.playSound(null, player.getX(), player.getY(), player.getZ(),
-                        GallifreySounds.SONIC, SoundCategory.PLAYERS, 1.0F, 1.0F);
+                        getActivationSound(casing), SoundCategory.PLAYERS, 1.0F, 1.0F);
                 consumePower(stack);
             }
             return;
@@ -552,7 +573,7 @@ public class SonicScrewdriver extends Item {
         if (com.timelordmod.gallifrey.compat.deo.DeoPortals.handleSonic(player, target, mode)
                 || com.timelordmod.gallifrey.compat.tempad.TempadDoors.handleSonic(player, target, mode)) {
             world.playSound(null, player.getX(), player.getY(), player.getZ(),
-                    GallifreySounds.SONIC, SoundCategory.PLAYERS, 1.0F, 1.0F);
+                    getActivationSound(casing), SoundCategory.PLAYERS, 1.0F, 1.0F);
             consumePower(stack);
             return;
         }
@@ -564,7 +585,7 @@ public class SonicScrewdriver extends Item {
                 player.getX(),
                 player.getY(),
                 player.getZ(),
-                GallifreySounds.SONIC,
+                getActivationSound(casing),
                 SoundCategory.PLAYERS,
                 1.0F,
                 1.0F
