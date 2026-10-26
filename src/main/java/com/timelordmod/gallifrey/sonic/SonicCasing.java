@@ -153,7 +153,7 @@ public enum SonicCasing {
 
             if (casing.id.equals(id)
                     || (casing == TWELFTH_DOCTOR && "twelth_doctor".equals(id))
-                    || (casing == THIRTEENTH_DOCTOR && "therteenth_doctor".equals(id))
+                    || (casing == THIRTEENTH_DOCTOR && "thirteenth_doctor".equals(id))
                     || (casing == FUGITIVE_DOCTOR && "fugutitive_doctor".equals(id))) {
                 return casing;
             }
