@@ -1,6 +1,5 @@
 package com.timelordmod.gallifrey.mixin;
 
-import net.fabricmc.loader.api.FabricLoader;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -9,9 +8,6 @@ import java.util.List;
 import java.util.Set;
 
 public final class GallifreyMixinPlugin implements IMixinConfigPlugin {
-
-    private static final String TITLE_SCREEN_MIXIN =
-            "client.TitleScreenVortexMixin";
 
     @Override
     public void onLoad(String mixinPackage) {
@@ -27,10 +23,6 @@ public final class GallifreyMixinPlugin implements IMixinConfigPlugin {
             String targetClassName,
             String mixinClassName
     ) {
-        if (mixinClassName.endsWith(TITLE_SCREEN_MIXIN)) {
-            return !FabricLoader.getInstance().isModLoaded("ait");
-        }
-
         return true;
     }
 
