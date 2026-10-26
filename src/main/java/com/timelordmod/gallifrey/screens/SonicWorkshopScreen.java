@@ -1,5 +1,6 @@
 package com.timelordmod.gallifrey.screens;
 
+import com.timelordmod.gallifrey.block.entity.SonicWorkshopBlockEntity;
 import com.timelordmod.gallifrey.item.GallifreyModItems;
 import com.timelordmod.gallifrey.item.custom.SonicScrewdriver;
 import com.timelordmod.gallifrey.networking.SonicCasingClientNetworking;
@@ -11,144 +12,249 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
-import com.timelordmod.gallifrey.block.entity.SonicWorkshopBlockEntity;
 
 public class SonicWorkshopScreen extends Screen {
 
     private static final int GUI_WIDTH = 420;
     private static final int GUI_HEIGHT = 270;
 
-    /*
-     * ============================================================
-     * DOCTOR WHO / TARDIS COLOUR PALETTE
-     * ============================================================
-     */
-
-    // Main TARDIS / panel colours
+    // TARDIS colour palette
     private static final int PANEL       = 0xF007141C;
     private static final int PANEL_LIGHT = 0xFF102D38;
     private static final int PANEL_DARK  = 0xFF091D27;
 
-    // TARDIS blues
     private static final int BLUE      = 0xFF35C5E8;
     private static final int BLUE_DIM  = 0xFF168AAD;
     private static final int BLUE_DARK = 0xFF0A4F66;
 
-    // Text
     private static final int TEXT     = 0xFFE8F1ED;
     private static final int TEXT_DIM = 0xFF7599A3;
 
-    // Time Lord / brass accent
-    private static final int GOLD        = 0xFFD6A84F;
     private static final int GOLD_BRIGHT = 0xFFF2D27A;
     private static final int GOLD_DARK   = 0xFF735725;
+
+    // Casing selection layout
+    private static final int COLUMNS = 4;
+    private static final int BUTTON_WIDTH = 90;
+    private static final int BUTTON_HEIGHT = 30;
+    private static final int SPACING_X = 6;
+    private static final int SPACING_Y = 7;
+
+    // Four columns and four rows per page.
+    private static final int ROWS_PER_PAGE = 4;
+    private static final int CASINGS_PER_PAGE =
+            COLUMNS * ROWS_PER_PAGE;
+
+    private static final int GRID_TOP = 108;
+    private static final int GRID_BOTTOM = 238;
 
     private int left;
     private int top;
 
+    private int casingPage = 0;
+
     private SonicCasing selectedCasing;
     private final BlockPos pos;
-    /** True once the client has seen the installed Sonic (see tick()). */
+
     private boolean sawSonic;
 
     public SonicWorkshopScreen(BlockPos pos) {
         super(Text.literal("Sonic Workshop"));
+
         this.pos = pos;
         this.selectedCasing = SonicCasing.THIRD_DOCTOR;
     }
 
-    /** The workshop at pos, if it still exists and still holds a Sonic; otherwise null. */
+    /**
+     * Returns the workshop if it still exists and contains a Sonic.
+     */
     private SonicWorkshopBlockEntity workshop() {
         if (client != null && client.world != null
-                && client.world.getBlockEntity(pos) instanceof SonicWorkshopBlockEntity workshop
+                && client.world.getBlockEntity(pos)
+                instanceof SonicWorkshopBlockEntity workshop
                 && workshop.hasSonic()) {
             return workshop;
         }
+
         return null;
     }
 
     @Override
     protected void init() {
-
         left = (width - GUI_WIDTH) / 2;
         top = (height - GUI_HEIGHT) / 2;
 
-        // `client` is only set once the screen is shown, so read the installed casing here.
         SonicWorkshopBlockEntity workshop = workshop();
+
         if (workshop != null) {
             sawSonic = true;
-            selectedCasing = SonicScrewdriver.getCasing(workshop.getSonic());
+            selectedCasing =
+                    SonicScrewdriver.getCasing(workshop.getSonic());
         }
 
+        int totalPages = getTotalPages();
+
+        casingPage = Math.max(
+                0,
+                Math.min(casingPage, totalPages - 1)
+        );
+
         createCasingButtons();
+        createNavigationButtons();
     }
 
+    /**
+     * Calculates the number of pages required.
+     */
+    private int getTotalPages() {
+        int count = SonicCasing.values().length;
+
+        return Math.max(
+                1,
+                (count + CASINGS_PER_PAGE - 1)
+                        / CASINGS_PER_PAGE
+        );
+    }
+
+    /**
+     * Creates only the buttons belonging to the current page.
+     */
     private void createCasingButtons() {
-
-        SonicCasing[] casings =
-                SonicCasing.values();
-
-        /*
-         * ========================================================
-         * 4-COLUMN BUTTON GRID
-         * ========================================================
-         */
-
-        int columns = 4;
-
-        int buttonWidth = 90;
-        int buttonHeight = 30;
-
-        int spacingX = 6;
-        int spacingY = 7;
+        SonicCasing[] casings = SonicCasing.values();
 
         int gridWidth =
-                columns * buttonWidth
-                        + (columns - 1) * spacingX;
+                COLUMNS * BUTTON_WIDTH
+                        + (COLUMNS - 1) * SPACING_X;
 
-        int panelWidth =
-                GUI_WIDTH - 36;
+        int panelWidth = GUI_WIDTH - 36;
 
         int startX =
-                left + 18
-                        + (panelWidth - gridWidth) / 2;
+                left + 18 + (panelWidth - gridWidth) / 2;
 
-        int startY =
-                top + 108;
+        int startY = top + GRID_TOP;
 
-        for (int i = 0; i < casings.length; i++) {
+        int startIndex =
+                casingPage * CASINGS_PER_PAGE;
 
-            SonicCasing casing =
-                    casings[i];
+        int endIndex = Math.min(
+                startIndex + CASINGS_PER_PAGE,
+                casings.length
+        );
 
-            int column =
-                    i % columns;
+        for (int i = startIndex; i < endIndex; i++) {
+            SonicCasing casing = casings[i];
 
-            int row =
-                    i / columns;
+            int localIndex = i - startIndex;
+
+            int column = localIndex % COLUMNS;
+            int row = localIndex / COLUMNS;
 
             int buttonX =
-                    startX
-                            + column
-                            * (buttonWidth + spacingX);
+                    startX + column
+                            * (BUTTON_WIDTH + SPACING_X);
 
             int buttonY =
-                    startY
-                            + row
-                            * (buttonHeight + spacingY);
+                    startY + row
+                            * (BUTTON_HEIGHT + SPACING_Y);
 
             addDrawableChild(
                     new CasingButton(
                             buttonX,
                             buttonY,
-                            buttonWidth,
-                            buttonHeight,
+                            BUTTON_WIDTH,
+                            BUTTON_HEIGHT,
                             casing
                     )
             );
         }
     }
 
+    /**
+     * Adds Previous and Next buttons for navigating casing pages.
+     */
+    private void createNavigationButtons() {
+        int totalPages = getTotalPages();
+
+        int buttonY = top + 242;
+
+        addDrawableChild(
+                ButtonWidget.builder(
+                                Text.literal("< PREVIOUS"),
+                                button -> changePage(-1)
+                        )
+                        .dimensions(left + 20, buttonY, 100, 20)
+                        .build()
+        );
+
+        addDrawableChild(
+                ButtonWidget.builder(
+                                Text.literal("NEXT >"),
+                                button -> changePage(1)
+                        )
+                        .dimensions(
+                                left + GUI_WIDTH - 120,
+                                buttonY,
+                                100,
+                                20
+                        )
+                        .build()
+        );
+    }
+
+    /**
+     * Changes the current page and rebuilds the selection buttons.
+     */
+    private void changePage(int direction) {
+        int newPage = casingPage + direction;
+
+        if (newPage < 0 || newPage >= getTotalPages()) {
+            return;
+        }
+
+        casingPage = newPage;
+        clearAndInit();
+    }
+
+    /**
+     * Mouse-wheel navigation over the casing panel.
+     *
+     * Negative wheel movement goes forward.
+     * Positive wheel movement goes backward.
+     */
+    @Override
+    public boolean mouseScrolled(
+            double mouseX,
+            double mouseY,
+            double amount
+    ) {
+        int panelLeft = left + 18;
+        int panelRight = left + GUI_WIDTH - 18;
+        int panelTop = top + 102;
+        int panelBottom = top + GRID_BOTTOM;
+
+        if (mouseX < panelLeft
+                || mouseX >= panelRight
+                || mouseY < panelTop
+                || mouseY >= panelBottom) {
+            return super.mouseScrolled(
+                    mouseX,
+                    mouseY,
+                    amount
+            );
+        }
+
+        if (amount < 0) {
+            changePage(1);
+        } else if (amount > 0) {
+            changePage(-1);
+        }
+
+        return true;
+    }
+
+    /**
+     * Individual Sonic casing selection button.
+     */
     private class CasingButton extends ButtonWidget {
 
         private final SonicCasing casing;
@@ -161,24 +267,22 @@ public class SonicWorkshopScreen extends Screen {
                 int height,
                 SonicCasing casing
         ) {
-
             super(
                     x,
                     y,
                     width,
                     height,
                     Text.literal(casing.getDisplayName()),
-
-                    button ->
-                            onCasingSelected(casing),
-
+                    button -> onCasingSelected(casing),
                     DEFAULT_NARRATION_SUPPLIER
             );
 
             this.casing = casing;
 
             this.previewStack =
-                    new ItemStack(GallifreyModItems.SONIC_SCREWDRIVER);
+                    new ItemStack(
+                            GallifreyModItems.SONIC_SCREWDRIVER
+                    );
 
             SonicScrewdriver.setCasing(
                     previewStack,
@@ -193,59 +297,32 @@ public class SonicWorkshopScreen extends Screen {
                 int mouseY,
                 float delta
         ) {
-
             boolean hovered =
                     mouseX >= getX()
                             && mouseX < getX() + getWidth()
                             && mouseY >= getY()
                             && mouseY < getY() + getHeight();
 
-            boolean selected =
-                    selectedCasing == casing;
+            boolean selected = selectedCasing == casing;
 
             int fill;
             int border;
             int textColor;
 
-            /*
-             * ====================================================
-             * SELECTED
-             *
-             * Gold = active / currently equipped casing
-             * ====================================================
-             */
             if (selected) {
-
                 fill = GOLD_DARK;
                 border = GOLD_BRIGHT;
                 textColor = GOLD_BRIGHT;
-
-                /*
-                 * ====================================================
-                 * HOVER
-                 *
-                 * Bright TARDIS blue
-                 * ====================================================
-                 */
             } else if (hovered) {
-
                 fill = PANEL_LIGHT;
                 border = BLUE;
                 textColor = TEXT;
-
-                /*
-                 * ====================================================
-                 * NORMAL
-                 * ====================================================
-                 */
             } else {
-
                 fill = PANEL_DARK;
                 border = BLUE_DIM;
                 textColor = BLUE;
             }
 
-            // Button background
             context.fill(
                     getX(),
                     getY(),
@@ -254,7 +331,6 @@ public class SonicWorkshopScreen extends Screen {
                     fill
             );
 
-            // Button border
             context.drawBorder(
                     getX(),
                     getY(),
@@ -263,14 +339,12 @@ public class SonicWorkshopScreen extends Screen {
                     border
             );
 
-            // Icon preview
             context.drawItem(
                     previewStack,
                     getX() + getWidth() / 2 - 8,
                     getY() + 2
             );
 
-            // Button text
             context.drawCenteredTextWithShadow(
                     textRenderer,
                     getMessage(),
@@ -281,13 +355,11 @@ public class SonicWorkshopScreen extends Screen {
         }
     }
 
-    private void onCasingSelected(
-            SonicCasing casing
-    ) {
-
-        if (client == null ||
-                client.player == null) {
-
+    /**
+     * Applies the selected casing through the existing networking system.
+     */
+    private void onCasingSelected(SonicCasing casing) {
+        if (client == null || client.player == null) {
             return;
         }
 
@@ -298,9 +370,6 @@ public class SonicWorkshopScreen extends Screen {
                 casing
         );
 
-        /*
-         * Gold/cyan message to match the new UI.
-         */
         client.player.sendMessage(
                 Text.literal(
                         "§6CASING: §f"
@@ -317,7 +386,6 @@ public class SonicWorkshopScreen extends Screen {
             int mouseY,
             float delta
     ) {
-
         drawBackground(context);
 
         super.render(
@@ -328,31 +396,17 @@ public class SonicWorkshopScreen extends Screen {
         );
 
         drawLabels(context);
+        drawPageIndicator(context);
     }
 
-    private void drawBackground(
-            DrawContext context
-    ) {
-
-        /*
-         * ========================================================
-         * WORLD BACKGROUND
-         * ========================================================
-         */
-
+    /**
+     * Draws the TARDIS-style workshop background.
+     */
+    private void drawBackground(DrawContext context) {
         context.fill(
-                0,
-                0,
-                width,
-                height,
+                0, 0, width, height,
                 0x99000000
         );
-
-        /*
-         * ========================================================
-         * OUTER TARDIS BLUE GLOW
-         * ========================================================
-         */
 
         context.fill(
                 left - 3,
@@ -362,12 +416,6 @@ public class SonicWorkshopScreen extends Screen {
                 0x30168AAD
         );
 
-        /*
-         * ========================================================
-         * MAIN PANEL
-         * ========================================================
-         */
-
         context.fill(
                 left,
                 top,
@@ -375,12 +423,6 @@ public class SonicWorkshopScreen extends Screen {
                 top + GUI_HEIGHT,
                 PANEL
         );
-
-        /*
-         * ========================================================
-         * MAIN BORDER
-         * ========================================================
-         */
 
         context.drawBorder(
                 left,
@@ -390,12 +432,6 @@ public class SonicWorkshopScreen extends Screen {
                 BLUE
         );
 
-        /*
-         * ========================================================
-         * INNER BORDER
-         * ========================================================
-         */
-
         context.drawBorder(
                 left + 4,
                 top + 4,
@@ -403,12 +439,6 @@ public class SonicWorkshopScreen extends Screen {
                 GUI_HEIGHT - 8,
                 BLUE_DARK
         );
-
-        /*
-         * ========================================================
-         * HEADER
-         * ========================================================
-         */
 
         context.fill(
                 left + 10,
@@ -426,12 +456,6 @@ public class SonicWorkshopScreen extends Screen {
                 BLUE_DIM
         );
 
-        /*
-         * ========================================================
-         * SONIC INFORMATION
-         * ========================================================
-         */
-
         drawSectionBox(
                 context,
                 left + 18,
@@ -440,12 +464,6 @@ public class SonicWorkshopScreen extends Screen {
                 43
         );
 
-        /*
-         * ========================================================
-         * CASING GRID
-         * ========================================================
-         */
-
         drawSectionBox(
                 context,
                 left + 18,
@@ -453,12 +471,6 @@ public class SonicWorkshopScreen extends Screen {
                 GUI_WIDTH - 36,
                 151
         );
-
-        /*
-         * ========================================================
-         * BOTTOM ACCENT
-         * ========================================================
-         */
 
         context.fill(
                 left + 18,
@@ -476,7 +488,6 @@ public class SonicWorkshopScreen extends Screen {
             int width,
             int height
     ) {
-
         context.fill(
                 x,
                 y,
@@ -485,7 +496,6 @@ public class SonicWorkshopScreen extends Screen {
                 PANEL_DARK
         );
 
-        // Top blue accent
         context.fill(
                 x,
                 y,
@@ -494,26 +504,19 @@ public class SonicWorkshopScreen extends Screen {
                 BLUE_DARK
         );
 
-        // Bottom subtle blue accent
         context.fill(
                 x,
                 y + height - 1,
                 x + width,
                 y + height,
-                0xFF102D38
+                PANEL_LIGHT
         );
     }
 
-    private void drawLabels(
-            DrawContext context
-    ) {
-
-        /*
-         * ========================================================
-         * HEADER
-         * ========================================================
-         */
-
+    /**
+     * Draws the header and installed Sonic information.
+     */
+    private void drawLabels(DrawContext context) {
         context.drawText(
                 textRenderer,
                 "SONIC WORKSHOP",
@@ -522,12 +525,6 @@ public class SonicWorkshopScreen extends Screen {
                 GOLD_BRIGHT,
                 false
         );
-
-        // Installed Sonic icon at the left of the info box; the labels below sit to its right.
-        SonicWorkshopBlockEntity workshop = workshop();
-        if (workshop != null) {
-            context.drawItem(workshop.getSonic(), left + 26, top + 67);
-        }
 
         context.drawText(
                 textRenderer,
@@ -538,11 +535,15 @@ public class SonicWorkshopScreen extends Screen {
                 false
         );
 
-        /*
-         * ========================================================
-         * SONIC INFORMATION
-         * ========================================================
-         */
+        SonicWorkshopBlockEntity workshop = workshop();
+
+        if (workshop != null) {
+            context.drawItem(
+                    workshop.getSonic(),
+                    left + 26,
+                    top + 67
+            );
+        }
 
         context.drawText(
                 textRenderer,
@@ -553,12 +554,6 @@ public class SonicWorkshopScreen extends Screen {
                 false
         );
 
-        /*
-         * ========================================================
-         * SELECT CASING
-         * ========================================================
-         */
-
         context.drawText(
                 textRenderer,
                 "SELECT CASING",
@@ -568,39 +563,18 @@ public class SonicWorkshopScreen extends Screen {
                 false
         );
 
-        /*
-         * ========================================================
-         * CURRENT CASING
-         *
-         * Right aligned so longer casing names don't collide
-         * with SELECT CASING.
-         * ========================================================
-         */
-
-        String currentLabel =
-                "CURRENT:";
-
+        String currentLabel = "CURRENT:";
         String currentValue =
                 selectedCasing.getDisplayName();
 
-        int rightEdge =
-                left + GUI_WIDTH - 27;
-
-        int valueWidth =
-                textRenderer.getWidth(currentValue);
-
-        int labelWidth =
-                textRenderer.getWidth(currentLabel);
-
-        int gap = 6;
+        int rightEdge = left + GUI_WIDTH - 27;
 
         int valueX =
-                rightEdge - valueWidth;
+                rightEdge - textRenderer.getWidth(currentValue);
 
         int labelX =
-                valueX - gap - labelWidth;
+                valueX - 6 - textRenderer.getWidth(currentLabel);
 
-        // CURRENT:
         context.drawText(
                 textRenderer,
                 currentLabel,
@@ -610,7 +584,6 @@ public class SonicWorkshopScreen extends Screen {
                 false
         );
 
-        // Third Doctor / Fourth Doctor / etc.
         context.drawText(
                 textRenderer,
                 currentValue,
@@ -621,20 +594,44 @@ public class SonicWorkshopScreen extends Screen {
         );
     }
 
+    /**
+     * Shows which section of the casing list is currently displayed.
+     */
+    private void drawPageIndicator(DrawContext context) {
+        String pageText =
+                "PAGE " + (casingPage + 1)
+                        + " / " + getTotalPages();
+
+        context.drawCenteredTextWithShadow(
+                textRenderer,
+                pageText,
+                left + GUI_WIDTH / 2,
+                top + 248,
+                GOLD_BRIGHT
+        );
+    }
+
     @Override
     public void tick() {
         super.tick();
-        // Close if the workshop block is gone, or its Sonic was taken out while open.
-        // Don't close just because the client hasn't received the Sonic yet: the
-        // server only opens this screen when a Sonic IS installed, and the block
-        // data can arrive a tick or two after the open packet.
-        boolean blockGone = client == null || client.world == null
-                || !(client.world.getBlockEntity(pos) instanceof SonicWorkshopBlockEntity);
+
+        boolean blockGone =
+                client == null
+                        || client.world == null
+                        || !(client.world.getBlockEntity(pos)
+                        instanceof SonicWorkshopBlockEntity);
+
         SonicWorkshopBlockEntity workshop = workshop();
+
         if (workshop != null && !sawSonic) {
             sawSonic = true;
-            selectedCasing = SonicScrewdriver.getCasing(workshop.getSonic());
+
+            selectedCasing =
+                    SonicScrewdriver.getCasing(
+                            workshop.getSonic()
+                    );
         }
+
         if (blockGone || (sawSonic && workshop == null)) {
             close();
         }

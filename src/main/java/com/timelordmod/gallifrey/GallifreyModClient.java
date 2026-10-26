@@ -162,11 +162,14 @@ public class GallifreyModClient implements ClientModInitializer {
                 GallifreyModItems.SONIC_SCREWDRIVER,
                 new Identifier("gallifrey", "sonic_casing"),
                 (stack, world, entity, seed) -> {
+                    SonicCasing casing = SonicScrewdriver.getCasing(stack);
+                    int casingCount = SonicCasing.values().length;
 
-                    SonicCasing casing =
-                            SonicScrewdriver.getCasing(stack);
+                    if (casingCount <= 1) {
+                        return 0.0F;
+                    }
 
-                    return casing.ordinal() / 15.0F;
+                    return casing.ordinal() / (float) (casingCount - 1);
                 }
         );
 

@@ -14,17 +14,17 @@ public enum SonicCasing {
 
     FOURTH_DOCTOR(
             "fourth_doctor",
-            "T.Baker"
+            "T. Baker"
     ),
 
     SIXTH_DOCTOR(
             "sixth_doctor",
-            "C.Baker"
+            "C. Baker"
     ),
 
     EIGHTH_DOCTOR(
             "eighth_doctor",
-            "Mcgann"
+            "McGann"
     ),
 
     WAR_DOCTOR(
@@ -52,13 +52,13 @@ public enum SonicCasing {
             "Copper Cane"
     ),
 
-    TWELTH_DOCTOR(
-            "twelth_doctor",
+    TWELFTH_DOCTOR(
+            "twelfth_doctor",
             "Capaldi"
     ),
 
     THIRTEENTH_DOCTOR(
-            "therteenth_doctor",
+            "thirteenth_doctor",
             "Whittaker"
     ),
 
@@ -87,10 +87,9 @@ public enum SonicCasing {
             "Gatwa"
     ),
 
-
     FUGITIVE_DOCTOR(
-            "fugutitive_doctor",
-            "Fugutitive"
+            "fugitive_doctor",
+            "Fugitive Doctor"
     ),
 
     LASER_SONIC(
@@ -105,7 +104,7 @@ public enum SonicCasing {
 
     MISSYS_UMBRELLA(
             "missys_umbrella",
-            "Missy Umbrella"
+            "Missy's Umbrella"
     ),
 
     BLUE_SONIC(
@@ -143,15 +142,13 @@ public enum SonicCasing {
     }
 
     public static SonicCasing fromId(String id) {
-
         for (SonicCasing casing : values()) {
-
             if (casing.id.equals(id)) {
                 return casing;
             }
         }
 
         // Default Sonic
-        return THIRD_DOCTOR;
+        return SECOND_DOCTOR;
     }
 }
