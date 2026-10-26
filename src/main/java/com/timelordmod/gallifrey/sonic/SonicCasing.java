@@ -87,6 +87,7 @@ public enum SonicCasing {
             "Gatwa"
     ),
 
+
     FUGITIVE_DOCTOR(
             "fugitive_doctor",
             "Fugitive Doctor"
@@ -142,13 +143,18 @@ public enum SonicCasing {
     }
 
     public static SonicCasing fromId(String id) {
+
         for (SonicCasing casing : values()) {
-            if (casing.id.equals(id)) {
+
+            if (casing.id.equals(id)
+                    || (casing == TWELFTH_DOCTOR && "twelth_doctor".equals(id))
+                    || (casing == THIRTEENTH_DOCTOR && "therteenth_doctor".equals(id))
+                    || (casing == FUGITIVE_DOCTOR && "fugutitive_doctor".equals(id))) {
                 return casing;
             }
         }
 
         // Default Sonic
-        return SECOND_DOCTOR;
+        return THIRD_DOCTOR;
     }
 }
