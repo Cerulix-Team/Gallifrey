@@ -295,7 +295,7 @@ public class SonicScrewdriver extends Item {
 
             setCasing(
                     stack,
-                    SonicCasing.THIRD_DOCTOR
+                    SonicCasing.SECOND_DOCTOR
             );
         }
     }

@@ -2,24 +2,29 @@ package com.timelordmod.gallifrey.sonic;
 
 public enum SonicCasing {
 
+    SECOND_DOCTOR(
+            "second_doctor",
+            "Troughton"
+    ),
+
     THIRD_DOCTOR(
             "third_doctor",
-            "Third Doctor"
+            "Pertwee"
     ),
 
     FOURTH_DOCTOR(
             "fourth_doctor",
-            "Fourth Doctor"
+            "T.Baker"
     ),
 
-    FIFTH_DOCTOR(
-            "fifth_doctor",
-            "Fifth Doctor"
+    SIXTH_DOCTOR(
+            "sixth_doctor",
+            "C.Baker"
     ),
 
     EIGHTH_DOCTOR(
             "eighth_doctor",
-            "Eighth Doctor"
+            "Mcgann"
     ),
 
     WAR_DOCTOR(
@@ -27,9 +32,19 @@ public enum SonicCasing {
             "War Doctor"
     ),
 
+    TENTH_DOCTOR(
+            "tenth_doctor",
+            "Tennant"
+    ),
+
     WAR_MASTER(
             "war_master",
             "War Master"
+    ),
+
+    ELEVENTH_DOCTOR(
+            "eleventh_doctor",
+            "Smith"
     ),
 
     ELEVENTH_CANE(
@@ -37,29 +52,55 @@ public enum SonicCasing {
             "Copper Cane"
     ),
 
-    BLUE_SONIC(
-            "blue_sonic",
-            "Blue's Sonic"
+    TWELTH_DOCTOR(
+            "twelth_doctor",
+            "Capaldi"
     ),
 
-    RICKS_PORTAL_GUN(
-            "ricks_portal_gun",
-            "Rick Portal Gun"
+    THIRTEENTH_DOCTOR(
+            "therteenth_doctor",
+            "Whittaker"
     ),
 
-    VALVUE_GUN(
-            "valvue_gun",
-            "Aperture Gun"
+    FOURTEENTH_DOCTOR(
+            "fourteenth_doctor",
+            "Tennant Alt"
     ),
 
-    DEOS_PORTAL_GUN(
-            "deos_portal_gun",
-            "D0 Gun"
+    FIFTEENTH_DOCTOR(
+            "fifteenth_doctor",
+            "Gatwa"
     ),
 
-    DEOS_HAMMER(
-            "deos_hammer",
-            "Deo's Hammer"
+    FIFTEENTH_DOCTOR_GREEN(
+            "fifteenth_doctor_green",
+            "Gatwa"
+    ),
+
+    FIFTEENTH_DOCTOR_RED(
+            "fifteenth_doctor_red",
+            "Gatwa"
+    ),
+
+    FIFTEENTH_DOCTOR_YELLOW(
+            "fifteenth_doctor_yellow",
+            "Gatwa"
+    ),
+
+
+    FUGITIVE_DOCTOR(
+            "fugutitive_doctor",
+            "Fugutitive"
+    ),
+
+    LASER_SONIC(
+            "laser_sonic",
+            "Laser Sonic"
+    ),
+
+    RANI_SONIC(
+            "rani_sonic",
+            "Rani"
     ),
 
     MISSYS_UMBRELLA(
@@ -67,9 +108,9 @@ public enum SonicCasing {
             "Missy Umbrella"
     ),
 
-    GAMBLERS_SONIC(
-            "gamblers_sonic",
-            "Glückspiel Sonic"
+    BLUE_SONIC(
+            "blue_sonic",
+            "Blue's Sonic"
     ),
 
     BLUNT_SONIC(
