@@ -84,7 +84,13 @@ public final class VortexBackgroundRenderer {
         float unit = height / 2.0F;
         Matrix4f matrix = context.getMatrices().peek().getPositionMatrix();
 
-        RenderSystem.disableDepthTest();
+        // Adventures in Time compatibility:
+        // - Every layer is sent to the GPU one ring at a time (about 100 quads per draw call)
+        //   instead of in one big batch of ~7000 quads. With AiT installed, the big batches broke
+        //   the game's output for good: frames kept rendering but the window stayed on the red
+        //   loading-screen colour, even after switching to another background.
+        // - Only the state changes the vanilla panorama makes (CubeMapRenderer): no depth writes,
+        //   no culling, blending on. The depth test is left alone and nothing uses a triangle fan.
         RenderSystem.depthMask(false);
         RenderSystem.disableCull();
         RenderSystem.enableBlend();
@@ -112,7 +118,6 @@ public final class VortexBackgroundRenderer {
         RenderSystem.defaultBlendFunc();
         RenderSystem.enableCull();
         RenderSystem.depthMask(true);
-        RenderSystem.enableDepthTest();
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
     }
 
@@ -134,6 +139,10 @@ public final class VortexBackgroundRenderer {
         buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
 
         for (int ring = 0; ring < RINGS; ring++) {
+            if (ring > 0) { // one ring per draw call, see the note in render()
+                BufferRenderer.drawWithGlobalProgram(buffer.end());
+                buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
+            }
             float r0 = ring == 0 ? 0.0F : RING_RADIUS[ring];
             float r1 = RING_RADIUS[ring + 1];
             for (int segment = 0; segment < SEGMENTS; segment++) {
@@ -171,8 +180,10 @@ public final class VortexBackgroundRenderer {
                                   float alpha, float around, float twist, float uOffset, float depthTile, float vOffset) {
         RenderSystem.setShader(GameRenderer::getPositionTexColorProgram);
         RenderSystem.setShaderTexture(0, texture);
+        VertexFormat format = VertexFormats.POSITION_TEXTURE_COLOR;
         BufferBuilder buffer = Tessellator.getInstance().getBuffer();
-        buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE_COLOR);
+        buffer.begin(VertexFormat.DrawMode.QUADS, format);
+        int ringsInBatch = 0;
 
         for (int ring = 0; ring < RINGS; ring++) {
             float r0 = RING_RADIUS[ring];
@@ -181,6 +192,10 @@ public final class VortexBackgroundRenderer {
             float fog1 = fog(r1);
             if (fog0 <= 0.0F && fog1 <= 0.0F) {
                 continue; // still inside the dark far end, nothing to see
+            }
+            if (ringsInBatch++ > 0) { // one ring per draw call, see the note in render()
+                BufferRenderer.drawWithGlobalProgram(buffer.end());
+                buffer.begin(VertexFormat.DrawMode.QUADS, format);
             }
             float depth0 = DEPTH_SCALE / r0;
             float depth1 = DEPTH_SCALE / r1;
@@ -206,16 +221,18 @@ public final class VortexBackgroundRenderer {
                 .next();
     }
 
+    /** The bright point at the far end: a small disc that fades out from the centre (plain triangles). */
     private static void drawCore(Matrix4f matrix, float cx, float cy, float unit, float alpha) {
         RenderSystem.setShader(GameRenderer::getPositionColorProgram);
         BufferBuilder buffer = Tessellator.getInstance().getBuffer();
-        buffer.begin(VertexFormat.DrawMode.TRIANGLE_FAN, VertexFormats.POSITION_COLOR);
+        buffer.begin(VertexFormat.DrawMode.TRIANGLES, VertexFormats.POSITION_COLOR);
         float radius = 0.05F * unit;
-        buffer.vertex(matrix, cx, cy, 0.0F).color(1.0F, 0.30F, 0.40F, alpha).next();
-        for (int segment = 0; segment <= SEGMENTS; segment++) {
+        for (int segment = 0; segment < SEGMENTS; segment++) {
+            buffer.vertex(matrix, cx, cy, 0.0F).color(1.0F, 0.30F, 0.40F, alpha).next();
             buffer.vertex(matrix, cx + SEGMENT_COS[segment] * radius, cy + SEGMENT_SIN[segment] * radius, 0.0F)
-                    .color(1.0F, 0.20F, 0.35F, 0.0F)
-                    .next();
+                    .color(1.0F, 0.20F, 0.35F, 0.0F).next();
+            buffer.vertex(matrix, cx + SEGMENT_COS[segment + 1] * radius, cy + SEGMENT_SIN[segment + 1] * radius, 0.0F)
+                    .color(1.0F, 0.20F, 0.35F, 0.0F).next();
         }
         BufferRenderer.drawWithGlobalProgram(buffer.end());
     }

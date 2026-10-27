@@ -748,5 +748,6 @@
   "advancement.gallifrey.white_point_star_full_set.desc": "Haul a full set o' White Point Star armour",
   "tooltip.gallifrey.hover_boots": "Floats like a gull, never breaks a leg",
   "tooltip.gallifrey.hover_boots.sneak": "Duck down to drop like an anchor",
-  "tooltip.gallifrey.white_point_star_glow": "Glows like a lantern on the masthead when worn"
+  "tooltip.gallifrey.white_point_star_glow": "Glows like a lantern on the masthead when worn",
+  "gui.gallifrey.betterinventory.tab": "Gallifrey"
 }

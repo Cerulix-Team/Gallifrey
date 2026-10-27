@@ -757,5 +757,6 @@
   "advancement.gallifrey.white_point_star_full_set.desc": "Has all teh Wite Pointy Starz armr",
   "tooltip.gallifrey.hover_boots": "Fallz slow, no ouchies",
   "tooltip.gallifrey.hover_boots.sneak": "Sneek to fall fast",
-  "tooltip.gallifrey.white_point_star_glow": "Glowz a littl wen u wear it"
+  "tooltip.gallifrey.white_point_star_glow": "Glowz a littl wen u wear it",
+  "gui.gallifrey.betterinventory.tab": "Gallifreh"
 }

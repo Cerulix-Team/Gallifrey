@@ -813,5 +813,6 @@
   "advancement.gallifrey.white_point_star_full_set.desc": "Have a full set of White Point Star armor",
   "tooltip.gallifrey.hover_boots": "Slow falling, no fall damage",
   "tooltip.gallifrey.hover_boots.sneak": "Sneak to drop at normal speed",
-  "tooltip.gallifrey.white_point_star_glow": "Glows with a faint white light when worn"
+  "tooltip.gallifrey.white_point_star_glow": "Glows with a faint white light when worn",
+  "gui.gallifrey.betterinventory.tab": "Gallifrey"
 }
