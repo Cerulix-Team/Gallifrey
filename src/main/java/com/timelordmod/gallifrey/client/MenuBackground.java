@@ -8,6 +8,7 @@ import org.jetbrains.annotations.Nullable;
  *
  *  - PANORAMA: Minecraft's normal rotating panorama.
  *  - VORTEX: the code-drawn time vortex (VortexBackgroundRenderer).
+ *  - TRUSTABLE: the code-drawn Trustable tunnel (TrustableVortexRenderer).
  *  - The rest are looping vortex animations, played from frames in
  *    menu_vortex/<folder>/ (VideoVortexRenderer).
  */
@@ -18,7 +19,9 @@ public enum MenuBackground {
     TIME_WAR("time_war"),
     THE_VOID("the_void"),
     UNTEMPERED_SCHISM("untempered_schism"),
-    EYE_OF_HARMONY("eye_of_harmony");
+    EYE_OF_HARMONY("eye_of_harmony"),
+    /** Code-drawn too (TrustableVortexRenderer): the Trustable pattern as a tunnel. */
+    TRUSTABLE(null);
 
     @Nullable private final String frameFolder;
 

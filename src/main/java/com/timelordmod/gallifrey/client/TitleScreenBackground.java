@@ -17,8 +17,9 @@ public final class TitleScreenBackground {
     private static int width;
     private static int height;
 
-    /** Set if the code-drawn vortex ever throws; from then on the normal panorama is shown instead. */
+    /** Set if a code-drawn background ever throws; from then on the normal panorama is shown instead. */
     private static boolean vortexFailed;
+    private static boolean trustableFailed;
 
     public static void begin(DrawContext drawContext, int screenWidth, int screenHeight) {
         context = drawContext;
@@ -39,8 +40,8 @@ public final class TitleScreenBackground {
     public static boolean draw(float alpha) {
         if (context == null) return false;
         MenuBackground background = GallifreyClientConfig.getMenuBackground();
-        if (background == MenuBackground.VORTEX) {
-            return drawVortex(alpha);
+        if (background == MenuBackground.VORTEX || background == MenuBackground.TRUSTABLE) {
+            return drawCodeDrawn(background, alpha);
         }
         if (background.frameFolder() != null) {
             VideoVortexRenderer.render(context, width, height, alpha, background.frameFolder());
@@ -49,17 +50,23 @@ public final class TitleScreenBackground {
         return false;
     }
 
-    private static boolean drawVortex(float alpha) {
-        if (vortexFailed) return false;
+    private static boolean drawCodeDrawn(MenuBackground background, float alpha) {
+        boolean trustable = background == MenuBackground.TRUSTABLE;
+        if (trustable ? trustableFailed : vortexFailed) return false;
         // Something else started drawing with the shared buffer and never finished; skip this
         // frame rather than crash.
         if (Tessellator.getInstance().getBuffer().isBuilding()) return false;
         try {
-            VortexBackgroundRenderer.render(context, width, height, alpha);
+            if (trustable) {
+                TrustableVortexRenderer.render(context, width, height, alpha);
+            } else {
+                VortexBackgroundRenderer.render(context, width, height, alpha);
+            }
             return true;
         } catch (Throwable t) {
-            vortexFailed = true;
-            GallifreyMod.LOGGER.error("[Gallifrey] The title screen vortex failed to draw, showing the panorama instead", t);
+            if (trustable) trustableFailed = true; else vortexFailed = true;
+            GallifreyMod.LOGGER.error("[Gallifrey] The {} title screen background failed to draw, showing the panorama instead",
+                    background.name(), t);
             return false;
         }
     }
