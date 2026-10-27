@@ -55,6 +55,6 @@ public abstract class TitleScreenVortexMixin extends Screen {
     }
 
     private static Text gallifrey$label() {
-        return Text.translatable(GallifreyClientConfig.getMenuBackground().translationKey());
+        return GallifreyClientConfig.getMenuBackgroundLabel();
     }
 }

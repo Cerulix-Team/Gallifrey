@@ -264,6 +264,8 @@ public class GallifreyModClient implements ClientModInitializer {
         // =========================================================
 
         CreativeSectionSidebar.register();
+        // Title screen backgrounds from resource packs and addon mods (see the README).
+        com.timelordmod.gallifrey.client.CustomMenuBackgrounds.register();
 
         BlockRenderLayerMap.INSTANCE.putBlock(
                 GallifreyModBlocks.TREE_TAPPER,

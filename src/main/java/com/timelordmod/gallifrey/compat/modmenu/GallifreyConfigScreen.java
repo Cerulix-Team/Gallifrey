@@ -38,7 +38,7 @@ public class GallifreyConfigScreen extends Screen {
     }
 
     private static Text menuBackgroundLabel() {
-        return Text.translatable(GallifreyClientConfig.getMenuBackground().translationKey());
+        return GallifreyClientConfig.getMenuBackgroundLabel();
     }
 
     @Override

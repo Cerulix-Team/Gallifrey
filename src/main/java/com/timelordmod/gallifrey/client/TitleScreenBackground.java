@@ -39,7 +39,14 @@ public final class TitleScreenBackground {
      */
     public static boolean draw(float alpha) {
         if (context == null) return false;
+        CustomMenuBackgrounds.Entry custom = GallifreyClientConfig.getCustomMenuBackground();
+        if (custom != null) {
+            VideoVortexRenderer.render(context, width, height, alpha,
+                    custom.frames(), custom.frameCount(), custom.fps(), custom.format());
+            return true;
+        }
         MenuBackground background = GallifreyClientConfig.getMenuBackground();
+        if (background == null) return false;
         if (background == MenuBackground.VORTEX || background == MenuBackground.TRUSTABLE) {
             return drawCodeDrawn(background, alpha);
         }
