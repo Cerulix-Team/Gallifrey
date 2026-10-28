@@ -201,6 +201,14 @@ public class GallifreyModClient implements ClientModInitializer {
                                     instanceof VortexManipulator
                     ) {
 
+                        // Holding an Atrium Core in the other hand means "refuel", not "open the
+                        // screen": let VortexManipulator.use() handle it. (This callback also runs
+                        // on the singleplayer server, so returning success here used to stop the
+                        // refuel from ever happening.)
+                        if (VortexManipulator.isRefuelling(player, hand)) {
+                            return TypedActionResult.pass(stack);
+                        }
+
                         if (world.isClient()) {
 
                             MinecraftClient

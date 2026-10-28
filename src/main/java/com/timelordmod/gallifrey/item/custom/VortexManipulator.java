@@ -42,6 +42,20 @@ public class VortexManipulator extends Item {
         return false;
     }
 
+    /** NBT key for the jumps left before it needs refuelling (VMPacket uses the same key). */
+    public static final String USES_KEY = "VMUsesRemaining";
+    public static final int MAX_USES = 10;
+
+    private static Hand otherHand(Hand hand) {
+        return hand == Hand.MAIN_HAND ? Hand.OFF_HAND : Hand.MAIN_HAND;
+    }
+
+    /** True when using the Vortex Manipulator in {@code hand} means refuelling: an Atrium Core is in the other hand. */
+    public static boolean isRefuelling(PlayerEntity player, Hand hand) {
+        return player.getStackInHand(hand).getItem() instanceof VortexManipulator
+                && player.getStackInHand(otherHand(hand)).isOf(GallifreyModItems.ATRIUM_CORE);
+    }
+
     public VortexManipulator(Settings settings) {
         super(settings
                 .rarity(Rarity.RARE)
@@ -66,16 +80,26 @@ public class VortexManipulator extends Item {
 
         // Refuel by holding an Atrium Core in the other hand
         // and using the Vortex Manipulator. One Atrium Core restores all ten uses.
-        ItemStack fuelStack = user.getStackInHand(hand == Hand.MAIN_HAND ? Hand.OFF_HAND : Hand.MAIN_HAND);
-        if (!world.isClient && (!fuelStack.isEmpty()) && fuelStack.isOf(GallifreyModItems.ATRIUM_CORE)) {
-            int uses = stack.getOrCreateNbt().getInt("VMUsesRemaining");
-            if (uses >= 10) {
-                user.sendMessage(Text.literal("Vortex Manipulator power is already full (10/10)."), true);
+        if (isRefuelling(user, hand)) {
+            if (world.isClient) {
+                // The server does the refuel; just swing the arm here.
+                return TypedActionResult.success(stack, true);
+            }
+            ItemStack fuelStack = user.getStackInHand(otherHand(hand));
+            // A Vortex Manipulator that has never jumped has no count yet: it's full (see VMPacket).
+            int uses = stack.getOrCreateNbt().contains(USES_KEY) ? stack.getOrCreateNbt().getInt(USES_KEY) : MAX_USES;
+            if (uses >= MAX_USES) {
+                user.sendMessage(Text.literal("Vortex Manipulator power is already full (" + MAX_USES + "/" + MAX_USES + ")."), true);
                 return TypedActionResult.fail(stack);
             }
-            fuelStack.decrement(1);
-            stack.getOrCreateNbt().putInt("VMUsesRemaining", 10);
-            user.sendMessage(Text.literal("Vortex Manipulator refuelled: 10/10 uses."), true);
+            if (!user.getAbilities().creativeMode) {
+                fuelStack.decrement(1);
+            }
+            stack.getOrCreateNbt().putInt(USES_KEY, MAX_USES);
+            world.playSound(null, user.getX(), user.getY(), user.getZ(),
+                    net.minecraft.sound.SoundEvents.BLOCK_BEACON_POWER_SELECT,
+                    net.minecraft.sound.SoundCategory.PLAYERS, 0.6F, 1.6F);
+            user.sendMessage(Text.literal("Vortex Manipulator refuelled: " + MAX_USES + "/" + MAX_USES + " uses."), true);
             return TypedActionResult.success(stack, false);
         }
 

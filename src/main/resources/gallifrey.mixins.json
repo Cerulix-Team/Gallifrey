@@ -23,6 +23,7 @@
 "EntityDimensionTravelMixin",
 "TeleportCommandTravelMixin",
 "compat.WeepingAngelsTeleporterMixin",
+"compat.TardisRefinedDimensionMixin",
 "MobEntityAccessor"
 ],
 "client": [

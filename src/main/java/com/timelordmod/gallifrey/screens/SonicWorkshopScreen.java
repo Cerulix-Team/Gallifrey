@@ -4,6 +4,7 @@ import com.timelordmod.gallifrey.item.GallifreyModItems;
 import com.timelordmod.gallifrey.item.custom.SonicScrewdriver;
 import com.timelordmod.gallifrey.networking.SonicCasingClientNetworking;
 import com.timelordmod.gallifrey.sonic.SonicCasing;
+import com.timelordmod.gallifrey.sonic.SonicCasingUnlocks;
 
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
@@ -45,10 +46,18 @@ public class SonicWorkshopScreen extends Screen {
     private static final int GOLD_BRIGHT = 0xFFF2D27A;
     private static final int GOLD_DARK   = 0xFF735725;
 
+    // Locked casings
+    private static final int LOCKED_FILL = 0xFF061219;
+    private static final int LOCKED_BORDER = 0xFF0E3442;
+    private static final int XP_GREEN = 0xFF80FF20;
+    private static final int XP_RED = 0xFFFF5555;
+
     private int left;
     private int top;
 
     private SonicCasing selectedCasing;
+    /** The casing the installed Sonic had last tick, so a change made by the server shows up. */
+    private SonicCasing lastSeenCasing;
     private final BlockPos pos;
     /** True once the client has seen the installed Sonic (see tick()). */
     private boolean sawSonic;
@@ -86,6 +95,7 @@ public class SonicWorkshopScreen extends Screen {
         if (workshop != null) {
             sawSonic = true;
             selectedCasing = SonicScrewdriver.getCasing(workshop.getSonic());
+            lastSeenCasing = selectedCasing;
         }
 
         createCasingButtons();
@@ -242,6 +252,7 @@ public class SonicWorkshopScreen extends Screen {
 
             boolean selected =
                     selectedCasing == casing;
+            boolean locked = isLocked(casing);
 
             int fill;
             int border;
@@ -278,6 +289,12 @@ public class SonicWorkshopScreen extends Screen {
                  * NORMAL
                  * ====================================================
                  */
+            } else if (locked) {
+
+                fill = LOCKED_FILL;
+                border = hovered ? BLUE_DIM : LOCKED_BORDER;
+                textColor = TEXT_DIM;
+
             } else {
 
                 fill = PANEL_DARK;
@@ -310,15 +327,56 @@ public class SonicWorkshopScreen extends Screen {
                     getY() + 2
             );
 
-            // Button text
-            context.drawCenteredTextWithShadow(
-                    textRenderer,
-                    getMessage(),
-                    getX() + getWidth() / 2,
-                    getY() + 21,
-                    textColor
-            );
+            if (locked && !selected) {
+                // Dim the preview and show a padlock in the corner.
+                context.fill(getX() + 1, getY() + 1, getX() + getWidth() - 1, getY() + 19, 0x99000000);
+                drawPadlock(context, getX() + 4, getY() + 4);
+            }
+
+            // Button text: the name, or the unlock price while hovering a locked casing.
+            if (locked && !selected && hovered) {
+                boolean canAfford = client != null && client.player != null
+                        && SonicCasingUnlocks.points(client.player) >= SonicCasingUnlocks.COST_XP;
+                context.drawCenteredTextWithShadow(
+                        textRenderer,
+                        Text.literal("Unlock: " + SonicCasingUnlocks.COST_XP + " XP"),
+                        getX() + getWidth() / 2,
+                        getY() + 21,
+                        canAfford ? XP_GREEN : XP_RED
+                );
+            } else {
+                context.drawCenteredTextWithShadow(
+                        textRenderer,
+                        getMessage(),
+                        getX() + getWidth() / 2,
+                        getY() + 21,
+                        textColor
+                );
+            }
         }
+    }
+
+    /** Locked = needs buying on this sonic (never in creative). */
+    private boolean isLocked(SonicCasing casing) {
+        if (client == null || client.player == null) return false;
+        SonicWorkshopBlockEntity workshop = workshop();
+        if (workshop == null) return false;
+        return !SonicCasingUnlocks.isFreeFor(client.player, workshop.getSonic(), casing);
+    }
+
+    /** A tiny 8x9 padlock drawn with fills. */
+    private static void drawPadlock(DrawContext context, int x, int y) {
+        int shackle = 0xFFB8C4C8;
+        int body = GOLD;
+        // shackle
+        context.fill(x + 2, y, x + 6, y + 1, shackle);
+        context.fill(x + 1, y + 1, x + 2, y + 4, shackle);
+        context.fill(x + 6, y + 1, x + 7, y + 4, shackle);
+        // body
+        context.fill(x, y + 4, x + 8, y + 9, body);
+        context.fill(x, y + 8, x + 8, y + 9, GOLD_DARK);
+        // keyhole
+        context.fill(x + 3, y + 5, x + 5, y + 7, GOLD_DARK);
     }
 
     private void onCasingSelected(
@@ -328,6 +386,18 @@ public class SonicWorkshopScreen extends Screen {
         if (client == null ||
                 client.player == null) {
 
+            return;
+        }
+
+        if (isLocked(casing)) {
+            int have = SonicCasingUnlocks.points(client.player);
+            if (have < SonicCasingUnlocks.COST_XP) {
+                client.player.sendMessage(Text.literal("§cNeed " + SonicCasingUnlocks.COST_XP + " XP to unlock "
+                        + casing.getDisplayName() + " §7(you have " + have + ")"), true);
+                return;
+            }
+            // The server spends the XP, unlocks it and switches to it; tick() picks up the change.
+            SonicCasingClientNetworking.sendCasingChange(pos, casing);
             return;
         }
 
@@ -365,7 +435,9 @@ public class SonicWorkshopScreen extends Screen {
         context.disableScissor();
 
         drawLabels(context);
-        context.drawText(textRenderer, "Scroll to browse all 24 casings", left + 20, top + GUI_HEIGHT - 15, TEXT_DIM, false);
+        context.drawText(textRenderer, "Scroll to browse all " + SonicCasing.values().length
+                        + " casings  |  Locked casings cost " + SonicCasingUnlocks.COST_XP + " XP each",
+                left + 20, top + GUI_HEIGHT - 15, TEXT_DIM, false);
     }
 
     private void drawBackground(
@@ -591,6 +663,16 @@ public class SonicWorkshopScreen extends Screen {
                 false
         );
 
+        // The player's experience, for unlocking casings (hidden in creative, where they're free).
+        if (client != null && client.player != null && !client.player.isCreative()) {
+            String xpLabel = "YOUR XP: ";
+            String xpValue = String.valueOf(SonicCasingUnlocks.points(client.player));
+            int xpRight = left + GUI_WIDTH - 27;
+            int xpValueX = xpRight - textRenderer.getWidth(xpValue);
+            context.drawText(textRenderer, xpLabel, xpValueX - textRenderer.getWidth(xpLabel), top + 64, TEXT_DIM, false);
+            context.drawText(textRenderer, xpValue, xpValueX, top + 64, XP_GREEN, false);
+        }
+
         /*
          * ========================================================
          * SELECT CASING
@@ -672,6 +754,15 @@ public class SonicWorkshopScreen extends Screen {
         if (workshop != null && !sawSonic) {
             sawSonic = true;
             selectedCasing = SonicScrewdriver.getCasing(workshop.getSonic());
+            lastSeenCasing = selectedCasing;
+        }
+        // Follow changes made by the server (e.g. a casing just unlocked and switched to).
+        if (workshop != null) {
+            SonicCasing now = SonicScrewdriver.getCasing(workshop.getSonic());
+            if (now != lastSeenCasing) {
+                lastSeenCasing = now;
+                selectedCasing = now;
+            }
         }
         if (blockGone || (sawSonic && workshop == null)) {
             close();

@@ -51,7 +51,7 @@ Every portal is lit with a **White Point Star**, and portals remember where you 
 
 ### 🖥️ Title screen
 - A custom Gallifrey logo, with special versions on certain dates.
-- **Seven animated backgrounds** to pick from with the button in the bottom-left corner (or in Mod Menu): the time vortex, Time Winds, the Time War, the Void, the Untempered Schism, the Eye of Harmony and Trustable. Or keep the normal panorama.
+- **Seven animated backgrounds** to pick from with the button in the bottom-left corner (or in Mod Menu): Miracle (the time vortex), Time Winds, the Time War, the Void, the Untempered Schism, the Eye of Harmony and Trustable. Or keep the normal panorama.
 - **Add your own backgrounds** with a resource pack or an addon mod: see [the guide below](#-adding-your-own-title-screen-backgrounds).
 
 ### 🎮 And more
@@ -241,7 +241,7 @@ And in `en_us.json`:
 A resource pack can also swap out the built-in animations. Put frames with the same names at the same paths:
 - **Time Winds, Time War, the Void, the Untempered Schism and the Eye of Harmony:** the frames are in `assets/gallifrey/menu_vortex/<time_winds | time_war | the_void | untempered_schism | eye_of_harmony>/`, numbered 00–89, as JPG.
 - **Trustable:** drawn live from the pattern texture `assets/gallifrey/textures/gui/title/trustable.png` (a 2048×2048 tile that repeats without seams).
-- **The time vortex:** drawn live from `assets/gallifrey/textures/gui/title/vortex_red.png` and `vortex_cyan.png`.
+- **Miracle (the time vortex):** drawn live from `assets/gallifrey/textures/gui/title/vortex_red.png` and `vortex_cyan.png`.
 
 ---
 
