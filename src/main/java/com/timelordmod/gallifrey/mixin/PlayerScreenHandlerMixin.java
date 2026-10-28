@@ -3,6 +3,7 @@ package com.timelordmod.gallifrey.mixin;
 import com.timelordmod.gallifrey.item.custom.AccessorySlotIndices;
 import com.timelordmod.gallifrey.item.custom.AccessorySlot;
 import com.timelordmod.gallifrey.item.custom.AccessorySlotLayout;
+import com.timelordmod.gallifrey.item.custom.GallifreyAccessories;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
@@ -30,6 +31,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  * so these two slots always come straight after the vanilla ones (slots 46 and 47). Trinkets in
  * particular removes and re-adds its own slots whenever they change; if ours came after Trinkets',
  * that shifted them and clicks went to the wrong slot. Where they're drawn: AccessorySlotLayout.
+ *
+ * With Trinkets installed these slots aren't added at all: the shades and fez go in Trinkets'
+ * face and hat slots instead (GallifreyAccessories).
  */
 @Mixin(value = PlayerScreenHandler.class, priority = 500)
 public abstract class PlayerScreenHandlerMixin extends ScreenHandler implements AccessorySlotIndices {
@@ -43,6 +47,8 @@ public abstract class PlayerScreenHandlerMixin extends ScreenHandler implements 
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void gallifrey$addAccessorySlots(PlayerInventory playerInventory, boolean onServer, PlayerEntity owner, CallbackInfo ci) {
+        // With Trinkets the shades and fez use Trinkets' face and hat slots instead (see GallifreyAccessories).
+        if (GallifreyAccessories.usesTrinkets()) return;
         gallifrey$shadesSlot = this.addSlot(AccessorySlot.shades(owner, AccessorySlotLayout.SHADES_X, AccessorySlotLayout.SHADES_Y)).id;
         gallifrey$fezSlot = this.addSlot(AccessorySlot.fez(owner, AccessorySlotLayout.FEZ_X, AccessorySlotLayout.FEZ_Y)).id;
     }

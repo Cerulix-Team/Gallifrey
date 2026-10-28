@@ -27,17 +27,16 @@ public class SonicShadesItem extends SonicScrewdriver {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack held = user.getStackInHand(hand);
         if (!world.isClient) {
-            SonicShadesSlotAccess slot = (SonicShadesSlotAccess) user;
-            ItemStack worn = slot.gallifrey$getSonicShades();
+            // Through GallifreyAccessories, so it's the Trinkets face slot when Trinkets is installed.
+            ItemStack worn = GallifreyAccessories.getShades(user).copy();
             ItemStack replacement = held.copyWithCount(1);
             if (!worn.isEmpty()) {
-                slot.gallifrey$setSonicShades(ItemStack.EMPTY);
-                ItemStack returned = worn.copy();
-                if (!user.getInventory().insertStack(returned)) {
-                    user.dropItem(returned, false);
+                GallifreyAccessories.setShades(user, ItemStack.EMPTY);
+                if (!user.getInventory().insertStack(worn)) {
+                    user.dropItem(worn, false);
                 }
             }
-            slot.gallifrey$setSonicShades(replacement);
+            GallifreyAccessories.setShades(user, replacement);
             held.decrement(1);
             user.playSound(SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 1.0F, 1.0F);
         }

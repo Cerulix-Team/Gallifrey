@@ -42,7 +42,7 @@ public final class SonicShadesFeatureRenderer
             float headYaw,
             float headPitch) {
 
-        ItemStack stack = ((SonicShadesSlotAccess) player).gallifrey$getSonicShades();
+        ItemStack stack = com.timelordmod.gallifrey.item.custom.GallifreyAccessories.getShades(player);
         // Support both the dedicated Gallifrey wearable slot and the vanilla head slot.
         // The latter is how shades were equipped in existing worlds/screens.
         if (!stack.isOf(GallifreyModItems.SONIC_SHADES)) {

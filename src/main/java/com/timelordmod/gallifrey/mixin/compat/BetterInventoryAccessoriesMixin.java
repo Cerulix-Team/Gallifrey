@@ -30,6 +30,9 @@ public abstract class BetterInventoryAccessoriesMixin {
     private static void gallifrey$addProvider(CallbackInfoReturnable<List<Object>> cir) {
         List<Object> list = cir.getReturnValue();
         if (list == null) return;
+        // With Trinkets the shades and fez are in Trinkets' face and hat slots, which Better
+        // Inventory already shows in its own Trinkets tab.
+        if (com.timelordmod.gallifrey.item.custom.GallifreyAccessories.usesTrinkets()) return;
         for (Object existing : list) {
             if (BetterInventoryCompat.isOurs(existing)) return;
         }

@@ -1,39 +1,28 @@
 package com.timelordmod.gallifrey.item.custom;
 
-import net.fabricmc.loader.api.FabricLoader;
-
 /**
  * Where the Sonic Shades and fez slots sit in the inventory screens (x/y relative to the screen's
  * top-left corner, as Minecraft's Slot uses).
  *
- * Normally they're in the column between the player preview and the crafting grid, above the
- * offhand slot. Trinkets puts its own slot groups in that same column (and, in the creative tab,
- * right of the armour), so when Trinkets is installed both slots move somewhere Trinkets never
- * uses: side by side under the crafting grid, right of the recipe book button, and in the
- * creative tab, under Trinkets' row. Trinkets isn't needed for any of this; it's only checked
- * for.
+ * In the survival inventory they're in the column between the player preview and the crafting
+ * grid, above the offhand slot; in the creative tab, right of the armour.
+ *
+ * These are only used without Trinkets. With Trinkets (or Accessories' Trinkets layer) the shades
+ * and fez go in Trinkets' face and hat slots and Gallifrey adds no slots of its own
+ * (GallifreyAccessories), so there's nothing to keep clear of.
  */
 public final class AccessorySlotLayout {
     private AccessorySlotLayout() {}
 
-    /**
-     * The real Trinkets. Accessories ships a "Trinkets compat layer" (tclayer) that also calls
-     * itself trinkets, but it adds no slots to the inventory, so it doesn't count here.
-     * Accessories' own inventory button sits inside the player preview (survival) and next to the
-     * armour (creative), clear of both layouts, so it needs nothing special.
-     */
-    public static final boolean TRINKETS = FabricLoader.getInstance().isModLoaded("trinkets")
-            && !FabricLoader.getInstance().isModLoaded("tclayer");
-
     // Survival inventory.
-    public static final int SHADES_X = TRINKETS ? 134 : 77;
-    public static final int SHADES_Y = TRINKETS ? 62 : 8;
-    public static final int FEZ_X = TRINKETS ? 152 : 77;
-    public static final int FEZ_Y = TRINKETS ? 62 : 26;
+    public static final int SHADES_X = 77;
+    public static final int SHADES_Y = 8;
+    public static final int FEZ_X = 77;
+    public static final int FEZ_Y = 26;
 
     // Creative inventory tab.
     public static final int CREATIVE_SHADES_X = 127;
-    public static final int CREATIVE_SHADES_Y = TRINKETS ? 37 : 6;
-    public static final int CREATIVE_FEZ_X = TRINKETS ? 146 : 127;
-    public static final int CREATIVE_FEZ_Y = TRINKETS ? 37 : 33;
+    public static final int CREATIVE_SHADES_Y = 6;
+    public static final int CREATIVE_FEZ_X = 127;
+    public static final int CREATIVE_FEZ_Y = 33;
 }

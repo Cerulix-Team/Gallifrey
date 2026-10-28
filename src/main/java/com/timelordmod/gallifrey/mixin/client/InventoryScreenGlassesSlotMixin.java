@@ -20,6 +20,7 @@ public abstract class InventoryScreenGlassesSlotMixin {
         // x/y are declared by HandledScreen, the superclass of InventoryScreen.
         // Read them through the existing accessor mixin rather than shadowing
         // inherited fields on InventoryScreen (which crashes mixin application).
+        if (com.timelordmod.gallifrey.item.custom.GallifreyAccessories.usesTrinkets()) return; // Trinkets' own slots instead
         HandledScreenAccessor screen = (HandledScreenAccessor) this;
         int x = screen.gallifrey$getX() - 1;
         int y = screen.gallifrey$getY() - 1;

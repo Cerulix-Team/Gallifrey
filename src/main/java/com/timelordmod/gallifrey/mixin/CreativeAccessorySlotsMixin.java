@@ -30,6 +30,8 @@ public abstract class CreativeAccessorySlotsMixin {
         if (!this.player.interactionManager.isCreative()) return;
         AccessorySlotIndices indices = (AccessorySlotIndices) this.player.playerScreenHandler;
         int index = packet.getSlot();
+        // -1 is vanilla's "drop this item" (and means "no slot" here, with Trinkets): leave it to vanilla.
+        if (index < 0) return;
         if (index != indices.gallifrey$shadesSlotIndex() && index != indices.gallifrey$fezSlotIndex()) return;
 
         ci.cancel();

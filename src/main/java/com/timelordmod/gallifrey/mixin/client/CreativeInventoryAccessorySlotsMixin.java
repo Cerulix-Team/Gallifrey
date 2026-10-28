@@ -30,6 +30,7 @@ public abstract class CreativeInventoryAccessorySlotsMixin {
     @Inject(method = "setSelectedTab", at = @At("TAIL"))
     private void gallifrey$placeAccessorySlots(ItemGroup group, CallbackInfo ci) {
         if (group.getType() != ItemGroup.Type.INVENTORY) return;
+        if (com.timelordmod.gallifrey.item.custom.GallifreyAccessories.usesTrinkets()) return; // Trinkets' own slots instead
         MinecraftClient client = MinecraftClient.getInstance();
         if (client.player == null) return;
         AccessorySlotIndices indices = (AccessorySlotIndices) client.player.playerScreenHandler;
@@ -53,6 +54,7 @@ public abstract class CreativeInventoryAccessorySlotsMixin {
     private void gallifrey$drawAccessorySlots(DrawContext context, float delta, int mouseX, int mouseY, CallbackInfo ci) {
         ItemGroup tab = CreativeInventoryScreenAccessor.gallifrey$getSelectedTab();
         if (tab == null || tab.getType() != ItemGroup.Type.INVENTORY) return;
+        if (com.timelordmod.gallifrey.item.custom.GallifreyAccessories.usesTrinkets()) return; // Trinkets' own slots instead
         HandledScreenAccessor screen = (HandledScreenAccessor) this;
         int x = screen.gallifrey$getX() - 1;
         int y = screen.gallifrey$getY() - 1;

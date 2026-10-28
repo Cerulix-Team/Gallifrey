@@ -41,6 +41,7 @@ public abstract class BetterInventoryMenuMixin extends ScreenHandler {
     @Inject(method = "<init>", at = @At("TAIL"), remap = false)
     private void gallifrey$addAccessorySlots(int syncId, PlayerInventory inventory, CallbackInfo ci) {
         if (BetterInventoryCompat.isV2()) return;
+        if (com.timelordmod.gallifrey.item.custom.GallifreyAccessories.usesTrinkets()) return; // in Trinkets' slots
         // Better Inventory's top-left panel is at (82, 20); its cells start 4 pixels in.
         this.addSlot(AccessorySlot.shades(inventory.player, 86, 42));
         this.addSlot(AccessorySlot.fez(inventory.player, 104, 42));

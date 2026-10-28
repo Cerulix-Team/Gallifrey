@@ -65,28 +65,30 @@ public final class UniversalGravesCompat {
         }
     }
 
+    // Gallifrey's own slots only: with Trinkets the shades and fez are in Trinkets slots, which
+    // Universal Graves handles itself.
     private static void addToGrave(ServerPlayerEntity player, Object consumer) throws ReflectiveOperationException {
-        ItemStack shades = GallifreyAccessories.getShades(player);
+        ItemStack shades = GallifreyAccessories.getStoredShades(player);
         if ((boolean) canAddItem.invoke(null, player, shades)) {
             addItem.invoke(consumer, shades.copy(), SHADES_SLOT);
-            GallifreyAccessories.setShades(player, ItemStack.EMPTY);
+            GallifreyAccessories.setStoredShades(player, ItemStack.EMPTY);
         }
-        ItemStack fez = GallifreyAccessories.getFez(player);
+        ItemStack fez = GallifreyAccessories.getStoredFez(player);
         if ((boolean) canAddItem.invoke(null, player, fez)) {
             addItem.invoke(consumer, fez.copy(), FEZ_SLOT);
-            GallifreyAccessories.setFez(player, ItemStack.EMPTY);
+            GallifreyAccessories.setStoredFez(player, ItemStack.EMPTY);
         }
     }
 
     /** Back into the slot it came from, if that slot's free. */
     private static boolean moveExactly(ServerPlayerEntity player, ItemStack stack, int slot) {
-        if (slot == SHADES_SLOT && GallifreyAccessories.getShades(player).isEmpty() && GallifreyAccessories.fitsShadesSlot(stack)) {
-            GallifreyAccessories.setShades(player, stack.copy());
+        if (slot == SHADES_SLOT && GallifreyAccessories.getStoredShades(player).isEmpty() && GallifreyAccessories.fitsShadesSlot(stack)) {
+            GallifreyAccessories.setStoredShades(player, stack.copy());
             stack.setCount(0); // Universal Graves checks the stack went empty
             return true;
         }
-        if (slot == FEZ_SLOT && GallifreyAccessories.getFez(player).isEmpty() && GallifreyAccessories.fitsFezSlot(stack)) {
-            GallifreyAccessories.setFez(player, stack.copy());
+        if (slot == FEZ_SLOT && GallifreyAccessories.getStoredFez(player).isEmpty() && GallifreyAccessories.fitsFezSlot(stack)) {
+            GallifreyAccessories.setStoredFez(player, stack.copy());
             stack.setCount(0);
             return true;
         }

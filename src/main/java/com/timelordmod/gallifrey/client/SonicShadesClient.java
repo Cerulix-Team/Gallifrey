@@ -66,7 +66,7 @@ public final class SonicShadesClient {
             return;
         }
 
-        if (!((SonicShadesSlotAccess) client.player).gallifrey$getSonicShades().isOf(GallifreyModItems.SONIC_SHADES)) {
+        if (!com.timelordmod.gallifrey.item.custom.GallifreyAccessories.getShades(client.player).isOf(GallifreyModItems.SONIC_SHADES)) {
             return;
         }
 

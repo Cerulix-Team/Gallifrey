@@ -23,7 +23,7 @@ public final class SonicShadesPacket {
         boolean toggleMode = buf.readBoolean();
 
         server.execute(() -> {
-            var stack = ((SonicShadesSlotAccess) player).gallifrey$getSonicShades();
+            var stack = com.timelordmod.gallifrey.item.custom.GallifreyAccessories.getShades(player);
             if (!stack.isOf(GallifreyModItems.SONIC_SHADES)) {
                 return;
             }

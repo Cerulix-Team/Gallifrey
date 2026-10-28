@@ -28,7 +28,7 @@ public final class SonicShadesSlotPacket {
             SonicShadesSlotAccess access =
                     (SonicShadesSlotAccess) player;
 
-            ItemStack equipped = access.gallifrey$getSonicShades();
+            ItemStack equipped = com.timelordmod.gallifrey.item.custom.GallifreyAccessories.getShades(player);
             ItemStack cursor =
                     player.currentScreenHandler.getCursorStack();
 
@@ -37,13 +37,13 @@ public final class SonicShadesSlotPacket {
                     && equipped.isOf(GallifreyModItems.SONIC_SHADES)) {
 
                 player.currentScreenHandler.setCursorStack(equipped.copy());
-                access.gallifrey$setSonicShades(ItemStack.EMPTY);
+                com.timelordmod.gallifrey.item.custom.GallifreyAccessories.setShades(player, ItemStack.EMPTY);
             }
             // Equip shades from the cursor into an empty slot.
             else if (equipped.isEmpty()
                     && cursor.isOf(GallifreyModItems.SONIC_SHADES)) {
 
-                access.gallifrey$setSonicShades(cursor.copy());
+                com.timelordmod.gallifrey.item.custom.GallifreyAccessories.setShades(player, cursor.copy());
                 player.currentScreenHandler.setCursorStack(ItemStack.EMPTY);
             }
 
