@@ -8,7 +8,9 @@ CLARAAAAAAAAAAAAA??!!!!
 OH I'M DOCTORING IT SO GOOD
 DUGGA DOO, DUGGA DUGGA DOO...
 AAAAAUGH I'M MASTERING IT I'M MASTERING IT
-Where's the TARDIS, William?
+Where's the TARDIS, %player%?
+Announcing %player% as the Doctor!
+Run, %player%!
 THE RANIIIIIIIIIIIIIIIIIIII!??!?!?!??!?!?!?!??!?!
 Wheres Bruh Bruh William...
 We can finally be bees...
@@ -26,8 +28,9 @@ Goodbye friends...
 I WILL NOT LET YOU DESTROY MY TARDIS RAHHHHH
 I am Vegito!
 DORITO BLUE!!!
+Made by the Cerulix Team!
 Here's something new... VEGITO BLUE!!
-BluEnbyGamer! Ultimate Mod Maker!
+Trust Us With Your Time Travel
 Steve the Vietnamese!
 Dice Gambles
 Blueberry
@@ -35,13 +38,7 @@ Blueberry
 "In 900 years of time and space, I've never met anyone who wasn't important."
 "We're all stories, in the end. Just make it a good one, eh?"
 "Always try to be nice, but never fail to be kind."
-"People assume that time is a strict progression of cause to effect, but actually—from a non-linear, non-subjective viewpoint—it's more like a big ball of wibbly-wobbly... time-y wimey... stuff."
-"There's no point in being grown-up if you can't be childish sometimes."
-"There are worlds out there where the sky is burning, where the sea's asleep and the rivers dream. People made of smoke and cities made of song. Somewhere there's danger, somewhere there's injustice, and somewhere else the tea's getting cold. Come on, Ace, we've got work to do."
-"Every great decision creates ripples, like a huge boulder dropped in a lake. The ripples merge and rebound off the banks in unforeseeable ways."
-"You can always judge a man by the quality of his enemies."
-"Powerful! Crush the lesser races! Conquer the galaxy! UNIMAGINABLE POWER! UNLIMITED RICE PUDDING, ETCETERA, ETCETERA!"
-"I've always found that the most interesting people are usually mad."
+I've always found that the most interesting people are usually mad."
 "The more I know me, the less I like me."
 "To live is to risk it all; otherwise you're just an inert chunk of randomly assembled molecules drifting wherever the universe blows you."
 "Wubba lubba dub-dub!"

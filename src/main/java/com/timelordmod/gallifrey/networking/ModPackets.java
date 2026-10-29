@@ -20,6 +20,7 @@ public class ModPackets {
     public static final Identifier VM_STATE = new Identifier(GallifreyMod.MOD_ID, "vm_state");
     public static final Identifier OPEN_SONIC_WORKSHOP = new Identifier(GallifreyMod.MOD_ID, "open_sonic_workshop");
     public static final Identifier SONIC_SHADES_USE = new Identifier(GallifreyMod.MOD_ID, "sonic_shades_use");
+    public static final Identifier SPACE_SUIT_JETPACK = new Identifier(GallifreyMod.MOD_ID, "space_suit_jetpack");
     public static final Identifier SONIC_SHADES_SLOT_SWAP =
             new Identifier(GallifreyMod.MOD_ID, "sonic_shades_slot_swap");
 

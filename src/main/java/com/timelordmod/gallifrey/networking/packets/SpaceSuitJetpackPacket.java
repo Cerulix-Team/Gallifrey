@@ -13,9 +13,6 @@ public final class SpaceSuitJetpackPacket {
     public static void receive(MinecraftServer server, PlayerEntity player,
                                ServerPlayNetworkHandler handler, PacketByteBuf buf,
                                PacketSender responseSender) {
-        server.execute(() -> {
-            player.sendMessage(net.minecraft.text.Text.literal("§7Jetpack request received by server."), true);
-            SpaceSuitJetpackHandler.activate(player);
-        });
+        server.execute(() -> SpaceSuitJetpackHandler.activate(player));
     }
 }

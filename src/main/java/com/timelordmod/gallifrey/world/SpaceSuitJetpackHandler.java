@@ -62,6 +62,8 @@ public final class SpaceSuitJetpackHandler {
                         player.setVelocity(v.x * 0.98 - Math.sin(yaw) * 0.025,
                                 Math.max(v.y, -0.10), v.z * 0.98 + Math.cos(yaw) * 0.025);
                         player.velocityDirty = true;
+                        // Gliding down is safe: don't let a minute of slow descent add up to a deadly fall.
+                        player.fallDistance = 0.0F;
                         if (glide <= 1) GLIDE_TICKS.remove(id);
                         else GLIDE_TICKS.put(id, glide - 1);
                     }
@@ -77,6 +79,7 @@ public final class SpaceSuitJetpackHandler {
             var velocity = player.getVelocity();
             player.setVelocity(velocity.x, Math.max(velocity.y, 0.42), velocity.z);
             player.velocityDirty = true;
+            player.fallDistance = 0.0F;
             if (active <= 1) {
                 ACTIVE.remove(id);
                 GLIDE_TICKS.put(id, 20 * 60);

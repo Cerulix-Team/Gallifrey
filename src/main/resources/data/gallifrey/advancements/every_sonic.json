@@ -15,6 +15,19 @@
     "announce_to_chat": true
   },
   "criteria": {
+    "casing_second_doctor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:sonic_screwdriver"
+            ],
+            "nbt": "{SonicCasing:\"second_doctor\"}"
+          }
+        ]
+      }
+    },
     "casing_third_doctor": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
@@ -41,7 +54,7 @@
         ]
       }
     },
-    "casing_fifth_doctor": {
+    "casing_sixth_doctor": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -49,7 +62,20 @@
             "items": [
               "gallifrey:sonic_screwdriver"
             ],
-            "nbt": "{SonicCasing:\"fifth_doctor\"}"
+            "nbt": "{SonicCasing:\"sixth_doctor\"}"
+          }
+        ]
+      }
+    },
+    "casing_seventh_doctor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:sonic_screwdriver"
+            ],
+            "nbt": "{SonicCasing:\"seventh_doctor\"}"
           }
         ]
       }
@@ -80,6 +106,19 @@
         ]
       }
     },
+    "casing_tenth_doctor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:sonic_screwdriver"
+            ],
+            "nbt": "{SonicCasing:\"tenth_doctor\"}"
+          }
+        ]
+      }
+    },
     "casing_war_master": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
@@ -89,6 +128,19 @@
               "gallifrey:sonic_screwdriver"
             ],
             "nbt": "{SonicCasing:\"war_master\"}"
+          }
+        ]
+      }
+    },
+    "casing_eleventh_doctor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:sonic_screwdriver"
+            ],
+            "nbt": "{SonicCasing:\"eleventh_doctor\"}"
           }
         ]
       }
@@ -106,7 +158,7 @@
         ]
       }
     },
-    "casing_blue_sonic": {
+    "casing_twelfth_doctor": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -114,12 +166,12 @@
             "items": [
               "gallifrey:sonic_screwdriver"
             ],
-            "nbt": "{SonicCasing:\"blue_sonic\"}"
+            "nbt": "{SonicCasing:\"twelfth_doctor\"}"
           }
         ]
       }
     },
-    "casing_ricks_portal_gun": {
+    "casing_thirteenth_doctor": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -127,12 +179,12 @@
             "items": [
               "gallifrey:sonic_screwdriver"
             ],
-            "nbt": "{SonicCasing:\"ricks_portal_gun\"}"
+            "nbt": "{SonicCasing:\"thirteenth_doctor\"}"
           }
         ]
       }
     },
-    "casing_valvue_gun": {
+    "casing_fourteenth_doctor": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -140,12 +192,12 @@
             "items": [
               "gallifrey:sonic_screwdriver"
             ],
-            "nbt": "{SonicCasing:\"valvue_gun\"}"
+            "nbt": "{SonicCasing:\"fourteenth_doctor\"}"
           }
         ]
       }
     },
-    "casing_deos_portal_gun": {
+    "casing_fifteenth_doctor": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -153,12 +205,12 @@
             "items": [
               "gallifrey:sonic_screwdriver"
             ],
-            "nbt": "{SonicCasing:\"deos_portal_gun\"}"
+            "nbt": "{SonicCasing:\"fifteenth_doctor\"}"
           }
         ]
       }
     },
-    "casing_deos_hammer": {
+    "casing_fifteenth_doctor_green": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -166,7 +218,72 @@
             "items": [
               "gallifrey:sonic_screwdriver"
             ],
-            "nbt": "{SonicCasing:\"deos_hammer\"}"
+            "nbt": "{SonicCasing:\"fifteenth_doctor_green\"}"
+          }
+        ]
+      }
+    },
+    "casing_fifteenth_doctor_red": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:sonic_screwdriver"
+            ],
+            "nbt": "{SonicCasing:\"fifteenth_doctor_red\"}"
+          }
+        ]
+      }
+    },
+    "casing_fifteenth_doctor_yellow": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:sonic_screwdriver"
+            ],
+            "nbt": "{SonicCasing:\"fifteenth_doctor_yellow\"}"
+          }
+        ]
+      }
+    },
+    "casing_fugitive_doctor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:sonic_screwdriver"
+            ],
+            "nbt": "{SonicCasing:\"fugitive_doctor\"}"
+          }
+        ]
+      }
+    },
+    "casing_laser_sonic": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:sonic_screwdriver"
+            ],
+            "nbt": "{SonicCasing:\"laser_sonic\"}"
+          }
+        ]
+      }
+    },
+    "casing_rani_sonic": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:sonic_screwdriver"
+            ],
+            "nbt": "{SonicCasing:\"rani_sonic\"}"
           }
         ]
       }
@@ -184,7 +301,7 @@
         ]
       }
     },
-    "casing_gamblers_sonic": {
+    "casing_blue_sonic": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -192,7 +309,7 @@
             "items": [
               "gallifrey:sonic_screwdriver"
             ],
-            "nbt": "{SonicCasing:\"gamblers_sonic\"}"
+            "nbt": "{SonicCasing:\"blue_sonic\"}"
           }
         ]
       }
@@ -226,13 +343,19 @@
   },
   "requirements": [
     [
+      "casing_second_doctor"
+    ],
+    [
       "casing_third_doctor"
     ],
     [
       "casing_fourth_doctor"
     ],
     [
-      "casing_fifth_doctor"
+      "casing_sixth_doctor"
+    ],
+    [
+      "casing_seventh_doctor"
     ],
     [
       "casing_eighth_doctor"
@@ -241,31 +364,52 @@
       "casing_war_doctor"
     ],
     [
+      "casing_tenth_doctor"
+    ],
+    [
       "casing_war_master"
+    ],
+    [
+      "casing_eleventh_doctor"
     ],
     [
       "casing_eleventh_cane"
     ],
     [
-      "casing_blue_sonic"
+      "casing_twelfth_doctor"
     ],
     [
-      "casing_ricks_portal_gun"
+      "casing_thirteenth_doctor"
     ],
     [
-      "casing_valvue_gun"
+      "casing_fourteenth_doctor"
     ],
     [
-      "casing_deos_portal_gun"
+      "casing_fifteenth_doctor"
     ],
     [
-      "casing_deos_hammer"
+      "casing_fifteenth_doctor_green"
+    ],
+    [
+      "casing_fifteenth_doctor_red"
+    ],
+    [
+      "casing_fifteenth_doctor_yellow"
+    ],
+    [
+      "casing_fugitive_doctor"
+    ],
+    [
+      "casing_laser_sonic"
+    ],
+    [
+      "casing_rani_sonic"
     ],
     [
       "casing_missys_umbrella"
     ],
     [
-      "casing_gamblers_sonic"
+      "casing_blue_sonic"
     ],
     [
       "casing_blunt_sonic"

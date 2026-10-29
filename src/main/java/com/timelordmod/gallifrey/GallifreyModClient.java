@@ -150,6 +150,7 @@ public class GallifreyModClient implements ClientModInitializer {
         EntityRendererRegistry.register(GallifreyEntities.ALPHA_GHAST, AlphaGhastRenderer::new);
         EntityRendererRegistry.register(GallifreyEntities.ALPHA_ZOMBIE_PIGMAN, AlphaZombiePigmanRenderer::new);
         SonicShadesClient.register();
+        com.timelordmod.gallifrey.client.SpaceSuitJetpackClient.register();
         com.timelordmod.gallifrey.compat.trinkets.TrinketsClientCompat.register();
         com.timelordmod.gallifrey.client.GearTooltips.register();
         ClientTickEvents.END_CLIENT_TICK.register(PlanetWeatherClient::tick);

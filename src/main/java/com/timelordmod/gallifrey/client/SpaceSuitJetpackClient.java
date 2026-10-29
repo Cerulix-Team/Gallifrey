@@ -7,10 +7,9 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.util.Identifier;
-import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
 
+/** The jetpack key (R by default, in the Gallifrey section of Controls). The server checks the suit. */
 public final class SpaceSuitJetpackClient {
     private static KeyBinding activateJetpack;
     private SpaceSuitJetpackClient() {}
@@ -25,8 +24,7 @@ public final class SpaceSuitJetpackClient {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (activateJetpack.wasPressed()) {
                 if (client.player == null || client.world == null) continue;
-                client.player.sendMessage(Text.literal("§7Jetpack key detected; sending activation request..."), true);
-                ClientPlayNetworking.send(new Identifier("gallifrey", "space_suit_jetpack"), PacketByteBufs.empty());
+                ClientPlayNetworking.send(ModPackets.SPACE_SUIT_JETPACK, PacketByteBufs.empty());
             }
         });
     }
