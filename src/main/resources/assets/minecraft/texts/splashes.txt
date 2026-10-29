@@ -9,7 +9,7 @@ OH I'M DOCTORING IT SO GOOD
 DUGGA DOO, DUGGA DUGGA DOO...
 AAAAAUGH I'M MASTERING IT I'M MASTERING IT
 Where's the TARDIS, %player%?
-Announcing %player% as the Doctor!
+Announcing %player% as the next Doctor!
 Run, %player%!
 THE RANIIIIIIIIIIIIIIIIIIII!??!?!?!??!?!?!?!??!?!
 Wheres Bruh Bruh William...
