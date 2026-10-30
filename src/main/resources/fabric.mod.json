@@ -8,40 +8,40 @@
 		"TimelordMod"
 	],
 	"contact": {
-		"homepage": "https://github.com/BluEnbyGamer/Gallifrey",
-		"sources": "https://github.com/BluEnbyGamer/Gallifrey",
-		"issues": "https://github.com/BluEnbyGamer/Gallifrey/issues"
+		"homepage": "https://github.com/Cerulix-Team/Gallifrey",
+		"sources": "https://github.com/Cerulix-Team/Gallifrey",
+		"issues": "https://github.com/Cerulix-Team/Gallifrey/issues"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/gallifrey/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.timelordmod.gallifrey.GallifreyMod"
+			"com.cerulixteam.gallifrey.GallifreyMod"
 		],
 		"client": [
-			"com.timelordmod.gallifrey.GallifreyModClient"
+			"com.cerulixteam.gallifrey.GallifreyModClient"
 		],
 		"fabric-datagen": [
-			"com.timelordmod.gallifrey.GallifreyModDataGenerator"
+			"com.cerulixteam.gallifrey.GallifreyModDataGenerator"
 		],
 		"jei_mod_plugin": [
-			"com.timelordmod.gallifrey.compat.jei.GallifreyJeiPlugin"
+			"com.cerulixteam.gallifrey.compat.jei.GallifreyJeiPlugin"
 		],
 		"emi": [
-			"com.timelordmod.gallifrey.compat.emi.GallifreyEmiPlugin"
+			"com.cerulixteam.gallifrey.compat.emi.GallifreyEmiPlugin"
 		],
 		"rei_client": [
-			"com.timelordmod.gallifrey.compat.rei.GallifreyReiPlugin"
+			"com.cerulixteam.gallifrey.compat.rei.GallifreyReiPlugin"
 		],
 		"modmenu": [
-			"com.timelordmod.gallifrey.compat.modmenu.GallifreyModMenu"
+			"com.cerulixteam.gallifrey.compat.modmenu.GallifreyModMenu"
 		],
 		"jade": [
-			"com.timelordmod.gallifrey.compat.jade.GallifreyJadePlugin"
+			"com.cerulixteam.gallifrey.compat.jade.GallifreyJadePlugin"
 		],
 		"voicechat": [
-			"com.timelordmod.gallifrey.compat.voicechat.GallifreyVoicechatPlugin"
+			"com.cerulixteam.gallifrey.compat.voicechat.GallifreyVoicechatPlugin"
 		]
 	},
 	"mixins": [
@@ -57,7 +57,7 @@
 	"custom": {
 		"modmenu": {
 			"links": {
-				"modmenu.wiki": "https://github.com/BluEnbyGamer/Gallifrey/wiki"
+				"modmenu.wiki": "https://github.com/Cerulix-Team/Gallifrey/wiki"
 			}
 		}
 	},

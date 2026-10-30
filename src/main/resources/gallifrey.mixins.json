@@ -1,8 +1,8 @@
 {
 "required": true,
-"package": "com.timelordmod.gallifrey.mixin",
+"package": "com.cerulixteam.gallifrey.mixin",
 "compatibilityLevel": "JAVA_17",
-"plugin": "com.timelordmod.gallifrey.mixin.GallifreyMixinPlugin",
+"plugin": "com.cerulixteam.gallifrey.mixin.GallifreyMixinPlugin",
 "mixins": [
 "ServerWorldSeedMixin",
 "ClassicHurtSoundMixin",
