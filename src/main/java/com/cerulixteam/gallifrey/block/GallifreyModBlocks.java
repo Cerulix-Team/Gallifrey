@@ -323,6 +323,19 @@ public class GallifreyModBlocks {
                     .nonOpaque())
     );
 
+    // Slab variants of the four steel grates.
+    public static final Block GRATE_SLAB = registerBlock("grate_slab",
+            new SlabBlock(FabricBlockSettings.copyOf(GRATE_BLOCK).nonOpaque()));
+
+    public static final Block THICK_GRATE_SLAB = registerBlock("thick_grate_slab",
+            new SlabBlock(FabricBlockSettings.copyOf(THICK_GRATE_BLOCK).nonOpaque()));
+
+    public static final Block RUSTY_GRATE_SLAB = registerBlock("rusty_grate_slab",
+            new SlabBlock(FabricBlockSettings.copyOf(RUSTY_GRATE_BLOCK).nonOpaque()));
+
+    public static final Block RUSTY_THICK_GRATE_SLAB = registerBlock("rusty_thick_grate_slab",
+            new SlabBlock(FabricBlockSettings.copyOf(RUSTY_THICK_GRATE_BLOCK).nonOpaque()));
+
     // Storage block for Metalertanium Ingots. Netherite-grade, like the gear.
     public static final Block METALERTANIUM_BLOCK = registerBlock(
             "metalertanium_block",

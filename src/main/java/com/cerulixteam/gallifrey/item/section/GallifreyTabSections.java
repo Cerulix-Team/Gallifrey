@@ -1,6 +1,7 @@
 package com.cerulixteam.gallifrey.item.section;
 
 import com.cerulixteam.gallifrey.block.GallifreyModBlocks;
+import com.cerulixteam.gallifrey.compat.farmersdelight.FarmersDelightCompat;
 import com.cerulixteam.gallifrey.item.GallifreyModItems;
 import net.minecraft.item.ItemStack;
 
@@ -203,7 +204,6 @@ public final class GallifreyTabSections {
                 entries.add(GallifreyModItems.WHITE_POINT_STAR_AXE);
                 entries.add(GallifreyModItems.WHITE_POINT_STAR_SHOVEL);
                 entries.add(GallifreyModItems.WHITE_POINT_STAR_HOE);
-                if (com.cerulixteam.gallifrey.compat.farmersdelight.FarmersDelightCompat.WHITE_POINT_STAR_KNIFE != null) entries.add(com.cerulixteam.gallifrey.compat.farmersdelight.FarmersDelightCompat.WHITE_POINT_STAR_KNIFE); // Farmer's Delight only
                 entries.add(GallifreyModItems.WHITE_POINT_STAR_HELMET);
                 entries.add(GallifreyModItems.WHITE_POINT_STAR_CHESTPLATE);
                 entries.add(GallifreyModItems.WHITE_POINT_STAR_LEGGINGS);
@@ -249,6 +249,12 @@ public final class GallifreyTabSections {
                 // TARDIS
                 entries.add(GallifreyModBlocks.TARDIS_EXTERIOR);
 
+                //KNIFES = Farmer's Delight only
+                if (com.cerulixteam.gallifrey.compat.farmersdelight.FarmersDelightCompat.STEEL_KNIFE != null) entries.add(FarmersDelightCompat.STEEL_KNIFE);
+                if (com.cerulixteam.gallifrey.compat.farmersdelight.FarmersDelightCompat.WHITE_POINT_STAR_KNIFE != null) entries.add(FarmersDelightCompat.WHITE_POINT_STAR_KNIFE);
+                if (com.cerulixteam.gallifrey.compat.farmersdelight.FarmersDelightCompat.DALEKANIUM_KNIFE != null) entries.add(FarmersDelightCompat.DALEKANIUM_KNIFE);
+                if (com.cerulixteam.gallifrey.compat.farmersdelight.FarmersDelightCompat.METALERTANIUM_KNIFE != null) entries.add(FarmersDelightCompat.METALERTANIUM_KNIFE);
+
                 //STEEL
                 entries.add(GallifreyModItems.RAW_STEEL);
                 entries.add(GallifreyModItems.STEEL_INGOT);
@@ -259,13 +265,16 @@ public final class GallifreyTabSections {
                 entries.add(GallifreyModBlocks.THICK_GRATE_BLOCK);
                 entries.add(GallifreyModBlocks.RUSTY_GRATE_BLOCK);
                 entries.add(GallifreyModBlocks.RUSTY_THICK_GRATE_BLOCK);
+                entries.add(GallifreyModBlocks.GRATE_SLAB);
+                entries.add(GallifreyModBlocks.THICK_GRATE_SLAB);
+                entries.add(GallifreyModBlocks.RUSTY_GRATE_SLAB);
+                entries.add(GallifreyModBlocks.RUSTY_THICK_GRATE_SLAB);
                 entries.add(GallifreyModItems.STEEL_TEMPLATE);
                 entries.add(GallifreyModItems.STEEL_SWORD);
                 entries.add(GallifreyModItems.STEEL_PICKAXE);
                 entries.add(GallifreyModItems.STEEL_AXE);
                 entries.add(GallifreyModItems.STEEL_SHOVEL);
                 entries.add(GallifreyModItems.STEEL_HOE);
-                if (com.cerulixteam.gallifrey.compat.farmersdelight.FarmersDelightCompat.STEEL_KNIFE != null) entries.add(com.cerulixteam.gallifrey.compat.farmersdelight.FarmersDelightCompat.STEEL_KNIFE); // Farmer's Delight only
                 entries.add(GallifreyModItems.STEEL_HELMET);
                 entries.add(GallifreyModItems.STEEL_CHESTPLATE);
                 entries.add(GallifreyModItems.STEEL_LEGGINGS);
@@ -703,7 +712,6 @@ public final class GallifreyTabSections {
                 entries.add(GallifreyModItems.DALEKANIUM_AXE);
                 entries.add(GallifreyModItems.DALEKANIUM_SHOVEL);
                 entries.add(GallifreyModItems.DALEKANIUM_HOE);
-                if (com.cerulixteam.gallifrey.compat.farmersdelight.FarmersDelightCompat.DALEKANIUM_KNIFE != null) entries.add(com.cerulixteam.gallifrey.compat.farmersdelight.FarmersDelightCompat.DALEKANIUM_KNIFE); // Farmer's Delight only
                 entries.add(GallifreyModItems.DALEKANIUM_HELMET);
                 entries.add(GallifreyModItems.DALEKANIUM_CHESTPLATE);
                 entries.add(GallifreyModItems.DALEKANIUM_LEGGINGS);
@@ -717,7 +725,6 @@ public final class GallifreyTabSections {
                 entries.add(GallifreyModItems.METALERTANIUM_AXE);
                 entries.add(GallifreyModItems.METALERTANIUM_SHOVEL);
                 entries.add(GallifreyModItems.METALERTANIUM_HOE);
-                if (com.cerulixteam.gallifrey.compat.farmersdelight.FarmersDelightCompat.METALERTANIUM_KNIFE != null) entries.add(com.cerulixteam.gallifrey.compat.farmersdelight.FarmersDelightCompat.METALERTANIUM_KNIFE); // Farmer's Delight only
                 entries.add(GallifreyModItems.METALERTANIUM_HELMET);
                 entries.add(GallifreyModItems.METALERTANIUM_CHESTPLATE);
                 entries.add(GallifreyModItems.METALERTANIUM_LEGGINGS);
