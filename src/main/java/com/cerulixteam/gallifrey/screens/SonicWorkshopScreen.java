@@ -63,6 +63,9 @@ public class SonicWorkshopScreen extends Screen {
     private boolean sawSonic;
     private final List<CasingButton> casingButtons = new ArrayList<>();
     private int casingScrollRows = 0;
+    private boolean draggingScrollbar = false;
+    private static final int SCROLLBAR_WIDTH = 6;
+    private static final int SCROLLBAR_MIN_THUMB = 18;
     private static final int CASING_VIEW_TOP = 104;
     private static final int CASING_VIEW_BOTTOM = 250;
     private static final int CASING_ROW_HEIGHT = 37;
@@ -182,13 +185,85 @@ public class SonicWorkshopScreen extends Screen {
         }
     }
 
+    private int maxCasingScrollRows() {
+        return Math.max(0, (casingButtons.size() + 3) / 4 - VISIBLE_CASING_ROWS);
+    }
+
+    private int scrollbarX() { return left + GUI_WIDTH - 13; }
+    private int scrollbarTop() { return top + CASING_VIEW_TOP; }
+    private int scrollbarHeight() { return CASING_VIEW_BOTTOM - CASING_VIEW_TOP; }
+    private int thumbHeight() {
+        int rows = (casingButtons.size() + 3) / 4;
+        return Math.max(SCROLLBAR_MIN_THUMB,
+                scrollbarHeight() * VISIBLE_CASING_ROWS / Math.max(1, rows));
+    }
+    private int thumbTop() {
+        int travel = scrollbarHeight() - thumbHeight();
+        return scrollbarTop() + (maxCasingScrollRows() == 0 ? 0 :
+                Math.round((float) travel * casingScrollRows / maxCasingScrollRows()));
+    }
+    private boolean overScrollbar(double x, double y) {
+        return maxCasingScrollRows() > 0 && x >= scrollbarX() - 3
+                && x < scrollbarX() + SCROLLBAR_WIDTH + 3
+                && y >= scrollbarTop() && y < scrollbarTop() + scrollbarHeight();
+    }
+    private void scrollFromScrollbar(double y) {
+        int travel = scrollbarHeight() - thumbHeight();
+        if (travel <= 0) return;
+        double fraction = (y - scrollbarTop() - thumbHeight() / 2.0) / travel;
+        int next = Math.max(0, Math.min(maxCasingScrollRows(),
+                (int) Math.round(fraction * maxCasingScrollRows())));
+        if (next != casingScrollRows) {
+            casingScrollRows = next;
+            updateCasingButtonPositions();
+        }
+    }
+    private void drawScrollbar(DrawContext context, int mouseX, int mouseY) {
+        if (maxCasingScrollRows() <= 0) return;
+        int x = scrollbarX();
+        context.fill(x, scrollbarTop(), x + SCROLLBAR_WIDTH,
+                scrollbarTop() + scrollbarHeight(), BLUE_DARK);
+        int y = thumbTop();
+        int color = draggingScrollbar || overScrollbar(mouseX, mouseY) ? GOLD_BRIGHT : BLUE;
+        context.fill(x, y, x + SCROLLBAR_WIDTH, y + thumbHeight(), color);
+    }
+
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (button == 0 && overScrollbar(mouseX, mouseY)) {
+            draggingScrollbar = true;
+            scrollFromScrollbar(mouseY);
+            return true;
+        }
+        return super.mouseClicked(mouseX, mouseY, button);
+    }
+
+    @Override
+    public boolean mouseDragged(double mouseX, double mouseY, int button,
+                                double deltaX, double deltaY) {
+        if (button == 0 && draggingScrollbar) {
+            scrollFromScrollbar(mouseY);
+            return true;
+        }
+        return super.mouseDragged(mouseX, mouseY, button, deltaX, deltaY);
+    }
+
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        if (button == 0 && draggingScrollbar) {
+            draggingScrollbar = false;
+            return true;
+        }
+        return super.mouseReleased(mouseX, mouseY, button);
+    }
+
     @Override
     public boolean mouseScrolled(double mouseX, double mouseY, double verticalAmount) {
         int viewTop = top + CASING_VIEW_TOP;
         int viewBottom = top + CASING_VIEW_BOTTOM;
         if (mouseX >= left + 12 && mouseX <= left + GUI_WIDTH - 12
                 && mouseY >= viewTop && mouseY <= viewBottom) {
-            int maxRows = Math.max(0, (SonicCasing.values().length - 1) / 4 - VISIBLE_CASING_ROWS + 1);
+            int maxRows = maxCasingScrollRows();
             int next = Math.max(0, Math.min(maxRows, casingScrollRows + (verticalAmount < 0 ? 1 : -1)));
             if (next != casingScrollRows) {
                 casingScrollRows = next;
@@ -197,6 +272,28 @@ public class SonicWorkshopScreen extends Screen {
             return true;
         }
         return super.mouseScrolled(mouseX, mouseY, verticalAmount);
+    }
+
+    /** Keep the currently focused casing visible when navigating with Tab / Shift+Tab. */
+    private void scrollFocusedCasingIntoView(CasingButton focusedButton) {
+        int index = casingButtons.indexOf(focusedButton);
+        if (index < 0) return;
+
+        int row = index / 4;
+        int nextScroll = casingScrollRows;
+        if (row < casingScrollRows) {
+            nextScroll = row;
+        } else if (row >= casingScrollRows + VISIBLE_CASING_ROWS) {
+            nextScroll = row - VISIBLE_CASING_ROWS + 1;
+        }
+
+        int totalRows = (casingButtons.size() + 3) / 4;
+        int maxScroll = Math.max(0, totalRows - VISIBLE_CASING_ROWS);
+        nextScroll = Math.max(0, Math.min(maxScroll, nextScroll));
+        if (nextScroll != casingScrollRows) {
+            casingScrollRows = nextScroll;
+            updateCasingButtonPositions();
+        }
     }
 
     private class CasingButton extends ButtonWidget {
@@ -237,6 +334,14 @@ public class SonicWorkshopScreen extends Screen {
         }
 
         @Override
+        public void setFocused(boolean focused) {
+            super.setFocused(focused);
+            if (focused) {
+                scrollFocusedCasingIntoView(this);
+            }
+        }
+
+        @Override
         public void renderButton(
                 DrawContext context,
                 int mouseX,
@@ -249,6 +354,8 @@ public class SonicWorkshopScreen extends Screen {
                             && mouseX < getX() + getWidth()
                             && mouseY >= getY()
                             && mouseY < getY() + getHeight();
+
+            boolean focused = isFocused();
 
             boolean selected =
                     selectedCasing == casing;
@@ -278,7 +385,7 @@ public class SonicWorkshopScreen extends Screen {
                  * Bright TARDIS blue
                  * ====================================================
                  */
-            } else if (hovered) {
+            } else if (hovered || focused) {
 
                 fill = PANEL_LIGHT;
                 border = BLUE;
@@ -320,6 +427,11 @@ public class SonicWorkshopScreen extends Screen {
                     border
             );
 
+            // Clearly distinguish controller/keyboard focus from the installed casing.
+            if (focused) {
+                context.drawBorder(getX() + 2, getY() + 2, getWidth() - 4, getHeight() - 4, 0xFFFFFFFF);
+            }
+
             // Icon preview
             context.drawItem(
                     previewStack,
@@ -334,7 +446,7 @@ public class SonicWorkshopScreen extends Screen {
             }
 
             // Button text: the name, or the unlock price while hovering a locked casing.
-            if (locked && !selected && hovered) {
+            if (locked && !selected && (hovered || focused)) {
                 boolean canAfford = client != null && client.player != null
                         && SonicCasingUnlocks.points(client.player) >= SonicCasingUnlocks.COST_XP;
                 context.drawCenteredTextWithShadow(
@@ -433,9 +545,10 @@ public class SonicWorkshopScreen extends Screen {
         context.enableScissor(left + 12, top + CASING_VIEW_TOP, left + GUI_WIDTH - 12, top + CASING_VIEW_BOTTOM);
         super.render(context, mouseX, mouseY, delta);
         context.disableScissor();
+        drawScrollbar(context, mouseX, mouseY);
 
         drawLabels(context);
-        context.drawText(textRenderer, "Scroll to browse all " + SonicCasing.values().length
+        context.drawText(textRenderer, "Scroll, drag bar or Tab: " + SonicCasing.values().length
                         + " casings  |  Locked casings cost " + SonicCasingUnlocks.COST_XP + " XP each",
                 left + 20, top + GUI_HEIGHT - 15, TEXT_DIM, false);
     }

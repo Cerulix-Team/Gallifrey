@@ -406,9 +406,9 @@ public class VortexManipulatorScreen extends Screen {
         }
 
         @Override public void renderButton(DrawContext c, int mx, int my, float delta) {
-            int bg = isHovered() ? 0xFF332512 : PANEL_DARK;
+            int bg = (isHovered() || isFocused()) ? 0xFF332512 : PANEL_DARK;
             c.fill(getX(), getY(), getX() + getWidth(), getY() + getHeight(), bg);
-            c.drawBorder(getX(), getY(), getWidth(), getY() + getHeight() - getY(), active ? GOLD_DIM : SILVER_DIM);
+            c.drawBorder(getX(), getY(), getWidth(), getHeight(), isFocused() ? GOLD : (active ? GOLD_DIM : SILVER_DIM));
             Text visible = Text.literal(fit(getMessage().getString(), Math.max(12, getWidth() - 12)));
             c.drawCenteredTextWithShadow(textRenderer, visible, getX() + getWidth() / 2,
                     getY() + getHeight() / 2 - 4, active ? TEXT : DIM);

@@ -115,9 +115,9 @@ public class VortexSelfDestructConfirmScreen extends Screen {
             super(x, y, w, h, message, action, DEFAULT_NARRATION_SUPPLIER);
         }
         @Override public void renderButton(DrawContext c, int mx, int my, float delta) {
-            int bg = isHovered() ? 0xFF4A0B08 : PANEL_DARK;
+            int bg = (isHovered() || isFocused()) ? 0xFF4A0B08 : PANEL_DARK;
             c.fill(getX(), getY(), getX() + getWidth(), getY() + getHeight(), bg);
-            c.drawBorder(getX(), getY(), getWidth(), getHeight(), active ? RED : RED_DIM);
+            c.drawBorder(getX(), getY(), getWidth(), getHeight(), isFocused() ? YELLOW : (active ? RED : RED_DIM));
             Text visible = Text.literal(fit(getMessage().getString(), Math.max(12, getWidth() - 12)));
             c.drawCenteredTextWithShadow(textRenderer, visible, getX() + getWidth() / 2, getY() + getHeight() / 2 - 4, active ? TEXT : DIM);
         }

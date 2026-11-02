@@ -128,9 +128,9 @@ public class VortexDimensionsScreen extends Screen {
         }
 
         @Override public void renderButton(DrawContext c, int mx, int my, float delta) {
-            int bg = isHovered() ? 0xFF123744 : PANEL_DARK;
+            int bg = (isHovered() || isFocused()) ? 0xFF123744 : PANEL_DARK;
             c.fill(getX(), getY(), getX() + getWidth(), getY() + getHeight(), bg);
-            c.drawBorder(getX(), getY(), getWidth(), getHeight(), isHovered() ? AMBER : STEEL);
+            c.drawBorder(getX(), getY(), getWidth(), getHeight(), (isHovered() || isFocused()) ? AMBER : STEEL);
             c.drawCenteredTextWithShadow(textRenderer, getMessage(), getX() + getWidth() / 2,
                     getY() + getHeight() / 2 - 4, TEXT);
         }
