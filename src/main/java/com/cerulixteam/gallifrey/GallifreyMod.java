@@ -1,5 +1,6 @@
 package com.cerulixteam.gallifrey;
 
+import com.cerulixteam.gallifrey.block.SteelInteractions;
 import com.terraformersmc.biolith.api.biome.BiomePlacement;
 import com.cerulixteam.gallifrey.block.GallifreyModBlocks;
 import com.cerulixteam.gallifrey.entity.ModBoats;
@@ -91,6 +92,7 @@ public class GallifreyMod implements ModInitializer {
 		com.cerulixteam.gallifrey.world.dimension.ClassicBedrockLayer.register();
 		GallifreySounds.register();
 		GallifreyFluids.registerModFluids();
+		SteelInteractions.register();
 
 		FabricDefaultAttributeRegistry.register(
 				GallifreyEntities.CLASSIC_VILLAGER,

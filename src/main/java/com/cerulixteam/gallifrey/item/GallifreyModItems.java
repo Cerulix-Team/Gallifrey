@@ -504,7 +504,6 @@ public class GallifreyModItems {
         registerItem("prehistoric_chestplate", PREHISTORIC_CHESTPLATE);
         registerItem("prehistoric_leggings", PREHISTORIC_LEGGINGS);
         registerItem("prehistoric_boots", PREHISTORIC_BOOTS);
-
         registerItem("steel_template", STEEL_TEMPLATE);
         registerItem("emerald_sword", EMERALD_SWORD);
         registerItem("emerald_pickaxe", EMERALD_PICKAXE);

@@ -1,7 +1,6 @@
 package com.cerulixteam.gallifrey.block;
 
-import com.cerulixteam.gallifrey.block.custom.SpreadingGrassBlock;
-import com.cerulixteam.gallifrey.block.custom.ClassicTntBlock;
+import com.cerulixteam.gallifrey.block.custom.*;
 import com.cerulixteam.gallifrey.item.custom.SonicWorkshopItem;
 
 import com.cerulixteam.gallifrey.GallifreyMod;
@@ -10,8 +9,6 @@ import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformWallHangingSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformHangingSignBlock;
-import com.cerulixteam.gallifrey.block.custom.SonicSignalBlock;
-import com.cerulixteam.gallifrey.block.custom.TapperBlock;
 import com.cerulixteam.gallifrey.block.entity.RoundelBlock;
 import com.cerulixteam.gallifrey.world.tree.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -27,7 +24,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-import com.cerulixteam.gallifrey.block.custom.SonicWorkshopBlock;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 
 
@@ -269,13 +265,6 @@ public class GallifreyModBlocks {
     // MISC BLOCKS
     // ============================================================
 
-    public static final Block RAW_STEEL_BLOCK = registerBlock(
-            "raw_steel_block",
-            new Block(
-                    FabricBlockSettings.copyOf(Blocks.RAW_IRON_BLOCK)
-            )
-    );
-
     public static final Block HARTNELL_BLOCK = registerBlock(
             "hartnell_block",
             new Block(
@@ -283,9 +272,93 @@ public class GallifreyModBlocks {
             )
     );
 
+    // ============================================================
+    // MISC BLOCKS
+    // ============================================================
+
+    public static final Block RAW_STEEL_BLOCK = registerBlock(
+            "raw_steel_block",
+            new Block(
+                    FabricBlockSettings.copyOf(Blocks.RAW_IRON_BLOCK)
+            )
+    );
+
     public static final Block STEEL_BLOCK = registerBlock(
             "steel_block",
-            new Block(
+            new RustingSteelBlock(
+                    0,
+                    FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
+            )
+    );
+
+    public static final Block TARNISHED_STEEL = registerBlock(
+            "tarnished_steel",
+            new RustingSteelBlock(
+                    1,
+                    FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
+            )
+    );
+
+    public static final Block WEATHERED_STEEL_BLOCK = registerBlock(
+            "weathered_steel",
+            new RustingSteelBlock(
+                    2,
+                    FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
+            )
+    );
+
+    public static final Block CORRODED_STEEL_BLOCK = registerBlock(
+            "corroded_steel",
+            new RustingSteelBlock(
+                    3,
+                    FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
+            )
+    );
+
+    public static final Block RUSTED_STEEL_BLOCK = registerBlock(
+            "rusted_steel",
+            new RustingSteelBlock(
+                    4,
+                    FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
+            )
+    );
+
+    public static final Block WAXED_STEEL_BLOCK = registerBlock(
+            "waxed_steel_block",
+            new RustingSteelBlock(
+                    0,
+                    FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
+            )
+    );
+
+    public static final Block WAXED_TARNISHED_STEEL = registerBlock(
+            "waxed_tarnished_steel",
+            new RustingSteelBlock(
+                    1,
+                    FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
+            )
+    );
+
+    public static final Block WAXED_WEATHERED_STEEL_BLOCK = registerBlock(
+            "waxed_weathered_steel",
+            new RustingSteelBlock(
+                    2,
+                    FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
+            )
+    );
+
+    public static final Block WAXED_CORRODED_STEEL_BLOCK = registerBlock(
+            "waxed_corroded_steel",
+            new RustingSteelBlock(
+                    3,
+                    FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
+            )
+    );
+
+    public static final Block WAXED_RUSTED_STEEL_BLOCK = registerBlock(
+            "waxed_rusted_steel",
+            new RustingSteelBlock(
+                    4,
                     FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
             )
     );

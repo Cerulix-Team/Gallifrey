@@ -260,6 +260,15 @@ public final class GallifreyTabSections {
                 entries.add(GallifreyModItems.STEEL_INGOT);
                 entries.add(GallifreyModBlocks.RAW_STEEL_BLOCK);
                 entries.add(GallifreyModBlocks.STEEL_BLOCK);
+                entries.add(GallifreyModBlocks.TARNISHED_STEEL);
+                entries.add(GallifreyModBlocks.WEATHERED_STEEL_BLOCK);
+                entries.add(GallifreyModBlocks.CORRODED_STEEL_BLOCK);
+                entries.add(GallifreyModBlocks.RUSTED_STEEL_BLOCK);
+                entries.add(GallifreyModBlocks.WAXED_STEEL_BLOCK);
+                entries.add(GallifreyModBlocks.WAXED_TARNISHED_STEEL);
+                entries.add(GallifreyModBlocks.WAXED_WEATHERED_STEEL_BLOCK);
+                entries.add(GallifreyModBlocks.WAXED_CORRODED_STEEL_BLOCK);
+                entries.add(GallifreyModBlocks.WAXED_RUSTED_STEEL_BLOCK);
                 entries.add(GallifreyModBlocks.REINFORCED_STEEL_BLOCK);
                 entries.add(GallifreyModBlocks.GRATE_BLOCK);
                 entries.add(GallifreyModBlocks.THICK_GRATE_BLOCK);
