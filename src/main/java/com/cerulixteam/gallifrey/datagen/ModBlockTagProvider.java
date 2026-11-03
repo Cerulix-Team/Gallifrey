@@ -160,6 +160,30 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(GallifreyModBlocks.METALERTANIUM_BLOCK);
 
+        // Steel: the raw block, every rust stage (waxed and unwaxed) and the reinforced block.
+        // They copy the iron block, so like iron they need a stone pickaxe or better to drop.
+        // (Reinforced steel's diamond requirement is set above.)
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+                .add(GallifreyModBlocks.RAW_STEEL_BLOCK, GallifreyModBlocks.REINFORCED_STEEL_BLOCK,
+                        GallifreyModBlocks.STEEL_BLOCK, GallifreyModBlocks.TARNISHED_STEEL,
+                        GallifreyModBlocks.WEATHERED_STEEL_BLOCK, GallifreyModBlocks.CORRODED_STEEL_BLOCK,
+                        GallifreyModBlocks.RUSTED_STEEL_BLOCK,
+                        GallifreyModBlocks.WAXED_STEEL_BLOCK, GallifreyModBlocks.WAXED_TARNISHED_STEEL,
+                        GallifreyModBlocks.WAXED_WEATHERED_STEEL_BLOCK, GallifreyModBlocks.WAXED_CORRODED_STEEL_BLOCK,
+                        GallifreyModBlocks.WAXED_RUSTED_STEEL_BLOCK,
+                        GallifreyModBlocks.GRATE_SLAB, GallifreyModBlocks.THICK_GRATE_SLAB,
+                        GallifreyModBlocks.RUSTY_GRATE_SLAB, GallifreyModBlocks.RUSTY_THICK_GRATE_SLAB);
+        getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
+                .add(GallifreyModBlocks.RAW_STEEL_BLOCK,
+                        GallifreyModBlocks.STEEL_BLOCK, GallifreyModBlocks.TARNISHED_STEEL,
+                        GallifreyModBlocks.WEATHERED_STEEL_BLOCK, GallifreyModBlocks.CORRODED_STEEL_BLOCK,
+                        GallifreyModBlocks.RUSTED_STEEL_BLOCK,
+                        GallifreyModBlocks.WAXED_STEEL_BLOCK, GallifreyModBlocks.WAXED_TARNISHED_STEEL,
+                        GallifreyModBlocks.WAXED_WEATHERED_STEEL_BLOCK, GallifreyModBlocks.WAXED_CORRODED_STEEL_BLOCK,
+                        GallifreyModBlocks.WAXED_RUSTED_STEEL_BLOCK,
+                        GallifreyModBlocks.GRATE_SLAB, GallifreyModBlocks.THICK_GRATE_SLAB,
+                        GallifreyModBlocks.RUSTY_GRATE_SLAB, GallifreyModBlocks.RUSTY_THICK_GRATE_SLAB);
+
         // Roundels: mined with the same tool as the vanilla block each one is made from.
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
                 .add(

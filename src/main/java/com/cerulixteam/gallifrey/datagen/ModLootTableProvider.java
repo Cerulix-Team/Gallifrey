@@ -207,6 +207,15 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         // MISC BLOCK DROPS
         addDrop(GallifreyModBlocks.RAW_STEEL_BLOCK);
         addDrop(GallifreyModBlocks.STEEL_BLOCK);
+        addDrop(GallifreyModBlocks.TARNISHED_STEEL);
+        addDrop(GallifreyModBlocks.WEATHERED_STEEL_BLOCK);
+        addDrop(GallifreyModBlocks.CORRODED_STEEL_BLOCK);
+        addDrop(GallifreyModBlocks.RUSTED_STEEL_BLOCK);
+        addDrop(GallifreyModBlocks.WAXED_STEEL_BLOCK);
+        addDrop(GallifreyModBlocks.WAXED_TARNISHED_STEEL);
+        addDrop(GallifreyModBlocks.WAXED_WEATHERED_STEEL_BLOCK);
+        addDrop(GallifreyModBlocks.WAXED_CORRODED_STEEL_BLOCK);
+        addDrop(GallifreyModBlocks.WAXED_RUSTED_STEEL_BLOCK);
         addDrop(GallifreyModBlocks.PISS_CRYSTAL);
         addDrop(GallifreyModBlocks.REINFORCED_STEEL_BLOCK);
         addDrop(GallifreyModBlocks.HARTNELL_BLOCK);

@@ -325,42 +325,32 @@ public class GallifreyModBlocks {
 
     public static final Block WAXED_STEEL_BLOCK = registerBlock(
             "waxed_steel_block",
-            new RustingSteelBlock(
-                    0,
-                    FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
-            )
+            // Waxed: never rusts (a plain block, like vanilla waxed copper).
+            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK))
     );
 
     public static final Block WAXED_TARNISHED_STEEL = registerBlock(
             "waxed_tarnished_steel",
-            new RustingSteelBlock(
-                    1,
-                    FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
-            )
+            // Waxed: never rusts (a plain block, like vanilla waxed copper).
+            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK))
     );
 
     public static final Block WAXED_WEATHERED_STEEL_BLOCK = registerBlock(
             "waxed_weathered_steel",
-            new RustingSteelBlock(
-                    2,
-                    FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
-            )
+            // Waxed: never rusts (a plain block, like vanilla waxed copper).
+            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK))
     );
 
     public static final Block WAXED_CORRODED_STEEL_BLOCK = registerBlock(
             "waxed_corroded_steel",
-            new RustingSteelBlock(
-                    3,
-                    FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
-            )
+            // Waxed: never rusts (a plain block, like vanilla waxed copper).
+            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK))
     );
 
     public static final Block WAXED_RUSTED_STEEL_BLOCK = registerBlock(
             "waxed_rusted_steel",
-            new RustingSteelBlock(
-                    4,
-                    FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)
-            )
+            // Waxed: never rusts (a plain block, like vanilla waxed copper).
+            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK))
     );
 
     public static final Block REINFORCED_STEEL_BLOCK = registerBlock(
