@@ -339,6 +339,19 @@
           }
         ]
       }
+    },
+    "casing_hocotate_sonic": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:sonic_screwdriver"
+            ],
+            "nbt": "{SonicCasing:\"hocotate_sonic\"}"
+          }
+        ]
+      }
     }
   },
   "requirements": [
@@ -416,6 +429,9 @@
     ],
     [
       "casing_alastor_staff"
+    ],
+    [
+      "casing_hocotate_sonic"
     ]
   ]
 }

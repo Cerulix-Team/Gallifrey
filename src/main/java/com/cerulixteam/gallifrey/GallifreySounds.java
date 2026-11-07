@@ -123,6 +123,7 @@ public class GallifreySounds {
     public static final SoundEvent SONIC_SIXTH = registerSound("sonic_sixth");
     public static final SoundEvent SONIC_THIRD = registerSound("sonic_third");
     public static final SoundEvent SONIC_THIRTEEN = registerSound("sonic_thirteen");
+    public static final SoundEvent SONIC_HOCOTATE = registerSound("sonic_hocotate");
     public static final SoundEvent TYPE70DEMAT = registerSound("type70demat");
     public static final SoundEvent TYPE70FLIGHT = registerSound("type70flight");
     public static final SoundEvent TYPE70MAT = registerSound("type70mat");

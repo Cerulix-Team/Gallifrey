@@ -1,594 +1,599 @@
 {
-    "vm_take_off": {
-        "sounds": [
-            "gallifrey:vm_take_off"
-        ]
-    },
-    "vm_land": {
-        "sounds": [
-            "gallifrey:vm_land"
-        ]
-    },
-    "sonic": {
-        "sounds": [
-            "gallifrey:sonic"
-        ]
-    },
-    "dw_xiv_music": {
-        "sounds": [
-            {
-                "name": "gallifrey:dw_xiv_music",
-                "stream": true,
-                "attenuation_distance": 8
-            }
-        ]
-    },
-    "gallifrey_music": {
-        "sounds": [
-            {
-                "name": "gallifrey:gallifrey_music",
-                "stream": true,
-                "attenuation_distance": 8
-            }
-        ]
-    },
-    "classic_stone_step_0": {
-        "sounds": [
-            "gallifrey:classic_stone_step_0"
-        ]
-    },
-    "classic_stone_step_1": {
-        "sounds": [
-            "gallifrey:classic_stone_step_1"
-        ]
-    },
-    "classic_stone_step_2": {
-        "sounds": [
-            "gallifrey:classic_stone_step_2"
-        ]
-    },
-    "classic_stone_step_3": {
-        "sounds": [
-            "gallifrey:classic_stone_step_3"
-        ]
-    },
-    "classic_grass_step_0": {
-        "sounds": [
-            "gallifrey:classic_grass_step_0"
-        ]
-    },
-    "classic_grass_step_1": {
-        "sounds": [
-            "gallifrey:classic_grass_step_1"
-        ]
-    },
-    "classic_grass_step_2": {
-        "sounds": [
-            "gallifrey:classic_grass_step_2"
-        ]
-    },
-    "classic_grass_step_3": {
-        "sounds": [
-            "gallifrey:classic_grass_step_3"
-        ]
-    },
-    "classic_wood_step_0": {
-        "sounds": [
-            "gallifrey:classic_wood_step_0"
-        ]
-    },
-    "classic_wood_step_1": {
-        "sounds": [
-            "gallifrey:classic_wood_step_1"
-        ]
-    },
-    "classic_wood_step_2": {
-        "sounds": [
-            "gallifrey:classic_wood_step_2"
-        ]
-    },
-    "classic_wood_step_3": {
-        "sounds": [
-            "gallifrey:classic_wood_step_3"
-        ]
-    },
-    "classic_gravel_step_0": {
-        "sounds": [
-            "gallifrey:classic_gravel_step_0"
-        ]
-    },
-    "classic_gravel_step_1": {
-        "sounds": [
-            "gallifrey:classic_gravel_step_1"
-        ]
-    },
-    "classic_gravel_step_2": {
-        "sounds": [
-            "gallifrey:classic_gravel_step_2"
-        ]
-    },
-    "classic_gravel_step_3": {
-        "sounds": [
-            "gallifrey:classic_gravel_step_3"
-        ]
-    },
-    "classic_hurt": {
-        "sounds": [
-            "gallifrey:classic_hurt"
-        ]
-    },
-    "classic_explosion": {
-        "sounds": [
-            "gallifrey:classic_explosion"
-        ]
-    },
-    "dalek_classic_attack": {
-        "sounds": [
-            "gallifrey:dalek_classic_attack"
-        ]
-    },
-    "bloop": {
-        "sounds": [
-            "gallifrey:bloop"
-        ]
-    },
-    "classic1": {
-        "sounds": [
-            "gallifrey:classic1"
-        ]
-    },
-    "classic2": {
-        "sounds": [
-            "gallifrey:classic2"
-        ]
-    },
-    "cyberman_shoot": {
-        "sounds": [
-            "gallifrey:cyberman_shoot"
-        ]
-    },
-    "cyberman_step": {
-        "sounds": [
-            "gallifrey:cyberman_step"
-        ]
-    },
-    "dalek_action_ambient_0": {
-        "sounds": [
-            "gallifrey:dalek_action_ambient_0"
-        ]
-    },
-    "dalek_action_ambient_1": {
-        "sounds": [
-            "gallifrey:dalek_action_ambient_1"
-        ]
-    },
-    "dalek_action_attack_0": {
-        "sounds": [
-            "gallifrey:dalek_action_attack_0"
-        ]
-    },
-    "dalek_action_attack_1": {
-        "sounds": [
-            "gallifrey:dalek_action_attack_1"
-        ]
-    },
-    "dalek_action_attack_2": {
-        "sounds": [
-            "gallifrey:dalek_action_attack_2"
-        ]
-    },
-    "dalek_beam_shoot": {
-        "sounds": [
-            "gallifrey:dalek_beam_shoot"
-        ]
-    },
-    "dalek_bullet_shoot": {
-        "sounds": [
-            "gallifrey:dalek_bullet_shoot"
-        ]
-    },
-    "dalek_cannon_charge": {
-        "sounds": [
-            "gallifrey:dalek_cannon_charge"
-        ]
-    },
-    "dalek_cannon_shoot": {
-        "sounds": [
-            "gallifrey:dalek_cannon_shoot"
-        ]
-    },
-    "dalek_door_close": {
-        "sounds": [
-            "gallifrey:dalek_door_close"
-        ]
-    },
-    "dalek_door_open": {
-        "sounds": [
-            "gallifrey:dalek_door_open"
-        ]
-    },
-    "dalek_eyestalk_0": {
-        "sounds": [
-            "gallifrey:dalek_eyestalk_0"
-        ]
-    },
-    "dalek_eyestalk_1": {
-        "sounds": [
-            "gallifrey:dalek_eyestalk_1"
-        ]
-    },
-    "dalek_eyestalk_2": {
-        "sounds": [
-            "gallifrey:dalek_eyestalk_2"
-        ]
-    },
-    "dalek_eyestalk_3": {
-        "sounds": [
-            "gallifrey:dalek_eyestalk_3"
-        ]
-    },
-    "dalek_flame_thrower_shoot": {
-        "sounds": [
-            "gallifrey:dalek_flame_thrower_shoot"
-        ]
-    },
-    "dalek_glide": {
-        "sounds": [
-            "gallifrey:dalek_glide"
-        ]
-    },
-    "dalek_glide_start": {
-        "sounds": [
-            "gallifrey:dalek_glide_start"
-        ]
-    },
-    "dalek_gunstick_charge": {
-        "sounds": [
-            "gallifrey:dalek_gunstick_charge"
-        ]
-    },
-    "dalek_gunstick_shoot": {
-        "sounds": [
-            "gallifrey:dalek_gunstick_shoot"
-        ]
-    },
-    "dalek_hover": {
-        "sounds": [
-            "gallifrey:dalek_hover"
-        ]
-    },
-    "dalek_hover_start": {
-        "sounds": [
-            "gallifrey:dalek_hover_start"
-        ]
-    },
-    "dalek_hurt_0": {
-        "sounds": [
-            "gallifrey:dalek_hurt_0"
-        ]
-    },
-    "dalek_hurt_1": {
-        "sounds": [
-            "gallifrey:dalek_hurt_1"
-        ]
-    },
-    "dalek_hurt_2": {
-        "sounds": [
-            "gallifrey:dalek_hurt_2"
-        ]
-    },
-    "dalek_imperial_exterminate": {
-        "sounds": [
-            "gallifrey:dalek_imperial_exterminate"
-        ]
-    },
-    "dalek_imperial_exterminate_2": {
-        "sounds": [
-            "gallifrey:dalek_imperial_exterminate_2"
-        ]
-    },
-    "dalek_imperial_exterminate_3": {
-        "sounds": [
-            "gallifrey:dalek_imperial_exterminate_3"
-        ]
-    },
-    "dalek_imperial_exterminate_4": {
-        "sounds": [
-            "gallifrey:dalek_imperial_exterminate_4"
-        ]
-    },
-    "dalek_imperial_exterminate_5": {
-        "sounds": [
-            "gallifrey:dalek_imperial_exterminate_5"
-        ]
-    },
-    "dalek_imperial_exterminate_6": {
-        "sounds": [
-            "gallifrey:dalek_imperial_exterminate_6"
-        ]
-    },
-    "dalek_imperial_exterminate_7": {
-        "sounds": [
-            "gallifrey:dalek_imperial_exterminate_7"
-        ]
-    },
-    "dalek_imperial_exterminate_8": {
-        "sounds": [
-            "gallifrey:dalek_imperial_exterminate_8"
-        ]
-    },
-    "dalek_imperial_exterminate_9": {
-        "sounds": [
-            "gallifrey:dalek_imperial_exterminate_9"
-        ]
-    },
-    "dalek_imperial_stay_where_you_are": {
-        "sounds": [
-            "gallifrey:dalek_imperial_stay_where_you_are"
-        ]
-    },
-    "dalek_laser_shoot": {
-        "sounds": [
-            "gallifrey:dalek_laser_shoot"
-        ]
-    },
-    "dalek_paradigm_glide": {
-        "sounds": [
-            "gallifrey:dalek_paradigm_glide"
-        ]
-    },
-    "dalek_paradigm_hover": {
-        "sounds": [
-            "gallifrey:dalek_paradigm_hover"
-        ]
-    },
-    "dalek_paradigm_laser_shoot": {
-        "sounds": [
-            "gallifrey:dalek_paradigm_laser_shoot"
-        ]
-    },
-    "dalek_rotate_0": {
-        "sounds": [
-            "gallifrey:dalek_rotate_0"
-        ]
-    },
-    "dalek_rotate_1": {
-        "sounds": [
-            "gallifrey:dalek_rotate_1"
-        ]
-    },
-    "dalek_skaro_ambient_0": {
-        "sounds": [
-            "gallifrey:dalek_skaro_ambient_0"
-        ]
-    },
-    "dalek_skaro_ambient_1": {
-        "sounds": [
-            "gallifrey:dalek_skaro_ambient_1"
-        ]
-    },
-    "dalek_skaro_ambient_2": {
-        "sounds": [
-            "gallifrey:dalek_skaro_ambient_2"
-        ]
-    },
-    "dalek_skaro_ambient_3": {
-        "sounds": [
-            "gallifrey:dalek_skaro_ambient_3"
-        ]
-    },
-    "dalek_skaro_ambient_4": {
-        "sounds": [
-            "gallifrey:dalek_skaro_ambient_4"
-        ]
-    },
-    "dalek_skaro_ambient_5": {
-        "sounds": [
-            "gallifrey:dalek_skaro_ambient_5"
-        ]
-    },
-    "dalek_skaro_attack_0": {
-        "sounds": [
-            "gallifrey:dalek_skaro_attack_0"
-        ]
-    },
-    "dalek_skaro_attack_1": {
-        "sounds": [
-            "gallifrey:dalek_skaro_attack_1"
-        ]
-    },
-    "dalek_skaro_attack_2": {
-        "sounds": [
-            "gallifrey:dalek_skaro_attack_2"
-        ]
-    },
-    "dalek_skaro_attack_3": {
-        "sounds": [
-            "gallifrey:dalek_skaro_attack_3"
-        ]
-    },
-    "dalek_skaro_attack_4": {
-        "sounds": [
-            "gallifrey:dalek_skaro_attack_4"
-        ]
-    },
-    "dalek_skaro_attack_5": {
-        "sounds": [
-            "gallifrey:dalek_skaro_attack_5"
-        ]
-    },
-    "dalek_skaro_attack_6": {
-        "sounds": [
-            "gallifrey:dalek_skaro_attack_6"
-        ]
-    },
-    "dalek_smoke_shoot": {
-        "sounds": [
-            "gallifrey:dalek_smoke_shoot"
-        ]
-    },
-    "dalek_spark_shoot": {
-        "sounds": [
-            "gallifrey:dalek_spark_shoot"
-        ]
-    },
-    "dalek_special_weapons_charge": {
-        "sounds": [
-            "gallifrey:dalek_special_weapons_charge"
-        ]
-    },
-    "dalek_special_weapons_shoot": {
-        "sounds": [
-            "gallifrey:dalek_special_weapons_shoot"
-        ]
-    },
-    "dalek_time_war_attack_0": {
-        "sounds": [
-            "gallifrey:dalek_time_war_attack_0"
-        ]
-    },
-    "dalek_time_war_attack_1": {
-        "sounds": [
-            "gallifrey:dalek_time_war_attack_1"
-        ]
-    },
-    "dalek_time_war_attack_2": {
-        "sounds": [
-            "gallifrey:dalek_time_war_attack_2"
-        ]
-    },
-    "dalek_time_war_attack_3": {
-        "sounds": [
-            "gallifrey:dalek_time_war_attack_3"
-        ]
-    },
-    "dalek_time_war_attack_4": {
-        "sounds": [
-            "gallifrey:dalek_time_war_attack_4"
-        ]
-    },
-    "doctorwho1411": {
-        "sounds": [
-            "gallifrey:doctorwho1411"
-        ]
-    },
-    "doctorwhoxv": {
-        "sounds": [
-            "gallifrey:doctorwhoxv"
-        ]
-    },
-    "drwhovale": {
-        "sounds": [
-            {
-                "name": "gallifrey:drwhovale",
-                "stream": true
-            }
-        ]
-    },
-    "dugga_doo": {
-        "sounds": [
-            {
-                "name": "gallifrey:dugga_doo",
-                "stream": true
-            }
-        ]
-    },
-    "emergency_land": {
-        "sounds": [
-            "gallifrey:emergency_land"
-        ]
-    },
-    "paradoxmat": {
-        "sounds": [
-            "gallifrey:paradoxmat"
-        ]
-    },
-    "police_box_door_close": {
-        "sounds": [
-            "gallifrey:police_box_door_close"
-        ]
-    },
-    "police_box_door_open": {
-        "sounds": [
-            "gallifrey:police_box_door_open"
-        ]
-    },
-    "sonic_eleventh": {
-        "sounds": [
-            "gallifrey:sonic_eleventh"
-        ]
-    },
-    "sonic_fifth": {
-        "sounds": [
-            "gallifrey:sonic_fifth"
-        ]
-    },
-    "sonic_fourteen": {
-        "sounds": [
-            "gallifrey:sonic_fourteen"
-        ]
-    },
-    "sonic_fourth": {
-        "sounds": [
-            "gallifrey:sonic_fourth"
-        ]
-    },
-    "sonic_ninth": {
-        "sounds": [
-            "gallifrey:sonic_ninth"
-        ]
-    },
-    "sonic_second": {
-        "sounds": [
-            "gallifrey:sonic_second"
-        ]
-    },
-    "sonic_seven": {
-        "sounds": [
-            "gallifrey:sonic_seven"
-        ]
-    },
-    "sonic_sixth": {
-        "sounds": [
-            "gallifrey:sonic_sixth"
-        ]
-    },
-    "sonic_third": {
-        "sounds": [
-            "gallifrey:sonic_third"
-        ]
-    },
-    "sonic_thirteen": {
-        "sounds": [
-            "gallifrey:sonic_thirteen"
-        ]
-    },
-    "type70demat": {
-        "sounds": [
-            "gallifrey:type70demat"
-        ]
-    },
-    "type70flight": {
-        "sounds": [
-            "gallifrey:type70flight"
-        ]
-    },
-    "type70mat": {
-        "sounds": [
-            "gallifrey:type70mat"
-        ]
-    },
-    "mondas_blizzard_wind": {
-        "sounds": [
-            "gallifrey:mondas_blizzard_wind"
-        ]
-    },
-    "duggao_doo": {
-        "sounds": [
-            {
-                "name": "gallifrey:dugga_doo",
-                "stream": true
-            }
-        ]
-    }
+  "vm_take_off": {
+    "sounds": [
+      "gallifrey:vm_take_off"
+    ]
+  },
+  "vm_land": {
+    "sounds": [
+      "gallifrey:vm_land"
+    ]
+  },
+  "sonic": {
+    "sounds": [
+      "gallifrey:sonic"
+    ]
+  },
+  "dw_xiv_music": {
+    "sounds": [
+      {
+        "name": "gallifrey:dw_xiv_music",
+        "stream": true,
+        "attenuation_distance": 8
+      }
+    ]
+  },
+  "gallifrey_music": {
+    "sounds": [
+      {
+        "name": "gallifrey:gallifrey_music",
+        "stream": true,
+        "attenuation_distance": 8
+      }
+    ]
+  },
+  "classic_stone_step_0": {
+    "sounds": [
+      "gallifrey:classic_stone_step_0"
+    ]
+  },
+  "classic_stone_step_1": {
+    "sounds": [
+      "gallifrey:classic_stone_step_1"
+    ]
+  },
+  "classic_stone_step_2": {
+    "sounds": [
+      "gallifrey:classic_stone_step_2"
+    ]
+  },
+  "classic_stone_step_3": {
+    "sounds": [
+      "gallifrey:classic_stone_step_3"
+    ]
+  },
+  "classic_grass_step_0": {
+    "sounds": [
+      "gallifrey:classic_grass_step_0"
+    ]
+  },
+  "classic_grass_step_1": {
+    "sounds": [
+      "gallifrey:classic_grass_step_1"
+    ]
+  },
+  "classic_grass_step_2": {
+    "sounds": [
+      "gallifrey:classic_grass_step_2"
+    ]
+  },
+  "classic_grass_step_3": {
+    "sounds": [
+      "gallifrey:classic_grass_step_3"
+    ]
+  },
+  "classic_wood_step_0": {
+    "sounds": [
+      "gallifrey:classic_wood_step_0"
+    ]
+  },
+  "classic_wood_step_1": {
+    "sounds": [
+      "gallifrey:classic_wood_step_1"
+    ]
+  },
+  "classic_wood_step_2": {
+    "sounds": [
+      "gallifrey:classic_wood_step_2"
+    ]
+  },
+  "classic_wood_step_3": {
+    "sounds": [
+      "gallifrey:classic_wood_step_3"
+    ]
+  },
+  "classic_gravel_step_0": {
+    "sounds": [
+      "gallifrey:classic_gravel_step_0"
+    ]
+  },
+  "classic_gravel_step_1": {
+    "sounds": [
+      "gallifrey:classic_gravel_step_1"
+    ]
+  },
+  "classic_gravel_step_2": {
+    "sounds": [
+      "gallifrey:classic_gravel_step_2"
+    ]
+  },
+  "classic_gravel_step_3": {
+    "sounds": [
+      "gallifrey:classic_gravel_step_3"
+    ]
+  },
+  "classic_hurt": {
+    "sounds": [
+      "gallifrey:classic_hurt"
+    ]
+  },
+  "classic_explosion": {
+    "sounds": [
+      "gallifrey:classic_explosion"
+    ]
+  },
+  "dalek_classic_attack": {
+    "sounds": [
+      "gallifrey:dalek_classic_attack"
+    ]
+  },
+  "bloop": {
+    "sounds": [
+      "gallifrey:bloop"
+    ]
+  },
+  "classic1": {
+    "sounds": [
+      "gallifrey:classic1"
+    ]
+  },
+  "classic2": {
+    "sounds": [
+      "gallifrey:classic2"
+    ]
+  },
+  "cyberman_shoot": {
+    "sounds": [
+      "gallifrey:cyberman_shoot"
+    ]
+  },
+  "cyberman_step": {
+    "sounds": [
+      "gallifrey:cyberman_step"
+    ]
+  },
+  "dalek_action_ambient_0": {
+    "sounds": [
+      "gallifrey:dalek_action_ambient_0"
+    ]
+  },
+  "dalek_action_ambient_1": {
+    "sounds": [
+      "gallifrey:dalek_action_ambient_1"
+    ]
+  },
+  "dalek_action_attack_0": {
+    "sounds": [
+      "gallifrey:dalek_action_attack_0"
+    ]
+  },
+  "dalek_action_attack_1": {
+    "sounds": [
+      "gallifrey:dalek_action_attack_1"
+    ]
+  },
+  "dalek_action_attack_2": {
+    "sounds": [
+      "gallifrey:dalek_action_attack_2"
+    ]
+  },
+  "dalek_beam_shoot": {
+    "sounds": [
+      "gallifrey:dalek_beam_shoot"
+    ]
+  },
+  "dalek_bullet_shoot": {
+    "sounds": [
+      "gallifrey:dalek_bullet_shoot"
+    ]
+  },
+  "dalek_cannon_charge": {
+    "sounds": [
+      "gallifrey:dalek_cannon_charge"
+    ]
+  },
+  "dalek_cannon_shoot": {
+    "sounds": [
+      "gallifrey:dalek_cannon_shoot"
+    ]
+  },
+  "dalek_door_close": {
+    "sounds": [
+      "gallifrey:dalek_door_close"
+    ]
+  },
+  "dalek_door_open": {
+    "sounds": [
+      "gallifrey:dalek_door_open"
+    ]
+  },
+  "dalek_eyestalk_0": {
+    "sounds": [
+      "gallifrey:dalek_eyestalk_0"
+    ]
+  },
+  "dalek_eyestalk_1": {
+    "sounds": [
+      "gallifrey:dalek_eyestalk_1"
+    ]
+  },
+  "dalek_eyestalk_2": {
+    "sounds": [
+      "gallifrey:dalek_eyestalk_2"
+    ]
+  },
+  "dalek_eyestalk_3": {
+    "sounds": [
+      "gallifrey:dalek_eyestalk_3"
+    ]
+  },
+  "dalek_flame_thrower_shoot": {
+    "sounds": [
+      "gallifrey:dalek_flame_thrower_shoot"
+    ]
+  },
+  "dalek_glide": {
+    "sounds": [
+      "gallifrey:dalek_glide"
+    ]
+  },
+  "dalek_glide_start": {
+    "sounds": [
+      "gallifrey:dalek_glide_start"
+    ]
+  },
+  "dalek_gunstick_charge": {
+    "sounds": [
+      "gallifrey:dalek_gunstick_charge"
+    ]
+  },
+  "dalek_gunstick_shoot": {
+    "sounds": [
+      "gallifrey:dalek_gunstick_shoot"
+    ]
+  },
+  "dalek_hover": {
+    "sounds": [
+      "gallifrey:dalek_hover"
+    ]
+  },
+  "dalek_hover_start": {
+    "sounds": [
+      "gallifrey:dalek_hover_start"
+    ]
+  },
+  "dalek_hurt_0": {
+    "sounds": [
+      "gallifrey:dalek_hurt_0"
+    ]
+  },
+  "dalek_hurt_1": {
+    "sounds": [
+      "gallifrey:dalek_hurt_1"
+    ]
+  },
+  "dalek_hurt_2": {
+    "sounds": [
+      "gallifrey:dalek_hurt_2"
+    ]
+  },
+  "dalek_imperial_exterminate": {
+    "sounds": [
+      "gallifrey:dalek_imperial_exterminate"
+    ]
+  },
+  "dalek_imperial_exterminate_2": {
+    "sounds": [
+      "gallifrey:dalek_imperial_exterminate_2"
+    ]
+  },
+  "dalek_imperial_exterminate_3": {
+    "sounds": [
+      "gallifrey:dalek_imperial_exterminate_3"
+    ]
+  },
+  "dalek_imperial_exterminate_4": {
+    "sounds": [
+      "gallifrey:dalek_imperial_exterminate_4"
+    ]
+  },
+  "dalek_imperial_exterminate_5": {
+    "sounds": [
+      "gallifrey:dalek_imperial_exterminate_5"
+    ]
+  },
+  "dalek_imperial_exterminate_6": {
+    "sounds": [
+      "gallifrey:dalek_imperial_exterminate_6"
+    ]
+  },
+  "dalek_imperial_exterminate_7": {
+    "sounds": [
+      "gallifrey:dalek_imperial_exterminate_7"
+    ]
+  },
+  "dalek_imperial_exterminate_8": {
+    "sounds": [
+      "gallifrey:dalek_imperial_exterminate_8"
+    ]
+  },
+  "dalek_imperial_exterminate_9": {
+    "sounds": [
+      "gallifrey:dalek_imperial_exterminate_9"
+    ]
+  },
+  "dalek_imperial_stay_where_you_are": {
+    "sounds": [
+      "gallifrey:dalek_imperial_stay_where_you_are"
+    ]
+  },
+  "dalek_laser_shoot": {
+    "sounds": [
+      "gallifrey:dalek_laser_shoot"
+    ]
+  },
+  "dalek_paradigm_glide": {
+    "sounds": [
+      "gallifrey:dalek_paradigm_glide"
+    ]
+  },
+  "dalek_paradigm_hover": {
+    "sounds": [
+      "gallifrey:dalek_paradigm_hover"
+    ]
+  },
+  "dalek_paradigm_laser_shoot": {
+    "sounds": [
+      "gallifrey:dalek_paradigm_laser_shoot"
+    ]
+  },
+  "dalek_rotate_0": {
+    "sounds": [
+      "gallifrey:dalek_rotate_0"
+    ]
+  },
+  "dalek_rotate_1": {
+    "sounds": [
+      "gallifrey:dalek_rotate_1"
+    ]
+  },
+  "dalek_skaro_ambient_0": {
+    "sounds": [
+      "gallifrey:dalek_skaro_ambient_0"
+    ]
+  },
+  "dalek_skaro_ambient_1": {
+    "sounds": [
+      "gallifrey:dalek_skaro_ambient_1"
+    ]
+  },
+  "dalek_skaro_ambient_2": {
+    "sounds": [
+      "gallifrey:dalek_skaro_ambient_2"
+    ]
+  },
+  "dalek_skaro_ambient_3": {
+    "sounds": [
+      "gallifrey:dalek_skaro_ambient_3"
+    ]
+  },
+  "dalek_skaro_ambient_4": {
+    "sounds": [
+      "gallifrey:dalek_skaro_ambient_4"
+    ]
+  },
+  "dalek_skaro_ambient_5": {
+    "sounds": [
+      "gallifrey:dalek_skaro_ambient_5"
+    ]
+  },
+  "dalek_skaro_attack_0": {
+    "sounds": [
+      "gallifrey:dalek_skaro_attack_0"
+    ]
+  },
+  "dalek_skaro_attack_1": {
+    "sounds": [
+      "gallifrey:dalek_skaro_attack_1"
+    ]
+  },
+  "dalek_skaro_attack_2": {
+    "sounds": [
+      "gallifrey:dalek_skaro_attack_2"
+    ]
+  },
+  "dalek_skaro_attack_3": {
+    "sounds": [
+      "gallifrey:dalek_skaro_attack_3"
+    ]
+  },
+  "dalek_skaro_attack_4": {
+    "sounds": [
+      "gallifrey:dalek_skaro_attack_4"
+    ]
+  },
+  "dalek_skaro_attack_5": {
+    "sounds": [
+      "gallifrey:dalek_skaro_attack_5"
+    ]
+  },
+  "dalek_skaro_attack_6": {
+    "sounds": [
+      "gallifrey:dalek_skaro_attack_6"
+    ]
+  },
+  "dalek_smoke_shoot": {
+    "sounds": [
+      "gallifrey:dalek_smoke_shoot"
+    ]
+  },
+  "dalek_spark_shoot": {
+    "sounds": [
+      "gallifrey:dalek_spark_shoot"
+    ]
+  },
+  "dalek_special_weapons_charge": {
+    "sounds": [
+      "gallifrey:dalek_special_weapons_charge"
+    ]
+  },
+  "dalek_special_weapons_shoot": {
+    "sounds": [
+      "gallifrey:dalek_special_weapons_shoot"
+    ]
+  },
+  "dalek_time_war_attack_0": {
+    "sounds": [
+      "gallifrey:dalek_time_war_attack_0"
+    ]
+  },
+  "dalek_time_war_attack_1": {
+    "sounds": [
+      "gallifrey:dalek_time_war_attack_1"
+    ]
+  },
+  "dalek_time_war_attack_2": {
+    "sounds": [
+      "gallifrey:dalek_time_war_attack_2"
+    ]
+  },
+  "dalek_time_war_attack_3": {
+    "sounds": [
+      "gallifrey:dalek_time_war_attack_3"
+    ]
+  },
+  "dalek_time_war_attack_4": {
+    "sounds": [
+      "gallifrey:dalek_time_war_attack_4"
+    ]
+  },
+  "doctorwho1411": {
+    "sounds": [
+      "gallifrey:doctorwho1411"
+    ]
+  },
+  "doctorwhoxv": {
+    "sounds": [
+      "gallifrey:doctorwhoxv"
+    ]
+  },
+  "drwhovale": {
+    "sounds": [
+      {
+        "name": "gallifrey:drwhovale",
+        "stream": true
+      }
+    ]
+  },
+  "dugga_doo": {
+    "sounds": [
+      {
+        "name": "gallifrey:dugga_doo",
+        "stream": true
+      }
+    ]
+  },
+  "emergency_land": {
+    "sounds": [
+      "gallifrey:emergency_land"
+    ]
+  },
+  "paradoxmat": {
+    "sounds": [
+      "gallifrey:paradoxmat"
+    ]
+  },
+  "police_box_door_close": {
+    "sounds": [
+      "gallifrey:police_box_door_close"
+    ]
+  },
+  "police_box_door_open": {
+    "sounds": [
+      "gallifrey:police_box_door_open"
+    ]
+  },
+  "sonic_eleventh": {
+    "sounds": [
+      "gallifrey:sonic_eleventh"
+    ]
+  },
+  "sonic_fifth": {
+    "sounds": [
+      "gallifrey:sonic_fifth"
+    ]
+  },
+  "sonic_fourteen": {
+    "sounds": [
+      "gallifrey:sonic_fourteen"
+    ]
+  },
+  "sonic_fourth": {
+    "sounds": [
+      "gallifrey:sonic_fourth"
+    ]
+  },
+  "sonic_ninth": {
+    "sounds": [
+      "gallifrey:sonic_ninth"
+    ]
+  },
+  "sonic_second": {
+    "sounds": [
+      "gallifrey:sonic_second"
+    ]
+  },
+  "sonic_seven": {
+    "sounds": [
+      "gallifrey:sonic_seven"
+    ]
+  },
+  "sonic_sixth": {
+    "sounds": [
+      "gallifrey:sonic_sixth"
+    ]
+  },
+  "sonic_third": {
+    "sounds": [
+      "gallifrey:sonic_third"
+    ]
+  },
+  "sonic_thirteen": {
+    "sounds": [
+      "gallifrey:sonic_thirteen"
+    ]
+  },
+  "type70demat": {
+    "sounds": [
+      "gallifrey:type70demat"
+    ]
+  },
+  "type70flight": {
+    "sounds": [
+      "gallifrey:type70flight"
+    ]
+  },
+  "type70mat": {
+    "sounds": [
+      "gallifrey:type70mat"
+    ]
+  },
+  "mondas_blizzard_wind": {
+    "sounds": [
+      "gallifrey:mondas_blizzard_wind"
+    ]
+  },
+  "duggao_doo": {
+    "sounds": [
+      {
+        "name": "gallifrey:dugga_doo",
+        "stream": true
+      }
+    ]
+  },
+  "sonic_hocotate": {
+    "sounds": [
+      "gallifrey:sonic_hocotate"
+    ]
+  }
 }

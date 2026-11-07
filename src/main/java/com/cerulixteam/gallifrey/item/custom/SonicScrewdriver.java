@@ -521,6 +521,7 @@ public class SonicScrewdriver extends Item {
             case THIRTEENTH_DOCTOR, FIFTEENTH_DOCTOR, FIFTEENTH_DOCTOR_GREEN,
                     FIFTEENTH_DOCTOR_RED, FIFTEENTH_DOCTOR_YELLOW -> GallifreySounds.SONIC_THIRTEEN;
             case FOURTEENTH_DOCTOR -> GallifreySounds.SONIC_FOURTEEN;
+            case HOCOTATE_SONIC -> GallifreySounds.SONIC_HOCOTATE;
             default -> GallifreySounds.SONIC;
         };
     }

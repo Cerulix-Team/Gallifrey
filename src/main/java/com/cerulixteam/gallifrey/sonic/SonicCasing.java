@@ -126,6 +126,11 @@ public enum SonicCasing {
     ALASTOR_STAFF(
             "alastor_staff",
             "Alastor's Staff"
+    ),
+
+    HOCOTATE_SONIC(
+            "hocotate_sonic",
+            "Hocotate"
     );
 
     private final String id;
