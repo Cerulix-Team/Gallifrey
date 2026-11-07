@@ -1,0 +1,18 @@
+{
+  "name": "Collectables",
+  "icon": "gallifrey:music_disc_creator",
+  "category": "gallifrey:backported",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:music_disc_creator",
+      "text": "New discs: $(item)Creator$(), $(item)Creator (Music Box)$() and $(item)Precipice$(). Look in Trial Chamber vaults."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:flow_armor_trim_smithing_template",
+      "text": "The $(thing)Flow$() and $(thing)Bolt$() armour trims, the $(thing)Flow$() and $(thing)Guster$() banner patterns, and new pottery sherds. All of them come from Trial Chambers."
+    }
+  ]
+}

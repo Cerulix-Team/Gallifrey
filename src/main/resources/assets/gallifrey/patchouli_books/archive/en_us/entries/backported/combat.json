@@ -1,0 +1,23 @@
+{
+  "name": "Weapons of Later Wars",
+  "icon": "gallifrey:mace",
+  "category": "gallifrey:backported",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:mace",
+      "text": "The $(item)Mace$() is made from a $(item)Heavy Core$() and a $(item)Breeze Rod$(). Hit something while falling and the harder you fall, the harder you hit. It also cancels your fall damage.$(br2)$(thing)Density$() adds to the smash, $(thing)Breach$() pierces armour, and $(thing)Wind Burst$() bounces you back up."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:wind_charge",
+      "text": "A $(item)Wind Charge$() bursts into a gust that pushes everything away, you included. Throw one at your feet to leap."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:iron_spear",
+      "text": "$(item)Spears$() charge: sprint at a target and the hit grows with your speed. $(thing)Lunge$() makes the charge longer."
+    }
+  ]
+}

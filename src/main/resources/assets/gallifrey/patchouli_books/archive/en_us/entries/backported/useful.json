@@ -1,0 +1,27 @@
+{
+  "name": "Useful Blocks",
+  "icon": "gallifrey:crafter",
+  "category": "gallifrey:backported",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:crafter",
+      "text": "A $(item)Crafter$() crafts with a redstone pulse, using the recipe you lay out in its grid. Click a slot to lock it."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:oak_shelf",
+      "text": "$(item)Shelves$() hold three items on display."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:bundle",
+      "text": "$(item)Bundles$() carry a stack's worth of mixed items in one slot. Dye them any colour."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(item)Decorated Pots$() now hold a stack of items: use an item on one to put it in. Smash the pot to get them back. Pots in Trial Chambers come with loot inside."
+    }
+  ]
+}

@@ -1357,5 +1357,10 @@
   "block.gallifrey.waxed_exposed_lightning_rod": "Tarred Weathered-ish Lightning Rod",
   "block.gallifrey.waxed_weathered_lightning_rod": "Tarred Sea-worn Lightning Rod",
   "block.gallifrey.waxed_oxidized_lightning_rod": "Tarred Barnacled Lightning Rod",
-  "effect.gallifrey.raid_omen": "Raid Omen"
+  "effect.gallifrey.raid_omen": "Raid Omen",
+  "block.gallifrey.gallifreyan_vault": "Gallifreyan Strongbox",
+  "item.gallifrey.gallifreyan_trial_key": "Gallifreyan Trial by Sea Key",
+  "item.gallifrey.ominous_gallifreyan_trial_key": "Cursed Gallifreyan Trial by Sea Key",
+  "biome.gallifrey.gallifreyan_pale_garden": "Ghostly Gallifreyan Garden",
+  "biome.gallifrey.gallifreyan_sulfur_caves": "Gallifreyan Brimstone Grottos"
 }

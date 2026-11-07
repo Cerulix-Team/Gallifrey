@@ -1,0 +1,32 @@
+{
+  "name": "Creatures",
+  "icon": "gallifrey:armadillo_scute",
+  "category": "gallifrey:backported",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:armadillo_scute",
+      "text": "$(thing)Armadillos$() roll up when scared. Brush one for a $(item)Scute$(), and make $(item)Wolf Armor$() from six of them. Wolf Armor takes the damage instead of your wolf, can be dyed, and comes off with shears."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:dried_ghast",
+      "text": "Leave a $(item)Dried Ghast$() in water and it slowly rehydrates, then hatches a ghastling. It grows into a $(thing)Happy Ghast$(), and four of you can ride it once it wears a $(item)Harness$(). Feed it snowballs."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:copper_golem_spawn_egg",
+      "text": "Put a carved pumpkin on a copper block to build a $(thing)Copper Golem$(). It carries items from copper chests to the other chests nearby. Left to rust all the way, it may turn into a statue (use a statue to change its pose). Wax or scrape it like copper. It will wear a poppy if you give it one."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:nautilus_spawn_egg",
+      "text": "Tame a $(thing)Nautilus$() in warm oceans with pufferfish, then saddle and armour it to ride it underwater. $(thing)Zombie Nautiluses$() lurk in the dark."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "Also new: $(thing)Bogged$() (poisonous mossy skeletons in swamps), $(thing)Parched$() (skeletons of the desert), $(thing)Camel Husks$() carrying a husk and a parched, wolves in eight new coats, and warm and cold kinds of cows, pigs and chickens. Warm and cold chickens lay brown and blue eggs."
+    }
+  ]
+}

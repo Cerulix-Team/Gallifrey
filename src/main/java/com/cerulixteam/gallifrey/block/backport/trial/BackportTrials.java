@@ -64,13 +64,19 @@ public final class BackportTrials {
             .mapColor(MapColor.STONE_GRAY).luminance(s -> s.get(VaultBlock.STATE).light).strength(50.0F).sounds(com.cerulixteam.gallifrey.block.backport.BackportSoundGroups.VAULT)
             .nonOpaque().blockVision((s, w, p) -> false)), Rarity.COMMON);
 
+    /** The Gallifreyan Trial Chambers' vault: the same, in white and gold, opened with Gallifreyan Trial Keys. */
+    public static final VaultBlock GALLIFREYAN_VAULT = block("gallifreyan_vault", new VaultBlock(FabricBlockSettings.copyOf(VAULT).mapColor(MapColor.GOLD)), Rarity.UNCOMMON);
+
     public static final BlockEntityType<TrialSpawnerBlockEntity> TRIAL_SPAWNER_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, id("trial_spawner"),
             FabricBlockEntityTypeBuilder.create(TrialSpawnerBlockEntity::new, TRIAL_SPAWNER).build());
     public static final BlockEntityType<VaultBlockEntity> VAULT_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, id("vault"),
-            FabricBlockEntityTypeBuilder.create(VaultBlockEntity::new, VAULT).build());
+            FabricBlockEntityTypeBuilder.create(VaultBlockEntity::new, VAULT, GALLIFREYAN_VAULT).build());
 
     public static final Item TRIAL_KEY = item("trial_key", new Item(new FabricItemSettings()));
     public static final Item OMINOUS_TRIAL_KEY = item("ominous_trial_key", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
+
+    public static final Item GALLIFREYAN_TRIAL_KEY = item("gallifreyan_trial_key", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
+    public static final Item OMINOUS_GALLIFREYAN_TRIAL_KEY = item("ominous_gallifreyan_trial_key", new Item(new FabricItemSettings().rarity(Rarity.RARE)));
 
     public static final StatusEffect TRIAL_OMEN = Registry.register(Registries.STATUS_EFFECT, id("trial_omen"),
             new BackportEffect(StatusEffectCategory.NEUTRAL, 0x16A6A6));

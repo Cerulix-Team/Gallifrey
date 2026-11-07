@@ -1366,5 +1366,10 @@
   "block.gallifrey.waxed_exposed_lightning_rod": "Waxd Expoesd Lightning Rod",
   "block.gallifrey.waxed_weathered_lightning_rod": "Waxd Wethurd Lightning Rod",
   "block.gallifrey.waxed_oxidized_lightning_rod": "Waxd Rustid Lightning Rod",
-  "effect.gallifrey.raid_omen": "Raid Omen"
+  "effect.gallifrey.raid_omen": "Raid Omen",
+  "block.gallifrey.gallifreyan_vault": "Gallifreeyan Vawlt",
+  "item.gallifrey.gallifreyan_trial_key": "Gallifreeyan Triel Kee",
+  "item.gallifrey.ominous_gallifreyan_trial_key": "Omenus Gallifreeyan Triel Kee",
+  "biome.gallifrey.gallifreyan_pale_garden": "Gallifreeyan Payl Gardn",
+  "biome.gallifrey.gallifreyan_sulfur_caves": "Gallifreeyan Sulfr Kaves"
 }

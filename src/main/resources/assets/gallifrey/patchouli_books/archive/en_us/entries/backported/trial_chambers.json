@@ -1,0 +1,27 @@
+{
+  "name": "Trial Chambers",
+  "icon": "gallifrey:trial_spawner",
+  "category": "gallifrey:backported",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Copper and tuff halls buried deep underground. They're full of $(item)Trial Spawners$(), which wake when you come close and send a wave of mobs. The more players there are, the bigger the wave. Beat it and each player gets a reward, often a $(item)Trial Key$()."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:vault",
+      "text": "A $(item)Vault$() opens once per player for a $(item)Trial Key$(), and hands out its treasure. Ominous Vaults need an $(item)Ominous Trial Key$() and hold the best loot, including the $(item)Heavy Core$()."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:ominous_trial_key",
+      "text": "Drink an $(item)Ominous Bottle$() and come near a Trial Spawner: your Bad Omen becomes $(thing)Trial Omen$(), and the spawners turn ominous. You get tougher waves, items raining down on you, and Ominous Trial Keys as rewards."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:breeze_rod",
+      "text": "The $(thing)Breeze$() lives here. It leaps about, throws $(item)Wind Charges$() and knocks your arrows aside. It drops $(item)Breeze Rods$()."
+    }
+  ]
+}

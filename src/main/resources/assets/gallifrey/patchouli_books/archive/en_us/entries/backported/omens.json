@@ -1,0 +1,13 @@
+{
+  "name": "Omens",
+  "icon": "gallifrey:ominous_bottle",
+  "category": "gallifrey:backported",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:ominous_bottle",
+      "text": "Pillagers sometimes drop $(item)Ominous Bottles$(). Drink one for $(thing)Bad Omen$().$(br2)In a village, Bad Omen becomes $(thing)Raid Omen$(), and the raid begins 30 seconds later. Milk calms it.$(br2)Near a Trial Spawner it becomes $(thing)Trial Omen$() instead."
+    }
+  ]
+}

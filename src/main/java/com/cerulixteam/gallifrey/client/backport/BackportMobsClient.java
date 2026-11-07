@@ -75,7 +75,8 @@ public final class BackportMobsClient {
         net.minecraft.client.render.block.entity.BlockEntityRendererFactories.register(
                 com.cerulixteam.gallifrey.block.backport.trial.BackportTrials.VAULT_ENTITY, VaultRenderer::new);
         net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap.INSTANCE.putBlocks(net.minecraft.client.render.RenderLayer.getCutout(),
-                com.cerulixteam.gallifrey.block.backport.trial.BackportTrials.TRIAL_SPAWNER, com.cerulixteam.gallifrey.block.backport.trial.BackportTrials.VAULT);
+                com.cerulixteam.gallifrey.block.backport.trial.BackportTrials.TRIAL_SPAWNER, com.cerulixteam.gallifrey.block.backport.trial.BackportTrials.VAULT,
+                com.cerulixteam.gallifrey.block.backport.trial.BackportTrials.GALLIFREYAN_VAULT);
 
         EntityRendererRegistry.register(BackportMobs.BREEZE, ctx -> new Renderer<BreezeEntity>(ctx, new Model<>("breeze", e -> BackportGeo.tex("breeze/breeze"),
                 BackportMobsClient::breeze), 0.6F)

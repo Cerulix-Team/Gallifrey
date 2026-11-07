@@ -1,0 +1,45 @@
+{
+  "spawn_range": 4,
+  "total_mobs": 5,
+  "total_mobs_added_per_player": 1,
+  "simultaneous_mobs": 2,
+  "simultaneous_mobs_added_per_player": 0.5,
+  "ticks_between_spawn": 60,
+  "spawn_potentials": [
+    {
+      "data": {
+        "entity": {
+          "id": "gallifrey:skaro_city_dalek"
+        }
+      },
+      "weight": 3
+    },
+    {
+      "data": {
+        "entity": {
+          "id": "gallifrey:skaro_city_dalek_alt"
+        }
+      },
+      "weight": 2
+    },
+    {
+      "data": {
+        "entity": {
+          "id": "gallifrey:supreme_council_dalek"
+        }
+      },
+      "weight": 1
+    }
+  ],
+  "loot_tables_to_eject": [
+    {
+      "data": "gallifrey:spawners/ominous/trial_chamber/consumables",
+      "weight": 1
+    },
+    {
+      "data": "gallifrey:spawners/ominous/gallifreyan_trial_chamber/key",
+      "weight": 1
+    }
+  ],
+  "items_to_drop_when_ominous": "gallifrey:spawners/trial_chamber/items_to_drop_when_ominous"
+}

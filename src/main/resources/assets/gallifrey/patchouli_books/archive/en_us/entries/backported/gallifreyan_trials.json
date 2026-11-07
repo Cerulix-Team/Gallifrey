@@ -1,0 +1,22 @@
+{
+  "name": "Gallifreyan Trial Chambers",
+  "icon": "gallifrey:gallifreyan_vault",
+  "category": "gallifrey:backported",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "On Gallifrey the Time Lords built trial chambers of their own, in white quartz, bronze and roundels. Their spawners send $(thing)Daleks$(), $(thing)Cybermen$() and $(thing)Cybermats$() instead of zombies and skeletons. The waves are smaller, but every enemy is far tougher."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:gallifreyan_vault",
+      "text": "$(item)Gallifreyan Vaults$() only open for $(item)Gallifreyan Trial Keys$(), which you earn from these spawners. Inside are the usual rewards plus Time Lord technology: sonic crystals, an atrium core, circuits and more. Ominous ones can even give a $(item)Vortex Manipulator$()."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:ominous_gallifreyan_trial_key",
+      "text": "Trial Omen works here too. Ominous Gallifreyan spawners call in the Supreme Council's own Dalek."
+    }
+  ]
+}

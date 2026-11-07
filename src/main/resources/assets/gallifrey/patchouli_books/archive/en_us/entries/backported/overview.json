@@ -1,0 +1,16 @@
+{
+  "name": "About This Section",
+  "icon": "gallifrey:trial_key",
+  "category": "gallifrey:backported",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Somewhere down the timeline the world grew: new stone, new copper, new creatures and whole new places. Gallifrey has brought them back.$(br2)Everything here is ordinary survival content. You find it, craft it or meet it in the world, just as you would in the timeline it came from."
+    },
+    {
+      "type": "patchouli:text",
+      "text": "$(li)$(l:gallifrey:backported/building)Building blocks$()$(li)$(l:gallifrey:backported/biomes)New biomes$()$(li)$(l:gallifrey:backported/trial_chambers)Trial Chambers$()$(li)$(l:gallifrey:backported/gallifreyan_trials)Gallifreyan Trial Chambers$()$(li)$(l:gallifrey:backported/combat)Combat$()$(li)$(l:gallifrey:backported/creatures)Creatures$()$(li)$(l:gallifrey:backported/useful)Useful blocks$()$(li)$(l:gallifrey:backported/omens)Omens$()$(li)$(l:gallifrey:backported/collectables)Collectables$()$(li)$(l:gallifrey:backported/structure_blocks)Huge structure blocks$()"
+    }
+  ]
+}

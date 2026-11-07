@@ -1,0 +1,23 @@
+{
+  "name": "Tuff, Copper and Resin",
+  "icon": "gallifrey:copper_bulb",
+  "category": "gallifrey:backported",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:tuff_bricks",
+      "text": "Tuff can now be polished, bricked and chiselled, with slabs, stairs and walls of each. Cut it in a $(item)Stonecutter$()."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:copper_bulb",
+      "text": "Copper grates, doors, trapdoors, bulbs, chests, lanterns, chains, bars and lightning rods. They all rust over time: wax them with $(item)Honeycomb$() to stop it, or scrape them back with an axe.$(br2)A $(item)Copper Bulb$() toggles its light each time it gets a redstone pulse."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:resin_bricks",
+      "text": "Hit a $(l:gallifrey:backported/biomes)Creaking$() and resin grows on nearby pale oak. Smelt the clumps into resin bricks, then craft those into $(item)Resin Bricks$() for a warm orange building block."
+    }
+  ]
+}

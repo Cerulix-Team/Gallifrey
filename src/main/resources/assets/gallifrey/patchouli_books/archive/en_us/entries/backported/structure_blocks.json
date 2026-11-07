@@ -1,0 +1,12 @@
+{
+  "name": "Huge Structure Blocks",
+  "icon": "minecraft:structure_block",
+  "category": "gallifrey:backported",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "For builders: Gallifrey lets $(item)Structure Blocks$() save and load structures up to 512 blocks each way, where they normally stop at 48. They also find corner blocks from 512 blocks away. Jigsaw structures may go 20 pieces deep."
+    }
+  ]
+}
