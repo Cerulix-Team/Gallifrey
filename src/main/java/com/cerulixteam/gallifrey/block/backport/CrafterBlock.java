@@ -127,7 +127,7 @@ public class CrafterBlock extends Block implements BlockEntityProvider {
         }
         crafter.markDirty();
         world.setBlockState(pos, world.getBlockState(pos).with(CRAFTING, true), Block.NOTIFY_LISTENERS);
-        world.playSound(null, pos, SoundEvents.BLOCK_DISPENSER_DISPENSE, SoundCategory.BLOCKS, 1.0F, 1.4F);
+        world.playSound(null, pos, com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_CRAFTER_CRAFT, SoundCategory.BLOCKS, 1.0F, 1.0F);
     }
 
     private void eject(ServerWorld world, BlockPos pos, Direction facing, ItemStack stack) {

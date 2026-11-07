@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:gallifreyan_ash_forest",
+    "gallifrey:gallifreyan_birch_forest",
+    "gallifrey:gallifreyan_maple_jungle",
+    "gallifrey:gallifreyan_moonpine_forest",
+    "gallifrey:gallifreyan_plains",
+    "gallifrey:gallifreyan_taiga",
+    "gallifrey:gallifreyan_treeborg_forest",
+    "gallifrey:gallifreyan_ulanda_forest",
+    "gallifrey:gallifreyan_wasteland"
+  ]
+}

@@ -22,6 +22,10 @@
         },
         {
           "type": "minecraft:item",
+          "name": "gallifrey:music_disc_creator"
+        },
+        {
+          "type": "minecraft:item",
           "name": "gallifrey:heavy_core"
         }
       ]

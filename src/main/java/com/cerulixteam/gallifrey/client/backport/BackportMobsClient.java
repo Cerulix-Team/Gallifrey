@@ -65,6 +65,7 @@ public final class BackportMobsClient {
     static final EntityModelLayer WOLF_ARMOR = new EntityModelLayer(new Identifier("gallifrey", "wolf_armor"), "main");
     static final String[] NAUTILUS_ARMOR = {"copper", "iron", "gold", "diamond", "netherite"};
     static final String[] OXIDATION = {"", "_exposed", "_weathered", "_oxidized"};
+    static final String[] STATUE_POSES = {"copper_golem", "copper_golem_running", "copper_golem_sitting", "copper_golem_star"};
 
     /** Renderers for warm and cold cows, pigs and chickens, built along with the vanilla ones. */
     static final Map<EntityType<?>, BackportGeo.ReplacedRenderer<?>> FARM = new HashMap<>();
@@ -95,8 +96,10 @@ public final class BackportMobsClient {
                         "harness", Kind.CUTOUT)
                 .overlay(e -> ((HappyGhastEntity) e).getHarness() >= 0 && ((HappyGhastEntity) e).isLeashed() ? BackportGeo.tex("happy_ghast/happy_ghast_ropes") : null,
                         "happy_ghast_ropes", Kind.CUTOUT));
-        EntityRendererRegistry.register(BackportMobs.COPPER_GOLEM, ctx -> new Renderer<CopperGolemEntity>(ctx, new Model<>("copper_golem",
-                e -> BackportGeo.tex("copper_golem/copper_golem" + OXIDATION[((CopperGolemEntity) e).getOxidation()]), BackportMobsClient::copperGolem), 0.4F)
+        EntityRendererRegistry.register(BackportMobs.COPPER_GOLEM, ctx -> new Renderer<CopperGolemEntity>(ctx, new Model<>(e -> ((CopperGolemEntity) e).isStatue()
+                ? STATUE_POSES[((CopperGolemEntity) e).getStatuePose()] : "copper_golem",
+                e -> BackportGeo.tex("copper_golem/copper_golem" + OXIDATION[((CopperGolemEntity) e).getOxidation()]), BackportMobsClient::copperGolem, false), 0.4F)
+                .overlay(e -> ((CopperGolemEntity) e).hasFlower() ? BackportGeo.tex("copper_golem/copper_golem_flower") : null, "copper_golem_flower", Kind.CUTOUT)
                 .overlay(e -> ((CopperGolemEntity) e).isStatue() ? null
                         : BackportGeo.tex("copper_golem/copper_golem_eyes" + OXIDATION[((CopperGolemEntity) e).getOxidation()]), null, Kind.EYES));
         EntityRendererFactory<NautilusEntity> nautilus = ctx -> new Renderer<NautilusEntity>(ctx, new Model<>("nautilus",

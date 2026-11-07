@@ -32,6 +32,7 @@ public final class Backport {
     private Backport() {}
 
     public static void register() {
+        BackportSounds.register();
         BackportBlocks.register();
         Backport26.register();
         BackportCombat.register();

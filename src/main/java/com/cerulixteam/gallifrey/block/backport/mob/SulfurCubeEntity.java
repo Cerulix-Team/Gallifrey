@@ -188,6 +188,16 @@ public class SulfurCubeEntity extends MobEntity implements GeoEntity {
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
         ItemStack stack = player.getStackInHand(hand);
         World world = this.getWorld();
+        if (stack.isOf(Items.BUCKET) && !this.isLarge() && this.isAlive()) {
+            if (!world.isClient) {
+                this.playSound(SoundEvents.ITEM_BUCKET_FILL_AXOLOTL, 1.0F, 1.0F);
+                ItemStack bucket = SulfurCubeBucketItem.of(this);
+                ItemStack result = net.minecraft.item.ItemUsage.exchangeStack(stack, player, bucket, false);
+                player.setStackInHand(hand, result);
+                this.discard();
+            }
+            return ActionResult.success(world.isClient);
+        }
         if (stack.isOf(Items.SHEARS) && this.getBlock().isPresent()) {
             if (!world.isClient) {
                 this.dropItem(this.getBlock().get().getBlock());

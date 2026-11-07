@@ -62,9 +62,9 @@ public class BackportSkeletonEntity extends SkeletonEntity {
         return false;
     }
 
-    @Override protected SoundEvent getAmbientSound() { return SoundEvents.ENTITY_SKELETON_AMBIENT; }
-    @Override protected SoundEvent getHurtSound(net.minecraft.entity.damage.DamageSource source) { return SoundEvents.ENTITY_SKELETON_HURT; }
-    @Override protected SoundEvent getDeathSound() { return SoundEvents.ENTITY_SKELETON_DEATH; }
+    @Override protected SoundEvent getAmbientSound() { return this.kind == Kind.BOGGED ? com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_BOGGED_AMBIENT : SoundEvents.ENTITY_SKELETON_AMBIENT; }
+    @Override protected SoundEvent getHurtSound(net.minecraft.entity.damage.DamageSource source) { return this.kind == Kind.BOGGED ? com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_BOGGED_HURT : SoundEvents.ENTITY_SKELETON_HURT; }
+    @Override protected SoundEvent getDeathSound() { return this.kind == Kind.BOGGED ? com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_BOGGED_DEATH : SoundEvents.ENTITY_SKELETON_DEATH; }
 
     @Override
     protected PersistentProjectileEntity createArrowProjectile(ItemStack arrow, float damageModifier) {
@@ -89,7 +89,7 @@ public class BackportSkeletonEntity extends SkeletonEntity {
                 this.dataTracker.set(SHEARED, true);
                 this.dropItem(Items.RED_MUSHROOM);
                 this.dropItem(Items.BROWN_MUSHROOM);
-                this.playSound(SoundEvents.ENTITY_SHEEP_SHEAR, 1.0F, 1.0F);
+                this.playSound(com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_BOGGED_SHEAR, 1.0F, 1.0F);
                 stack.damage(1, player, p -> p.sendToolBreakStatus(hand));
             }
             return ActionResult.success(this.getWorld().isClient);

@@ -108,7 +108,7 @@ public class CreakingEntity extends HostileEntity implements GeoEntity {
     private void crumble(ServerWorld world) {
         world.spawnParticles(new BlockStateParticleEffect(ParticleTypes.BLOCK, BackportBlocks.PALE_OAK_WOOD.getDefaultState()),
                 this.getX(), this.getBodyY(0.5), this.getZ(), 40, 0.3, 0.8, 0.3, 0.1);
-        this.playSound(SoundEvents.BLOCK_WOOD_BREAK, 1.0F, 0.6F);
+        this.playSound(com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_CREAKING_DEATH, 1.0F, 1.0F);
         this.discard();
     }
 
@@ -116,7 +116,7 @@ public class CreakingEntity extends HostileEntity implements GeoEntity {
     public boolean damage(DamageSource source, float amount) {
         if (this.heart != null && !source.isOf(net.minecraft.entity.damage.DamageTypes.OUT_OF_WORLD)) {
             if (this.getWorld() instanceof ServerWorld world) {
-                this.playSound(SoundEvents.BLOCK_WOOD_HIT, 1.0F, 0.6F);
+                this.playSound(com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_CREAKING_HEART_HURT, 1.0F, 1.0F);
                 this.growResin(world);
             }
             return false;
@@ -141,9 +141,9 @@ public class CreakingEntity extends HostileEntity implements GeoEntity {
         }
     }
 
-    @Override protected SoundEvent getAmbientSound() { return SoundEvents.BLOCK_WOOD_STEP; }
-    @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.BLOCK_WOOD_HIT; }
-    @Override protected SoundEvent getDeathSound() { return SoundEvents.BLOCK_WOOD_BREAK; }
+    @Override protected SoundEvent getAmbientSound() { return com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_CREAKING_AMBIENT; }
+    @Override protected SoundEvent getHurtSound(DamageSource source) { return com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_CREAKING_SWAY; }
+    @Override protected SoundEvent getDeathSound() { return com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_CREAKING_DEATH; }
 
     @Override
     public boolean canImmediatelyDespawn(double distanceSquared) {
@@ -177,7 +177,7 @@ public class CreakingEntity extends HostileEntity implements GeoEntity {
                 creaking.setHeart(heart.toImmutable());
                 creaking.setPersistent();
                 world.spawnEntity(creaking);
-                world.playSound(null, at, SoundEvents.BLOCK_WOOD_PLACE, net.minecraft.sound.SoundCategory.HOSTILE, 1.0F, 0.5F);
+                world.playSound(null, at, com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_CREAKING_HEART_SPAWN, net.minecraft.sound.SoundCategory.HOSTILE, 1.0F, 1.0F);
                 return;
             }
         }

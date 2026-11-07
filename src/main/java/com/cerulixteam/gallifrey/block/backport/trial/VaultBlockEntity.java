@@ -73,11 +73,11 @@ public class VaultBlockEntity extends BlockEntity {
     boolean tryUnlock(ServerWorld world, BlockState state, PlayerEntity player, ItemStack held) {
         if (state.get(VaultBlock.STATE) != State.ACTIVE) return false;
         if (!held.isOf(this.keyItem)) {
-            world.playSound(null, this.pos, SoundEvents.BLOCK_IRON_DOOR_CLOSE, SoundCategory.BLOCKS, 0.5F, 1.6F);
+            world.playSound(null, this.pos, com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_VAULT_INSERT_ITEM_FAIL, SoundCategory.BLOCKS, 1.0F, 1.0F);
             return false;
         }
         if (this.rewarded.contains(player.getUuid())) {
-            world.playSound(null, this.pos, SoundEvents.BLOCK_CHEST_LOCKED, SoundCategory.BLOCKS, 1.0F, 1.2F);
+            world.playSound(null, this.pos, com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_VAULT_REJECT_REWARDED_PLAYER, SoundCategory.BLOCKS, 1.0F, 1.0F);
             return false;
         }
         List<ItemStack> loot = this.roll(world, player);
@@ -88,7 +88,7 @@ public class VaultBlockEntity extends BlockEntity {
         this.ejecting.addAll(loot);
         this.display = loot.get(0).copy();
         this.nextStepAt = world.getTime() + 14;
-        world.playSound(null, this.pos, SoundEvents.BLOCK_IRON_DOOR_OPEN, SoundCategory.BLOCKS, 1.0F, 0.8F);
+        world.playSound(null, this.pos, com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_VAULT_INSERT_ITEM, SoundCategory.BLOCKS, 1.0F, 1.0F);
         this.set(world, state, State.UNLOCKING);
         this.sync(world, state);
         return true;
@@ -113,8 +113,8 @@ public class VaultBlockEntity extends BlockEntity {
                     }
                 }
                 if (someone != (s == State.ACTIVE)) {
-                    world.playSound(null, this.pos, someone ? SoundEvents.BLOCK_BEACON_ACTIVATE : SoundEvents.BLOCK_BEACON_DEACTIVATE,
-                            SoundCategory.BLOCKS, 0.4F, 1.6F);
+                    world.playSound(null, this.pos, someone ? com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_VAULT_ACTIVATE : com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_VAULT_DEACTIVATE,
+                            SoundCategory.BLOCKS, 1.0F, 1.0F);
                     this.set(world, state, someone ? State.ACTIVE : State.INACTIVE);
                 }
                 if (someone && now % 40 == 0) {
@@ -150,7 +150,7 @@ public class VaultBlockEntity extends BlockEntity {
                 ItemEntity item = new ItemEntity(world, out.x, out.y, out.z, stack);
                 item.setVelocity(facing.getOffsetX() * 0.12, 0.1, facing.getOffsetZ() * 0.12);
                 world.spawnEntity(item);
-                world.playSound(null, this.pos, SoundEvents.BLOCK_DISPENSER_DISPENSE, SoundCategory.BLOCKS, 1.0F, 1.2F);
+                world.playSound(null, this.pos, com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_VAULT_EJECT_ITEM, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 world.spawnParticles(ParticleTypes.SMALL_FLAME, out.x, out.y, out.z, 6, 0.1, 0.1, 0.1, 0.01);
                 this.display = this.ejecting.isEmpty() ? ItemStack.EMPTY : this.ejecting.get(0).copy();
                 this.sync(world, state);
@@ -161,6 +161,9 @@ public class VaultBlockEntity extends BlockEntity {
     public static void clientTick(World world, BlockPos pos, BlockState state, VaultBlockEntity be) {
         be.lastSpin = be.spin;
         be.spin = (be.spin + 4.0F) % 360.0F;
+        if (state.get(VaultBlock.STATE) != State.INACTIVE && world.random.nextInt(200) == 0) {
+            world.playSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_VAULT_AMBIENT, SoundCategory.BLOCKS, 0.5F, 1.0F, false);
+        }
         if (state.get(VaultBlock.STATE) != State.INACTIVE && world.random.nextInt(8) == 0) {
             world.addParticle(state.get(VaultBlock.OMINOUS) ? ParticleTypes.SOUL_FIRE_FLAME : ParticleTypes.SMALL_FLAME,
                     pos.getX() + world.random.nextDouble(), pos.getY() + world.random.nextDouble(), pos.getZ() + world.random.nextDouble(), 0, 0, 0);

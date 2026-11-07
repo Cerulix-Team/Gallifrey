@@ -58,10 +58,10 @@ public final class BackportTrials {
     }
 
     public static final TrialSpawnerBlock TRIAL_SPAWNER = block("trial_spawner", new TrialSpawnerBlock(FabricBlockSettings.copyOf(Blocks.SPAWNER)
-            .mapColor(MapColor.STONE_GRAY).luminance(s -> s.get(TrialSpawnerBlock.STATE).light).strength(50.0F).sounds(BlockSoundGroup.METAL)
+            .mapColor(MapColor.STONE_GRAY).luminance(s -> s.get(TrialSpawnerBlock.STATE).light).strength(50.0F).sounds(com.cerulixteam.gallifrey.block.backport.BackportSoundGroups.TRIAL_SPAWNER)
             .nonOpaque().blockVision((s, w, p) -> false)), Rarity.COMMON);
     public static final VaultBlock VAULT = block("vault", new VaultBlock(FabricBlockSettings.copyOf(Blocks.SPAWNER)
-            .mapColor(MapColor.STONE_GRAY).luminance(s -> s.get(VaultBlock.STATE).light).strength(50.0F).sounds(BlockSoundGroup.METAL)
+            .mapColor(MapColor.STONE_GRAY).luminance(s -> s.get(VaultBlock.STATE).light).strength(50.0F).sounds(com.cerulixteam.gallifrey.block.backport.BackportSoundGroups.VAULT)
             .nonOpaque().blockVision((s, w, p) -> false)), Rarity.COMMON);
 
     public static final BlockEntityType<TrialSpawnerBlockEntity> TRIAL_SPAWNER_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, id("trial_spawner"),
@@ -89,6 +89,7 @@ public final class BackportTrials {
         if (bad == null) return false;
         player.removeStatusEffect(StatusEffects.BAD_OMEN);
         player.addStatusEffect(new StatusEffectInstance(TRIAL_OMEN, 18000 * (bad.getAmplifier() + 1), 0, false, false, true));
+        player.getWorld().playSound(null, player.getBlockPos(), com.cerulixteam.gallifrey.block.backport.BackportSounds.EVENT_MOB_EFFECT_TRIAL_OMEN, net.minecraft.sound.SoundCategory.PLAYERS, 1.0F, 1.0F);
         return true;
     }
 

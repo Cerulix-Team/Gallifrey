@@ -88,7 +88,7 @@ public abstract class WolfArmorMixin implements WolfArmorItem.Holder {
                 repaired.setDamage(Math.max(0, armor.getDamage() - armor.getMaxDamage() / 8));
                 this.gallifrey$setArmor(repaired);
                 if (!player.getAbilities().creativeMode) held.decrement(1);
-                wolf.getWorld().playSoundFromEntity(null, wolf, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, SoundCategory.NEUTRAL, 1.0F, 1.2F);
+                wolf.getWorld().playSoundFromEntity(null, wolf, com.cerulixteam.gallifrey.block.backport.BackportSounds.ITEM_WOLF_ARMOR_REPAIR, SoundCategory.NEUTRAL, 1.0F, 1.0F);
             }
             cir.setReturnValue(ActionResult.success(wolf.getWorld().isClient));
         }
@@ -107,12 +107,12 @@ public abstract class WolfArmorMixin implements WolfArmorItem.Holder {
         ItemStack worn = armor.copy();
         if (hit >= left) {
             this.gallifrey$setArmor(ItemStack.EMPTY);
-            wolf.getWorld().playSoundFromEntity(null, wolf, SoundEvents.ENTITY_ITEM_BREAK, SoundCategory.NEUTRAL, 1.0F, 1.0F);
+            wolf.getWorld().playSoundFromEntity(null, wolf, com.cerulixteam.gallifrey.block.backport.BackportSounds.ITEM_WOLF_ARMOR_BREAK, SoundCategory.NEUTRAL, 1.0F, 1.0F);
             return hit - left;
         }
         worn.setDamage(armor.getDamage() + hit);
         this.gallifrey$setArmor(worn);
-        wolf.getWorld().playSoundFromEntity(null, wolf, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, SoundCategory.NEUTRAL, 0.6F, 1.4F);
+        wolf.getWorld().playSoundFromEntity(null, wolf, com.cerulixteam.gallifrey.block.backport.BackportSounds.ITEM_WOLF_ARMOR_DAMAGE, SoundCategory.NEUTRAL, 1.0F, 1.0F);
         return 0.0F;
     }
 

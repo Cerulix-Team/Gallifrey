@@ -104,7 +104,7 @@ public class MaceItem extends Item {
             world.spawnParticles(new BlockStateParticleEffect(ParticleTypes.BLOCK, world.getBlockState(target.getBlockPos().down())),
                     target.getX(), target.getY(), target.getZ(), 40, 1.0, 0.1, 1.0, 0.15);
             world.playSound(null, target.getX(), target.getY(), target.getZ(),
-                    fall > 5 ? SoundEvents.BLOCK_ANVIL_LAND : SoundEvents.ENTITY_PLAYER_ATTACK_CRIT, SoundCategory.PLAYERS, 1.0F, 0.8F);
+                    fall > 5 ? com.cerulixteam.gallifrey.block.backport.BackportSounds.ITEM_MACE_SMASH_GROUND_HEAVY : com.cerulixteam.gallifrey.block.backport.BackportSounds.ITEM_MACE_SMASH_GROUND, SoundCategory.PLAYERS, 1.0F, 0.8F);
         }
         if (breach > 0) {
             // Armour takes roughly armour/25 of a hit; Breach gives back 15% of that per level.

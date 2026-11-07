@@ -112,7 +112,7 @@ public class TrialSpawnerBlockEntity extends BlockEntity {
                 this.spawned = 0;
                 this.mobs.clear();
                 this.nextSpawnAt = now + 20;
-                world.playSound(null, this.pos, SoundEvents.BLOCK_RESPAWN_ANCHOR_CHARGE, SoundCategory.BLOCKS, 1.0F, omen ? 0.6F : 1.2F);
+                world.playSound(null, this.pos, omen ? com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_TRIAL_SPAWNER_OMINOUS_ACTIVATE : com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_TRIAL_SPAWNER_DETECT_PLAYER, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 this.set(world, state, State.ACTIVE, omen);
             }
             case ACTIVE -> this.tickActive(world, state, config, now, ominous);
@@ -130,7 +130,7 @@ public class TrialSpawnerBlockEntity extends BlockEntity {
                 } else {
                     this.cooldownEndsAt = now + COOLDOWN;
                     this.players.clear();
-                    world.playSound(null, this.pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1.0F, 0.6F);
+                    world.playSound(null, this.pos, com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_TRIAL_SPAWNER_CLOSE_SHUTTER, SoundCategory.BLOCKS, 1.0F, 1.0F);
                     this.set(world, state, State.COOLDOWN, ominous);
                 }
             }
@@ -201,7 +201,7 @@ public class TrialSpawnerBlockEntity extends BlockEntity {
             if (!world.spawnNewEntityAndPassengers(entity)) return false;
             this.mobs.add(entity.getUuid());
             world.spawnParticles(ominous ? ParticleTypes.SOUL_FIRE_FLAME : ParticleTypes.FLAME, entity.getX(), entity.getBodyY(0.5), entity.getZ(), 20, 0.3, 0.5, 0.3, 0.01);
-            world.playSound(null, at, SoundEvents.BLOCK_FIRE_AMBIENT, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            world.playSound(null, at, com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_TRIAL_SPAWNER_SPAWN_MOB, SoundCategory.BLOCKS, 1.0F, 1.0F);
             return true;
         }
         return false;
@@ -230,7 +230,7 @@ public class TrialSpawnerBlockEntity extends BlockEntity {
             item.setVelocity(world.random.nextGaussian() * 0.05, 0.25, world.random.nextGaussian() * 0.05);
             world.spawnEntity(item);
         }
-        world.playSound(null, this.pos, SoundEvents.BLOCK_DISPENSER_DISPENSE, SoundCategory.BLOCKS, 1.0F, 0.8F);
+        world.playSound(null, this.pos, com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_TRIAL_SPAWNER_EJECT_ITEM, SoundCategory.BLOCKS, 1.0F, 1.0F);
         world.spawnParticles(ParticleTypes.SMALL_FLAME, this.pos.getX() + 0.5, this.pos.getY() + 1.1, this.pos.getZ() + 0.5, 10, 0.2, 0.1, 0.2, 0.01);
     }
 

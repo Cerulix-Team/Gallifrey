@@ -93,6 +93,7 @@ public final class BackportMobs {
         }
     }
 
+    public static final Item SULFUR_CUBE_BUCKET = item("sulfur_cube_bucket", new SulfurCubeBucketItem(new FabricItemSettings().maxCount(1)));
     public static final Item BLUE_EGG = item("blue_egg", new VariantEggItem(2, new FabricItemSettings().maxCount(16)));
     public static final Item BROWN_EGG = item("brown_egg", new VariantEggItem(1, new FabricItemSettings().maxCount(16)));
 

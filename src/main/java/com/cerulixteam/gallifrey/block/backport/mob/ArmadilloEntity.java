@@ -106,7 +106,7 @@ public class ArmadilloEntity extends AnimalEntity implements GeoEntity {
         if (this.getWorld().isClient || !this.isAlive()) return;
         if (!this.isBaby() && --this.scuteTimer <= 0) {
             this.dropItem(BackportMobs.ARMADILLO_SCUTE);
-            this.playSound(SoundEvents.ENTITY_TURTLE_EGG_CRACK, 1.0F, 1.2F);
+            this.playSound(com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_ARMADILLO_SCUTE_DROP, 1.0F, 1.0F);
             this.scuteTimer = 6000 + this.random.nextInt(6000);
         }
         if (this.age % 5 == 0) {
@@ -115,7 +115,7 @@ public class ArmadilloEntity extends AnimalEntity implements GeoEntity {
                 if (!this.isRolledUp()) {
                     this.dataTracker.set(ROLLED, true);
                     this.getNavigation().stop();
-                    this.playSound(SoundEvents.ENTITY_TURTLE_SHAMBLE, 1.0F, 1.4F);
+                    this.playSound(com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_ARMADILLO_ROLL, 1.0F, 1.0F);
                 }
             } else if (this.isRolledUp() && ++this.calm > 12) {
                 this.dataTracker.set(ROLLED, false);
@@ -140,7 +140,7 @@ public class ArmadilloEntity extends AnimalEntity implements GeoEntity {
         if (stack.isOf(Items.BRUSH) && !this.isBaby()) {
             if (!this.getWorld().isClient) {
                 this.dropItem(BackportMobs.ARMADILLO_SCUTE);
-                this.playSound(SoundEvents.ITEM_BRUSH_BRUSHING_GENERIC, 1.0F, 1.0F);
+                this.playSound(com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_ARMADILLO_BRUSH, 1.0F, 1.0F);
                 stack.damage(16, player, p -> p.sendToolBreakStatus(hand));
             }
             return ActionResult.success(this.getWorld().isClient);
@@ -162,4 +162,24 @@ public class ArmadilloEntity extends AnimalEntity implements GeoEntity {
 
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {}
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return this.cache; }
+
+    @Override
+    protected net.minecraft.sound.SoundEvent getAmbientSound() {
+        return this.isRolledUp() ? null : com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_ARMADILLO_AMBIENT;
+    }
+
+    @Override
+    protected net.minecraft.sound.SoundEvent getHurtSound(net.minecraft.entity.damage.DamageSource source) {
+        return this.isRolledUp() ? com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_ARMADILLO_HURT_REDUCED : com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_ARMADILLO_HURT;
+    }
+
+    @Override
+    protected net.minecraft.sound.SoundEvent getDeathSound() {
+        return com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_ARMADILLO_DEATH;
+    }
+
+    @Override
+    protected void playStepSound(net.minecraft.util.math.BlockPos pos, net.minecraft.block.BlockState state) {
+        this.playSound(com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_ARMADILLO_STEP, 0.15F, 1.0F);
+    }
 }

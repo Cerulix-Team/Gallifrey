@@ -1,11 +1,11 @@
 {
-	"format_version": "1.21.0",
+	"format_version": "1.12.0",
 	"minecraft:geometry": [
 		{
 			"description": {
 				"identifier": "geometry.unknown",
 				"texture_width": 32,
-				"texture_height": 64,
+				"texture_height": 128,
 				"visible_bounds_width": 2,
 				"visible_bounds_height": 1.5,
 				"visible_bounds_offset": [
@@ -51,69 +51,63 @@
 							"uv": {
 								"north": {
 									"uv": [
-										22,
-										16
+										0,
+										64
 									],
 									"uv_size": [
-										-2,
-										16
-									],
-									"uv_rotation": 90
+										16,
+										2
+									]
 								},
 								"east": {
 									"uv": [
-										22,
-										16
+										0,
+										64
 									],
 									"uv_size": [
-										-2,
-										16
-									],
-									"uv_rotation": 90
+										16,
+										2
+									]
 								},
 								"south": {
 									"uv": [
-										22,
-										16
+										0,
+										64
 									],
 									"uv_size": [
-										-2,
-										16
-									],
-									"uv_rotation": 90
+										16,
+										2
+									]
 								},
 								"west": {
 									"uv": [
-										22,
-										16
+										0,
+										64
 									],
 									"uv_size": [
-										-2,
-										16
-									],
-									"uv_rotation": 90
+										16,
+										2
+									]
 								},
 								"up": {
 									"uv": [
 										16,
-										16
+										64
 									],
 									"uv_size": [
-										-16,
-										-16
-									],
-									"uv_rotation": 90
+										16,
+										16
+									]
 								},
 								"down": {
 									"uv": [
-										16,
-										32
+										0,
+										80
 									],
 									"uv_size": [
-										-16,
-										-16
-									],
-									"uv_rotation": 90
+										16,
+										16
+									]
 								}
 							}
 						},
@@ -141,25 +135,23 @@
 							"uv": {
 								"north": {
 									"uv": [
-										25,
-										25
+										16,
+										80
 									],
 									"uv_size": [
-										-3,
-										-5
-									],
-									"uv_rotation": 90
+										5,
+										3
+									]
 								},
 								"south": {
 									"uv": [
-										25,
-										20
+										21,
+										80
 									],
 									"uv_size": [
-										-3,
-										5
-									],
-									"uv_rotation": 90
+										5,
+										3
+									]
 								},
 								"up": {
 									"uv": [
@@ -197,14 +189,13 @@
 								},
 								"east": {
 									"uv": [
-										25,
-										0
+										0,
+										96
 									],
 									"uv_size": [
-										-4,
-										16
-									],
-									"uv_rotation": 90
+										16,
+										4
+									]
 								},
 								"south": {
 									"uv": [

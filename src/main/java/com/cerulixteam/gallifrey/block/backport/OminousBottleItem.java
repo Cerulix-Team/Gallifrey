@@ -42,7 +42,7 @@ public class OminousBottleItem extends Item {
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if (!world.isClient) {
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.BAD_OMEN, 120000, amplifier(stack), false, false, true));
-            world.playSound(null, user.getBlockPos(), SoundEvents.EVENT_RAID_HORN.value(), SoundCategory.NEUTRAL, 0.6F, 1.6F);
+            world.playSound(null, user.getBlockPos(), com.cerulixteam.gallifrey.block.backport.BackportSounds.EVENT_MOB_EFFECT_BAD_OMEN, SoundCategory.NEUTRAL, 1.0F, 1.0F);
         }
         if (!(user instanceof PlayerEntity player && player.getAbilities().creativeMode)) stack.decrement(1);
         return stack;

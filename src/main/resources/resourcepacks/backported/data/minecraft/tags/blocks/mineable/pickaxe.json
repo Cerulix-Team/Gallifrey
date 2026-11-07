@@ -154,6 +154,13 @@
     "gallifrey:waxed_oxidized_copper_chest",
     "gallifrey:crafter",
     "gallifrey:trial_spawner",
-    "gallifrey:vault"
+    "gallifrey:vault",
+    "gallifrey:exposed_lightning_rod",
+    "gallifrey:weathered_lightning_rod",
+    "gallifrey:oxidized_lightning_rod",
+    "gallifrey:waxed_lightning_rod",
+    "gallifrey:waxed_exposed_lightning_rod",
+    "gallifrey:waxed_weathered_lightning_rod",
+    "gallifrey:waxed_oxidized_lightning_rod"
   ]
 }

@@ -31,7 +31,7 @@ public final class WindBurst {
     public static void burst(ServerWorld world, Vec3d at, double radius, double strength, @Nullable Entity owner) {
         world.spawnParticles(ParticleTypes.EXPLOSION, at.x, at.y, at.z, 1, 0, 0, 0, 0);
         world.spawnParticles(ParticleTypes.CLOUD, at.x, at.y, at.z, 16, 0.5, 0.5, 0.5, 0.15);
-        world.playSound(null, at.x, at.y, at.z, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 0.6F, 1.6F);
+        world.playSound(null, at.x, at.y, at.z, com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_WIND_CHARGE_WIND_BURST, SoundCategory.BLOCKS, 1.0F, 1.0F);
 
         Box box = new Box(at, at).expand(radius);
         for (Entity entity : world.getOtherEntities(null, box)) {

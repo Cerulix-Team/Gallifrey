@@ -38,7 +38,7 @@ public class EyeblossomBlock extends FlowerBlock {
         boolean shouldBeOpen = !world.isDay();
         if (shouldBeOpen != this.open) {
             world.setBlockState(pos, this.other.get().getDefaultState(), Block.NOTIFY_ALL);
-            world.playSound(null, pos, shouldBeOpen ? SoundEvents.BLOCK_AZALEA_LEAVES_PLACE : SoundEvents.BLOCK_AZALEA_LEAVES_BREAK,
+            world.playSound(null, pos, shouldBeOpen ? com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_EYEBLOSSOM_OPEN : com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_EYEBLOSSOM_CLOSE,
                     SoundCategory.BLOCKS, 0.6F, shouldBeOpen ? 1.3F : 0.9F);
         }
     }

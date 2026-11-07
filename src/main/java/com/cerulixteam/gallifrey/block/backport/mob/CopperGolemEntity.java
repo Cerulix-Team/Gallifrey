@@ -49,6 +49,10 @@ public class CopperGolemEntity extends GolemEntity implements GeoEntity {
     private static final TrackedData<Integer> OXIDATION = DataTracker.registerData(CopperGolemEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private static final TrackedData<Boolean> WAXED = DataTracker.registerData(CopperGolemEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     private static final TrackedData<Boolean> STATUE = DataTracker.registerData(CopperGolemEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    /** The statue's pose (26.x): 0 standing, 1 running, 2 sitting, 3 star. */
+    private static final TrackedData<Integer> POSE = DataTracker.registerData(CopperGolemEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    /** Wearing a poppy on its head. */
+    private static final TrackedData<Boolean> FLOWER = DataTracker.registerData(CopperGolemEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     private static final int RANGE = 16;
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
     private int rustTimer;
@@ -68,11 +72,15 @@ public class CopperGolemEntity extends GolemEntity implements GeoEntity {
         this.dataTracker.startTracking(OXIDATION, 0);
         this.dataTracker.startTracking(WAXED, false);
         this.dataTracker.startTracking(STATUE, false);
+        this.dataTracker.startTracking(POSE, 0);
+        this.dataTracker.startTracking(FLOWER, false);
     }
 
     public int getOxidation() { return this.dataTracker.get(OXIDATION); }
     public void setOxidation(int level) { this.dataTracker.set(OXIDATION, Math.max(0, Math.min(3, level))); }
     public boolean isStatue() { return this.dataTracker.get(STATUE); }
+    public int getStatuePose() { return this.dataTracker.get(POSE); }
+    public boolean hasFlower() { return this.dataTracker.get(FLOWER); }
     public void setWaxed(boolean waxed) { this.dataTracker.set(WAXED, waxed); }
 
     @Override
@@ -97,7 +105,10 @@ public class CopperGolemEntity extends GolemEntity implements GeoEntity {
         if (!this.dataTracker.get(WAXED) && --this.rustTimer <= 0) {
             this.rustTimer = 12000 + this.random.nextInt(12000);
             if (this.getOxidation() < 3) this.setOxidation(this.getOxidation() + 1);
-            else if (!this.isStatue() && this.random.nextInt(4) == 0) this.dataTracker.set(STATUE, true);
+            else if (!this.isStatue() && this.random.nextInt(4) == 0) {
+                this.dataTracker.set(STATUE, true);
+                this.dataTracker.set(POSE, this.random.nextInt(4));
+            }
         }
     }
 
@@ -123,6 +134,30 @@ public class CopperGolemEntity extends GolemEntity implements GeoEntity {
             }
             return ActionResult.success(world.isClient);
         }
+        if (stack.isOf(Items.POPPY) && !this.hasFlower()) {
+            if (!world.isClient) {
+                this.dataTracker.set(FLOWER, true);
+                this.playSound(SoundEvents.BLOCK_GRASS_PLACE, 1.0F, 1.0F);
+                if (!player.getAbilities().creativeMode) stack.decrement(1);
+            }
+            return ActionResult.success(world.isClient);
+        }
+        if (stack.isOf(Items.SHEARS) && this.hasFlower()) {
+            if (!world.isClient) {
+                this.dataTracker.set(FLOWER, false);
+                this.dropItem(Items.POPPY);
+                this.playSound(SoundEvents.ENTITY_SHEEP_SHEAR, 1.0F, 1.0F);
+            }
+            return ActionResult.success(world.isClient);
+        }
+        // A statue changes pose when you use it, like the 26.x statue block.
+        if (stack.isEmpty() && this.isStatue()) {
+            if (!world.isClient) {
+                this.dataTracker.set(POSE, (this.getStatuePose() + 1) % 4);
+                this.playSound(SoundEvents.BLOCK_COPPER_HIT, 1.0F, 1.0F);
+            }
+            return ActionResult.success(world.isClient);
+        }
         if (stack.isEmpty() && !this.getMainHandStack().isEmpty()) {
             if (!world.isClient) {
                 player.setStackInHand(hand, this.getMainHandStack());
@@ -139,6 +174,12 @@ public class CopperGolemEntity extends GolemEntity implements GeoEntity {
         this.dataTracker.set(STATUE, false);
     }
 
+    @Override
+    protected void dropEquipment(DamageSource source, int looting, boolean allowDrops) {
+        super.dropEquipment(source, looting, allowDrops);
+        if (this.hasFlower()) this.dropItem(Items.POPPY);
+    }
+
     @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.BLOCK_COPPER_HIT; }
     @Override protected SoundEvent getDeathSound() { return SoundEvents.BLOCK_COPPER_BREAK; }
 
@@ -148,6 +189,8 @@ public class CopperGolemEntity extends GolemEntity implements GeoEntity {
         nbt.putInt("oxidation", this.getOxidation());
         nbt.putBoolean("waxed", this.dataTracker.get(WAXED));
         nbt.putBoolean("statue", this.isStatue());
+        nbt.putInt("pose", this.getStatuePose());
+        nbt.putBoolean("flower", this.hasFlower());
     }
 
     @Override
@@ -156,6 +199,8 @@ public class CopperGolemEntity extends GolemEntity implements GeoEntity {
         this.setOxidation(nbt.getInt("oxidation"));
         this.dataTracker.set(WAXED, nbt.getBoolean("waxed"));
         this.dataTracker.set(STATUE, nbt.getBoolean("statue"));
+        this.dataTracker.set(POSE, nbt.getInt("pose") & 3);
+        this.dataTracker.set(FLOWER, nbt.getBoolean("flower"));
     }
 
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {}

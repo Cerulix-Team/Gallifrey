@@ -84,9 +84,9 @@ public class BreezeEntity extends HostileEntity implements GeoEntity {
         }
     }
 
-    @Override protected SoundEvent getAmbientSound() { return SoundEvents.ENTITY_PHANTOM_FLAP; }
-    @Override protected SoundEvent getHurtSound(DamageSource source) { return SoundEvents.ENTITY_BLAZE_HURT; }
-    @Override protected SoundEvent getDeathSound() { return SoundEvents.ENTITY_BLAZE_DEATH; }
+    @Override protected SoundEvent getAmbientSound() { return this.isOnGround() ? com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_BREEZE_IDLE_GROUND : com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_BREEZE_IDLE_AIR; }
+    @Override protected SoundEvent getHurtSound(DamageSource source) { return com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_BREEZE_HURT; }
+    @Override protected SoundEvent getDeathSound() { return com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_BREEZE_DEATH; }
 
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {}
     @Override public AnimatableInstanceCache getAnimatableInstanceCache() { return this.cache; }
@@ -125,7 +125,7 @@ public class BreezeEntity extends HostileEntity implements GeoEntity {
             Vec3d to = target.getPos().add(0, target.getHeight() * 0.5, 0).subtract(from);
             charge.setVelocity(to.x, to.y, to.z, 0.9F, 5.0F);
             this.breeze.getWorld().spawnEntity(charge);
-            this.breeze.playSound(SoundEvents.ENTITY_BLAZE_SHOOT, 1.0F, 1.4F);
+            this.breeze.playSound(com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_BREEZE_SHOOT, 1.0F, 1.0F);
         }
     }
 
@@ -159,7 +159,7 @@ public class BreezeEntity extends HostileEntity implements GeoEntity {
             }
             this.breeze.setVelocity(dir.x * 0.8, 0.9, dir.z * 0.8);
             this.breeze.velocityDirty = true;
-            this.breeze.playSound(SoundEvents.ENTITY_PHANTOM_FLAP, 1.0F, 1.6F);
+            this.breeze.playSound(com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_BREEZE_JUMP, 1.0F, 1.0F);
         }
 
         @Override

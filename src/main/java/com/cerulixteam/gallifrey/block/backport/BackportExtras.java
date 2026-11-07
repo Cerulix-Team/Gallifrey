@@ -141,6 +141,7 @@ public final class BackportExtras {
     public static final StatusEffect INFESTED = Registry.register(Registries.STATUS_EFFECT, id("infested"), new BackportEffect(StatusEffectCategory.HARMFUL, 0x8C9B8C));
     public static final StatusEffect OOZING = Registry.register(Registries.STATUS_EFFECT, id("oozing"), new BackportEffect(StatusEffectCategory.HARMFUL, 0x99FFA3));
     public static final StatusEffect WEAVING = Registry.register(Registries.STATUS_EFFECT, id("weaving"), new BackportEffect(StatusEffectCategory.HARMFUL, 0x78695A));
+    public static final StatusEffect RAID_OMEN = Registry.register(Registries.STATUS_EFFECT, id("raid_omen"), new RaidOmenEffect());
     public static final StatusEffect WIND_CHARGED = Registry.register(Registries.STATUS_EFFECT, id("wind_charged"), new BackportEffect(StatusEffectCategory.HARMFUL, 0xBDC9FF));
 
     public static final Potion INFESTED_POTION = Registry.register(Registries.POTION, id("infested"), new Potion("infested", new StatusEffectInstance(INFESTED, 3600)));
@@ -154,6 +155,14 @@ public final class BackportExtras {
 
     /** Copper Horse Armor. Its texture is minecraft:textures/entity/horse/armor/horse_armor_gallifrey_copper.png. */
     public static final Item COPPER_HORSE_ARMOR = item("copper_horse_armor", new HorseArmorItem(4, "gallifrey_copper", new FabricItemSettings().maxCount(1)));
+    // Music discs (1.21): Creator and Creator (Music Box) by Lena Raine, Precipice by Aaron Cherof.
+    public static final Item MUSIC_DISC_CREATOR = item("music_disc_creator",
+            new net.minecraft.item.MusicDiscItem(12, BackportSounds.MUSIC_DISC_CREATOR, new FabricItemSettings().maxCount(1).rarity(net.minecraft.util.Rarity.RARE), 176));
+    public static final Item MUSIC_DISC_CREATOR_MUSIC_BOX = item("music_disc_creator_music_box",
+            new net.minecraft.item.MusicDiscItem(11, BackportSounds.MUSIC_DISC_CREATOR_MUSIC_BOX, new FabricItemSettings().maxCount(1).rarity(net.minecraft.util.Rarity.RARE), 73));
+    public static final Item MUSIC_DISC_PRECIPICE = item("music_disc_precipice",
+            new net.minecraft.item.MusicDiscItem(13, BackportSounds.MUSIC_DISC_PRECIPICE, new FabricItemSettings().maxCount(1).rarity(net.minecraft.util.Rarity.RARE), 299));
+
     public static final Item OMINOUS_BOTTLE = item("ominous_bottle", new OminousBottleItem(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
 
     /** Bundles (finished in 1.21.2): a plain one and one of every colour. */
@@ -216,7 +225,7 @@ public final class BackportExtras {
     public static final Block DRIED_GHAST = BackportBlocks.block("dried_ghast", new DriedGhastBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY)
             .breakInstantly().sounds(BlockSoundGroup.SAND).nonOpaque().ticksRandomly().pistonBehavior(PistonBehavior.DESTROY)), true, BackportBlocks.CUTOUT);
     public static final Block CREAKING_HEART = BackportBlocks.block("creaking_heart", new CreakingHeartBlock(FabricBlockSettings.copyOf(BackportBlocks.PALE_OAK_LOG)
-            .mapColor(MapColor.ORANGE).strength(10.0F).sounds(BlockSoundGroup.WOOD).ticksRandomly()));
+            .mapColor(MapColor.ORANGE).strength(10.0F).sounds(BackportSoundGroups.CREAKING_HEART).ticksRandomly()));
 
     // =========================================================
     // SETUP
@@ -228,6 +237,10 @@ public final class BackportExtras {
             new Identifier("archaeology/ocean_ruin_warm")};
 
     public static void register() {
+        // Raid Omen: runs before players tick, so it catches Bad Omen before vanilla starts the raid.
+        net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents.START_WORLD_TICK.register(world -> {
+            for (net.minecraft.server.network.ServerPlayerEntity p : world.getPlayers()) RaidOmenEffect.convert(p);
+        });
         BundleDyeRecipe.register();
 
         // Potions: an Awkward Potion plus stone, a slime block, cobweb or a breeze rod.

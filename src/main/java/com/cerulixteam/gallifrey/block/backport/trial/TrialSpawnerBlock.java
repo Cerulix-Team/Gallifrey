@@ -76,6 +76,8 @@ public class TrialSpawnerBlock extends BlockWithEntity {
         State s = state.get(STATE);
         if (s == State.INACTIVE || s == State.COOLDOWN) return;
         boolean ominous = state.get(OMINOUS);
+        if (random.nextInt(40) == 0) world.playSound(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, ominous
+                ? com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_TRIAL_SPAWNER_AMBIENT_OMINOUS : com.cerulixteam.gallifrey.block.backport.BackportSounds.BLOCK_TRIAL_SPAWNER_AMBIENT, net.minecraft.sound.SoundCategory.BLOCKS, 0.5F, 1.0F, false);
         for (int i = 0; i < (s == State.ACTIVE ? 3 : 1); i++) {
             double x = pos.getX() + random.nextDouble(), y = pos.getY() + random.nextDouble(), z = pos.getZ() + random.nextDouble();
             world.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0, 0.0, 0.0);

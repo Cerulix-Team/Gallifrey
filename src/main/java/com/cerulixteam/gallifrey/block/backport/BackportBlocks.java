@@ -93,10 +93,10 @@ public final class BackportBlocks {
     public static final BlockSetType COPPER_SET = new BlockSetTypeBuilder()
             .openableByHand(true)
             .soundGroup(BlockSoundGroup.COPPER)
-            .doorOpenSound(SoundEvents.BLOCK_IRON_DOOR_OPEN)
-            .doorCloseSound(SoundEvents.BLOCK_IRON_DOOR_CLOSE)
-            .trapdoorOpenSound(SoundEvents.BLOCK_IRON_TRAPDOOR_OPEN)
-            .trapdoorCloseSound(SoundEvents.BLOCK_IRON_TRAPDOOR_CLOSE)
+            .doorOpenSound(BackportSounds.BLOCK_COPPER_DOOR_OPEN)
+            .doorCloseSound(BackportSounds.BLOCK_COPPER_DOOR_CLOSE)
+            .trapdoorOpenSound(BackportSounds.BLOCK_COPPER_TRAPDOOR_OPEN)
+            .trapdoorCloseSound(BackportSounds.BLOCK_COPPER_TRAPDOOR_CLOSE)
             .pressurePlateClickOnSound(SoundEvents.BLOCK_METAL_PRESSURE_PLATE_CLICK_ON)
             .pressurePlateClickOffSound(SoundEvents.BLOCK_METAL_PRESSURE_PLATE_CLICK_OFF)
             .buttonClickOnSound(SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON)
@@ -111,15 +111,15 @@ public final class BackportBlocks {
     public static final Block TUFF_STAIRS = block("tuff_stairs", new StairsBlock(Blocks.TUFF.getDefaultState(), tuff()));
     public static final Block TUFF_WALL = block("tuff_wall", new WallBlock(tuff().solid()));
     public static final Block CHISELED_TUFF = block("chiseled_tuff", new Block(tuff()));
-    public static final Block POLISHED_TUFF = block("polished_tuff", new Block(tuff()));
-    public static final Block POLISHED_TUFF_SLAB = block("polished_tuff_slab", new SlabBlock(tuff()));
-    public static final Block POLISHED_TUFF_STAIRS = block("polished_tuff_stairs", new StairsBlock(POLISHED_TUFF.getDefaultState(), tuff()));
-    public static final Block POLISHED_TUFF_WALL = block("polished_tuff_wall", new WallBlock(tuff().solid()));
-    public static final Block TUFF_BRICKS = block("tuff_bricks", new Block(tuff()));
-    public static final Block TUFF_BRICK_SLAB = block("tuff_brick_slab", new SlabBlock(tuff()));
-    public static final Block TUFF_BRICK_STAIRS = block("tuff_brick_stairs", new StairsBlock(TUFF_BRICKS.getDefaultState(), tuff()));
-    public static final Block TUFF_BRICK_WALL = block("tuff_brick_wall", new WallBlock(tuff().solid()));
-    public static final Block CHISELED_TUFF_BRICKS = block("chiseled_tuff_bricks", new Block(tuff()));
+    public static final Block POLISHED_TUFF = block("polished_tuff", new Block(tuff().sounds(BackportSoundGroups.POLISHED_TUFF)));
+    public static final Block POLISHED_TUFF_SLAB = block("polished_tuff_slab", new SlabBlock(tuff().sounds(BackportSoundGroups.POLISHED_TUFF)));
+    public static final Block POLISHED_TUFF_STAIRS = block("polished_tuff_stairs", new StairsBlock(POLISHED_TUFF.getDefaultState(), tuff().sounds(BackportSoundGroups.POLISHED_TUFF)));
+    public static final Block POLISHED_TUFF_WALL = block("polished_tuff_wall", new WallBlock(tuff().sounds(BackportSoundGroups.POLISHED_TUFF).solid()));
+    public static final Block TUFF_BRICKS = block("tuff_bricks", new Block(tuff().sounds(BackportSoundGroups.TUFF_BRICKS)));
+    public static final Block TUFF_BRICK_SLAB = block("tuff_brick_slab", new SlabBlock(tuff().sounds(BackportSoundGroups.TUFF_BRICKS)));
+    public static final Block TUFF_BRICK_STAIRS = block("tuff_brick_stairs", new StairsBlock(TUFF_BRICKS.getDefaultState(), tuff().sounds(BackportSoundGroups.TUFF_BRICKS)));
+    public static final Block TUFF_BRICK_WALL = block("tuff_brick_wall", new WallBlock(tuff().sounds(BackportSoundGroups.TUFF_BRICKS).solid()));
+    public static final Block CHISELED_TUFF_BRICKS = block("chiseled_tuff_bricks", new Block(tuff().sounds(BackportSoundGroups.TUFF_BRICKS)));
 
     // =========================================================
     // COPPER (1.21 and 1.21.9). Each array is: copper, exposed, weathered, oxidized,
@@ -132,12 +132,12 @@ public final class BackportBlocks {
 
     public static final Block[] COPPER_GRATE = copper("copper_grate",
             OxidizableCopperGrateBlock::new, CopperGrateBlock::new,
-            level -> FabricBlockSettings.copyOf(COPPER_BASE[level.ordinal()]).sounds(BlockSoundGroup.COPPER).nonOpaque()
+            level -> FabricBlockSettings.copyOf(COPPER_BASE[level.ordinal()]).sounds(BackportSoundGroups.COPPER_GRATE).nonOpaque()
                     .allowsSpawning(Blocks::never).solidBlock(Blocks::never).suffocates(Blocks::never).blockVision(Blocks::never));
 
     public static final Block[] COPPER_BULB = copper("copper_bulb",
             OxidizableCopperBulbBlock::new, CopperBulbBlock::new,
-            level -> FabricBlockSettings.copyOf(COPPER_BASE[level.ordinal()]).solidBlock(Blocks::never)
+            level -> FabricBlockSettings.copyOf(COPPER_BASE[level.ordinal()]).sounds(BackportSoundGroups.COPPER_BULB).solidBlock(Blocks::never)
                     .luminance(state -> state.get(Properties.LIT) ? BULB_LIGHT[level.ordinal()] : 0));
 
     public static final Block[] COPPER_DOOR = copper("copper_door",
@@ -222,7 +222,7 @@ public final class BackportBlocks {
     // =========================================================
 
     public static final Block RESIN_CLUMP = block("resin_clump", new ResinClumpBlock(FabricBlockSettings.copyOf(Blocks.GLOW_LICHEN).luminance(0).mapColor(MapColor.TERRACOTTA_ORANGE).sounds(BlockSoundGroup.HONEY)), true, CUTOUT);
-    public static final Block RESIN_BLOCK = block("resin_block", new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_ORANGE).breakInstantly().sounds(BlockSoundGroup.MUD)));
+    public static final Block RESIN_BLOCK = block("resin_block", new Block(FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_ORANGE).breakInstantly().sounds(BackportSoundGroups.RESIN)));
     public static final Block RESIN_BRICKS = block("resin_bricks", new Block(resinBricks()));
     public static final Block RESIN_BRICK_SLAB = block("resin_brick_slab", new SlabBlock(resinBricks()));
     public static final Block RESIN_BRICK_STAIRS = block("resin_brick_stairs", new StairsBlock(RESIN_BRICKS.getDefaultState(), resinBricks()));
@@ -233,7 +233,7 @@ public final class BackportBlocks {
     // PLANTS (1.21.5)
     // =========================================================
 
-    public static final Block LEAF_LITTER = block("leaf_litter", new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.PINK_PETALS).mapColor(MapColor.BROWN).sounds(BlockSoundGroup.AZALEA_LEAVES)), true, CUTOUT);
+    public static final Block LEAF_LITTER = block("leaf_litter", new LeafLitterBlock(FabricBlockSettings.copyOf(Blocks.PINK_PETALS).mapColor(MapColor.BROWN).sounds(BackportSoundGroups.LEAF_LITTER)), true, CUTOUT);
     public static final Block WILDFLOWERS = block("wildflowers", new FlowerbedBlock(FabricBlockSettings.copyOf(Blocks.PINK_PETALS).mapColor(MapColor.YELLOW)), true, CUTOUT);
     public static final Block BUSH = block("bush", new BackportPlantBlock(BackportPlantBlock.Soil.DIRT, BackportPlantBlock.box(1, 0, 1, 15, 13, 15),
             plant(MapColor.DARK_GREEN).replaceable()), true, CUTOUT);
@@ -249,8 +249,38 @@ public final class BackportBlocks {
     // MISC
     // =========================================================
 
+    // Lightning rods rust too (1.21.9): vanilla's rod is the fresh one; these are the rest and the waxed ones.
+    public static final Block[] LIGHTNING_RODS = new Block[8];
+
+    static {
+        Block.Settings rod = FabricBlockSettings.copyOf(Blocks.LIGHTNING_ROD);
+        OxidationLevel[] levels = OxidationLevel.values();
+        String[] names = {"lightning_rod", "exposed_lightning_rod", "weathered_lightning_rod", "oxidized_lightning_rod"};
+        LIGHTNING_RODS[0] = Blocks.LIGHTNING_ROD;
+        for (int i = 1; i < 4; i++) {
+            LIGHTNING_RODS[i] = block(names[i], new OxidizableLightningRodBlock(levels[i], FabricBlockSettings.copyOf(rod).ticksRandomly()));
+        }
+        for (int i = 0; i < 4; i++) {
+            LIGHTNING_RODS[4 + i] = block("waxed_" + names[i], new net.minecraft.block.LightningRodBlock(FabricBlockSettings.copyOf(rod)));
+        }
+        for (int i = 0; i < 3; i++) {
+            net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry.registerOxidizableBlockPair(LIGHTNING_RODS[i], LIGHTNING_RODS[i + 1]);
+        }
+        for (int i = 0; i < 4; i++) {
+            net.fabricmc.fabric.api.registry.OxidizableBlocksRegistry.registerWaxableBlockPair(LIGHTNING_RODS[i], LIGHTNING_RODS[4 + i]);
+        }
+    }
+
+    public static final net.minecraft.registry.RegistryKey<net.minecraft.world.poi.PointOfInterestType> LIGHTNING_ROD_POI =
+            net.minecraft.registry.RegistryKey.of(net.minecraft.registry.RegistryKeys.POINT_OF_INTEREST_TYPE, new Identifier(MOD_ID, "lightning_rod"));
+
+    static {
+        net.fabricmc.fabric.api.object.builder.v1.world.poi.PointOfInterestHelper.register(LIGHTNING_ROD_POI.getValue(), 0, 1,
+                LIGHTNING_RODS[1], LIGHTNING_RODS[2], LIGHTNING_RODS[3], LIGHTNING_RODS[4], LIGHTNING_RODS[5], LIGHTNING_RODS[6], LIGHTNING_RODS[7]);
+    }
+
     public static final Block HEAVY_CORE = block("heavy_core", new HeavyCoreBlock(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY)
-            .strength(10.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE).nonOpaque().pistonBehavior(PistonBehavior.NORMAL)));
+            .strength(10.0F, 1200.0F).sounds(BackportSoundGroups.HEAVY_CORE).nonOpaque().pistonBehavior(PistonBehavior.NORMAL)));
 
     static {
         GRASS_TINTED.add(BUSH);
@@ -271,7 +301,7 @@ public final class BackportBlocks {
     }
 
     private static FabricBlockSettings resinBricks() {
-        return FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_ORANGE).requiresTool().strength(1.5F, 6.0F).sounds(BlockSoundGroup.MUD_BRICKS);
+        return FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_ORANGE).requiresTool().strength(1.5F, 6.0F).sounds(BackportSoundGroups.RESIN_BRICKS);
     }
 
     static FabricBlockSettings plant(MapColor color) {

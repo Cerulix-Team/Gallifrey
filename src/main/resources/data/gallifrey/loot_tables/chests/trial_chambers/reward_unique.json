@@ -22,6 +22,11 @@
         },
         {
           "type": "minecraft:item",
+          "name": "gallifrey:music_disc_precipice",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
           "name": "minecraft:trident"
         }
       ]

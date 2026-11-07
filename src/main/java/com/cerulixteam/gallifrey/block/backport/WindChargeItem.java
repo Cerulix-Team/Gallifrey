@@ -24,7 +24,7 @@ public class WindChargeItem extends Item {
             charge.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 1.0F);
             world.spawnEntity(charge);
         }
-        world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 0.6F);
+        world.playSound(null, user.getX(), user.getY(), user.getZ(), com.cerulixteam.gallifrey.block.backport.BackportSounds.ENTITY_WIND_CHARGE_THROW, SoundCategory.NEUTRAL, 0.5F, 0.6F);
         user.getItemCooldownManager().set(this, 10);
         if (!user.getAbilities().creativeMode) stack.decrement(1);
         return TypedActionResult.success(stack, world.isClient());
