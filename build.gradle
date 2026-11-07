@@ -94,8 +94,6 @@ dependencies {
 
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 
-	modImplementation "maven.modrinth:Cl2pHhNx:vJEN4dqM"
-
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
