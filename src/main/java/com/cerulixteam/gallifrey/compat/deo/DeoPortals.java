@@ -31,16 +31,21 @@ import java.util.WeakHashMap;
  *    Checked every tick, so re-aiming an open portal at the TARDIS doesn't work either. Portals
  *    opened inside the TARDIS leading out are left alone. This only looks at Deo's portals, so
  *    the TARDIS's own doors and travel are untouched.
+ *    This also covers 2.0's ways of making portals: the recall key, link mode, the gun terminal
+ *    and incomplete fluid scattering travellers near the destination.
  *  - Sonic screwdriver: point it at an open portal.
  *      Overload mode: the portal collapses (Deo's own closing timer, so it shuts within half a second).
- *      Scan mode: tells you which dimension and coordinates the portal leads to.
+ *      Scan mode: tells you which dimension and coordinates the portal leads to, and (2.0) which
+ *      portal fluid made it.
  *
- * The recipe side (Gallifrey circuits standing in for Deo's modules) is plain data:
- * data/gallifrey/recipes/compat/deos_portal_gun/.
+ * The recipe side is plain data, in data/gallifrey/recipes/compat/deos_portal_gun/: Gallifrey's
+ * circuits stand in for Deo's modules, and (2.0) an Atrium Core can stand in for the echo shard in
+ * the High-Tier Solid-State Energy Core.
  *
  * No compile-time dependency: Deo's portal is found by its entity id and read through its fields
- * by name, and none of this runs without the mod. Written against Deo's Portal Gun 1.1.1 for
- * 1.20.1. If the mod changes, this logs a warning and switches itself off rather than crashing.
+ * by name, and none of this runs without the mod. Written against Deo's Portal Gun 2.0.0 for 1.20.1,
+ * and still works with 1.1.1 (the 2.0-only parts are skipped there). If the mod changes, this logs a
+ * warning and switches itself off rather than crashing.
  */
 public final class DeoPortals {
     private DeoPortals() {}
@@ -56,6 +61,8 @@ public final class DeoPortals {
     private static Field destWorld;     // RegistryKey<World> destWorld
     private static Field xcoord, ycoord, zcoord;
     private static Field tickcounter;   // counts down; the portal closes at 10 and vanishes at 0
+    /** 2.0 only (null on 1.1.1): startClosing() and getFluid(). */
+    private static java.lang.reflect.Method startClosing, getFluid;
 
     /** Portals currently loaded on the server. */
     private static final Set<Entity> PORTALS = Collections.newSetFromMap(new WeakHashMap<>());
@@ -73,6 +80,8 @@ public final class DeoPortals {
             ycoord = portal.getField("ycoord");
             zcoord = portal.getField("zcoord");
             tickcounter = portal.getField("tickcounter");
+            startClosing = optionalMethod(portal, "startClosing");
+            getFluid = optionalMethod(portal, "getFluid");
 
             ServerEntityEvents.ENTITY_LOAD.register((entity, world) -> {
                 if (isPortal(entity)) PORTALS.add(entity);
@@ -82,10 +91,19 @@ public final class DeoPortals {
             ServerTickEvents.START_WORLD_TICK.register(DeoPortals::checkPortals);
 
             active = true;
-            GallifreyMod.LOGGER.info("[Gallifrey] Deo's Portal Gun found: portals can't enter the TARDIS, sonics can close them");
+            GallifreyMod.LOGGER.info("[Gallifrey] Deo's Portal Gun {} found: portals can't enter the TARDIS, sonics can close them",
+                    FabricLoader.getInstance().getModContainer(MOD_ID).map(m -> m.getMetadata().getVersion().getFriendlyString()).orElse("?"));
         } catch (ReflectiveOperationException | RuntimeException e) {
             active = false;
             GallifreyMod.LOGGER.warn("[Gallifrey] Deo's Portal Gun is installed but wasn't what Gallifrey expected; portal compat is off", e);
+        }
+    }
+
+    private static java.lang.reflect.Method optionalMethod(Class<?> type, String name) {
+        try {
+            return type.getMethod(name);
+        } catch (NoSuchMethodException e) {
+            return null;
         }
     }
 
@@ -135,26 +153,33 @@ public final class DeoPortals {
         try {
             switch (mode) {
                 case OVERLOAD -> {
-                    int left = tickcounter.getInt(portal);
-                    if (left > CLOSING_TICKS) tickcounter.setInt(portal, CLOSING_TICKS);
+                    if (startClosing != null) {
+                        startClosing.invoke(portal);
+                    } else {
+                        int left = tickcounter.getInt(portal);
+                        if (left > CLOSING_TICKS) tickcounter.setInt(portal, CLOSING_TICKS);
+                    }
                     player.sendMessage(Text.literal("§bSONIC: Portal collapsing."), true);
                     return true;
                 }
                 case SCAN -> {
                     Object dest = destWorld.get(portal);
                     String where = dest instanceof RegistryKey<?> key ? key.getValue().toString() : "unknown";
-                    player.sendMessage(Text.literal(String.format("§bSONIC: Portal to §f%s §bat §f%d, %d, %d",
+                    Object fluid = getFluid != null ? getFluid.invoke(portal) : null;
+                    String madeWith = fluid instanceof Identifier id ? " §b(" + id.getPath().replace('_', ' ') + " fluid)" : "";
+                    player.sendMessage(Text.literal(String.format("§bSONIC: Portal to §f%s §bat §f%d, %d, %d%s",
                             where,
                             (int) Math.floor(xcoord.getDouble(portal)),
                             (int) Math.floor(ycoord.getDouble(portal)),
-                            (int) Math.floor(zcoord.getDouble(portal)))), true);
+                            (int) Math.floor(zcoord.getDouble(portal)),
+                            madeWith)), true);
                     return true;
                 }
                 default -> {
                     return false;
                 }
             }
-        } catch (IllegalAccessException | RuntimeException e) {
+        } catch (ReflectiveOperationException | RuntimeException e) {
             return false;
         }
     }
