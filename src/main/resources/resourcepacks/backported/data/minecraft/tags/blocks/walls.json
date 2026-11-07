@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:tuff_wall",
+    "gallifrey:polished_tuff_wall",
+    "gallifrey:tuff_brick_wall",
+    "gallifrey:resin_brick_wall"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:tuff_stairs",
+    "gallifrey:polished_tuff_stairs",
+    "gallifrey:tuff_brick_stairs",
+    "gallifrey:resin_brick_stairs",
+    "gallifrey:pale_oak_stairs"
+  ]
+}

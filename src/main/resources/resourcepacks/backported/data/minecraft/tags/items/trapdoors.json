@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:copper_trapdoor",
+    "gallifrey:exposed_copper_trapdoor",
+    "gallifrey:weathered_copper_trapdoor",
+    "gallifrey:oxidized_copper_trapdoor",
+    "gallifrey:waxed_copper_trapdoor",
+    "gallifrey:waxed_exposed_copper_trapdoor",
+    "gallifrey:waxed_weathered_copper_trapdoor",
+    "gallifrey:waxed_oxidized_copper_trapdoor"
+  ]
+}

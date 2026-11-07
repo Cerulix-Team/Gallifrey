@@ -742,6 +742,17 @@ public final class GallifreyTabSections {
             }
     );
 
+    /** Blocks from 1.20.2 to 1.21.11 (tuff, copper, pale garden, resin, new plants). See BackportBlocks. */
+    public static final CreativeSection BACKPORTED = CreativeSection.of(
+            "backported",
+            com.cerulixteam.gallifrey.block.backport.Backport::icon,
+            entries -> {
+                for (net.minecraft.item.ItemConvertible item : com.cerulixteam.gallifrey.block.backport.Backport.tabItems()) {
+                    entries.add(item);
+                }
+            }
+    );
+
     /** Sidebar order. */
     public static final List<CreativeSection> ALL = List.of(
             WOOD_TYPES,
@@ -750,7 +761,8 @@ public final class GallifreyTabSections {
             ROUNDELS,
             MARS,
             CLASSIC,
-            SKARO
+            SKARO,
+            BACKPORTED
     );
 
     private GallifreyTabSections() {}

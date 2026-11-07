@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:tuff_slab",
+    "gallifrey:polished_tuff_slab",
+    "gallifrey:tuff_brick_slab",
+    "gallifrey:resin_brick_slab",
+    "gallifrey:pale_oak_slab"
+  ]
+}

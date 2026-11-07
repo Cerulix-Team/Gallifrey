@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "gallifrey:pale_oak_planks"
+    }
+  ],
+  "result": {
+    "item": "gallifrey:pale_oak_button",
+    "count": 1
+  },
+  "group": "wooden_button"
+}

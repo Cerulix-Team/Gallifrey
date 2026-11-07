@@ -177,6 +177,8 @@ public class GallifreyMod implements ModInitializer {
 
 		GallifreyModItems.register();
 		GallifreyModBlocks.register();
+		// 1.21 blocks backported into Gallifrey (replaces the Copper & Tuff Backport dependency)
+		com.cerulixteam.gallifrey.block.backport.Backport.register();
 		com.cerulixteam.gallifrey.world.tree.decorator.ModTreeDecorators.register();
 		com.cerulixteam.gallifrey.world.GallifreySpawnRule.register();
 		com.cerulixteam.gallifrey.item.custom.GallifreyAccessories.register();

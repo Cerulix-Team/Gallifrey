@@ -1,0 +1,6 @@
+{
+  "parent": "gallifrey:block/backport/template_chain",
+  "textures": {
+    "texture": "gallifrey:block/backport/copper_chain"
+  }
+}

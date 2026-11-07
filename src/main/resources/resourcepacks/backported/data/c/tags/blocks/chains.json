@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:copper_chain",
+    "gallifrey:exposed_copper_chain",
+    "gallifrey:weathered_copper_chain",
+    "gallifrey:oxidized_copper_chain",
+    "gallifrey:waxed_copper_chain",
+    "gallifrey:waxed_exposed_copper_chain",
+    "gallifrey:waxed_weathered_copper_chain",
+    "gallifrey:waxed_oxidized_copper_chain"
+  ]
+}

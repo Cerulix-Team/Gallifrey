@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "gallifrey:weathered_chiseled_copper"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    }
+  ],
+  "result": {
+    "item": "gallifrey:waxed_weathered_chiseled_copper",
+    "count": 1
+  },
+  "group": "waxed_weathered_chiseled_copper"
+}

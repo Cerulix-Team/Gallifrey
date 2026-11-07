@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:pale_oak_log",
+    "gallifrey:pale_oak_wood",
+    "gallifrey:stripped_pale_oak_log",
+    "gallifrey:stripped_pale_oak_wood",
+    "gallifrey:pale_oak_planks",
+    "gallifrey:pale_oak_stairs",
+    "gallifrey:pale_oak_slab",
+    "gallifrey:pale_oak_fence",
+    "gallifrey:pale_oak_fence_gate",
+    "gallifrey:pale_oak_door",
+    "gallifrey:pale_oak_trapdoor",
+    "gallifrey:pale_oak_pressure_plate",
+    "gallifrey:pale_oak_button",
+    "gallifrey:pale_oak_sapling"
+  ]
+}

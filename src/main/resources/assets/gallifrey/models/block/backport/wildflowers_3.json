@@ -1,0 +1,7 @@
+{
+  "parent": "gallifrey:block/backport/flowerbed_3",
+  "textures": {
+    "flowerbed": "gallifrey:block/backport/wildflowers",
+    "stem": "gallifrey:block/backport/wildflowers_stem"
+  }
+}

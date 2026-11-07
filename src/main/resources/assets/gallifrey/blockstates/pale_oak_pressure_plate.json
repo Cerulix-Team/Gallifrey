@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "gallifrey:block/backport/pale_oak_pressure_plate"
+    },
+    "powered=true": {
+      "model": "gallifrey:block/backport/pale_oak_pressure_plate_down"
+    }
+  }
+}

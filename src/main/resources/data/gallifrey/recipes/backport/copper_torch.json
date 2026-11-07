@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "N",
+    "C",
+    "S"
+  ],
+  "key": {
+    "N": {
+      "item": "gallifrey:copper_nugget"
+    },
+    "C": {
+      "tag": "minecraft:coals"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "gallifrey:copper_torch",
+    "count": 4
+  }
+}

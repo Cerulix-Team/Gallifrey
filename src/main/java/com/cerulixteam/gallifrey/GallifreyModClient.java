@@ -53,6 +53,8 @@ public class GallifreyModClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        com.cerulixteam.gallifrey.client.BackportClient.register();
+
         com.cerulixteam.gallifrey.compat.nea.NotEnoughAnimationsCompat.register();
         // Distant Horizons: hide its far terrain in the foggy dimensions (Mars, Lost Reality).
         // Checked here so the compat class, which uses DH's API, is only loaded when DH is installed.

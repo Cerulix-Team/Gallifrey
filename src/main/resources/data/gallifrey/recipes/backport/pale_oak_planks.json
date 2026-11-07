@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "gallifrey:pale_oak_logs"
+    }
+  ],
+  "result": {
+    "item": "gallifrey:pale_oak_planks",
+    "count": 4
+  },
+  "group": "planks"
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "gallifrey:block/backport/template_bars_side_alt",
+  "textures": {
+    "bars": "gallifrey:block/backport/exposed_copper_bars",
+    "edge": "gallifrey:block/backport/exposed_copper_bars"
+  }
+}

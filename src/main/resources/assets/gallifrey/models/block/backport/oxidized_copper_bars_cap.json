@@ -1,0 +1,7 @@
+{
+  "parent": "gallifrey:block/backport/template_bars_cap",
+  "textures": {
+    "bars": "gallifrey:block/backport/oxidized_copper_bars",
+    "edge": "gallifrey:block/backport/oxidized_copper_bars"
+  }
+}

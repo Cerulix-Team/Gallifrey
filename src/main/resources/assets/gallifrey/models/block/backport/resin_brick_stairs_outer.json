@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "gallifrey:block/backport/resin_bricks",
+    "side": "gallifrey:block/backport/resin_bricks",
+    "top": "gallifrey:block/backport/resin_bricks"
+  }
+}

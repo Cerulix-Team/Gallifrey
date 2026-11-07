@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_lantern",
+  "textures": {
+    "lantern": "gallifrey:block/backport/copper_lantern"
+  }
+}

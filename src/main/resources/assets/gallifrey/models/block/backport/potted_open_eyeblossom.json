@@ -1,0 +1,7 @@
+{
+  "parent": "gallifrey:block/backport/flower_pot_cross_emissive",
+  "textures": {
+    "cross_emissive": "gallifrey:block/backport/open_eyeblossom_emissive",
+    "plant": "gallifrey:block/backport/open_eyeblossom"
+  }
+}

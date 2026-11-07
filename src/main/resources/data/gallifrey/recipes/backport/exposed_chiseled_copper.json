@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:exposed_cut_copper_slab"
+    }
+  },
+  "result": {
+    "item": "gallifrey:exposed_chiseled_copper",
+    "count": 1
+  }
+}

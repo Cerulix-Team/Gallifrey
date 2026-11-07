@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "gallifrey:block/backport/oxidized_copper_lantern"
+    },
+    "hanging=true": {
+      "model": "gallifrey:block/backport/oxidized_copper_lantern_hanging"
+    }
+  }
+}

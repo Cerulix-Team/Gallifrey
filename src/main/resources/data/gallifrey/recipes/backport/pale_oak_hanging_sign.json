@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "X X",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "gallifrey:stripped_pale_oak_log"
+    },
+    "X": {
+      "item": "minecraft:chain"
+    }
+  },
+  "result": {
+    "item": "gallifrey:pale_oak_hanging_sign",
+    "count": 6
+  },
+  "group": "hanging_sign"
+}

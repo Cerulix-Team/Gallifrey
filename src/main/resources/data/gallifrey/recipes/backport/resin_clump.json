@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "gallifrey:resin_block"
+    }
+  ],
+  "result": {
+    "item": "gallifrey:resin_clump",
+    "count": 9
+  }
+}

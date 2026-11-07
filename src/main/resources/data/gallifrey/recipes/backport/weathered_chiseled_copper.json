@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:weathered_cut_copper_slab"
+    }
+  },
+  "result": {
+    "item": "gallifrey:weathered_chiseled_copper",
+    "count": 1
+  }
+}

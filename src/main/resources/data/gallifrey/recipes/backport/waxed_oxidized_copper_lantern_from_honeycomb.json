@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "gallifrey:oxidized_copper_lantern"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    }
+  ],
+  "result": {
+    "item": "gallifrey:waxed_oxidized_copper_lantern",
+    "count": 1
+  },
+  "group": "waxed_oxidized_copper_lantern"
+}

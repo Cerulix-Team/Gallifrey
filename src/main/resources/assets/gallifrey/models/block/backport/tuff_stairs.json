@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "gallifrey:block/backport/tuff",
+    "side": "gallifrey:block/backport/tuff",
+    "top": "gallifrey:block/backport/tuff"
+  }
+}
