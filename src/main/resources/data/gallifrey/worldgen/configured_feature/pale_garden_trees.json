@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": {
+          "feature": "gallifrey:pale_oak_creaking",
+          "placement": []
+        },
+        "chance": 0.1
+      }
+    ],
+    "default": {
+      "feature": "gallifrey:pale_oak",
+      "placement": []
+    }
+  }
+}

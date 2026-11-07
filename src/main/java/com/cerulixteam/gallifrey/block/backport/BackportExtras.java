@@ -280,11 +280,9 @@ public final class BackportExtras {
         LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
             if (!source.isBuiltin()) return;
             if (id.equals(SIMPLE_DUNGEON)) {
-                tableBuilder.pool(LootPool.builder().conditionally(RandomChanceLootCondition.builder(0.12F))
-                        .with(ItemEntry.builder(FLOW_TRIM)).with(ItemEntry.builder(BOLT_TRIM))
-                        .with(ItemEntry.builder(FLOW_BANNER_PATTERN)).with(ItemEntry.builder(GUSTER_BANNER_PATTERN))
-                        .with(ItemEntry.builder(BackportCombat.BREEZE_ROD)).with(ItemEntry.builder(BUNDLE))
-                        .with(ItemEntry.builder(COPPER_HORSE_ARMOR)));
+                // Trims, banner patterns and breeze rods now come from Trial Chambers, as in vanilla.
+                tableBuilder.pool(LootPool.builder().conditionally(RandomChanceLootCondition.builder(0.08F))
+                        .with(ItemEntry.builder(BUNDLE)).with(ItemEntry.builder(COPPER_HORSE_ARMOR)));
             } else if (id.equals(PILLAGER)) {
                 NbtCompound amplifier = new NbtCompound();
                 amplifier.putInt("Amplifier", 0);

@@ -52,7 +52,9 @@
 		"fabric-api": "*",
 		"minecraft": "~1.20.1",
 		"java": ">=17",
-		"geckolib": ">=4.8.3",
+		"geckolib": ">=4.8.3"
+	},
+	"breaks": {
 		"hugestructureblocks": "*"
 	},
 	"custom": {

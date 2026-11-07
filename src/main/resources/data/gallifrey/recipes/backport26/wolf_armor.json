@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "result": {
+    "item": "gallifrey:wolf_armor",
+    "count": 1
+  },
+  "pattern": [
+    "X  ",
+    "XXX",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "gallifrey:armadillo_scute"
+    }
+  }
+}

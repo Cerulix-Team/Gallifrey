@@ -38,6 +38,7 @@ public final class BackportClient {
     }
 
     public static void register() {
+        com.cerulixteam.gallifrey.client.backport.BackportMobsClient.register();
         for (Block block : BackportBlocks.CUTOUT) BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout());
         for (Block block : BackportBlocks.CUTOUT_MIPPED) BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutoutMipped());
 

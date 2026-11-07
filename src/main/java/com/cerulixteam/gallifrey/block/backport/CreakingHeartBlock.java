@@ -27,6 +27,8 @@ public class CreakingHeartBlock extends PillarBlock {
     }
 
     public static final EnumProperty<State> STATE = EnumProperty.of("creaking_heart_state", State.class);
+    /** Spawns this heart's Creaking (set by BackportMobs, since the Creaking is a mob backport). */
+    public static java.util.function.BiConsumer<ServerWorld, BlockPos> spawnCreaking = null;
 
     public CreakingHeartBlock(Settings settings) {
         super(settings);
@@ -75,6 +77,7 @@ public class CreakingHeartBlock extends PillarBlock {
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         State now = stateFor(world, pos, state.get(AXIS));
         if (now != state.get(STATE)) world.setBlockState(pos, state.with(STATE, now), Block.NOTIFY_ALL);
+        if (now == State.AWAKE && spawnCreaking != null) spawnCreaking.accept(world, pos);
     }
 
     @Override

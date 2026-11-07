@@ -112,9 +112,6 @@ dependencies {
 	modImplementation "maven.modrinth:biolith:NikAXMfS"
 	include("maven.modrinth:biolith:NikAXMfS")
 
-	// Huge Structure Blocks (Fabric 1.20.1, version 1.1.10): structure blocks bigger than 48x48x48. A required dependency.
-	modImplementation "maven.modrinth:huge-structure-blocks:8o1KUG7Q"
-
 	//please leave this alone
 	modCompileOnly("mezz.jei:jei-1.20.1-fabric:15.62.0.217") { transitive = false }
 

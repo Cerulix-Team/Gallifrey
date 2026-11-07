@@ -36,6 +36,9 @@ public final class Backport {
         Backport26.register();
         BackportCombat.register();
         BackportExtras.register();
+        com.cerulixteam.gallifrey.block.backport.mob.BackportMobs.register();
+        com.cerulixteam.gallifrey.block.backport.trial.BackportTrials.register();
+        com.cerulixteam.gallifrey.block.backport.BackportBiomes.register();
         BackportItems.registerBoat();
         Backport26.registerBoat();
         register26();

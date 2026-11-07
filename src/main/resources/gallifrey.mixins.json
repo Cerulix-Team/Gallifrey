@@ -27,7 +27,19 @@
 "MobEntityAccessor",
 "backport.PassiveEntityGrowthMixin",
 "backport.EnchantmentHelperMixin",
-"backport.DecoratedPotPatternsMixin"
+"backport.DecoratedPotPatternsMixin",
+"backport.PassiveEntityVariantMixin",
+"backport.AnimalBreedVariantMixin",
+"backport.ChickenEggMixin",
+"backport.CarvedPumpkinCopperGolemMixin",
+"backport.ZombieSpearMixin",
+"backport.WolfArmorMixin",
+"structureblock.StructureBlockSizeMixin",
+"structureblock.StructureBlockTrackerMixin",
+"structureblock.StructureBlockPacketMixin",
+"structureblock.JigsawLimitsMixin",
+"structureblock.PlaceCommandDepthMixin",
+"structureblock.JigsawPlacementDistanceMixin"
 ],
 "client": [
   "client.SplashTextRendererAccessor",
@@ -52,7 +64,11 @@
   "client.SlotAccessor",
   "client.CreativeInventoryAccessorySlotsMixin",
   "client.backport.SpearInHandModelMixin",
-  "client.backport.CopperChestTextureMixin"
+  "client.backport.CopperChestTextureMixin",
+  "client.backport.WolfVariantTextureMixin",
+  "client.backport.FarmAnimalRenderMixin",
+  "client.backport.FarmAnimalRendererBuildMixin",
+  "client.structureblock.StructureBlockRenderDistanceMixin"
 ],
 "injectors": {
 "defaultRequire": 1

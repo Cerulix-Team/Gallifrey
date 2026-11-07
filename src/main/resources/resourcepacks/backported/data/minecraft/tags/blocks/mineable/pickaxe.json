@@ -152,6 +152,8 @@
     "gallifrey:waxed_exposed_copper_chest",
     "gallifrey:waxed_weathered_copper_chest",
     "gallifrey:waxed_oxidized_copper_chest",
-    "gallifrey:crafter"
+    "gallifrey:crafter",
+    "gallifrey:trial_spawner",
+    "gallifrey:vault"
   ]
 }
