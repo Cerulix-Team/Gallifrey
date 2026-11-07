@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "gallifrey:pale_oak_slab"
+    "gallifrey:pale_oak_slab",
+    "gallifrey:poplar_slab"
   ]
 }

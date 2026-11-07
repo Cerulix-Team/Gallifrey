@@ -4,6 +4,12 @@
     "gallifrey:tuff_wall",
     "gallifrey:polished_tuff_wall",
     "gallifrey:tuff_brick_wall",
-    "gallifrey:resin_brick_wall"
+    "gallifrey:resin_brick_wall",
+    "gallifrey:sulfur_wall",
+    "gallifrey:polished_sulfur_wall",
+    "gallifrey:sulfur_brick_wall",
+    "gallifrey:cinnabar_wall",
+    "gallifrey:polished_cinnabar_wall",
+    "gallifrey:cinnabar_brick_wall"
   ]
 }

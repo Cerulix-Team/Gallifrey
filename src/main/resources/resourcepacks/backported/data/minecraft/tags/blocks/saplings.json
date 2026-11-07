@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "gallifrey:pale_oak_sapling"
+    "gallifrey:pale_oak_sapling",
+    "gallifrey:poplar_sapling"
   ]
 }

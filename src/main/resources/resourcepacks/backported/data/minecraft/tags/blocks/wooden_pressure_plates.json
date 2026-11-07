@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "gallifrey:pale_oak_pressure_plate"
+    "gallifrey:pale_oak_pressure_plate",
+    "gallifrey:poplar_pressure_plate"
   ]
 }

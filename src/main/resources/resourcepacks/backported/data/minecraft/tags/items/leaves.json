@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "gallifrey:pale_oak_leaves"
+    "gallifrey:pale_oak_leaves",
+    "gallifrey:red_poplar_leaves",
+    "gallifrey:orange_poplar_leaves",
+    "gallifrey:yellow_poplar_leaves"
   ]
 }

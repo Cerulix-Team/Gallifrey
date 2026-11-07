@@ -14,6 +14,24 @@
     "gallifrey:pale_oak_trapdoor",
     "gallifrey:pale_oak_pressure_plate",
     "gallifrey:pale_oak_button",
-    "gallifrey:pale_oak_sapling"
+    "gallifrey:pale_oak_sapling",
+    "gallifrey:poplar_log",
+    "gallifrey:poplar_wood",
+    "gallifrey:stripped_poplar_log",
+    "gallifrey:stripped_poplar_wood",
+    "gallifrey:poplar_planks",
+    "gallifrey:poplar_stairs",
+    "gallifrey:poplar_slab",
+    "gallifrey:poplar_fence",
+    "gallifrey:poplar_fence_gate",
+    "gallifrey:poplar_door",
+    "gallifrey:poplar_trapdoor",
+    "gallifrey:poplar_pressure_plate",
+    "gallifrey:poplar_button",
+    "gallifrey:shelf_mushroom",
+    "gallifrey:poplar_standing_sign",
+    "gallifrey:poplar_wall_sign",
+    "gallifrey:poplar_hanging_sign",
+    "gallifrey:poplar_wall_hanging_sign"
   ]
 }

@@ -276,7 +276,7 @@ public final class BackportBlocks {
         return FabricBlockSettings.create().mapColor(MapColor.TERRACOTTA_ORANGE).requiresTool().strength(1.5F, 6.0F).sounds(BlockSoundGroup.MUD_BRICKS);
     }
 
-    private static FabricBlockSettings plant(MapColor color) {
+    static FabricBlockSettings plant(MapColor color) {
         return FabricBlockSettings.create().mapColor(color).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS)
                 .offset(AbstractBlock.OffsetType.XZ).pistonBehavior(PistonBehavior.DESTROY);
     }
@@ -285,11 +285,11 @@ public final class BackportBlocks {
         return FabricBlockSettings.copyOf(like).mapColor(MapColor.OFF_WHITE);
     }
 
-    private static Block block(String name, Block block) {
+    static Block block(String name, Block block) {
         return block(name, block, true);
     }
 
-    private static Block block(String name, Block block, boolean item) {
+    static Block block(String name, Block block, boolean item) {
         Registry.register(Registries.BLOCK, new Identifier(MOD_ID, name), block);
         if (item) {
             Item blockItem = Registry.register(Registries.ITEM, new Identifier(MOD_ID, name), new BlockItem(block, new FabricItemSettings()));
@@ -298,7 +298,7 @@ public final class BackportBlocks {
         return block;
     }
 
-    private static Block block(String name, Block block, boolean item, List<Block> layer) {
+    static Block block(String name, Block block, boolean item, List<Block> layer) {
         layer.add(block);
         return block(name, block, item);
     }
@@ -307,7 +307,7 @@ public final class BackportBlocks {
      * Registers the four rust stages and four waxed versions of one copper block, and tells Fabric
      * how they rust, scrape and wax into each other.
      */
-    private static Block[] copper(String base,
+    static Block[] copper(String base,
                                   BiFunction<OxidationLevel, AbstractBlock.Settings, Block> rusting,
                                   Function<AbstractBlock.Settings, Block> waxed,
                                   Function<OxidationLevel, FabricBlockSettings> settings) {

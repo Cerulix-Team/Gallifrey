@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "gallifrey:pale_oak_chest_boat"
+    "gallifrey:pale_oak_chest_boat",
+    "gallifrey:poplar_chest_boat"
   ]
 }
