@@ -149,13 +149,12 @@
     ],
     [
       "minecraft:glow_lichen",
-      "minecraft:patch_grass_forest",
-      "minecraft:patch_pumpkin",
-      "minecraft:patch_sugar_cane",
       "gallifrey:pale_garden_trees",
-      "gallifrey:backport_pale_moss_patch",
-      "gallifrey:backport_eyeblossom_patch",
-      "gallifrey:backport_firefly_bush"
+      "minecraft:patch_grass_forest",
+      "minecraft:brown_mushroom_normal",
+      "minecraft:red_mushroom_normal",
+      "minecraft:patch_sugar_cane",
+      "minecraft:patch_pumpkin"
     ],
     [
       "minecraft:freeze_top_layer"

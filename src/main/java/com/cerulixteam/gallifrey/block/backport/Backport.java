@@ -77,12 +77,12 @@ public final class Backport {
 
         // Where the new plants and trees grow, so they can be found in survival.
         add("backport_pale_oak", BiomeKeys.DARK_FOREST);
-        add("backport_pale_moss_patch", BiomeKeys.DARK_FOREST);
-        add("backport_eyeblossom_patch", BiomeKeys.DARK_FOREST);
-        add("backport_leaf_litter", BiomeKeys.FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST, BiomeKeys.DARK_FOREST, BiomeKeys.WINDSWEPT_FOREST);
+        add("backport_pale_moss_patch", BiomeKeys.DARK_FOREST, BackportBiomes.PALE_GARDEN);
+        add("backport_eyeblossom_patch", BiomeKeys.DARK_FOREST, BackportBiomes.PALE_GARDEN);
+        add("backport_leaf_litter", BiomeKeys.FOREST, BackportBiomes.DAPPLED_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST, BiomeKeys.DARK_FOREST, BiomeKeys.WINDSWEPT_FOREST);
         add("backport_wildflowers", BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST, BiomeKeys.MEADOW);
         add("backport_bush", BiomeKeys.PLAINS, BiomeKeys.FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.WINDSWEPT_HILLS);
-        add("backport_firefly_bush", BiomeKeys.SWAMP, BiomeKeys.MANGROVE_SWAMP);
+        add("backport_firefly_bush", BiomeKeys.SWAMP, BiomeKeys.MANGROVE_SWAMP, BackportBiomes.PALE_GARDEN);
         add("backport_dry_grass", BiomeKeys.DESERT, BiomeKeys.BADLANDS, BiomeKeys.WOODED_BADLANDS, BiomeKeys.ERODED_BADLANDS);
         add("backport_cactus_flower", BiomeKeys.DESERT, BiomeKeys.BADLANDS);
     }
@@ -133,7 +133,7 @@ public final class Backport {
 
         // Worldgen: poplars, red shrubs and sulfur/cinnabar (there's no Dappled Forest or Sulfur Caves biome in 1.20.1).
         add("backport_poplars", BiomeKeys.FLOWER_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST, BiomeKeys.MEADOW);
-        add("backport_red_shrub", BiomeKeys.FLOWER_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST);
+        add("backport_red_shrub", BackportBiomes.DAPPLED_FOREST, BiomeKeys.FLOWER_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST);
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES,
                 RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier("gallifrey", "backport_ore_sulfur")));
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES,
