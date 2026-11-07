@@ -35,6 +35,7 @@ public final class Backport {
         BackportBlocks.register();
         Backport26.register();
         BackportCombat.register();
+        BackportExtras.register();
         BackportItems.registerBoat();
         Backport26.registerBoat();
         register26();

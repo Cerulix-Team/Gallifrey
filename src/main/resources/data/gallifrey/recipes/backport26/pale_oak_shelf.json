@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "item": "gallifrey:pale_oak_shelf",
+    "count": 6
+  },
+  "group": "shelf",
+  "pattern": [
+    "###",
+    "   ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "gallifrey:stripped_pale_oak_log"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:copper_chest",
+    "gallifrey:exposed_copper_chest",
+    "gallifrey:weathered_copper_chest",
+    "gallifrey:oxidized_copper_chest",
+    "gallifrey:waxed_copper_chest",
+    "gallifrey:waxed_exposed_copper_chest",
+    "gallifrey:waxed_weathered_copper_chest",
+    "gallifrey:waxed_oxidized_copper_chest"
+  ]
+}

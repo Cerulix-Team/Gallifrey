@@ -143,6 +143,15 @@
     "gallifrey:brown_concrete_stairs",
     "gallifrey:green_concrete_stairs",
     "gallifrey:red_concrete_stairs",
-    "gallifrey:black_concrete_stairs"
+    "gallifrey:black_concrete_stairs",
+    "gallifrey:copper_chest",
+    "gallifrey:exposed_copper_chest",
+    "gallifrey:weathered_copper_chest",
+    "gallifrey:oxidized_copper_chest",
+    "gallifrey:waxed_copper_chest",
+    "gallifrey:waxed_exposed_copper_chest",
+    "gallifrey:waxed_weathered_copper_chest",
+    "gallifrey:waxed_oxidized_copper_chest",
+    "gallifrey:crafter"
   ]
 }

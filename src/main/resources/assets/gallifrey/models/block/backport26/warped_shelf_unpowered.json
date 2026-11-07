@@ -1,0 +1,7 @@
+{
+  "parent": "gallifrey:block/backport26/template_shelf_unpowered",
+  "textures": {
+    "all": "gallifrey:block/backport26/warped_shelf",
+    "particle": "gallifrey:block/backport26/stripped_warped_stem"
+  }
+}

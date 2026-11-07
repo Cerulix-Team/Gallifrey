@@ -20,7 +20,6 @@ import net.minecraft.block.FenceBlock;
 import net.minecraft.block.FenceGateBlock;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.FlowerPotBlock;
-import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.MapColor;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.block.PressurePlateBlock;
@@ -115,9 +114,9 @@ public final class Backport26 {
     public static final Block POPLAR_WALL_HANGING_SIGN = block("poplar_wall_hanging_sign",
             new TerraformWallHangingSignBlock(POPLAR_HANGING_SIGN_TEXTURE, POPLAR_HANGING_GUI_SIGN_TEXTURE, FabricBlockSettings.copyOf(Blocks.BIRCH_WALL_HANGING_SIGN).dropsLike(POPLAR_HANGING_SIGN)), false);
 
-    public static final Block RED_POPLAR_LEAVES = block("red_poplar_leaves", new LeavesBlock(FabricBlockSettings.copyOf(Blocks.BIRCH_LEAVES).mapColor(MapColor.RED)), true, CUTOUT_MIPPED);
-    public static final Block ORANGE_POPLAR_LEAVES = block("orange_poplar_leaves", new LeavesBlock(FabricBlockSettings.copyOf(Blocks.BIRCH_LEAVES).mapColor(MapColor.ORANGE)), true, CUTOUT_MIPPED);
-    public static final Block YELLOW_POPLAR_LEAVES = block("yellow_poplar_leaves", new LeavesBlock(FabricBlockSettings.copyOf(Blocks.BIRCH_LEAVES).mapColor(MapColor.YELLOW)), true, CUTOUT_MIPPED);
+    public static final Block RED_POPLAR_LEAVES = block("red_poplar_leaves", new BackportLeavesBlock(() -> BackportExtras.RED_POPLAR_LEAVES_PARTICLE, 12, FabricBlockSettings.copyOf(Blocks.BIRCH_LEAVES).mapColor(MapColor.RED)), true, CUTOUT_MIPPED);
+    public static final Block ORANGE_POPLAR_LEAVES = block("orange_poplar_leaves", new BackportLeavesBlock(() -> BackportExtras.ORANGE_POPLAR_LEAVES_PARTICLE, 12, FabricBlockSettings.copyOf(Blocks.BIRCH_LEAVES).mapColor(MapColor.ORANGE)), true, CUTOUT_MIPPED);
+    public static final Block YELLOW_POPLAR_LEAVES = block("yellow_poplar_leaves", new BackportLeavesBlock(() -> BackportExtras.YELLOW_POPLAR_LEAVES_PARTICLE, 12, FabricBlockSettings.copyOf(Blocks.BIRCH_LEAVES).mapColor(MapColor.YELLOW)), true, CUTOUT_MIPPED);
     public static final Block POPLAR_SAPLING = block("poplar_sapling", new SaplingBlock(new PoplarSaplingGenerator(), FabricBlockSettings.copyOf(Blocks.BIRCH_SAPLING)), true, CUTOUT);
     public static final Block POTTED_POPLAR_SAPLING = block("potted_poplar_sapling", new FlowerPotBlock(POPLAR_SAPLING, FabricBlockSettings.copyOf(Blocks.POTTED_BIRCH_SAPLING)), false, CUTOUT);
 

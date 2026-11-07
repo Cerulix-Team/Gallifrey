@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "item": "gallifrey:bolt_armor_trim_smithing_template",
+    "count": 2
+  },
+  "pattern": [
+    "#S#",
+    "#C#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:diamond"
+    },
+    "C": [
+      {
+        "item": "minecraft:copper_block"
+      },
+      {
+        "item": "minecraft:waxed_copper_block"
+      }
+    ],
+    "S": {
+      "item": "gallifrey:bolt_armor_trim_smithing_template"
+    }
+  }
+}

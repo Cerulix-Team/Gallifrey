@@ -1,0 +1,7 @@
+{
+  "parent": "gallifrey:block/backport26/template_shelf_center",
+  "textures": {
+    "all": "gallifrey:block/backport26/bamboo_shelf",
+    "particle": "gallifrey:block/backport26/stripped_bamboo_block"
+  }
+}

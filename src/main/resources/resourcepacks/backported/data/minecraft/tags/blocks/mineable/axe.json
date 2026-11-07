@@ -32,6 +32,20 @@
     "gallifrey:poplar_standing_sign",
     "gallifrey:poplar_wall_sign",
     "gallifrey:poplar_hanging_sign",
-    "gallifrey:poplar_wall_hanging_sign"
+    "gallifrey:poplar_wall_hanging_sign",
+    "gallifrey:oak_shelf",
+    "gallifrey:spruce_shelf",
+    "gallifrey:birch_shelf",
+    "gallifrey:jungle_shelf",
+    "gallifrey:acacia_shelf",
+    "gallifrey:dark_oak_shelf",
+    "gallifrey:mangrove_shelf",
+    "gallifrey:cherry_shelf",
+    "gallifrey:bamboo_shelf",
+    "gallifrey:crimson_shelf",
+    "gallifrey:warped_shelf",
+    "gallifrey:pale_oak_shelf",
+    "gallifrey:poplar_shelf",
+    "gallifrey:creaking_heart"
   ]
 }

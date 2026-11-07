@@ -26,7 +26,8 @@
 "compat.TardisRefinedDimensionMixin",
 "MobEntityAccessor",
 "backport.PassiveEntityGrowthMixin",
-"backport.EnchantmentHelperMixin"
+"backport.EnchantmentHelperMixin",
+"backport.DecoratedPotPatternsMixin"
 ],
 "client": [
   "client.SplashTextRendererAccessor",
@@ -50,7 +51,8 @@
   "client.CreativeSlotAccessor",
   "client.SlotAccessor",
   "client.CreativeInventoryAccessorySlotsMixin",
-  "client.backport.SpearInHandModelMixin"
+  "client.backport.SpearInHandModelMixin",
+  "client.backport.CopperChestTextureMixin"
 ],
 "injectors": {
 "defaultRequire": 1

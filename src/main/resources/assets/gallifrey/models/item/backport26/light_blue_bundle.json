@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gallifrey:item/backport26/light_blue_bundle"
+  }
+}

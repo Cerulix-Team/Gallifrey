@@ -55,8 +55,8 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 
 /**
- * Blocks from Minecraft 1.20.2 to 1.21.11, backported into Gallifrey so it doesn't need the
- * Copper &amp; Tuff Backport mod any more. They're in the "Backported" section of the Gallifrey tab.
+ * Blocks from Minecraft 1.20.2 to 1.21.11, built into Gallifrey (no backport mod needed).
+ * They're in the "Backported" section of the Gallifrey tab.
  *
  * <ul>
  *   <li>Tuff: tuff, polished tuff and tuff brick slabs, stairs and walls, and the chiseled blocks (1.21)</li>
@@ -68,8 +68,7 @@ import java.util.function.Function;
  *   <li>The Heavy Core (1.21), as a decorative block</li>
  * </ul>
  *
- * The ids are the same as vanilla's, in the gallifrey namespace (gallifrey:tuff_bricks), so they match
- * Copper &amp; Tuff Backport's ids too. Models, blockstates and textures are vanilla 1.21.11's, under
+ * The ids are the same as vanilla's, in the gallifrey namespace (gallifrey:tuff_bricks). Models, blockstates and textures are vanilla 1.21.11's, under
  * models/block/backport and textures/block/backport. Tags live in the built-in "backported" data pack,
  * so they can't clash with the datagen tag files.
  */
@@ -203,7 +202,7 @@ public final class BackportBlocks {
     public static final Block PALE_OAK_WALL_HANGING_SIGN = block("pale_oak_wall_hanging_sign",
             new TerraformWallHangingSignBlock(PALE_OAK_HANGING_SIGN_TEXTURE, PALE_OAK_HANGING_GUI_SIGN_TEXTURE, FabricBlockSettings.copyOf(Blocks.DARK_OAK_WALL_HANGING_SIGN).mapColor(MapColor.OFF_WHITE).dropsLike(PALE_OAK_HANGING_SIGN)), false);
 
-    public static final Block PALE_OAK_LEAVES = block("pale_oak_leaves", new LeavesBlock(FabricBlockSettings.copyOf(Blocks.DARK_OAK_LEAVES).mapColor(MapColor.PALE_GREEN)), true, CUTOUT_MIPPED);
+    public static final Block PALE_OAK_LEAVES = block("pale_oak_leaves", new BackportLeavesBlock(() -> BackportExtras.PALE_OAK_LEAVES_PARTICLE, 10, FabricBlockSettings.copyOf(Blocks.DARK_OAK_LEAVES).mapColor(MapColor.PALE_GREEN)), true, CUTOUT_MIPPED);
     public static final Block PALE_OAK_SAPLING = block("pale_oak_sapling", new SaplingBlock(new PaleOakSaplingGenerator(), FabricBlockSettings.copyOf(Blocks.DARK_OAK_SAPLING).mapColor(MapColor.OFF_WHITE)), true, CUTOUT);
     public static final Block POTTED_PALE_OAK_SAPLING = block("potted_pale_oak_sapling", new FlowerPotBlock(PALE_OAK_SAPLING, FabricBlockSettings.copyOf(Blocks.POTTED_DARK_OAK_SAPLING)), false, CUTOUT);
 
@@ -238,8 +237,7 @@ public final class BackportBlocks {
     public static final Block WILDFLOWERS = block("wildflowers", new FlowerbedBlock(FabricBlockSettings.copyOf(Blocks.PINK_PETALS).mapColor(MapColor.YELLOW)), true, CUTOUT);
     public static final Block BUSH = block("bush", new BackportPlantBlock(BackportPlantBlock.Soil.DIRT, BackportPlantBlock.box(1, 0, 1, 15, 13, 15),
             plant(MapColor.DARK_GREEN).replaceable()), true, CUTOUT);
-    public static final Block FIREFLY_BUSH = block("firefly_bush", new BackportPlantBlock(BackportPlantBlock.Soil.DIRT, BackportPlantBlock.box(1, 0, 1, 15, 13, 15),
-            plant(MapColor.DARK_GREEN).luminance(2)), true, CUTOUT);
+    public static final Block FIREFLY_BUSH = block("firefly_bush", new FireflyBushBlock(plant(MapColor.DARK_GREEN).luminance(2)), true, CUTOUT);
     public static final Block CACTUS_FLOWER = block("cactus_flower", new BackportPlantBlock(BackportPlantBlock.Soil.CACTUS, BackportPlantBlock.box(1, 0, 1, 15, 12, 15),
             FabricBlockSettings.copyOf(Blocks.POPPY).mapColor(MapColor.PINK).sounds(BlockSoundGroup.WET_GRASS)), true, CUTOUT);
     public static final Block SHORT_DRY_GRASS = block("short_dry_grass", new BackportPlantBlock(BackportPlantBlock.Soil.DRY, BackportPlantBlock.box(2, 0, 2, 14, 10, 14),

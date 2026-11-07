@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "item": "gallifrey:acacia_shelf",
+    "count": 6
+  },
+  "group": "shelf",
+  "pattern": [
+    "###",
+    "   ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stripped_acacia_log"
+    }
+  }
+}

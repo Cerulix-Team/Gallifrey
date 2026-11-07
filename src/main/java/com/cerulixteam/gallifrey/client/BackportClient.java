@@ -59,6 +59,24 @@ public final class BackportClient {
         EntityRendererRegistry.register(Backport26.CUSHION_ENTITY, CushionRenderer::new);
         EntityRendererRegistry.register(BackportCombat.WIND_CHARGE_ENTITY, FlyingItemEntityRenderer::new);
 
+        // Batch 1 extras: particles, shelves, copper chests, the crafter.
+        net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry particles = net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry.getInstance();
+        particles.register(com.cerulixteam.gallifrey.block.backport.BackportExtras.PALE_OAK_LEAVES_PARTICLE, BackportParticles.LeafFactory::new);
+        particles.register(com.cerulixteam.gallifrey.block.backport.BackportExtras.RED_POPLAR_LEAVES_PARTICLE, BackportParticles.LeafFactory::new);
+        particles.register(com.cerulixteam.gallifrey.block.backport.BackportExtras.ORANGE_POPLAR_LEAVES_PARTICLE, BackportParticles.LeafFactory::new);
+        particles.register(com.cerulixteam.gallifrey.block.backport.BackportExtras.YELLOW_POPLAR_LEAVES_PARTICLE, BackportParticles.LeafFactory::new);
+        particles.register(com.cerulixteam.gallifrey.block.backport.BackportExtras.FIREFLY_PARTICLE, BackportParticles.FireflyFactory::new);
+        net.minecraft.client.render.block.entity.BlockEntityRendererFactories.register(com.cerulixteam.gallifrey.block.backport.BackportExtras.SHELF_ENTITY, ShelfRenderer::new);
+        net.minecraft.client.render.block.entity.BlockEntityRendererFactories.register(com.cerulixteam.gallifrey.block.backport.BackportExtras.COPPER_CHEST_ENTITY,
+                net.minecraft.client.render.block.entity.ChestBlockEntityRenderer::new);
+        for (Block chest : com.cerulixteam.gallifrey.block.backport.BackportExtras.COPPER_CHESTS) {
+            com.cerulixteam.gallifrey.block.backport.CopperChestBlockEntity shown = new com.cerulixteam.gallifrey.block.backport.CopperChestBlockEntity(
+                    net.minecraft.util.math.BlockPos.ORIGIN, chest.getDefaultState());
+            net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry.INSTANCE.register(chest, (stack, mode, matrices, consumers, light, overlay) ->
+                    net.minecraft.client.MinecraftClient.getInstance().getBlockEntityRenderDispatcher().renderEntity(shown, matrices, consumers, light, overlay));
+        }
+        net.minecraft.client.gui.screen.ingame.HandledScreens.register(com.cerulixteam.gallifrey.block.backport.BackportExtras.CRAFTER_SCREEN, CrafterScreen::new);
+
         // Spears' long in-hand models (see SpearInHandModelMixin).
         ModelLoadingPlugin.register(context -> {
             for (Item spear : BackportCombat.SPEARS) context.addModels(inHandModel(new ItemStack(spear)));

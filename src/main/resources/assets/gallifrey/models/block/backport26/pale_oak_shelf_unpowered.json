@@ -1,0 +1,7 @@
+{
+  "parent": "gallifrey:block/backport26/template_shelf_unpowered",
+  "textures": {
+    "all": "gallifrey:block/backport26/pale_oak_shelf",
+    "particle": "gallifrey:block/backport26/stripped_pale_oak_log"
+  }
+}
