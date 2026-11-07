@@ -52,6 +52,8 @@ public class CopperGolemEntity extends GolemEntity implements GeoEntity {
     /** The statue's pose (26.x): 0 standing, 1 running, 2 sitting, 3 star. */
     private static final TrackedData<Integer> POSE = DataTracker.registerData(CopperGolemEntity.class, TrackedDataHandlerRegistry.INTEGER);
     /** Wearing a poppy on its head. */
+    /** Gilded with a block of gold (Gallifrey's own): it never rusts, and shines gold. */
+    private static final TrackedData<Boolean> GILDED = DataTracker.registerData(CopperGolemEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     private static final TrackedData<Boolean> FLOWER = DataTracker.registerData(CopperGolemEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     private static final int RANGE = 16;
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
@@ -74,6 +76,7 @@ public class CopperGolemEntity extends GolemEntity implements GeoEntity {
         this.dataTracker.startTracking(STATUE, false);
         this.dataTracker.startTracking(POSE, 0);
         this.dataTracker.startTracking(FLOWER, false);
+        this.dataTracker.startTracking(GILDED, false);
     }
 
     public int getOxidation() { return this.dataTracker.get(OXIDATION); }
@@ -81,6 +84,7 @@ public class CopperGolemEntity extends GolemEntity implements GeoEntity {
     public boolean isStatue() { return this.dataTracker.get(STATUE); }
     public int getStatuePose() { return this.dataTracker.get(POSE); }
     public boolean hasFlower() { return this.dataTracker.get(FLOWER); }
+    public boolean isGilded() { return this.dataTracker.get(GILDED); }
     public void setWaxed(boolean waxed) { this.dataTracker.set(WAXED, waxed); }
 
     @Override
@@ -102,7 +106,7 @@ public class CopperGolemEntity extends GolemEntity implements GeoEntity {
     public void tickMovement() {
         super.tickMovement();
         if (this.getWorld().isClient) return;
-        if (!this.dataTracker.get(WAXED) && --this.rustTimer <= 0) {
+        if (!this.dataTracker.get(WAXED) && !this.isGilded() && --this.rustTimer <= 0) {
             this.rustTimer = 12000 + this.random.nextInt(12000);
             if (this.getOxidation() < 3) this.setOxidation(this.getOxidation() + 1);
             else if (!this.isStatue() && this.random.nextInt(4) == 0) {
@@ -116,6 +120,28 @@ public class CopperGolemEntity extends GolemEntity implements GeoEntity {
     public ActionResult interactMob(PlayerEntity player, Hand hand) {
         ItemStack stack = player.getStackInHand(hand);
         World world = this.getWorld();
+        if (stack.isOf(Items.GOLD_BLOCK) && !this.isGilded()) {
+            if (!world.isClient) {
+                this.dataTracker.set(GILDED, true);
+                this.dataTracker.set(STATUE, false);
+                this.setOxidation(0);
+                this.playSound(SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 1.0F, 1.0F);
+                if (!player.getAbilities().creativeMode) stack.decrement(1);
+                if (player instanceof net.minecraft.server.network.ServerPlayerEntity sp) {
+                    com.cerulixteam.gallifrey.block.backport.BackportAdvancements.grant(sp, "gild_copper_golem");
+                }
+            }
+            return ActionResult.success(world.isClient);
+        }
+        if (stack.getItem() instanceof AxeItem && this.isGilded()) {
+            if (!world.isClient) {
+                this.dataTracker.set(GILDED, false);
+                this.dropItem(Items.GOLD_BLOCK);
+                this.playSound(SoundEvents.ITEM_AXE_SCRAPE, 1.0F, 1.2F);
+                stack.damage(1, player, p -> p.sendToolBreakStatus(hand));
+            }
+            return ActionResult.success(world.isClient);
+        }
         if (stack.getItem() instanceof AxeItem && (this.getOxidation() > 0 || this.dataTracker.get(WAXED) || this.isStatue())) {
             if (!world.isClient) {
                 if (this.dataTracker.get(WAXED)) this.dataTracker.set(WAXED, false);
@@ -191,6 +217,7 @@ public class CopperGolemEntity extends GolemEntity implements GeoEntity {
         nbt.putBoolean("statue", this.isStatue());
         nbt.putInt("pose", this.getStatuePose());
         nbt.putBoolean("flower", this.hasFlower());
+        nbt.putBoolean("gilded", this.isGilded());
     }
 
     @Override
@@ -201,6 +228,7 @@ public class CopperGolemEntity extends GolemEntity implements GeoEntity {
         this.dataTracker.set(STATUE, nbt.getBoolean("statue"));
         this.dataTracker.set(POSE, nbt.getInt("pose") & 3);
         this.dataTracker.set(FLOWER, nbt.getBoolean("flower"));
+        this.dataTracker.set(GILDED, nbt.getBoolean("gilded"));
     }
 
     @Override public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {}

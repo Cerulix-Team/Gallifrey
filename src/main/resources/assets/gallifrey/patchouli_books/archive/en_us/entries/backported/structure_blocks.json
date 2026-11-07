@@ -2,7 +2,7 @@
   "name": "Huge Structure Blocks",
   "icon": "minecraft:structure_block",
   "category": "gallifrey:backported",
-  "sortnum": 10,
+  "sortnum": 11,
   "pages": [
     {
       "type": "patchouli:text",

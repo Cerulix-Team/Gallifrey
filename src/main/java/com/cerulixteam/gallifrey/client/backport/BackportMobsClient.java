@@ -99,7 +99,8 @@ public final class BackportMobsClient {
                         "happy_ghast_ropes", Kind.CUTOUT));
         EntityRendererRegistry.register(BackportMobs.COPPER_GOLEM, ctx -> new Renderer<CopperGolemEntity>(ctx, new Model<>(e -> ((CopperGolemEntity) e).isStatue()
                 ? STATUE_POSES[((CopperGolemEntity) e).getStatuePose()] : "copper_golem",
-                e -> BackportGeo.tex("copper_golem/copper_golem" + OXIDATION[((CopperGolemEntity) e).getOxidation()]), BackportMobsClient::copperGolem, false), 0.4F)
+                e -> BackportGeo.tex(((CopperGolemEntity) e).isGilded() ? "copper_golem/gilded_copper_golem"
+                        : "copper_golem/copper_golem" + OXIDATION[((CopperGolemEntity) e).getOxidation()]), BackportMobsClient::copperGolem, false), 0.4F)
                 .overlay(e -> ((CopperGolemEntity) e).hasFlower() ? BackportGeo.tex("copper_golem/copper_golem_flower") : null, "copper_golem_flower", Kind.CUTOUT)
                 .overlay(e -> ((CopperGolemEntity) e).isStatue() ? null
                         : BackportGeo.tex("copper_golem/copper_golem_eyes" + OXIDATION[((CopperGolemEntity) e).getOxidation()]), null, Kind.EYES));
@@ -113,6 +114,11 @@ public final class BackportMobsClient {
         EntityRendererRegistry.register(BackportMobs.ZOMBIE_NAUTILUS, nautilus);
         EntityRendererRegistry.register(BackportMobs.SULFUR_CUBE, SulfurCubeRenderer::new);
         EntityRendererRegistry.register(BackportMobs.VARIANT_EGG, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(BackportMobs.TEMPORAL_SHARD_PROJECTILE, ctx -> new FlyingItemEntityRenderer<>(ctx, 1.0F, true));
+        EntityRendererRegistry.register(BackportMobs.SHARDWARDEN, ctx -> new Renderer<com.cerulixteam.gallifrey.block.backport.mob.ShardwardenEntity>(ctx,
+                new Model<>("shardwarden", e -> BackportGeo.tex("shardwarden/shardwarden"), BackportMobsClient::shardwarden), 0.5F)
+                .scale(e -> 1.0F)
+                .overlay(e -> BackportGeo.tex("shardwarden/shardwarden_glow"), null, Kind.EYES));
 
         EntityRendererRegistry.register(BackportMobs.BOGGED, ctx -> new BackportSkeletonRenderer(ctx, true));
         EntityRendererRegistry.register(BackportMobs.PARCHED, ctx -> new BackportSkeletonRenderer(ctx, false));
@@ -172,6 +178,17 @@ public final class BackportMobsClient {
         b.rot("tornado_top", 0, -p.age() * 10.0F, 0);
         b.pos("tornado_mid", MathHelper.cos(p.age() * 0.2F), 0, MathHelper.sin(p.age() * 0.2F));
         b.pos("tornado_top", MathHelper.cos(p.age() * 0.15F + 1.0F) * 1.5F, 0, MathHelper.sin(p.age() * 0.15F + 1.0F) * 1.5F);
+    }
+
+    /** Shardwarden (Gallifrey's own): the plates orbit the core, faster when it's hurt; the halo turns the other way. */
+    static void shardwarden(BackportGeo.Bones b, BackportGeo.Pose p) {
+        float hurt = p.entity().hurtTime > 0 ? 3.0F : 1.0F;
+        b.rot("plates", 0, p.age() * 4.0F * hurt, 0);
+        b.rot("halo", 0, -p.age() * 1.5F, MathHelper.sin(p.age() * 0.05F) * 6.0F);
+        b.pos("core", 0, MathHelper.sin(p.age() * 0.1F) * 0.6F, 0);
+        b.rot("core", 0, p.headYaw(), 0);
+        b.rot("crown", 0, p.age() * 2.0F, 0);
+        for (int i = 0; i < 4; i++) b.rot("plate" + i, MathHelper.sin(p.age() * 0.08F + i * 1.57F) * 12.0F, 0, 0);
     }
 
     static void armadillo(BackportGeo.Bones b, BackportGeo.Pose p) {

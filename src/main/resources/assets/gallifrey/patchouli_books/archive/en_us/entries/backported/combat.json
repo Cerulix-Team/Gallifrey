@@ -2,7 +2,7 @@
   "name": "Weapons of Later Wars",
   "icon": "gallifrey:mace",
   "category": "gallifrey:backported",
-  "sortnum": 5,
+  "sortnum": 6,
   "pages": [
     {
       "type": "patchouli:spotlight",

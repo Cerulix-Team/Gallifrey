@@ -65,6 +65,10 @@ public final class BackportMobs {
             .dimensions(EntityDimensions.fixed(1.7F, 2.375F)).trackRangeChunks(10).build());
     public static final EntityType<SulfurCubeEntity> SULFUR_CUBE = register("sulfur_cube", FabricEntityTypeBuilder.<SulfurCubeEntity>create(SpawnGroup.CREATURE, SulfurCubeEntity::new)
             .dimensions(EntityDimensions.changing(1.0F, 1.0F)).trackRangeChunks(10).build());
+    public static final EntityType<ShardwardenEntity> SHARDWARDEN = register("shardwarden", FabricEntityTypeBuilder.<ShardwardenEntity>create(SpawnGroup.MONSTER, ShardwardenEntity::new)
+            .dimensions(EntityDimensions.fixed(0.9F, 1.5F)).trackRangeChunks(10).build());
+    public static final EntityType<TemporalShardEntity> TEMPORAL_SHARD_PROJECTILE = register("temporal_shard", FabricEntityTypeBuilder.<TemporalShardEntity>create(SpawnGroup.MISC, TemporalShardEntity::new)
+            .dimensions(EntityDimensions.fixed(0.3125F, 0.3125F)).trackRangeChunks(4).trackedUpdateRate(10).build());
     public static final EntityType<VariantEggEntity> VARIANT_EGG = register("variant_egg", FabricEntityTypeBuilder.<VariantEggEntity>create(SpawnGroup.MISC, VariantEggEntity::new)
             .dimensions(EntityDimensions.fixed(0.25F, 0.25F)).trackRangeChunks(4).trackedUpdateRate(10).build());
 
@@ -94,6 +98,8 @@ public final class BackportMobs {
     }
 
     public static final Item SULFUR_CUBE_BUCKET = item("sulfur_cube_bucket", new SulfurCubeBucketItem(new FabricItemSettings().maxCount(1)));
+    /** Dropped by Shardwardens. */
+    public static final Item TEMPORAL_SHARD = item("temporal_shard", new Item(new FabricItemSettings()));
     public static final Item BLUE_EGG = item("blue_egg", new VariantEggItem(2, new FabricItemSettings().maxCount(16)));
     public static final Item BROWN_EGG = item("brown_egg", new VariantEggItem(1, new FabricItemSettings().maxCount(16)));
 
@@ -109,10 +115,13 @@ public final class BackportMobs {
         egg("zombie_nautilus", ZOMBIE_NAUTILUS, 0x6E8A6A, 0x3B4F3A);
         egg("camel_husk", CAMEL_HUSK, 0xB59E73, 0x6E5A3B);
         egg("sulfur_cube", SULFUR_CUBE, 0xE3D35C, 0x9E8E2B);
+        egg("shardwarden", SHARDWARDEN, 0xE8C15A, 0x3FD9C8);
     }
 
     private static void egg(String name, EntityType<? extends MobEntity> type, int primary, int secondary) {
-        item(name + "_spawn_egg", new BackportSpawnEggItem(type, primary, secondary, new FabricItemSettings()));
+        // Shardwarden is Gallifrey's own, with no vanilla egg art: it uses the classic tinted egg.
+        item(name + "_spawn_egg", name.equals("shardwarden") ? new net.minecraft.item.SpawnEggItem(type, primary, secondary, new FabricItemSettings())
+                : new BackportSpawnEggItem(type, primary, secondary, new FabricItemSettings()));
     }
 
     // =========================================================
@@ -131,6 +140,7 @@ public final class BackportMobs {
         FabricDefaultAttributeRegistry.register(ZOMBIE_NAUTILUS, NautilusEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(CAMEL_HUSK, CamelEntity.createCamelAttributes());
         FabricDefaultAttributeRegistry.register(SULFUR_CUBE, SulfurCubeEntity.createAttributes());
+        FabricDefaultAttributeRegistry.register(SHARDWARDEN, ShardwardenEntity.createAttributes());
 
         SpawnRestriction.register(BOGGED, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HostileEntity::canSpawnInDark);
         SpawnRestriction.register(PARCHED, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HostileEntity::canSpawnInDark);

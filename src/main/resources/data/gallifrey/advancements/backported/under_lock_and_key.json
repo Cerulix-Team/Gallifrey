@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "gallifrey:trial_key"
+    },
+    "title": {
+      "translate": "advancements.gallifrey.backported.under_lock_and_key.title"
+    },
+    "description": {
+      "translate": "advancements.gallifrey.backported.under_lock_and_key.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "gallifrey:backported/trial_chambers"
+}

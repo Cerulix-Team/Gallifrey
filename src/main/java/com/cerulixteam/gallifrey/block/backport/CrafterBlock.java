@@ -113,6 +113,11 @@ public class CrafterBlock extends Block implements BlockEntityProvider {
         }
         ItemStack result = recipe.get().craft(crafter, world.getRegistryManager());
         if (result.isEmpty()) return;
+        if (result.getItem() instanceof net.minecraft.item.BlockItem bi && bi.getBlock() instanceof CrafterBlock) {
+            for (net.minecraft.server.network.ServerPlayerEntity p : world.getPlayers(p -> p.squaredDistanceTo(pos.toCenterPos()) < 25.0)) {
+                com.cerulixteam.gallifrey.block.backport.BackportAdvancements.grant(p, "crafters_crafting_crafters");
+            }
+        }
         DefaultedList<ItemStack> remainders = recipe.get().getRemainder(crafter);
         Direction facing = state.get(ORIENTATION).getFacing();
         this.eject(world, pos, facing, result);

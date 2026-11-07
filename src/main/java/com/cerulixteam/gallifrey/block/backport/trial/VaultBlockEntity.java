@@ -84,6 +84,9 @@ public class VaultBlockEntity extends BlockEntity {
         if (loot.isEmpty()) return false;
         if (!player.getAbilities().creativeMode) held.decrement(1);
         this.rewarded.add(player.getUuid());
+        if (player instanceof net.minecraft.server.network.ServerPlayerEntity sp) {
+            com.cerulixteam.gallifrey.block.backport.BackportAdvancements.grant(sp, state.isOf(BackportTrials.GALLIFREYAN_VAULT) ? "gallifreyan_vault" : state.get(VaultBlock.OMINOUS) ? "revaulting" : "under_lock_and_key");
+        }
         this.ejecting.clear();
         this.ejecting.addAll(loot);
         this.display = loot.get(0).copy();

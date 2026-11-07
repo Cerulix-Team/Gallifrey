@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "gallifrey:crafter"
+    },
+    "title": {
+      "translate": "advancements.gallifrey.backported.crafters_crafting_crafters.title"
+    },
+    "description": {
+      "translate": "advancements.gallifrey.backported.crafters_crafting_crafters.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "gallifrey:backported/trial_chambers"
+}

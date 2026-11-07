@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "gallifrey:atrium_core",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "gallifrey:location_circuit",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "gallifrey:dimension_circuit",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "gallifrey:interface_circuit",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "gallifrey:white_point_star_upgrade_smithing_template",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

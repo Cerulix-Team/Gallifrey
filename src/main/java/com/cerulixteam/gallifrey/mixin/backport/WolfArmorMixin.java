@@ -80,6 +80,7 @@ public abstract class WolfArmorMixin implements WolfArmorItem.Holder {
                 wolf.dropStack(armor);
                 wolf.getWorld().playSoundFromEntity(null, wolf, SoundEvents.ENTITY_SHEEP_SHEAR, SoundCategory.NEUTRAL, 1.0F, 1.0F);
                 held.damage(1, player, p -> p.sendToolBreakStatus(hand));
+                if (player instanceof net.minecraft.server.network.ServerPlayerEntity sp) com.cerulixteam.gallifrey.block.backport.BackportAdvancements.grant(sp, "shear_brilliance");
             }
             cir.setReturnValue(ActionResult.success(wolf.getWorld().isClient));
         } else if (held.isOf(BackportMobs.ARMADILLO_SCUTE) && !armor.isEmpty() && armor.isDamaged()) {
@@ -88,6 +89,7 @@ public abstract class WolfArmorMixin implements WolfArmorItem.Holder {
                 repaired.setDamage(Math.max(0, armor.getDamage() - armor.getMaxDamage() / 8));
                 this.gallifrey$setArmor(repaired);
                 if (!player.getAbilities().creativeMode) held.decrement(1);
+                if (player instanceof net.minecraft.server.network.ServerPlayerEntity sp) com.cerulixteam.gallifrey.block.backport.BackportAdvancements.grant(sp, "good_as_new");
                 wolf.getWorld().playSoundFromEntity(null, wolf, com.cerulixteam.gallifrey.block.backport.BackportSounds.ITEM_WOLF_ARMOR_REPAIR, SoundCategory.NEUTRAL, 1.0F, 1.0F);
             }
             cir.setReturnValue(ActionResult.success(wolf.getWorld().isClient));

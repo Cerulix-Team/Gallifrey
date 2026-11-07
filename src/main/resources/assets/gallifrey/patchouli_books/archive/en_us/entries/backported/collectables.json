@@ -2,7 +2,7 @@
   "name": "Collectables",
   "icon": "gallifrey:music_disc_creator",
   "category": "gallifrey:backported",
-  "sortnum": 9,
+  "sortnum": 10,
   "pages": [
     {
       "type": "patchouli:spotlight",

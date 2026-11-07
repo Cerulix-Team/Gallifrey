@@ -2,7 +2,7 @@
   "name": "Omens",
   "icon": "gallifrey:ominous_bottle",
   "category": "gallifrey:backported",
-  "sortnum": 8,
+  "sortnum": 9,
   "pages": [
     {
       "type": "patchouli:spotlight",

@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "gallifrey:gallifreyan_trial_key"
+    },
+    "title": {
+      "translate": "advancements.gallifrey.backported.gallifreyan_vault.title"
+    },
+    "description": {
+      "translate": "advancements.gallifrey.backported.gallifreyan_vault.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "gallifrey:backported/time_lord_trials"
+}

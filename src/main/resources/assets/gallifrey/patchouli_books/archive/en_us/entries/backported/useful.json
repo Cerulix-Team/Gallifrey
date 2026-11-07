@@ -2,7 +2,7 @@
   "name": "Useful Blocks",
   "icon": "gallifrey:crafter",
   "category": "gallifrey:backported",
-  "sortnum": 7,
+  "sortnum": 8,
   "pages": [
     {
       "type": "patchouli:spotlight",

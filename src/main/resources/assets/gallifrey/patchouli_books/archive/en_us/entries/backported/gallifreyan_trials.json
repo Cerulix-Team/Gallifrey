@@ -17,6 +17,17 @@
       "type": "patchouli:spotlight",
       "item": "gallifrey:ominous_gallifreyan_trial_key",
       "text": "Trial Omen works here too. Ominous Gallifreyan spawners call in the Supreme Council's own Dalek."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:temporal_shard",
+      "text": "The $(thing)Shardwarden$() guards these halls: a floating core of time-crystal in a gold halo, with four crystal plates circling it. It keeps its distance and fires $(item)Temporal Shards$() that slow whatever they hit. Hurt it and it may blink away through time.",
+      "title": "Shardwarden"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:citadel_armor_trim_smithing_template",
+      "text": "The rarest finds in a Gallifreyan Vault: the $(item)Citadel$() armour trim, with circlet, collar and roundel, and the $(item)Roundel$() banner pattern. Copy the template with seven diamonds and a block of quartz."
     }
   ]
 }

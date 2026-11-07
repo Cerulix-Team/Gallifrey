@@ -97,6 +97,10 @@ public final class BackportExtras {
     public static final RegistryKey<BannerPattern> GUSTER_PATTERN = bannerPattern("guster", "gallifrey_gus");
     public static final Item FLOW_BANNER_PATTERN = item("flow_banner_pattern", new BannerPatternItem(TagKey.of(RegistryKeys.BANNER_PATTERN, id("pattern_item/flow")), new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON)));
     public static final Item GUSTER_BANNER_PATTERN = item("guster_banner_pattern", new BannerPatternItem(TagKey.of(RegistryKeys.BANNER_PATTERN, id("pattern_item/guster")), new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON)));
+    // Gallifrey's own, for the Gallifreyan Trial Chambers: the Citadel trim and the Roundel banner pattern.
+    public static final Item CITADEL_TRIM = item("citadel_armor_trim_smithing_template", SmithingTemplateItem.of(RegistryKey.of(RegistryKeys.TRIM_PATTERN, id("citadel"))));
+    public static final RegistryKey<BannerPattern> ROUNDEL_PATTERN = bannerPattern("roundel", "gallifrey_rnd");
+    public static final Item ROUNDEL_BANNER_PATTERN = item("roundel_banner_pattern", new BannerPatternItem(TagKey.of(RegistryKeys.BANNER_PATTERN, id("pattern_item/roundel")), new FabricItemSettings().maxCount(1).rarity(Rarity.RARE)));
 
     /** Pottery sherds, and the pot patterns they make (see DecoratedPotPatternsMixin). */
     public static final Map<Item, RegistryKey<String>> SHERDS = new LinkedHashMap<>();
@@ -191,6 +195,8 @@ public final class BackportExtras {
         }
         SHELVES.add(BackportBlocks.block("pale_oak_shelf", new ShelfBlock(FabricBlockSettings.copyOf(BackportBlocks.PALE_OAK_PLANKS).nonOpaque().strength(2.0F, 3.0F)), true, BackportBlocks.CUTOUT));
         SHELVES.add(BackportBlocks.block("poplar_shelf", new ShelfBlock(FabricBlockSettings.copyOf(Backport26.POPLAR_PLANKS).nonOpaque().strength(2.0F, 3.0F)), true, BackportBlocks.CUTOUT));
+        // Gallifrey's own: a white-and-gold shelf with a roundel on its face.
+        SHELVES.add(BackportBlocks.block("gallifreyan_shelf", new ShelfBlock(FabricBlockSettings.copyOf(Blocks.QUARTZ_BLOCK).nonOpaque().strength(2.0F, 3.0F)), true, BackportBlocks.CUTOUT));
     }
 
     public static final BlockEntityType<ShelfBlockEntity> SHELF_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, id("shelf"),
@@ -217,8 +223,11 @@ public final class BackportExtras {
             FabricBlockEntityTypeBuilder.create(CopperChestBlockEntity::new, COPPER_CHESTS).build());
 
     public static final Block CRAFTER = BackportBlocks.block("crafter", new CrafterBlock(FabricBlockSettings.copyOf(Blocks.DISPENSER).strength(1.5F, 3.5F)));
+    /** Gallifrey's own crafter, in Time Lord white and gold. */
+    public static final Block GALLIFREYAN_CRAFTER = BackportBlocks.block("gallifreyan_crafter", new CrafterBlock(FabricBlockSettings.copyOf(Blocks.DISPENSER)
+            .mapColor(net.minecraft.block.MapColor.GOLD).strength(1.5F, 3.5F)));
     public static final BlockEntityType<CrafterBlockEntity> CRAFTER_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, id("crafter"),
-            FabricBlockEntityTypeBuilder.create(CrafterBlockEntity::new, CRAFTER).build());
+            FabricBlockEntityTypeBuilder.create(CrafterBlockEntity::new, CRAFTER, GALLIFREYAN_CRAFTER).build());
     public static final ScreenHandlerType<CrafterScreenHandler> CRAFTER_SCREEN = Registry.register(Registries.SCREEN_HANDLER, id("crafter"),
             new ScreenHandlerType<>(CrafterScreenHandler::new, FeatureFlags.VANILLA_FEATURES));
 

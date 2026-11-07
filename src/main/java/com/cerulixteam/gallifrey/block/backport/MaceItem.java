@@ -111,6 +111,9 @@ public class MaceItem extends Item {
             float base = (float) attacker.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE) + extra;
             extra += base * Math.min(20, target.getArmor()) / 25.0F * 0.15F * breach;
         }
+        if (attacker instanceof ServerPlayerEntity sp && (float) attacker.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE) + extra >= 100.0F) {
+            com.cerulixteam.gallifrey.block.backport.BackportAdvancements.grant(sp, "over_overkill");
+        }
         if (extra > 0) {
             DamageSource source = attacker instanceof PlayerEntity player ? world.getDamageSources().playerAttack(player) : world.getDamageSources().mobAttack(attacker);
             target.timeUntilRegen = 0;

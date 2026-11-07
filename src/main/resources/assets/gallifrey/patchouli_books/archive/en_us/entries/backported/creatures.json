@@ -2,7 +2,7 @@
   "name": "Creatures",
   "icon": "gallifrey:armadillo_scute",
   "category": "gallifrey:backported",
-  "sortnum": 6,
+  "sortnum": 7,
   "pages": [
     {
       "type": "patchouli:spotlight",
