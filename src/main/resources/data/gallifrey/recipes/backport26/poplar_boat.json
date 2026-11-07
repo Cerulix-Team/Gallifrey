@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "item": "gallifrey:poplar_boat",
+    "count": 1
+  },
+  "group": "boat",
+  "pattern": [
+    "# #",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "gallifrey:poplar_planks"
+    }
+  }
+}

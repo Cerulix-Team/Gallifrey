@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "result": {
+    "item": "gallifrey:golden_spear",
+    "count": 1
+  },
+  "pattern": [
+    "  X",
+    " # ",
+    "#  "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "tag": "gallifrey:gold_tool_materials"
+    }
+  }
+}

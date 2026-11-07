@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "result": {
+    "item": "gallifrey:poplar_stairs",
+    "count": 4
+  },
+  "group": "wooden_stairs",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "gallifrey:poplar_planks"
+    }
+  }
+}

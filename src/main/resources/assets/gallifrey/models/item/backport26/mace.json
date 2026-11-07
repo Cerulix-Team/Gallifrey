@@ -1,0 +1,6 @@
+{
+  "parent": "gallifrey:item/backport26/handheld_mace",
+  "textures": {
+    "layer0": "gallifrey:item/backport26/mace"
+  }
+}

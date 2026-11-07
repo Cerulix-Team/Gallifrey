@@ -1,0 +1,61 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "result": {
+    "item": "gallifrey:cyan_wool_stairs",
+    "count": 1
+  },
+  "group": "wool_stairs",
+  "ingredients": [
+    {
+      "item": "minecraft:cyan_dye"
+    },
+    [
+      {
+        "item": "gallifrey:white_wool_stairs"
+      },
+      {
+        "item": "gallifrey:orange_wool_stairs"
+      },
+      {
+        "item": "gallifrey:magenta_wool_stairs"
+      },
+      {
+        "item": "gallifrey:light_blue_wool_stairs"
+      },
+      {
+        "item": "gallifrey:yellow_wool_stairs"
+      },
+      {
+        "item": "gallifrey:lime_wool_stairs"
+      },
+      {
+        "item": "gallifrey:pink_wool_stairs"
+      },
+      {
+        "item": "gallifrey:gray_wool_stairs"
+      },
+      {
+        "item": "gallifrey:light_gray_wool_stairs"
+      },
+      {
+        "item": "gallifrey:purple_wool_stairs"
+      },
+      {
+        "item": "gallifrey:blue_wool_stairs"
+      },
+      {
+        "item": "gallifrey:brown_wool_stairs"
+      },
+      {
+        "item": "gallifrey:green_wool_stairs"
+      },
+      {
+        "item": "gallifrey:red_wool_stairs"
+      },
+      {
+        "item": "gallifrey:black_wool_stairs"
+      }
+    ]
+  ]
+}

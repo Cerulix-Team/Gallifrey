@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "result": {
+    "item": "gallifrey:copper_pickaxe",
+    "count": 1
+  },
+  "pattern": [
+    "XXX",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "tag": "gallifrey:copper_tool_materials"
+    }
+  }
+}

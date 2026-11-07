@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "result": {
+    "item": "gallifrey:yellow_wool_slab",
+    "count": 6
+  },
+  "group": "woolen_slab",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:yellow_wool"
+    }
+  }
+}

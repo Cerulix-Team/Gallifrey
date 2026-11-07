@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "result": {
+    "item": "gallifrey:sulfur_bricks",
+    "count": 4
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "gallifrey:polished_sulfur"
+    }
+  }
+}

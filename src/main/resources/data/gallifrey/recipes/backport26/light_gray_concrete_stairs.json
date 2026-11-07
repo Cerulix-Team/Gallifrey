@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "result": {
+    "item": "gallifrey:light_gray_concrete_stairs",
+    "count": 4
+  },
+  "group": "concrete_stairs",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:light_gray_concrete"
+    }
+  }
+}

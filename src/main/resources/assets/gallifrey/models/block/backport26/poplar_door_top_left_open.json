@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left_open",
+  "textures": {
+    "bottom": "gallifrey:block/backport26/poplar_door_bottom",
+    "top": "gallifrey:block/backport26/poplar_door_top"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "result": {
+    "item": "gallifrey:cinnabar_bricks",
+    "count": 4
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "gallifrey:polished_cinnabar"
+    }
+  }
+}

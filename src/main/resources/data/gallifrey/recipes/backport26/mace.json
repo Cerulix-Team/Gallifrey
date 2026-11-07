@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "result": {
+    "item": "gallifrey:mace",
+    "count": 1
+  },
+  "pattern": [
+    " # ",
+    " I "
+  ],
+  "key": {
+    "#": {
+      "item": "gallifrey:heavy_core"
+    },
+    "I": {
+      "item": "gallifrey:breeze_rod"
+    }
+  }
+}

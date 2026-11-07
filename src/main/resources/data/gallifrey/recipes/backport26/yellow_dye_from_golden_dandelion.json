@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "result": {
+    "item": "minecraft:yellow_dye",
+    "count": 1
+  },
+  "group": "yellow_dye",
+  "ingredients": [
+    {
+      "item": "gallifrey:golden_dandelion"
+    }
+  ]
+}

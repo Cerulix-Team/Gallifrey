@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "result": {
+    "item": "gallifrey:diamond_spear",
+    "count": 1
+  },
+  "pattern": [
+    "  X",
+    " # ",
+    "#  "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "tag": "gallifrey:diamond_tool_materials"
+    }
+  }
+}

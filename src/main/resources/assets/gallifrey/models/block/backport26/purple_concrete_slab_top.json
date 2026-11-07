@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "gallifrey:block/backport26/purple_concrete",
+    "side": "gallifrey:block/backport26/purple_concrete",
+    "top": "gallifrey:block/backport26/purple_concrete"
+  }
+}

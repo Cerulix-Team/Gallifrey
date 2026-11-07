@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "gallifrey:cinnabar_bricks"
+  },
+  "result": "gallifrey:cinnabar_brick_wall",
+  "count": 1
+}

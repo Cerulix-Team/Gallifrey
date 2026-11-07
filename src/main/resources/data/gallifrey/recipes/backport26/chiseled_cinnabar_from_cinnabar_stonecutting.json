@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "gallifrey:cinnabar"
+  },
+  "result": "gallifrey:chiseled_cinnabar",
+  "count": 1
+}

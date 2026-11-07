@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:copper_helmet",
+    "gallifrey:copper_chestplate",
+    "gallifrey:copper_leggings",
+    "gallifrey:copper_boots"
+  ]
+}

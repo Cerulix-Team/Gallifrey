@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "gallifrey:block/backport26/cinnabar_slab"
+    },
+    "type=double": {
+      "model": "gallifrey:block/backport26/cinnabar"
+    },
+    "type=top": {
+      "model": "gallifrey:block/backport26/cinnabar_slab_top"
+    }
+  }
+}

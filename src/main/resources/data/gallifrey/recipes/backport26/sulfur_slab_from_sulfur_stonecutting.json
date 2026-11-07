@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "gallifrey:sulfur"
+  },
+  "result": "gallifrey:sulfur_slab",
+  "count": 2
+}

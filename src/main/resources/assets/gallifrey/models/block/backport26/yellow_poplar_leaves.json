@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "gallifrey:block/backport26/yellow_poplar_leaves"
+  }
+}

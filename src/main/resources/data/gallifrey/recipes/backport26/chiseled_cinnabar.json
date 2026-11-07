@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "result": {
+    "item": "gallifrey:chiseled_cinnabar",
+    "count": 1
+  },
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "gallifrey:cinnabar_slab"
+    }
+  }
+}

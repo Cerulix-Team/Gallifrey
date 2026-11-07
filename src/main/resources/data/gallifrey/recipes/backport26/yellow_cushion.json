@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "item": "gallifrey:yellow_cushion",
+    "count": 1
+  },
+  "group": "cushion",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "gallifrey:yellow_wool_slab"
+    }
+  }
+}

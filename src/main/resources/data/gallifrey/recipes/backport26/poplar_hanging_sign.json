@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "item": "gallifrey:poplar_hanging_sign",
+    "count": 6
+  },
+  "group": "wooden_hanging_sign",
+  "pattern": [
+    "X X",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "gallifrey:stripped_poplar_log"
+    },
+    "X": {
+      "item": "minecraft:chain"
+    }
+  }
+}
