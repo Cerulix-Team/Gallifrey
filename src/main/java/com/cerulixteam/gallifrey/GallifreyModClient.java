@@ -39,6 +39,7 @@ import net.minecraft.client.render.entity.model.BoatEntityModel;
 import net.minecraft.client.render.entity.model.ChestBoatEntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import com.cerulixteam.gallifrey.entity.GallifreyEntities;
@@ -95,6 +96,15 @@ public class GallifreyModClient implements ClientModInitializer {
                 ResourceManagerHelper.registerBuiltinResourcePack(
                         new Identifier(GallifreyMod.MOD_ID, "classic_assets"),
                         container,
+                        ResourcePackActivationType.NORMAL));
+
+        // Optional built-in resource pack: adds "Menu: Supernova" to the title screen backgrounds.
+        // Off by default - turn it on in Options > Resource Packs.
+        FabricLoader.getInstance().getModContainer(GallifreyMod.MOD_ID).ifPresent(container ->
+                ResourceManagerHelper.registerBuiltinResourcePack(
+                        new Identifier(GallifreyMod.MOD_ID, "supernova_vortex"),
+                        container,
+                        Text.translatable("pack.gallifrey.supernova_vortex"),
                         ResourcePackActivationType.NORMAL));
 
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), GallifreyFluids.STILL_RADIATION, GallifreyFluids.FLOWING_RADIATION);
