@@ -41,6 +41,7 @@
 "backport.DecoratedPotBlockMixin",
 "backport.TrunkPlacerTypeInvoker",
 "backport.FoliagePlacerTypeInvoker",
+"backport.SimpleBlockFeaturePaleMossMixin",
 "structureblock.StructureBlockSizeMixin",
 "structureblock.StructureBlockTrackerMixin",
 "structureblock.StructureBlockPacketMixin",

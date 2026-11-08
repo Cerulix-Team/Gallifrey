@@ -2,17 +2,23 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1.0,
-      "bonus_rolls": 0.0,
+      "rolls": 1,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "gallifrey:pale_moss_carpet"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
+          "name": "gallifrey:pale_moss_carpet",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "gallifrey:pale_moss_carpet",
+              "properties": {
+                "bottom": "true"
+              }
+            },
+            {
+              "condition": "minecraft:survives_explosion"
+            }
+          ]
         }
       ]
     }

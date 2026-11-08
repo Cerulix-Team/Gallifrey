@@ -1,16 +1,16 @@
 {
-  "feature": "gallifrey:backport_eyeblossom_patch",
+  "feature": "gallifrey:pale_moss_patch",
   "placement": [
     {
-      "type": "minecraft:rarity_filter",
-      "chance": 8
+      "type": "minecraft:count",
+      "count": 1
     },
     {
       "type": "minecraft:in_square"
     },
     {
       "type": "minecraft:heightmap",
-      "heightmap": "MOTION_BLOCKING"
+      "heightmap": "MOTION_BLOCKING_NO_LEAVES"
     },
     {
       "type": "minecraft:biome"

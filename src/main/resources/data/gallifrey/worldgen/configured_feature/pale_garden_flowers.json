@@ -1,7 +1,7 @@
 {
   "type": "minecraft:random_patch",
   "config": {
-    "tries": 24,
+    "tries": 96,
     "xz_spread": 7,
     "y_spread": 3,
     "feature": {
@@ -9,15 +9,10 @@
         "type": "minecraft:simple_block",
         "config": {
           "to_place": {
-            "type": "minecraft:weighted_state_provider",
-            "entries": [
-              {
-                "weight": 1,
-                "data": {
-                  "Name": "gallifrey:closed_eyeblossom"
-                }
-              }
-            ]
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "gallifrey:closed_eyeblossom"
+            }
           }
         }
       },

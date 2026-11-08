@@ -187,6 +187,8 @@ public final class Backport26 {
             new Identifier(MOD_ID, "place_on_ground"), new TreeDecoratorType<>(PlaceOnGroundTreeDecorator.CODEC));
     public static final TreeDecoratorType<AttachedToLogsTreeDecorator> ATTACHED_TO_LOGS_DECORATOR = Registry.register(Registries.TREE_DECORATOR_TYPE,
             new Identifier(MOD_ID, "attached_to_logs"), new TreeDecoratorType<>(AttachedToLogsTreeDecorator.CODEC));
+    public static final TreeDecoratorType<PaleMossTreeDecorator> PALE_MOSS_DECORATOR = Registry.register(Registries.TREE_DECORATOR_TYPE,
+            new Identifier(MOD_ID, "pale_moss"), new TreeDecoratorType<>(PaleMossTreeDecorator.CODEC));
 
     // The real 26.3 poplar shape (branchy trunk, tall rhombus canopy) and 1.21.5 fallen trees.
     public static final TrunkPlacerType<PoplarTrunkPlacer> POPLAR_TRUNK_PLACER = Registry.register(Registries.TRUNK_PLACER_TYPE,

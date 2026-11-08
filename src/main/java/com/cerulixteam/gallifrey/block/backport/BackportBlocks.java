@@ -206,8 +206,8 @@ public final class BackportBlocks {
     public static final Block PALE_OAK_SAPLING = block("pale_oak_sapling", new SaplingBlock(new PaleOakSaplingGenerator(), FabricBlockSettings.copyOf(Blocks.DARK_OAK_SAPLING).mapColor(MapColor.OFF_WHITE)), true, CUTOUT);
     public static final Block POTTED_PALE_OAK_SAPLING = block("potted_pale_oak_sapling", new FlowerPotBlock(PALE_OAK_SAPLING, FabricBlockSettings.copyOf(Blocks.POTTED_DARK_OAK_SAPLING)), false, CUTOUT);
 
-    public static final Block PALE_MOSS_BLOCK = block("pale_moss_block", new Block(FabricBlockSettings.copyOf(Blocks.MOSS_BLOCK).mapColor(MapColor.LIGHT_GRAY)));
-    public static final Block PALE_MOSS_CARPET = block("pale_moss_carpet", new CarpetBlock(FabricBlockSettings.copyOf(Blocks.MOSS_CARPET).mapColor(MapColor.LIGHT_GRAY)));
+    public static final Block PALE_MOSS_BLOCK = block("pale_moss_block", new PaleMossBlock(FabricBlockSettings.copyOf(Blocks.MOSS_BLOCK).mapColor(MapColor.LIGHT_GRAY)));
+    public static final Block PALE_MOSS_CARPET = block("pale_moss_carpet", new PaleMossCarpetBlock(FabricBlockSettings.copyOf(Blocks.MOSS_CARPET).mapColor(MapColor.LIGHT_GRAY).nonOpaque()), true, CUTOUT);
     public static final Block PALE_HANGING_MOSS = block("pale_hanging_moss", new PaleHangingMossBlock(FabricBlockSettings.copyOf(Blocks.HANGING_ROOTS).offset(AbstractBlock.OffsetType.NONE).sounds(BlockSoundGroup.MOSS_CARPET).mapColor(MapColor.LIGHT_GRAY).ticksRandomly()), true, CUTOUT);
 
     public static final Block OPEN_EYEBLOSSOM = block("open_eyeblossom", new EyeblossomBlock(true, () -> BackportBlocks.CLOSED_EYEBLOSSOM, StatusEffects.BLINDNESS, 11,

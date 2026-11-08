@@ -1,0 +1,6 @@
+{
+  "parent": "gallifrey:block/backport/mossy_carpet_side",
+  "textures": {
+    "side": "gallifrey:block/backport/pale_moss_carpet_side_small"
+  }
+}
