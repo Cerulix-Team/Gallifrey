@@ -39,6 +39,8 @@
 "backport.LightningRodTargetMixin",
 "backport.DecoratedPotStorageMixin",
 "backport.DecoratedPotBlockMixin",
+"backport.TrunkPlacerTypeInvoker",
+"backport.FoliagePlacerTypeInvoker",
 "structureblock.StructureBlockSizeMixin",
 "structureblock.StructureBlockTrackerMixin",
 "structureblock.StructureBlockPacketMixin",

@@ -13,44 +13,58 @@ import net.minecraft.util.math.MathHelper;
 public final class BackportParticles {
     private BackportParticles() {}
 
-    /** A leaf that drifts down slowly, swaying and spinning, and settles on the ground. */
+    /**
+     * A falling leaf, using 26.3's FallingLeavesParticle settings for pale oak and poplar leaves
+     * (fall 0.07, wind 10, swirling, size 2x). It disappears when it lands or hits a wall, like vanilla.
+     */
     public static class FallingLeaf extends SpriteBillboardParticle {
-        private final float spin;
-        private final float swayPhase;
+        private static final float ACCELERATION_SCALE = 0.0025F;
+        private static final int LIFETIME = 300;
+        private float rotSpeed = (float) Math.toRadians(this.random.nextBoolean() ? -30.0 : 30.0);
+        private final float spinAcceleration = (float) Math.toRadians(this.random.nextBoolean() ? -5.0 : 5.0);
+        private final float windBig = 10.0F;
+        private final double swirlPeriod;
+        private int lifeLeft = LIFETIME;
 
         FallingLeaf(ClientWorld world, double x, double y, double z, SpriteProvider sprites) {
             super(world, x, y, z);
-            this.setSprite(sprites);
-            this.maxAge = 300;
-            this.gravityStrength = 0.0F;
-            this.scale = 0.1F + this.random.nextFloat() * 0.05F;
-            this.spin = (this.random.nextFloat() - 0.5F) * 0.1F;
-            this.swayPhase = this.random.nextFloat() * 6.28F;
-            this.velocityY = -0.03;
-            this.collidesWithWorld = true;
+            this.setSprite(sprites.getSprite(this.random));
+            this.maxAge = LIFETIME;
+            this.gravityStrength = 0.07F * 1.2F * ACCELERATION_SCALE;
+            float size = 2.0F * (this.random.nextBoolean() ? 0.05F : 0.075F);
+            this.scale = size;
+            this.setBoundingBoxSpacing(size, size);
+            this.velocityMultiplier = 1.0F;
+            this.velocityY = -0.021F;
+            this.swirlPeriod = Math.toRadians(1000.0F + this.random.nextFloat() * 3000.0F);
         }
 
         @Override
         public void tick() {
-            super.tick();
-            if (this.onGround) {
-                this.velocityX = this.velocityZ = 0;
-                this.prevAngle = this.angle;
-                if (this.age < this.maxAge - 40) this.age = this.maxAge - 40;
-                return;
-            }
-            float t = (this.age + this.swayPhase * 20) * 0.08F;
-            this.velocityX = MathHelper.sin(t) * 0.02;
-            this.velocityZ = MathHelper.cos(t * 0.7F) * 0.02;
-            this.velocityY = -0.03;
+            this.prevPosX = this.x;
+            this.prevPosY = this.y;
+            this.prevPosZ = this.z;
+            if (this.lifeLeft-- <= 0) this.markDead();
+            if (this.dead) return;
+
+            float relativeAge = Math.min((LIFETIME - this.lifeLeft) / (float) LIFETIME, 1.0F);
+            double xa = relativeAge * Math.cos(relativeAge * this.swirlPeriod) * this.windBig;
+            double za = relativeAge * Math.sin(relativeAge * this.swirlPeriod) * this.windBig;
+            this.velocityX += xa * ACCELERATION_SCALE;
+            this.velocityZ += za * ACCELERATION_SCALE;
+            this.velocityY -= this.gravityStrength;
+            this.rotSpeed += this.spinAcceleration / 20.0F;
             this.prevAngle = this.angle;
-            this.angle += this.spin;
-            if (this.age > this.maxAge - 40) this.alpha = (this.maxAge - this.age) / 40.0F;
+            this.angle += this.rotSpeed / 20.0F;
+            this.move(this.velocityX, this.velocityY, this.velocityZ);
+            if (this.onGround || this.lifeLeft < LIFETIME - 1 && (this.velocityX == 0.0 || this.velocityZ == 0.0)) {
+                this.markDead();
+            }
         }
 
         @Override
         public ParticleTextureSheet getType() {
-            return ParticleTextureSheet.PARTICLE_SHEET_TRANSLUCENT;
+            return ParticleTextureSheet.PARTICLE_SHEET_OPAQUE;
         }
     }
 

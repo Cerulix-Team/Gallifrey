@@ -1,9 +1,9 @@
 {
-  "feature": "gallifrey:backport_red_shrub",
+  "feature": "minecraft:patch_brown_mushroom",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 4
+      "chance": 2
     },
     {
       "type": "minecraft:in_square"

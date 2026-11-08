@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "features": [
+      {
+        "feature": "gallifrey:red_poplar_leaf_litter",
+        "chance": 0.2954
+      },
+      {
+        "feature": "gallifrey:orange_poplar_leaf_litter",
+        "chance": 0.5031
+      },
+      {
+        "feature": "gallifrey:yellow_poplar_leaf_litter",
+        "chance": 0.3797
+      },
+      {
+        "feature": "minecraft:spruce_checked",
+        "chance": 0.1837
+      }
+    ],
+    "default": "gallifrey:fallen_poplar_tree"
+  }
+}

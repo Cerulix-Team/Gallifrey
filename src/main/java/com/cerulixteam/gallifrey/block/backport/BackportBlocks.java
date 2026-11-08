@@ -202,7 +202,7 @@ public final class BackportBlocks {
     public static final Block PALE_OAK_WALL_HANGING_SIGN = block("pale_oak_wall_hanging_sign",
             new TerraformWallHangingSignBlock(PALE_OAK_HANGING_SIGN_TEXTURE, PALE_OAK_HANGING_GUI_SIGN_TEXTURE, FabricBlockSettings.copyOf(Blocks.DARK_OAK_WALL_HANGING_SIGN).mapColor(MapColor.OFF_WHITE).dropsLike(PALE_OAK_HANGING_SIGN)), false);
 
-    public static final Block PALE_OAK_LEAVES = block("pale_oak_leaves", new BackportLeavesBlock(() -> BackportExtras.PALE_OAK_LEAVES_PARTICLE, 10, FabricBlockSettings.copyOf(Blocks.DARK_OAK_LEAVES).mapColor(MapColor.PALE_GREEN)), true, CUTOUT_MIPPED);
+    public static final Block PALE_OAK_LEAVES = block("pale_oak_leaves", new BackportLeavesBlock(() -> BackportExtras.PALE_OAK_LEAVES_PARTICLE, 50, FabricBlockSettings.copyOf(Blocks.DARK_OAK_LEAVES).mapColor(MapColor.PALE_GREEN)), true, CUTOUT_MIPPED);
     public static final Block PALE_OAK_SAPLING = block("pale_oak_sapling", new SaplingBlock(new PaleOakSaplingGenerator(), FabricBlockSettings.copyOf(Blocks.DARK_OAK_SAPLING).mapColor(MapColor.OFF_WHITE)), true, CUTOUT);
     public static final Block POTTED_PALE_OAK_SAPLING = block("potted_pale_oak_sapling", new FlowerPotBlock(PALE_OAK_SAPLING, FabricBlockSettings.copyOf(Blocks.POTTED_DARK_OAK_SAPLING)), false, CUTOUT);
 

@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 
 import java.util.function.Supplier;
 
-/** Leaves that drop falling-leaf particles underneath (1.21.4's pale oak, 26.3's poplars), like cherry leaves. */
+/** Leaves that drop falling-leaf particles underneath, like cherry leaves. 1 in "chance" per display tick: vanilla uses 1 in 50 for pale oak and 1 in 100 for poplars. */
 public class BackportLeavesBlock extends LeavesBlock {
     private final Supplier<ParticleEffect> particle;
     private final int chance;

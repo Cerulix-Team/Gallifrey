@@ -44,7 +44,12 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
+import com.cerulixteam.gallifrey.mixin.backport.FoliagePlacerTypeInvoker;
+import com.cerulixteam.gallifrey.mixin.backport.TrunkPlacerTypeInvoker;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.foliage.FoliagePlacerType;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
+import net.minecraft.world.gen.trunk.TrunkPlacerType;
 
 import static com.cerulixteam.gallifrey.block.backport.BackportBlocks.CUTOUT;
 import static com.cerulixteam.gallifrey.block.backport.BackportBlocks.CUTOUT_MIPPED;
@@ -58,7 +63,7 @@ import static com.cerulixteam.gallifrey.block.backport.BackportBlocks.block;
  *   <li>26.3: the Poplar wood set with red, orange and yellow leaves, Shelf Mushrooms, the Red Shrub,
  *   wool and concrete slabs and stairs in all 16 colours, Cushions to sit on, and the single-use Straw Bed</li>
  * </ul>
- * Not backported: the Sulfur Cube (a mob), the Dappled Forest and Sulfur Caves biomes, fallen trees and shelves.
+ * Not backported here: shelves. (The Sulfur Cube lives in backport/mob, the biomes in BackportBiomes.)
  */
 public final class Backport26 {
     private Backport26() {}
@@ -114,9 +119,9 @@ public final class Backport26 {
     public static final Block POPLAR_WALL_HANGING_SIGN = block("poplar_wall_hanging_sign",
             new TerraformWallHangingSignBlock(POPLAR_HANGING_SIGN_TEXTURE, POPLAR_HANGING_GUI_SIGN_TEXTURE, FabricBlockSettings.copyOf(Blocks.BIRCH_WALL_HANGING_SIGN).dropsLike(POPLAR_HANGING_SIGN)), false);
 
-    public static final Block RED_POPLAR_LEAVES = block("red_poplar_leaves", new BackportLeavesBlock(() -> BackportExtras.RED_POPLAR_LEAVES_PARTICLE, 12, FabricBlockSettings.copyOf(Blocks.BIRCH_LEAVES).mapColor(MapColor.RED)), true, CUTOUT_MIPPED);
-    public static final Block ORANGE_POPLAR_LEAVES = block("orange_poplar_leaves", new BackportLeavesBlock(() -> BackportExtras.ORANGE_POPLAR_LEAVES_PARTICLE, 12, FabricBlockSettings.copyOf(Blocks.BIRCH_LEAVES).mapColor(MapColor.ORANGE)), true, CUTOUT_MIPPED);
-    public static final Block YELLOW_POPLAR_LEAVES = block("yellow_poplar_leaves", new BackportLeavesBlock(() -> BackportExtras.YELLOW_POPLAR_LEAVES_PARTICLE, 12, FabricBlockSettings.copyOf(Blocks.BIRCH_LEAVES).mapColor(MapColor.YELLOW)), true, CUTOUT_MIPPED);
+    public static final Block RED_POPLAR_LEAVES = block("red_poplar_leaves", new BackportLeavesBlock(() -> BackportExtras.RED_POPLAR_LEAVES_PARTICLE, 100, FabricBlockSettings.copyOf(Blocks.BIRCH_LEAVES).mapColor(MapColor.RED)), true, CUTOUT_MIPPED);
+    public static final Block ORANGE_POPLAR_LEAVES = block("orange_poplar_leaves", new BackportLeavesBlock(() -> BackportExtras.ORANGE_POPLAR_LEAVES_PARTICLE, 100, FabricBlockSettings.copyOf(Blocks.BIRCH_LEAVES).mapColor(MapColor.ORANGE)), true, CUTOUT_MIPPED);
+    public static final Block YELLOW_POPLAR_LEAVES = block("yellow_poplar_leaves", new BackportLeavesBlock(() -> BackportExtras.YELLOW_POPLAR_LEAVES_PARTICLE, 100, FabricBlockSettings.copyOf(Blocks.BIRCH_LEAVES).mapColor(MapColor.YELLOW)), true, CUTOUT_MIPPED);
     public static final Block POPLAR_SAPLING = block("poplar_sapling", new SaplingBlock(new PoplarSaplingGenerator(), FabricBlockSettings.copyOf(Blocks.BIRCH_SAPLING)), true, CUTOUT);
     public static final Block POTTED_POPLAR_SAPLING = block("potted_poplar_sapling", new FlowerPotBlock(POPLAR_SAPLING, FabricBlockSettings.copyOf(Blocks.POTTED_BIRCH_SAPLING)), false, CUTOUT);
 
@@ -178,6 +183,18 @@ public final class Backport26 {
 
     public static final TreeDecoratorType<ShelfMushroomTreeDecorator> SHELF_MUSHROOM_DECORATOR = Registry.register(Registries.TREE_DECORATOR_TYPE,
             new Identifier(MOD_ID, "shelf_mushroom"), new TreeDecoratorType<>(ShelfMushroomTreeDecorator.CODEC));
+    public static final TreeDecoratorType<PlaceOnGroundTreeDecorator> PLACE_ON_GROUND_DECORATOR = Registry.register(Registries.TREE_DECORATOR_TYPE,
+            new Identifier(MOD_ID, "place_on_ground"), new TreeDecoratorType<>(PlaceOnGroundTreeDecorator.CODEC));
+    public static final TreeDecoratorType<AttachedToLogsTreeDecorator> ATTACHED_TO_LOGS_DECORATOR = Registry.register(Registries.TREE_DECORATOR_TYPE,
+            new Identifier(MOD_ID, "attached_to_logs"), new TreeDecoratorType<>(AttachedToLogsTreeDecorator.CODEC));
+
+    // The real 26.3 poplar shape (branchy trunk, tall rhombus canopy) and 1.21.5 fallen trees.
+    public static final TrunkPlacerType<PoplarTrunkPlacer> POPLAR_TRUNK_PLACER = Registry.register(Registries.TRUNK_PLACER_TYPE,
+            new Identifier(MOD_ID, "poplar_trunk_placer"), TrunkPlacerTypeInvoker.gallifrey$create(PoplarTrunkPlacer.CODEC));
+    public static final FoliagePlacerType<PoplarFoliagePlacer> POPLAR_FOLIAGE_PLACER = Registry.register(Registries.FOLIAGE_PLACER_TYPE,
+            new Identifier(MOD_ID, "poplar_foliage_placer"), FoliagePlacerTypeInvoker.gallifrey$create(PoplarFoliagePlacer.CODEC));
+    public static final Feature<FallenTreeFeature.Config> FALLEN_TREE = Registry.register(Registries.FEATURE,
+            new Identifier(MOD_ID, "fallen_tree"), new FallenTreeFeature());
 
     // =========================================================
     // HELPERS
