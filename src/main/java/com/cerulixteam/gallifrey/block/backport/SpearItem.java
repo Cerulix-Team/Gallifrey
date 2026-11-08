@@ -32,9 +32,12 @@ import java.util.Comparator;
  *   <li><b>Jab</b>: a normal hit. With Lunge it also throws you forward (costs hunger; not while
  *   riding, gliding or in water, and you need enough food to sprint).</li>
  *   <li><b>Charge</b>: hold use to lower the spear, then run (or ride) into something within 4.5 blocks.
- *   The faster you're going, the harder it hits. For the first 5 seconds a charge also knocks the
- *   target off its mount; up to 10 seconds it knocks back; after that it still hits, but without knockback.</li>
+ *   The faster you're going, the harder it hits. Each spear has 26.3's own timings: it takes a moment
+ *   to lower, then for a while a charge also knocks the target off its mount, for longer it knocks
+ *   back, and once the damage window is over the spear is raised and stops hitting.</li>
  * </ul>
+ * The first and third person animations (lowering, swaying, raising back up, and the stab instead
+ * of a swing) are in client/backport/SpearAnimations. You can sprint at full speed while charging.
  */
 public class SpearItem extends ToolItem {
     private static final double REACH = 4.5;
@@ -42,6 +45,12 @@ public class SpearItem extends ToolItem {
     private static final java.util.Map<LivingEntity, Vec3d> LAST_POS = new java.util.WeakHashMap<>();
     private final Multimap<EntityAttribute, EntityAttributeModifier> modifiers;
     private final float chargeMultiplier;
+    // 26.3 timings, in ticks (see timings()).
+    private int attackDurationTicks = 19;
+    private int delayTicks = 12;
+    private int dismountTicks = 50;
+    private int knockbackTicks = 135;
+    private int damageTicks = 225;
 
     public SpearItem(ToolMaterial material, float jabDamage, float attackSpeed, float chargeMultiplier, Settings settings) {
         super(material, settings);
@@ -50,6 +59,27 @@ public class SpearItem extends ToolItem {
                 EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeModifier(ATTACK_DAMAGE_MODIFIER_ID, "Weapon modifier", jabDamage - 1.0, EntityAttributeModifier.Operation.ADDITION),
                 EntityAttributes.GENERIC_ATTACK_SPEED, new EntityAttributeModifier(ATTACK_SPEED_MODIFIER_ID, "Weapon modifier", attackSpeed - 4.0, EntityAttributeModifier.Operation.ADDITION));
     }
+
+    /**
+     * 26.3's per-spear timings, in seconds: how long a jab takes, how long the spear takes to lower,
+     * and how long (after that) a charge can dismount, knock back and damage.
+     */
+    public SpearItem timings(float attackDuration, float delay, float dismountTime, float knockbackTime, float damageTime) {
+        this.attackDurationTicks = (int) (attackDuration * 20.0F);
+        this.delayTicks = (int) (delay * 20.0F);
+        this.dismountTicks = (int) (dismountTime * 20.0F);
+        this.knockbackTicks = (int) (knockbackTime * 20.0F);
+        this.damageTicks = (int) (damageTime * 20.0F);
+        return this;
+    }
+
+    public int attackDurationTicks() { return this.attackDurationTicks; }
+    public int delayTicks() { return this.delayTicks; }
+    public int dismountTicks() { return this.dismountTicks; }
+    public int knockbackTicks() { return this.knockbackTicks; }
+    public int damageTicks() { return this.damageTicks; }
+    /** How far the spear moves forward in the third person animation (26.3's forward_movement). */
+    public float forwardMovement() { return 0.38F; }
 
     @Override
     public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {
@@ -83,7 +113,9 @@ public class SpearItem extends ToolItem {
 
     @Override
     public UseAction getUseAction(ItemStack stack) {
-        return UseAction.SPEAR;
+        // Not UseAction.SPEAR: in 1.20.1 that's the trident's throwing pose. The spear's own
+        // animations are drawn by the client mixins instead.
+        return UseAction.NONE;
     }
 
     @Override
@@ -106,7 +138,8 @@ public class SpearItem extends ToolItem {
         Entity mover = user.hasVehicle() ? user.getRootVehicle() : user;
         Vec3d now = mover.getPos();
         Vec3d last = LAST_POS.put(user, now);
-        if (held < 10 || last == null) return;
+        if (held < this.delayTicks || last == null) return;
+        if (held >= this.delayTicks + this.damageTicks) return; // raised back up: the charge is over
         Vec3d motion = now.subtract(last);
         Vec3d look = user.getRotationVector();
         Vec3d eye = user.getEyePos();
@@ -125,8 +158,8 @@ public class SpearItem extends ToolItem {
         float damage = (float) (speed * 20.0 * this.chargeMultiplier);
         DamageSource source = user instanceof PlayerEntity player ? world.getDamageSources().playerAttack(player) : world.getDamageSources().mobAttack(user);
         if (target.damage(source, damage)) {
-            if (held < 100 && target.hasVehicle()) target.stopRiding();
-            if (held < 200) target.takeKnockback(Math.min(2.0, speed * 2.0), -look.x, -look.z);
+            if (held < this.delayTicks + this.dismountTicks && target.hasVehicle()) target.stopRiding();
+            if (held < this.delayTicks + this.knockbackTicks) target.takeKnockback(Math.min(2.0, speed * 2.0), -look.x, -look.z);
             world.playSound(null, target.getX(), target.getY(), target.getZ(), SoundEvents.ITEM_TRIDENT_HIT, SoundCategory.PLAYERS, 1.0F, 1.0F);
             stack.damage(1, user, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
         }

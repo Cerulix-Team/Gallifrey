@@ -76,16 +76,17 @@ public final class BackportCombat {
     public static final Item COPPER_BOOTS = item("copper_boots", new ArmorItem(COPPER_ARMOR, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
     // =========================================================
-    // SPEARS (1.21.11): jab damage, attack speed, charge strength
+    // SPEARS (1.21.11): jab damage, attack speed, charge strength;
+    // timings(jab length, lowering time, dismount, knockback and damage windows) in seconds, from 26.3
     // =========================================================
 
-    public static final Item WOODEN_SPEAR = item("wooden_spear", new SpearItem(ToolMaterials.WOOD, 1, 1.54F, 0.7F, new FabricItemSettings()));
-    public static final Item STONE_SPEAR = item("stone_spear", new SpearItem(ToolMaterials.STONE, 2, 1.33F, 0.82F, new FabricItemSettings()));
-    public static final Item COPPER_SPEAR = item("copper_spear", new SpearItem(COPPER, 2, 1.18F, 0.82F, new FabricItemSettings()));
-    public static final Item IRON_SPEAR = item("iron_spear", new SpearItem(ToolMaterials.IRON, 3, 1.05F, 0.95F, new FabricItemSettings()));
-    public static final Item GOLDEN_SPEAR = item("golden_spear", new SpearItem(ToolMaterials.GOLD, 1, 1.05F, 0.7F, new FabricItemSettings()));
-    public static final Item DIAMOND_SPEAR = item("diamond_spear", new SpearItem(ToolMaterials.DIAMOND, 4, 0.95F, 1.075F, new FabricItemSettings()));
-    public static final Item NETHERITE_SPEAR = item("netherite_spear", new SpearItem(ToolMaterials.NETHERITE, 5, 0.87F, 1.2F, new FabricItemSettings().fireproof()));
+    public static final Item WOODEN_SPEAR = item("wooden_spear", new SpearItem(ToolMaterials.WOOD, 1, 1.54F, 0.7F, new FabricItemSettings()).timings(0.65F, 0.75F, 5.0F, 10.0F, 15.0F));
+    public static final Item STONE_SPEAR = item("stone_spear", new SpearItem(ToolMaterials.STONE, 2, 1.33F, 0.82F, new FabricItemSettings()).timings(0.75F, 0.7F, 4.5F, 9.0F, 13.75F));
+    public static final Item COPPER_SPEAR = item("copper_spear", new SpearItem(COPPER, 2, 1.18F, 0.82F, new FabricItemSettings()).timings(0.85F, 0.65F, 4.0F, 8.25F, 12.5F));
+    public static final Item IRON_SPEAR = item("iron_spear", new SpearItem(ToolMaterials.IRON, 3, 1.05F, 0.95F, new FabricItemSettings()).timings(0.95F, 0.6F, 2.5F, 6.75F, 11.25F));
+    public static final Item GOLDEN_SPEAR = item("golden_spear", new SpearItem(ToolMaterials.GOLD, 1, 1.05F, 0.7F, new FabricItemSettings()).timings(0.95F, 0.7F, 3.5F, 8.5F, 13.75F));
+    public static final Item DIAMOND_SPEAR = item("diamond_spear", new SpearItem(ToolMaterials.DIAMOND, 4, 0.95F, 1.075F, new FabricItemSettings()).timings(1.05F, 0.5F, 3.0F, 6.5F, 10.0F));
+    public static final Item NETHERITE_SPEAR = item("netherite_spear", new SpearItem(ToolMaterials.NETHERITE, 5, 0.87F, 1.2F, new FabricItemSettings().fireproof()).timings(1.15F, 0.4F, 2.5F, 5.5F, 8.75F));
     public static final Item[] SPEARS = {WOODEN_SPEAR, STONE_SPEAR, COPPER_SPEAR, IRON_SPEAR, GOLDEN_SPEAR, DIAMOND_SPEAR, NETHERITE_SPEAR};
 
     // =========================================================

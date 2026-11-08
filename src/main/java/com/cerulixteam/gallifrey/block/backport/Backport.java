@@ -11,6 +11,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
@@ -156,6 +157,21 @@ public final class Backport {
                 BackportItems.PALE_OAK_BOAT, BackportItems.PALE_OAK_CHEST_BOAT);
         insertAfter(items, RESIN_BLOCK.asItem(), BackportItems.RESIN_BRICK);
         insertAfter(items, Backport26.POPLAR_HANGING_SIGN_ITEM, Backport26.POPLAR_BOAT, Backport26.POPLAR_CHEST_BOAT);
+        items.removeAll(miscItems());
+        items.remove(BackportExtras.CITADEL_TRIM); // in Misc, next to the Time Lord robes it matches
+        return items;
+    }
+
+    /** Gallifrey's own items that came with the backport but aren't vanilla: they're in the Misc section instead. */
+    private static final String[] MISC_ITEMS = {"gallifreyan_shelf", "gallifreyan_crafter", "gallifreyan_vault", "gallifreyan_trial_key",
+            "ominous_gallifreyan_trial_key", "shardwarden_spawn_egg", "temporal_shard"};
+
+    public static List<ItemConvertible> miscItems() {
+        List<ItemConvertible> items = new ArrayList<>();
+        for (String name : MISC_ITEMS) {
+            Identifier id = new Identifier("gallifrey", name);
+            if (Registries.ITEM.containsId(id)) items.add(Registries.ITEM.get(id));
+        }
         return items;
     }
 

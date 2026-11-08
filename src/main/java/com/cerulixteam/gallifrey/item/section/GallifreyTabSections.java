@@ -361,6 +361,7 @@ public final class GallifreyTabSections {
                 entries.add(GallifreyModItems.TIMELORD_ROBE_CHESTPLATE);
                 entries.add(GallifreyModItems.TIMELORD_ROBE_LEGGINGS);
                 entries.add(GallifreyModItems.TIMELORD_ROBE_BOOTS);
+                entries.add(com.cerulixteam.gallifrey.block.backport.BackportExtras.CITADEL_TRIM);
                 entries.add(GallifreyModItems.LAB_COAT_CHESTPLATE);
                 entries.add(GallifreyModItems.LAB_COAT_LEGGINGS);
                 entries.add(GallifreyModItems.LAB_COAT_BOOTS);
@@ -370,6 +371,12 @@ public final class GallifreyTabSections {
                 entries.add(GallifreyModItems.MONDASIAN_CYBERMAN_SPAWN_EGG);
                 entries.add(GallifreyModItems.PROTO_CYBERMAN_SPAWN_EGG);
                 entries.add(GallifreyModItems.CYBERMAT_SPAWN_EGG);
+
+                // Gallifrey's own blocks and items from the backport update (shelf, crafter, vault and
+                // keys from the Gallifreyan Trial Chambers, the Shardwarden and its shard).
+                for (net.minecraft.item.ItemConvertible item : com.cerulixteam.gallifrey.block.backport.Backport.miscItems()) {
+                    entries.add(item);
+                }
             }
     );
 
