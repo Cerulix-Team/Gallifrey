@@ -16,14 +16,18 @@ import net.minecraft.world.biome.BiomeKeys;
 /**
  * Farm animal variants (1.21.5) and wolf variants (1.20.5). Cows, pigs and chickens are temperate (0),
  * warm (1) or cold (2), picked by the biome they spawn in; babies take a parent's. Wolves get one of
- * nine coats by biome. The value lives on PassiveEntity (mixin/backport/PassiveEntityVariantMixin).
+ * nine coats by biome, plus Patch. The value lives on PassiveEntity (mixin/backport/PassiveEntityVariantMixin).
+ *
+ * Patch (index 9) is Gallifrey's own coat, in memory of Blue's dog Patch: creamy white with tan ears and a tan
+ * patch by his tail. Where no biome coat applies, a wolf is as likely to be Patch as the usual pale wolf.
  */
 public final class AnimalVariants {
     private AnimalVariants() {}
 
     public static final int TEMPERATE = 0, WARM = 1, COLD = 2;
     public static final String[] FARM = {"temperate", "warm", "cold"};
-    public static final String[] WOLVES = {"pale", "ashen", "black", "chestnut", "rusty", "snowy", "spotted", "striped", "woods"};
+    public static final String[] WOLVES = {"pale", "ashen", "black", "chestnut", "rusty", "snowy", "spotted", "striped", "woods", "patch"};
+    public static final int PATCH = 9;
 
     /** Implemented on PassiveEntity by the mixin. */
     public interface Holder {
@@ -51,7 +55,10 @@ public final class AnimalVariants {
     /** The variant a newly spawned animal gets where it stands. */
     public static int forBiome(Entity entity, WorldView world, BlockPos pos) {
         RegistryEntry<Biome> biome = world.getBiome(pos);
-        if (entity instanceof WolfEntity) return wolfFor(biome);
+        if (entity instanceof WolfEntity) {
+            int coat = wolfFor(biome);
+            return coat == 0 && entity.getWorld().getRandom().nextBoolean() ? PATCH : coat;
+        }
         if (biome.isIn(BiomeTags.IS_NETHER)) return WARM;
         if (biome.isIn(BiomeTags.IS_END)) return COLD;
         float temperature = biome.value().getTemperature();
