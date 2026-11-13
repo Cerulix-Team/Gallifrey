@@ -734,4 +734,29 @@ public class SonicScrewdriver extends Item {
                 world.isClient
         );
     }
+
+    // =========================================================
+    // POWER BAR (blue, like the misc mod's)
+    // =========================================================
+
+    /** Power to show on the bar. A brand-new sonic that hasn't been ticked yet counts as full. */
+    private static int displayPower(ItemStack stack) {
+        net.minecraft.nbt.NbtCompound nbt = stack.getNbt();
+        return nbt != null && nbt.contains(POWER_KEY) ? nbt.getInt(POWER_KEY) : MAX_POWER;
+    }
+
+    @Override
+    public boolean isItemBarVisible(ItemStack stack) {
+        return displayPower(stack) < MAX_POWER;
+    }
+
+    @Override
+    public int getItemBarStep(ItemStack stack) {
+        return Math.round(13.0F * displayPower(stack) / MAX_POWER);
+    }
+
+    @Override
+    public int getItemBarColor(ItemStack stack) {
+        return 0x35C5E8; // TARDIS blue
+    }
 }
