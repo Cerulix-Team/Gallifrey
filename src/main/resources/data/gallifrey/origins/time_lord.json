@@ -1,0 +1,12 @@
+{
+  "powers": [
+    "gallifrey:two_hearts",
+    "gallifrey:respiratory_bypass",
+    "gallifrey:time_sensitive"
+  ],
+  "icon": {
+    "item": "gallifrey:sonic_screwdriver"
+  },
+  "order": 0,
+  "impact": 1
+}

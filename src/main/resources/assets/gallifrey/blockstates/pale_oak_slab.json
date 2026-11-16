@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "gallifrey:block/backport/pale_oak_slab"
+    },
+    "type=double": {
+      "model": "gallifrey:block/backport/pale_oak_planks"
+    },
+    "type=top": {
+      "model": "gallifrey:block/backport/pale_oak_slab_top"
+    }
+  }
+}

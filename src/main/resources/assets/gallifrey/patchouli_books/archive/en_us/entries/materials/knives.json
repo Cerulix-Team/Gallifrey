@@ -1,0 +1,23 @@
+{
+  "name": "Knives",
+  "icon": "gallifrey:steel_knife",
+  "category": "gallifrey:materials",
+  "sortnum": 12,
+  "flag": "mod:farmersdelight",
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "With $(item)Farmer's Delight$() installed, Gallifrey's metals make knives for the cutting board.$(br2)Gallifrey's logs and wood can also be stripped on a cutting board with an axe, giving tree bark."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "gallifrey:compat/farmersdelight/steel_knife",
+      "recipe2": "gallifrey:compat/farmersdelight/dalekanium_knife"
+    },
+    {
+      "type": "patchouli:smithing",
+      "recipe": "gallifrey:compat/farmersdelight/metalertanium_knife_smithing",
+      "recipe2": "gallifrey:compat/farmersdelight/white_point_star_knife_smithing"
+    }
+  ]
+}

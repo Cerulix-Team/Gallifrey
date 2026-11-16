@@ -1,0 +1,7 @@
+{
+  "gallifrey:plugin": {
+    "initializer": "com.timelordmod.gallifrey.compat.wthit.GallifreyWthitPlugin",
+    "side": "client",
+    "required": []
+  }
+}

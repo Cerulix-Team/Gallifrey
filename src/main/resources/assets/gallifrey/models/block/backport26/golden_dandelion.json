@@ -1,0 +1,6 @@
+{
+  "parent": "gallifrey:block/backport26/cross",
+  "textures": {
+    "cross": "gallifrey:block/backport26/golden_dandelion"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "gallifrey:pale_moss_block"
+    }
+  },
+  "result": {
+    "item": "gallifrey:pale_moss_carpet",
+    "count": 3
+  },
+  "group": "carpet"
+}

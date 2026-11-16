@@ -1,0 +1,14 @@
+{
+  "name": "Hover Boots",
+  "icon": "gallifrey:metalertanium_boots",
+  "category": "gallifrey:materials",
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:dalekanium_boots,gallifrey:metalertanium_boots,gallifrey:white_point_star_boots",
+      "title": "Hover Boots",
+      "text": "Boots of $(item)dalekanium$(), $(item)metalertanium$() or $(item)White Point Star$() let you drift down gently instead of falling, and you never take fall damage while wearing them.$(br2)Hold $(k:sneak) to drop at normal speed."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "display": {
+    "icon": {
+      "type": "heracles:item",
+      "item": "gallifrey:sonic_workshop"
+    },
+    "title": {
+      "translate": "advancement.gallifrey.every_sonic.title"
+    },
+    "description": [
+      "Use a Sonic Workshop to try every sonic casing."
+    ],
+    "groups": {
+      "Gallifrey": {
+        "position": [
+          200,
+          50
+        ]
+      }
+    }
+  },
+  "settings": {
+    "hidden": "LOCKED",
+    "unlockNotification": true
+  },
+  "dependencies": [
+    "gallifrey_sonic"
+  ],
+  "tasks": {
+    "task": {
+      "type": "heracles:advancement",
+      "advancements": [
+        "gallifrey:every_sonic"
+      ]
+    }
+  },
+  "rewards": {
+    "xp": {
+      "type": "heracles:xp",
+      "xptype": "LEVEL",
+      "amount": 5
+    }
+  }
+}

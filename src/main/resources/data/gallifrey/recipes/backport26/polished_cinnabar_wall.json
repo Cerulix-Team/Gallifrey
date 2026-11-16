@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "item": "gallifrey:polished_cinnabar_wall",
+    "count": 6
+  },
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "gallifrey:polished_cinnabar"
+    }
+  }
+}

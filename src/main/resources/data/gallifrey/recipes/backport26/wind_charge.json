@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "result": {
+    "item": "gallifrey:wind_charge",
+    "count": 4
+  },
+  "ingredients": [
+    {
+      "item": "gallifrey:breeze_rod"
+    }
+  ]
+}

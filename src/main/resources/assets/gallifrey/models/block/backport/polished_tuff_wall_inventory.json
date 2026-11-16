@@ -1,0 +1,6 @@
+{
+  "parent": "gallifrey:block/backport/wall_inventory",
+  "textures": {
+    "wall": "gallifrey:block/backport/polished_tuff"
+  }
+}

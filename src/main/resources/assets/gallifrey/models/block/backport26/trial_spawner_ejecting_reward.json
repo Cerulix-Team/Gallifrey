@@ -1,0 +1,8 @@
+{
+  "parent": "gallifrey:block/backport26/cube_bottom_top_inner_faces",
+  "textures": {
+    "bottom": "gallifrey:block/backport26/trial_spawner_bottom",
+    "side": "gallifrey:block/backport26/trial_spawner_side_active",
+    "top": "gallifrey:block/backport26/trial_spawner_top_ejecting_reward"
+  }
+}

@@ -1,4 +1,3 @@
-
 {
   "sources": [
     {
@@ -35,7 +34,13 @@
         "trims/models/armor/raiser",
         "trims/models/armor/raiser_leggings",
         "trims/models/armor/host",
-        "trims/models/armor/host_leggings"
+        "trims/models/armor/host_leggings",
+        "gallifrey:trims/models/armor/flow",
+        "gallifrey:trims/models/armor/flow_leggings",
+        "gallifrey:trims/models/armor/bolt",
+        "gallifrey:trims/models/armor/bolt_leggings",
+        "gallifrey:trims/models/armor/citadel",
+        "gallifrey:trims/models/armor/citadel_leggings"
       ],
       "palette_key": "trims/color_palettes/trim_palette",
       "permutations": {
@@ -58,7 +63,9 @@
         "gallifrey_dalekanium": "gallifrey:trims/color_palettes/dalekanium",
         "gallifrey_metalertanium": "gallifrey:trims/color_palettes/metalertanium",
         "gallifrey_ruby": "gallifrey:trims/color_palettes/ruby",
-        "gallifrey_sapphire": "gallifrey:trims/color_palettes/sapphire"
+        "gallifrey_sapphire": "gallifrey:trims/color_palettes/sapphire",
+        "gallifrey_white_point_star": "gallifrey:trims/color_palettes/white_point_star",
+        "gallifrey_white_point_star_darker": "gallifrey:trims/color_palettes/white_point_star_darker"
       }
     }
   ]

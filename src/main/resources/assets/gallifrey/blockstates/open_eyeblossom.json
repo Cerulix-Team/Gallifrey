@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "gallifrey:block/backport/open_eyeblossom"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:energized_atrium",
+    "gallifrey:location_circuit",
+    "gallifrey:interface_circuit",
+    "gallifrey:white_point_star",
+    "gallifrey:refined_sonic_crystal",
+    "gallifrey:huon_particle"
+  ]
+}

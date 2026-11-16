@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "gallifrey:block/backport/tall_dry_grass"
+  }
+}

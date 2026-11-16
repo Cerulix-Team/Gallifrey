@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "particle": "gallifrey:block/steel/reinforced_steel_block_topbottom",
-    "down": "gallifrey:block/steel/reinforced_steel_block_topbottom",
-    "up": "gallifrey:block/steel/reinforced_steel_block_topbottom",
-    "north": "gallifrey:block/steel/reinforced_steel_block_sides",
-    "south": "gallifrey:block/steel/reinforced_steel_block_sides",
-    "east": "gallifrey:block/steel/reinforced_steel_block_sides",
-    "west": "gallifrey:block/steel/reinforced_steel_block_sides"
+    "particle": "gallifrey:block/steel/reinforced_steel_block",
+    "down": "gallifrey:block/steel/reinforced_steel_block",
+    "up": "gallifrey:block/steel/reinforced_steel_block",
+    "north": "gallifrey:block/steel/reinforced_steel_block",
+    "south": "gallifrey:block/steel/reinforced_steel_block",
+    "east": "gallifrey:block/steel/reinforced_steel_block",
+    "west": "gallifrey:block/steel/reinforced_steel_block"
   }
 }

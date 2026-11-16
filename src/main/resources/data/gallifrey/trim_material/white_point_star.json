@@ -1,0 +1,12 @@
+{
+  "asset_name": "gallifrey_white_point_star",
+  "description": {
+    "color": "#CFD7E2",
+    "translate": "trim_material.gallifrey.white_point_star"
+  },
+  "ingredient": "gallifrey:white_point_star",
+  "item_model_index": 0.77,
+  "override_armor_materials": {
+    "white_point_star": "gallifrey_white_point_star_darker"
+  }
+}

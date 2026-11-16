@@ -1,0 +1,110 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "gallifrey:item/white_point_star_leggings_quartz_trim",
+      "predicate": {
+        "trim_type": 0.1
+      }
+    },
+    {
+      "model": "gallifrey:item/white_point_star_leggings_iron_trim",
+      "predicate": {
+        "trim_type": 0.2
+      }
+    },
+    {
+      "model": "gallifrey:item/white_point_star_leggings_netherite_trim",
+      "predicate": {
+        "trim_type": 0.3
+      }
+    },
+    {
+      "model": "gallifrey:item/white_point_star_leggings_redstone_trim",
+      "predicate": {
+        "trim_type": 0.4
+      }
+    },
+    {
+      "model": "gallifrey:item/white_point_star_leggings_copper_trim",
+      "predicate": {
+        "trim_type": 0.5
+      }
+    },
+    {
+      "model": "gallifrey:item/white_point_star_leggings_gold_trim",
+      "predicate": {
+        "trim_type": 0.6
+      }
+    },
+    {
+      "model": "gallifrey:item/white_point_star_leggings_emerald_trim",
+      "predicate": {
+        "trim_type": 0.7
+      }
+    },
+    {
+      "model": "gallifrey:item/white_point_star_leggings_gallifrey_ruby_trim",
+      "predicate": {
+        "trim_type": 0.71
+      }
+    },
+    {
+      "model": "gallifrey:item/white_point_star_leggings_gallifrey_sapphire_trim",
+      "predicate": {
+        "trim_type": 0.72
+      }
+    },
+    {
+      "model": "gallifrey:item/white_point_star_leggings_gallifrey_steel_trim",
+      "predicate": {
+        "trim_type": 0.73
+      }
+    },
+    {
+      "model": "gallifrey:item/white_point_star_leggings_gallifrey_prehistoric_trim",
+      "predicate": {
+        "trim_type": 0.74
+      }
+    },
+    {
+      "model": "gallifrey:item/white_point_star_leggings_gallifrey_dalekanium_trim",
+      "predicate": {
+        "trim_type": 0.75
+      }
+    },
+    {
+      "model": "gallifrey:item/white_point_star_leggings_gallifrey_metalertanium_trim",
+      "predicate": {
+        "trim_type": 0.76
+      }
+    },
+    {
+      "model": "gallifrey:item/white_point_star_leggings_gallifrey_white_point_star_trim",
+      "predicate": {
+        "trim_type": 0.77
+      }
+    },
+    {
+      "model": "gallifrey:item/white_point_star_leggings_diamond_trim",
+      "predicate": {
+        "trim_type": 0.8
+      }
+    },
+    {
+      "model": "gallifrey:item/white_point_star_leggings_lapis_trim",
+      "predicate": {
+        "trim_type": 0.9
+      }
+    },
+    {
+      "model": "gallifrey:item/white_point_star_leggings_amethyst_trim",
+      "predicate": {
+        "trim_type": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "gallifrey:item/white_point_star_stuff/white_point_star_leggings"
+  }
+}

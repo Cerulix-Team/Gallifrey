@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "result": {
+    "item": "gallifrey:poplar_chest_boat",
+    "count": 1
+  },
+  "group": "chest_boat",
+  "ingredients": [
+    {
+      "item": "minecraft:chest"
+    },
+    {
+      "item": "gallifrey:poplar_boat"
+    }
+  ]
+}

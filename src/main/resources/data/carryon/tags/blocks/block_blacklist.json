@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:tardis_exterior",
+    {
+      "id": "gallifrey:tardis_console",
+      "required": false
+    },
+    {
+      "id": "gallifrey:tardis_interior_door",
+      "required": false
+    },
+    {
+      "id": "gallifrey:tardis_monitor",
+      "required": false
+    }
+  ]
+}

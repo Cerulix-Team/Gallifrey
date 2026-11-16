@@ -1,0 +1,23 @@
+{
+  "type": "origins:attribute",
+  "modifiers": [
+    {
+      "name": "Dalekanium casing armour",
+      "attribute": "minecraft:generic.armor",
+      "value": 8.0,
+      "operation": "addition"
+    },
+    {
+      "name": "Dalekanium casing toughness",
+      "attribute": "minecraft:generic.armor_toughness",
+      "value": 2.0,
+      "operation": "addition"
+    },
+    {
+      "name": "Dalekanium casing weight",
+      "attribute": "minecraft:generic.knockback_resistance",
+      "value": 1.0,
+      "operation": "addition"
+    }
+  ]
+}

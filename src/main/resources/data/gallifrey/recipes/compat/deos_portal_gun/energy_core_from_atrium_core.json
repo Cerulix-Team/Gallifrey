@@ -1,0 +1,35 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "deos-portal-gun-mod"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " C ",
+    "AFA",
+    " R "
+  ],
+  "key": {
+    "C": {
+      "item": "gallifrey:atrium_core"
+    },
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "F": {
+      "item": "deos-portal-gun-mod:portal_fluid_vial"
+    },
+    "R": {
+      "item": "minecraft:redstone_block"
+    }
+  },
+  "result": {
+    "item": "deos-portal-gun-mod:orb_portal_fluid_vial",
+    "count": 1
+  }
+}

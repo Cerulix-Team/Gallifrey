@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "type": "heracles:item",
+      "item": "gallifrey:raw_steel"
+    },
+    "title": {
+      "translate": "advancement.gallifrey.steelroot.title"
+    },
+    "description": [
+      "Craft Raw Steel from raw iron, coal and blaze powder, then blast it into ingots."
+    ],
+    "groups": {
+      "Gallifrey": {
+        "position": [
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "settings": {
+    "hidden": "LOCKED",
+    "unlockNotification": true
+  },
+  "dependencies": [],
+  "tasks": {
+    "task": {
+      "type": "heracles:advancement",
+      "advancements": [
+        "gallifrey:steelroot"
+      ]
+    }
+  },
+  "rewards": {
+    "xp": {
+      "type": "heracles:xp",
+      "xptype": "LEVEL",
+      "amount": 2
+    }
+  }
+}

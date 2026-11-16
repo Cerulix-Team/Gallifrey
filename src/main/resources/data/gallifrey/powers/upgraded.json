@@ -1,0 +1,8 @@
+{
+  "type": "origins:modify_exhaustion",
+  "modifier": {
+    "name": "Cyber-conversion needs little food",
+    "value": -0.5,
+    "operation": "multiply_base"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "gallifrey:ominous_trial_key"
+    },
+    "title": {
+      "translate": "advancements.gallifrey.backported.revaulting.title"
+    },
+    "description": {
+      "translate": "advancements.gallifrey.backported.revaulting.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "gallifrey:backported/under_lock_and_key"
+}

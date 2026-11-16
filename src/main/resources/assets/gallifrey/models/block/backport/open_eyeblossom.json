@@ -1,0 +1,7 @@
+{
+  "parent": "gallifrey:block/backport/cross_emissive",
+  "textures": {
+    "cross": "gallifrey:block/backport/open_eyeblossom",
+    "cross_emissive": "gallifrey:block/backport/open_eyeblossom_emissive"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "item": "gallifrey:orange_cushion",
+    "count": 1
+  },
+  "group": "cushion",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "gallifrey:orange_wool_slab"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "gallifrey:block/thick_grate_slab"
+    },
+    "type=top": {
+      "model": "gallifrey:block/thick_grate_slab_top"
+    },
+    "type=double": {
+      "model": "gallifrey:block/thick_grate_slab_double"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "gallifrey:block/backport/copper_wall_torch"
+    },
+    "facing=north": {
+      "model": "gallifrey:block/backport/copper_wall_torch",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "gallifrey:block/backport/copper_wall_torch",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "gallifrey:block/backport/copper_wall_torch",
+      "y": 180
+    }
+  }
+}

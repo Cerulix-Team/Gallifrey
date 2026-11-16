@@ -1,0 +1,7 @@
+{
+  "asset_id": "gallifrey:bolt",
+  "template_item": "gallifrey:bolt_armor_trim_smithing_template",
+  "description": {
+    "translate": "trim_pattern.gallifrey.bolt"
+  }
+}

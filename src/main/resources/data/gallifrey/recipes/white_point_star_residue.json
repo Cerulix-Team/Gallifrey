@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "LSL",
+    " N ",
+    "LSL"
+  ],
+  "key": {
+    "L": {
+      "item": "gallifrey:liquid_metalertanium"
+    },
+    "S": {
+      "item": "minecraft:nether_star"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "result": {
+    "item": "gallifrey:white_point_star_residue",
+    "count": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "name": "gallifrey:equipment/trial_chamber_part_0",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "gallifrey:equipment/trial_chamber_part_1",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:loot_table",
+          "name": "gallifrey:equipment/trial_chamber_part_2"
+        }
+      ]
+    }
+  ]
+}

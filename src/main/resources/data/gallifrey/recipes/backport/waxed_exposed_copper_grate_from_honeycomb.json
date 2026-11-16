@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "gallifrey:exposed_copper_grate"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    }
+  ],
+  "result": {
+    "item": "gallifrey:waxed_exposed_copper_grate",
+    "count": 1
+  },
+  "group": "waxed_exposed_copper_grate"
+}

@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "gallifrey:block/reactor_roundel"
+    },
+    "axis=x": {
+      "model": "gallifrey:block/reactor_roundel",
+      "y": 90
+    }
+  }
+}

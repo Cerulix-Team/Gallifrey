@@ -1,0 +1,61 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "result": {
+    "item": "gallifrey:black_cushion",
+    "count": 1
+  },
+  "group": "cushion_dye",
+  "ingredients": [
+    {
+      "item": "minecraft:black_dye"
+    },
+    [
+      {
+        "item": "gallifrey:white_cushion"
+      },
+      {
+        "item": "gallifrey:orange_cushion"
+      },
+      {
+        "item": "gallifrey:magenta_cushion"
+      },
+      {
+        "item": "gallifrey:light_blue_cushion"
+      },
+      {
+        "item": "gallifrey:yellow_cushion"
+      },
+      {
+        "item": "gallifrey:lime_cushion"
+      },
+      {
+        "item": "gallifrey:pink_cushion"
+      },
+      {
+        "item": "gallifrey:gray_cushion"
+      },
+      {
+        "item": "gallifrey:light_gray_cushion"
+      },
+      {
+        "item": "gallifrey:cyan_cushion"
+      },
+      {
+        "item": "gallifrey:purple_cushion"
+      },
+      {
+        "item": "gallifrey:blue_cushion"
+      },
+      {
+        "item": "gallifrey:brown_cushion"
+      },
+      {
+        "item": "gallifrey:green_cushion"
+      },
+      {
+        "item": "gallifrey:red_cushion"
+      }
+    ]
+  ]
+}

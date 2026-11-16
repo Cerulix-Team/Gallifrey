@@ -40,6 +40,10 @@
     "gallifrey:classic_gold_helmet": 22,
     "gallifrey:classic_gold_chestplate": 28,
     "gallifrey:classic_gold_leggings": 25,
-    "gallifrey:classic_gold_boots": 20
+    "gallifrey:classic_gold_boots": 20,
+    "gallifrey:white_point_star_helmet": 45,
+    "gallifrey:white_point_star_chestplate": 55,
+    "gallifrey:white_point_star_leggings": 50,
+    "gallifrey:white_point_star_boots": 42
   }
 }

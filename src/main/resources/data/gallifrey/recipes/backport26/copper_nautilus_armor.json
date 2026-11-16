@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "X X",
+    "XNX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:copper_ingot"
+    },
+    "N": {
+      "item": "minecraft:nautilus_shell"
+    }
+  },
+  "result": {
+    "item": "gallifrey:copper_nautilus_armor",
+    "count": 1
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "display": {
+    "icon": {
+      "item": "gallifrey:armadillo_scute"
+    },
+    "title": {
+      "translate": "advancements.gallifrey.backported.scute_dreams.title"
+    },
+    "description": {
+      "translate": "advancements.gallifrey.backported.scute_dreams.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "used": {
+      "trigger": "minecraft:player_interacted_with_entity",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:brush"
+          ]
+        },
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "gallifrey:armadillo"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "gallifrey:backported/root"
+}

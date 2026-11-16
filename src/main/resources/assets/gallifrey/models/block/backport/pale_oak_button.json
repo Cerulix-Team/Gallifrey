@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "texture": "gallifrey:block/backport/pale_oak_planks"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "gallifrey:polished_tuff"
+    }
+  },
+  "result": {
+    "item": "gallifrey:polished_tuff_slab",
+    "count": 6
+  }
+}

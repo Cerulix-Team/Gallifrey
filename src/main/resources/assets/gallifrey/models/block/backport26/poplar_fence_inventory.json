@@ -1,0 +1,6 @@
+{
+  "parent": "gallifrey:block/backport26/fence_inventory",
+  "textures": {
+    "texture": "gallifrey:block/backport26/poplar_planks"
+  }
+}

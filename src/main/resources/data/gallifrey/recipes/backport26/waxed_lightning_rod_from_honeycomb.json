@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "result": {
+    "item": "gallifrey:waxed_lightning_rod",
+    "count": 1
+  },
+  "group": "waxed_lightning_rod",
+  "ingredients": [
+    {
+      "item": "minecraft:lightning_rod"
+    },
+    {
+      "item": "minecraft:honeycomb"
+    }
+  ]
+}

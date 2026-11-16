@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "gallifrey:block/backport26/white_wool_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/white_wool"
+    },
+    "type=top": {
+      "model": "gallifrey:block/backport26/white_wool_slab_top"
+    }
+  }
+}

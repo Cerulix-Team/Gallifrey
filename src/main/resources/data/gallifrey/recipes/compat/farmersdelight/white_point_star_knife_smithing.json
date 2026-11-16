@@ -1,0 +1,23 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "farmersdelight"
+      ]
+    }
+  ],
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "gallifrey:white_point_star_upgrade_smithing_template"
+  },
+  "base": {
+    "item": "gallifrey:metalertanium_knife"
+  },
+  "addition": {
+    "item": "gallifrey:white_point_star_residue"
+  },
+  "result": {
+    "item": "gallifrey:white_point_star_knife"
+  }
+}

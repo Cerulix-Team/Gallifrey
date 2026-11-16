@@ -1,0 +1,9 @@
+{
+  "parent": "gallifrey:block/backport26/template_vault",
+  "textures": {
+    "bottom": "gallifrey:block/backport26/vault_bottom",
+    "front": "gallifrey:block/backport26/vault_front_ejecting",
+    "side": "gallifrey:block/backport26/vault_side_on",
+    "top": "gallifrey:block/backport26/vault_top_ejecting"
+  }
+}

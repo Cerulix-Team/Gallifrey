@@ -1,0 +1,61 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "result": {
+    "item": "gallifrey:pink_wool_slab",
+    "count": 1
+  },
+  "group": "wool_slabs",
+  "ingredients": [
+    {
+      "item": "minecraft:pink_dye"
+    },
+    [
+      {
+        "item": "gallifrey:white_wool_slab"
+      },
+      {
+        "item": "gallifrey:orange_wool_slab"
+      },
+      {
+        "item": "gallifrey:magenta_wool_slab"
+      },
+      {
+        "item": "gallifrey:light_blue_wool_slab"
+      },
+      {
+        "item": "gallifrey:yellow_wool_slab"
+      },
+      {
+        "item": "gallifrey:lime_wool_slab"
+      },
+      {
+        "item": "gallifrey:gray_wool_slab"
+      },
+      {
+        "item": "gallifrey:light_gray_wool_slab"
+      },
+      {
+        "item": "gallifrey:cyan_wool_slab"
+      },
+      {
+        "item": "gallifrey:purple_wool_slab"
+      },
+      {
+        "item": "gallifrey:blue_wool_slab"
+      },
+      {
+        "item": "gallifrey:brown_wool_slab"
+      },
+      {
+        "item": "gallifrey:green_wool_slab"
+      },
+      {
+        "item": "gallifrey:red_wool_slab"
+      },
+      {
+        "item": "gallifrey:black_wool_slab"
+      }
+    ]
+  ]
+}

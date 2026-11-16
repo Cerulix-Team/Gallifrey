@@ -1,0 +1,41 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "gallifrey:gallifreyan_trial_chambers/chamber/chamber_1",
+        "processors": "gallifrey:trial_chambers_copper_bulb_degradation",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "gallifrey:gallifreyan_trial_chambers/chamber/assembly",
+        "processors": "gallifrey:trial_chambers_copper_bulb_degradation",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "gallifrey:gallifreyan_trial_chambers/chamber/eruption",
+        "processors": "gallifrey:trial_chambers_copper_bulb_degradation",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "gallifrey:gallifreyan_trial_chambers/chamber/slanted",
+        "processors": "gallifrey:trial_chambers_copper_bulb_degradation",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "gallifrey:gallifreyan_trial_chambers/hallway/fallback"
+}

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NSP",
+    "TWT",
+    "WTW"
+  ],
+  "key": {
+    "N": {
+      "item": "minecraft:netherite_upgrade_smithing_template"
+    },
+    "S": {
+      "item": "gallifrey:steel_template"
+    },
+    "P": {
+      "item": "gallifrey:prehistoric_upgrade_smithing_template"
+    },
+    "T": {
+      "tag": "minecraft:trim_templates"
+    },
+    "W": {
+      "item": "gallifrey:white_point_star"
+    }
+  },
+  "result": {
+    "item": "gallifrey:white_point_star_upgrade_smithing_template",
+    "count": 1
+  }
+}

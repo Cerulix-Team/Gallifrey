@@ -1,0 +1,33 @@
+{
+  "name": "Gallifreyan Trial Chambers",
+  "icon": "gallifrey:gallifreyan_vault",
+  "category": "gallifrey:backported",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "On Gallifrey the Time Lords built trial chambers of their own, in white quartz, bronze and roundels. Their spawners send $(thing)Daleks$(), $(thing)Cybermen$() and $(thing)Cybermats$() instead of zombies and skeletons. The waves are smaller, but every enemy is far tougher."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:gallifreyan_vault",
+      "text": "$(item)Gallifreyan Vaults$() only open for $(item)Gallifreyan Trial Keys$(), which you earn from these spawners. Inside are the usual rewards plus Time Lord technology: sonic crystals, an atrium core, circuits and more. Ominous ones can even give a $(item)Vortex Manipulator$()."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:ominous_gallifreyan_trial_key",
+      "text": "Trial Omen works here too. Ominous Gallifreyan spawners call in the Supreme Council's own Dalek."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:temporal_shard",
+      "text": "The $(thing)Shardwarden$() guards these halls: a floating core of time-crystal in a gold halo, with four crystal plates circling it. It keeps its distance and fires $(item)Temporal Shards$() that slow whatever they hit. Hurt it and it may blink away through time.",
+      "title": "Shardwarden"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:citadel_armor_trim_smithing_template",
+      "text": "The rarest finds in a Gallifreyan Vault: the $(item)Citadel$() armour trim, with circlet, collar and roundel, and the $(item)Roundel$() banner pattern. Copy the template with seven diamonds and a block of quartz."
+    }
+  ]
+}

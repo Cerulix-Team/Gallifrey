@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "item": "gallifrey:creaking_heart",
+    "count": 1
+  },
+  "pattern": [
+    " L ",
+    " R ",
+    " L "
+  ],
+  "key": {
+    "L": {
+      "item": "gallifrey:pale_oak_log"
+    },
+    "R": {
+      "item": "gallifrey:resin_block"
+    }
+  }
+}

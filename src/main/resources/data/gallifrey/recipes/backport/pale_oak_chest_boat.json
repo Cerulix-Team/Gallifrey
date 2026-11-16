@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:chest"
+    },
+    {
+      "item": "gallifrey:pale_oak_boat"
+    }
+  ],
+  "result": {
+    "item": "gallifrey:pale_oak_chest_boat",
+    "count": 1
+  },
+  "group": "chest_boat"
+}

@@ -1,0 +1,140 @@
+{
+  "parent": "gallifrey:white_point_star_template",
+  "display": {
+    "icon": {
+      "item": "gallifrey:white_point_star_pickaxe"
+    },
+    "title": {
+      "translate": "advancement.gallifrey.white_point_star_gear.title"
+    },
+    "description": {
+      "translate": "advancement.gallifrey.white_point_star_gear.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "white_point_star_sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:white_point_star_sword"
+            ]
+          }
+        ]
+      }
+    },
+    "white_point_star_pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:white_point_star_pickaxe"
+            ]
+          }
+        ]
+      }
+    },
+    "white_point_star_axe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:white_point_star_axe"
+            ]
+          }
+        ]
+      }
+    },
+    "white_point_star_shovel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:white_point_star_shovel"
+            ]
+          }
+        ]
+      }
+    },
+    "white_point_star_hoe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:white_point_star_hoe"
+            ]
+          }
+        ]
+      }
+    },
+    "white_point_star_helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:white_point_star_helmet"
+            ]
+          }
+        ]
+      }
+    },
+    "white_point_star_chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:white_point_star_chestplate"
+            ]
+          }
+        ]
+      }
+    },
+    "white_point_star_leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:white_point_star_leggings"
+            ]
+          }
+        ]
+      }
+    },
+    "white_point_star_boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:white_point_star_boots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "white_point_star_sword",
+      "white_point_star_pickaxe",
+      "white_point_star_axe",
+      "white_point_star_shovel",
+      "white_point_star_hoe",
+      "white_point_star_helmet",
+      "white_point_star_chestplate",
+      "white_point_star_leggings",
+      "white_point_star_boots"
+    ]
+  ]
+}

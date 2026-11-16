@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:bundle",
+    "gallifrey:white_bundle",
+    "gallifrey:orange_bundle",
+    "gallifrey:magenta_bundle",
+    "gallifrey:light_blue_bundle",
+    "gallifrey:yellow_bundle",
+    "gallifrey:lime_bundle",
+    "gallifrey:pink_bundle",
+    "gallifrey:gray_bundle",
+    "gallifrey:light_gray_bundle",
+    "gallifrey:cyan_bundle",
+    "gallifrey:purple_bundle",
+    "gallifrey:blue_bundle",
+    "gallifrey:brown_bundle",
+    "gallifrey:green_bundle",
+    "gallifrey:red_bundle",
+    "gallifrey:black_bundle"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "chipped"
+      ]
+    }
+  ],
+  "type": "chipped:mason_table",
+  "tags": [
+    "gallifrey:chipped/mars_stone",
+    "gallifrey:chipped/mars_andesite",
+    "gallifrey:chipped/mars_diorite",
+    "gallifrey:chipped/mars_granite",
+    "gallifrey:chipped/skaro_stone",
+    "gallifrey:chipped/skaro_andesite",
+    "gallifrey:chipped/skaro_diorite",
+    "gallifrey:chipped/skaro_granite",
+    "gallifrey:chipped/skaro_cobbled_deepslate"
+  ]
+}

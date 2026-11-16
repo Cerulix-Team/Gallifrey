@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "gallifrey:white_harness"
+    },
+    "title": {
+      "translate": "advancements.gallifrey.backported.head_in_the_clouds.title"
+    },
+    "description": {
+      "translate": "advancements.gallifrey.backported.head_in_the_clouds.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "rode": {
+      "trigger": "minecraft:started_riding",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "vehicle": {
+                "type": "gallifrey:happy_ghast"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "gallifrey:backported/root"
+}

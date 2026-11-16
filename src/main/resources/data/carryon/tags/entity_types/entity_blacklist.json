@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:skaro_city_dalek",
+    "gallifrey:skaro_city_dalek_alt",
+    "gallifrey:supreme_council_dalek",
+    "gallifrey:mondasian_cyberman",
+    "gallifrey:proto_cyberman",
+    "gallifrey:laser"
+  ]
+}

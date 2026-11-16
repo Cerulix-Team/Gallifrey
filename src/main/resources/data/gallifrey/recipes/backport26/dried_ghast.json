@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "result": {
+    "item": "gallifrey:dried_ghast",
+    "count": 1
+  },
+  "group": "dry_ghast",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:ghast_tear"
+    },
+    "X": {
+      "item": "minecraft:soul_sand"
+    }
+  }
+}

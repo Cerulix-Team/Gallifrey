@@ -1,0 +1,45 @@
+{
+  "display": {
+    "icon": {
+      "type": "heracles:item",
+      "item": "gallifrey:sonic_screwdriver"
+    },
+    "title": {
+      "translate": "advancement.gallifrey.sonic_screwdriver.title"
+    },
+    "description": [
+      "Build your first sonic screwdriver. Sneak and use it to change modes."
+    ],
+    "groups": {
+      "Gallifrey": {
+        "position": [
+          150,
+          50
+        ]
+      }
+    }
+  },
+  "settings": {
+    "hidden": "LOCKED",
+    "unlockNotification": true
+  },
+  "dependencies": [
+    "gallifrey_sonic_crystal",
+    "gallifrey_atrium_core"
+  ],
+  "tasks": {
+    "task": {
+      "type": "heracles:advancement",
+      "advancements": [
+        "gallifrey:sonic_screwdriver"
+      ]
+    }
+  },
+  "rewards": {
+    "xp": {
+      "type": "heracles:xp",
+      "xptype": "LEVEL",
+      "amount": 5
+    }
+  }
+}

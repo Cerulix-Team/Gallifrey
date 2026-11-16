@@ -1,0 +1,24 @@
+{
+  "name": "Gallifreyan Craftsmanship",
+  "icon": "gallifrey:gallifreyan_shelf",
+  "category": "gallifrey:backported",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:gallifreyan_shelf",
+      "text": "A $(item)Gallifreyan Shelf$() works like any shelf, in white quartz and gold with a roundel on each bay. Make six from smooth quartz and gold ingots."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:gallifreyan_crafter",
+      "text": "A $(item)Gallifreyan Crafter$() is a Crafter in Time Lord colours. Craft a Crafter with a gold ingot and a quartz."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "minecraft:gold_block",
+      "text": "Use a $(item)block of gold$() on a Copper Golem to gild it. A gilded golem never rusts. Scrape it with an axe to get the gold back.",
+      "title": "Gilded Golems"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "gallifrey:block/backport26/gallifreyan_crafter_triggered",
+  "textures": {
+    "top": "gallifrey:block/backport26/gallifreyan_crafter_top_crafting",
+    "north": "gallifrey:block/backport26/gallifreyan_crafter_north_crafting",
+    "east": "gallifrey:block/backport26/gallifreyan_crafter_east_crafting",
+    "west": "gallifrey:block/backport26/gallifreyan_crafter_west_crafting"
+  }
+}

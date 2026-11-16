@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "gallifrey:white_point_star"
+    },
+    "title": {
+      "translate": "advancement.gallifrey.whitepointroot.title"
+    },
+    "description": {
+      "translate": "advancement.gallifrey.whitepointroot.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "background": "gallifrey:textures/block/white_point/white_point_ore.png"
+  },
+  "criteria": {
+    "has_white_point_star": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:white_point_star"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

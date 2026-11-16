@@ -1,0 +1,49 @@
+{
+  "parent": "gallifrey:white_point_star_gear",
+  "display": {
+    "icon": {
+      "item": "gallifrey:white_point_star_chestplate"
+    },
+    "title": {
+      "translate": "advancement.gallifrey.white_point_star_full_set.title"
+    },
+    "description": {
+      "translate": "advancement.gallifrey.white_point_star_full_set.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "full_set": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:white_point_star_helmet"
+            ]
+          },
+          {
+            "items": [
+              "gallifrey:white_point_star_chestplate"
+            ]
+          },
+          {
+            "items": [
+              "gallifrey:white_point_star_leggings"
+            ]
+          },
+          {
+            "items": [
+              "gallifrey:white_point_star_boots"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 100
+  }
+}

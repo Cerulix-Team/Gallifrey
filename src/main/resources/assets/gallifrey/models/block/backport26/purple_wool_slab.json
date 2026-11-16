@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "gallifrey:block/backport26/purple_wool",
+    "side": "gallifrey:block/backport26/purple_wool",
+    "top": "gallifrey:block/backport26/purple_wool"
+  }
+}

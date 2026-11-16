@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "type": "heracles:item",
+      "item": "gallifrey:raw_sonic_crystal"
+    },
+    "title": {
+      "translate": "advancement.gallifrey.sonicroot.title"
+    },
+    "description": [
+      "Mine sonic crystal ore and refine the crystal in a blast furnace."
+    ],
+    "groups": {
+      "Gallifrey": {
+        "position": [
+          0,
+          50
+        ]
+      }
+    }
+  },
+  "settings": {
+    "hidden": "LOCKED",
+    "unlockNotification": true
+  },
+  "dependencies": [],
+  "tasks": {
+    "task": {
+      "type": "heracles:advancement",
+      "advancements": [
+        "gallifrey:sonicroot"
+      ]
+    }
+  },
+  "rewards": {
+    "xp": {
+      "type": "heracles:xp",
+      "xptype": "LEVEL",
+      "amount": 2
+    }
+  }
+}

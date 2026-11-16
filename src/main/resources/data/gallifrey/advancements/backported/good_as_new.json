@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "gallifrey:wolf_armor"
+    },
+    "title": {
+      "translate": "advancements.gallifrey.backported.good_as_new.title"
+    },
+    "description": {
+      "translate": "advancements.gallifrey.backported.good_as_new.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "gallifrey:backported/scute_dreams"
+}

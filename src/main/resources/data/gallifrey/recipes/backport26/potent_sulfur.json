@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "result": {
+    "item": "gallifrey:potent_sulfur",
+    "count": 1
+  },
+  "ingredients": [
+    {
+      "item": "gallifrey:sulfur"
+    },
+    {
+      "item": "gallifrey:sulfur"
+    },
+    {
+      "item": "gallifrey:sulfur"
+    },
+    {
+      "item": "gallifrey:sulfur"
+    },
+    {
+      "item": "gallifrey:sulfur"
+    },
+    {
+      "item": "gallifrey:sulfur"
+    },
+    {
+      "item": "gallifrey:sulfur"
+    },
+    {
+      "item": "gallifrey:sulfur"
+    },
+    {
+      "item": "gallifrey:sulfur"
+    }
+  ]
+}

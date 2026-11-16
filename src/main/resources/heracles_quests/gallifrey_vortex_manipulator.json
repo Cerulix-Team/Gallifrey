@@ -1,0 +1,45 @@
+{
+  "display": {
+    "icon": {
+      "type": "heracles:item",
+      "item": "gallifrey:vortex_manipulator"
+    },
+    "title": {
+      "translate": "advancement.gallifrey.vortex_manipulator.title"
+    },
+    "description": [
+      "Location, interface and dimension circuits plus a White Point Star, strapped to your wrist."
+    ],
+    "groups": {
+      "Gallifrey": {
+        "position": [
+          150,
+          150
+        ]
+      }
+    }
+  },
+  "settings": {
+    "hidden": "LOCKED",
+    "unlockNotification": true
+  },
+  "dependencies": [
+    "gallifrey_atrium_core",
+    "gallifrey_steel"
+  ],
+  "tasks": {
+    "task": {
+      "type": "heracles:advancement",
+      "advancements": [
+        "gallifrey:vortex_manipulator"
+      ]
+    }
+  },
+  "rewards": {
+    "xp": {
+      "type": "heracles:xp",
+      "xptype": "LEVEL",
+      "amount": 5
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "result": {
+    "item": "gallifrey:light_blue_concrete_slab",
+    "count": 6
+  },
+  "group": "concrete_slab",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:light_blue_concrete"
+    }
+  }
+}

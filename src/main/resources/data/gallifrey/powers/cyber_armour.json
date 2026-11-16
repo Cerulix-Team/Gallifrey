@@ -1,0 +1,9 @@
+{
+  "type": "origins:attribute",
+  "modifier": {
+    "name": "Cyber armour",
+    "attribute": "minecraft:generic.armor",
+    "value": 6.0,
+    "operation": "addition"
+  }
+}

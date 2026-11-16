@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "WTW",
+    "WLW"
+  ],
+  "key": {
+    "W": {
+      "item": "gallifrey:white_point_star"
+    },
+    "T": {
+      "item": "gallifrey:white_point_star_upgrade_smithing_template"
+    },
+    "L": {
+      "item": "gallifrey:liquid_metalertanium"
+    }
+  },
+  "result": {
+    "item": "gallifrey:white_point_star_upgrade_smithing_template",
+    "count": 2
+  }
+}

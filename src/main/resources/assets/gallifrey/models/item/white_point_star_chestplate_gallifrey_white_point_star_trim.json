@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gallifrey:item/white_point_star_stuff/white_point_star_chestplate",
+    "layer1": "minecraft:trims/items/chestplate_trim_gallifrey_white_point_star_darker"
+  }
+}

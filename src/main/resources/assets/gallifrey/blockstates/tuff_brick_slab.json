@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "gallifrey:block/backport/tuff_brick_slab"
+    },
+    "type=double": {
+      "model": "gallifrey:block/backport/tuff_bricks"
+    },
+    "type=top": {
+      "model": "gallifrey:block/backport/tuff_brick_slab_top"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "gallifrey:mace"
+    },
+    "title": {
+      "translate": "advancements.gallifrey.backported.over_overkill.title"
+    },
+    "description": {
+      "translate": "advancements.gallifrey.backported.over_overkill.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "gallifrey:backported/calm_the_storm",
+  "rewards": {
+    "experience": 50
+  }
+}

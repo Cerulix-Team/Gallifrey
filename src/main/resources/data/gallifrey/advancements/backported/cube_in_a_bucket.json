@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "gallifrey:sulfur_cube_bucket"
+    },
+    "title": {
+      "translate": "advancements.gallifrey.backported.cube_in_a_bucket.title"
+    },
+    "description": {
+      "translate": "advancements.gallifrey.backported.cube_in_a_bucket.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "has_sulfur_cube_bucket": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:sulfur_cube_bucket"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "gallifrey:backported/root"
+}

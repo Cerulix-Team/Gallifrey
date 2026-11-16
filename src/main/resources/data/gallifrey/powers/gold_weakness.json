@@ -1,0 +1,50 @@
+{
+  "type": "origins:modify_damage_taken",
+  "modifier": {
+    "name": "Gold clogs a Cyberman's respiratory system",
+    "value": 1.0,
+    "operation": "multiply_base"
+  },
+  "damage_condition": {
+    "type": "origins:attacker",
+    "entity_condition": {
+      "type": "origins:equipped_item",
+      "equipment_slot": "mainhand",
+      "item_condition": {
+        "type": "origins:ingredient",
+        "ingredient": [
+          {
+            "item": "minecraft:golden_sword"
+          },
+          {
+            "item": "minecraft:golden_axe"
+          },
+          {
+            "item": "minecraft:golden_pickaxe"
+          },
+          {
+            "item": "minecraft:golden_shovel"
+          },
+          {
+            "item": "minecraft:golden_hoe"
+          },
+          {
+            "item": "gallifrey:classic_gold_sword"
+          },
+          {
+            "item": "gallifrey:classic_gold_axe"
+          },
+          {
+            "item": "gallifrey:classic_gold_pickaxe"
+          },
+          {
+            "item": "gallifrey:classic_gold_shovel"
+          },
+          {
+            "item": "gallifrey:classic_gold_hoe"
+          }
+        ]
+      }
+    }
+  }
+}

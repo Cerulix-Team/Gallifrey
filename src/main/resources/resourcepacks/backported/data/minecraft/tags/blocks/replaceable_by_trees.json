@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:pale_hanging_moss",
+    "gallifrey:bush",
+    "gallifrey:short_dry_grass",
+    "gallifrey:tall_dry_grass",
+    "gallifrey:leaf_litter",
+    "gallifrey:wildflowers",
+    "gallifrey:pale_moss_carpet"
+  ]
+}

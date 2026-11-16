@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "NNN",
+    "NTN",
+    "NNN"
+  ],
+  "key": {
+    "N": {
+      "item": "gallifrey:copper_nugget"
+    },
+    "T": {
+      "item": "gallifrey:copper_torch"
+    }
+  },
+  "result": {
+    "item": "gallifrey:copper_lantern",
+    "count": 1
+  }
+}

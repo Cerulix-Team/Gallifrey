@@ -1,0 +1,44 @@
+{
+  "display": {
+    "icon": {
+      "type": "heracles:item",
+      "item": "gallifrey:energized_atrium"
+    },
+    "title": {
+      "translate": "advancement.gallifrey.energisedatrium.title"
+    },
+    "description": [
+      "Charge atrium with redstone around an iron ingot."
+    ],
+    "groups": {
+      "Gallifrey": {
+        "position": [
+          50,
+          100
+        ]
+      }
+    }
+  },
+  "settings": {
+    "hidden": "LOCKED",
+    "unlockNotification": true
+  },
+  "dependencies": [
+    "gallifrey_atrium"
+  ],
+  "tasks": {
+    "task": {
+      "type": "heracles:advancement",
+      "advancements": [
+        "gallifrey:energisedatrium"
+      ]
+    }
+  },
+  "rewards": {
+    "xp": {
+      "type": "heracles:xp",
+      "xptype": "LEVEL",
+      "amount": 3
+    }
+  }
+}

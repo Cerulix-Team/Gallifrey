@@ -1,0 +1,44 @@
+{
+  "display": {
+    "icon": {
+      "type": "heracles:item",
+      "item": "gallifrey:treeborg_sapling"
+    },
+    "title": {
+      "translate": "advancement.gallifrey.explore_gallifrey.title"
+    },
+    "description": [
+      "Visit every biome on Gallifrey."
+    ],
+    "groups": {
+      "Gallifrey": {
+        "position": [
+          250,
+          150
+        ]
+      }
+    }
+  },
+  "settings": {
+    "hidden": "LOCKED",
+    "unlockNotification": true
+  },
+  "dependencies": [
+    "gallifrey_gallifrey"
+  ],
+  "tasks": {
+    "task": {
+      "type": "heracles:advancement",
+      "advancements": [
+        "gallifrey:explore_gallifrey"
+      ]
+    }
+  },
+  "rewards": {
+    "xp": {
+      "type": "heracles:xp",
+      "xptype": "LEVEL",
+      "amount": 10
+    }
+  }
+}

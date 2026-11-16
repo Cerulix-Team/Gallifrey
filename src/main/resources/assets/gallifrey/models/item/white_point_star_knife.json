@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "gallifrey:item/knives/white_point_star_knife"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:wooden_spear",
+    "gallifrey:stone_spear",
+    "gallifrey:copper_spear",
+    "gallifrey:iron_spear",
+    "gallifrey:golden_spear",
+    "gallifrey:diamond_spear",
+    "gallifrey:netherite_spear"
+  ]
+}

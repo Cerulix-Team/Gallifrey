@@ -1,0 +1,13 @@
+{
+  "parent": "gallifrey:block/backport26/dried_ghast",
+  "textures": {
+    "bottom": "gallifrey:block/backport26/dried_ghast_hydration_3_bottom",
+    "east": "gallifrey:block/backport26/dried_ghast_hydration_3_east",
+    "north": "gallifrey:block/backport26/dried_ghast_hydration_3_north",
+    "particle": "gallifrey:block/backport26/dried_ghast_hydration_3_north",
+    "south": "gallifrey:block/backport26/dried_ghast_hydration_3_south",
+    "tentacles": "gallifrey:block/backport26/dried_ghast_hydration_3_tentacles",
+    "top": "gallifrey:block/backport26/dried_ghast_hydration_3_top",
+    "west": "gallifrey:block/backport26/dried_ghast_hydration_3_west"
+  }
+}

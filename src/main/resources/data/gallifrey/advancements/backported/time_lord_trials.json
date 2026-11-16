@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "gallifrey:gallifreyan_vault"
+    },
+    "title": {
+      "translate": "advancements.gallifrey.backported.time_lord_trials.title"
+    },
+    "description": {
+      "translate": "advancements.gallifrey.backported.time_lord_trials.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "visited": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "gallifrey:gallifreyan_trial_chambers"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "gallifrey:backported/trial_chambers"
+}

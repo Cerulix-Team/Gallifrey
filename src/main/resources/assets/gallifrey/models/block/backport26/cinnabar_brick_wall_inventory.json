@@ -1,0 +1,6 @@
+{
+  "parent": "gallifrey:block/backport26/wall_inventory",
+  "textures": {
+    "wall": "gallifrey:block/backport26/cinnabar_bricks"
+  }
+}

@@ -8,11 +8,6 @@
           "type": "minecraft:item",
           "name": "gallifrey:classic_wool_windows"
         }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:survives_explosion"
-        }
       ]
     }
   ]

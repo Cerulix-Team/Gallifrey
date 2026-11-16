@@ -1,0 +1,24 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "techreborn"
+      ]
+    }
+  ],
+  "type": "techreborn:grinder",
+  "power": 2,
+  "time": 270,
+  "ingredients": [
+    {
+      "item": "gallifrey:deepslate_white_point_ore"
+    }
+  ],
+  "results": [
+    {
+      "item": "gallifrey:white_point_star",
+      "count": 2
+    }
+  ]
+}

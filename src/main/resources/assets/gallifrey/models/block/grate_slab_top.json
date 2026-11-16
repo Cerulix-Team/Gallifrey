@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "gallifrey:block/grate/grate_block",
+    "top": "gallifrey:block/grate/grate_block",
+    "side": "gallifrey:block/grate/grate_block",
+    "all": "gallifrey:block/grate/grate_block",
+    "particle": "gallifrey:block/grate/grate_block"
+  },
+  "render_type": "cutout"
+}

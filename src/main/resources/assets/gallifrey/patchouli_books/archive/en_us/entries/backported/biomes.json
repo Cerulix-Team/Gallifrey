@@ -1,0 +1,35 @@
+{
+  "name": "New Biomes",
+  "icon": "gallifrey:pale_oak_sapling",
+  "category": "gallifrey:backported",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:creaking_heart",
+      "text": "The $(thing)Pale Garden$() grows where Dark Forests are deep and quiet. Its pale oaks hide $(item)Creaking Hearts$(). At night the heart wakes and calls a $(thing)Creaking$(), which only moves while nobody is looking at it. It can't be hurt while its heart lives: break the heart to end it.",
+      "title": "Pale Garden"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:open_eyeblossom",
+      "text": "$(item)Eyeblossoms$() open at night and close by day. Pale moss carpets the floor and hangs from the trees."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:poplar_sapling",
+      "text": "The $(thing)Dappled Forest$() is full of red, orange and yellow poplars, with shelf mushrooms on their trunks and red shrubs below.",
+      "title": "Dappled Forest"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:sulfur_cube_bucket",
+      "text": "$(thing)Sulfur Caves$() lie under some Dripstone Caves: yellow stone, sulfur spikes and $(thing)Sulfur Cubes$(). A small cube can be scooped up in a bucket. Feed it a block and it carries it around inside.",
+      "title": "Sulfur Caves"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "On $(thing)Gallifrey$() itself you can find a $(thing)Gallifreyan Pale Garden$(), whose pale oaks grow red leaves, and $(thing)Gallifreyan Sulfur Caves$() deep below the surface."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "gallifrey:block/backport26/gray_concrete_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/gray_concrete"
+    },
+    "type=top": {
+      "model": "gallifrey:block/backport26/gray_concrete_slab_top"
+    }
+  }
+}

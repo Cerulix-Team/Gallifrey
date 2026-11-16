@@ -1,0 +1,12 @@
+{
+  "type": "origins:modify_damage_taken",
+  "modifier": {
+    "name": "Time Lord resilience",
+    "value": -0.25,
+    "operation": "multiply_base"
+  },
+  "damage_condition": {
+    "type": "origins:in_tag",
+    "tag": "minecraft:witch_resistant_to"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "gallifrey:block/backport26/pointed_dripstone",
+  "textures": {
+    "cross": "gallifrey:block/backport26/sulfur_spike_up_middle"
+  }
+}

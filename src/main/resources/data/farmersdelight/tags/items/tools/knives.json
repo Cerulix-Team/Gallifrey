@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "gallifrey:steel_knife",
+      "required": false
+    },
+    {
+      "id": "gallifrey:dalekanium_knife",
+      "required": false
+    },
+    {
+      "id": "gallifrey:metalertanium_knife",
+      "required": false
+    },
+    {
+      "id": "gallifrey:white_point_star_knife",
+      "required": false
+    }
+  ]
+}

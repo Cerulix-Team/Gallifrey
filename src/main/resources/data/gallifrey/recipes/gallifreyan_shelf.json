@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "QGQ",
+    "   ",
+    "QGQ"
+  ],
+  "key": {
+    "Q": {
+      "item": "minecraft:smooth_quartz"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "gallifrey:gallifreyan_shelf",
+    "count": 6
+  }
+}

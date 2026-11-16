@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:copper_sword",
+    "gallifrey:copper_shovel",
+    "gallifrey:copper_pickaxe",
+    "gallifrey:copper_axe",
+    "gallifrey:copper_hoe",
+    "gallifrey:wooden_spear",
+    "gallifrey:stone_spear",
+    "gallifrey:copper_spear",
+    "gallifrey:iron_spear",
+    "gallifrey:golden_spear",
+    "gallifrey:diamond_spear",
+    "gallifrey:netherite_spear",
+    "gallifrey:mace"
+  ]
+}

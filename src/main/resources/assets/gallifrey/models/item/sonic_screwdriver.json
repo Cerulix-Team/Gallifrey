@@ -1,95 +1,155 @@
 {
-  "parent": "gallifrey:item/sonic_items/sonic_third_doctor",
+  "parent": "gallifrey:item/sonic_items/2nd_sonic",
   "overrides": [
     {
       "predicate": {
-        "gallifrey:sonic_casing": 0.066666
+        "gallifrey:sonic_casing": 0.04
       },
-      "model": "gallifrey:item/sonic_items/sonic_fourth_doctor"
+      "model": "gallifrey:item/sonic_items/3rd_sonic"
     },
     {
       "predicate": {
-        "gallifrey:sonic_casing": 0.133333
+        "gallifrey:sonic_casing": 0.08
       },
-      "model": "gallifrey:item/sonic_items/sonic_fifth_doctor"
+      "model": "gallifrey:item/sonic_items/4th_sonic"
+    },
+    {
+      "predicate": {
+        "gallifrey:sonic_casing": 0.12
+      },
+      "model": "gallifrey:item/sonic_items/6th_sonic"
+    },
+    {
+      "predicate": {
+        "gallifrey:sonic_casing": 0.16
+      },
+      "model": "gallifrey:item/sonic_items/7th_sonic"
     },
     {
       "predicate": {
         "gallifrey:sonic_casing": 0.2
       },
-      "model": "gallifrey:item/sonic_items/sonic_eighth_doctor"
+      "model": "gallifrey:item/sonic_items/8th_sonic"
     },
     {
       "predicate": {
-        "gallifrey:sonic_casing": 0.266666
+        "gallifrey:sonic_casing": 0.24
       },
-      "model": "gallifrey:item/sonic_items/sonic_war_doctor"
+      "model": "gallifrey:item/sonic_items/war_sonic"
     },
     {
       "predicate": {
-        "gallifrey:sonic_casing": 0.333333
+        "gallifrey:sonic_casing": 0.28
       },
-      "model": "gallifrey:item/sonic_items/sonic_war_master"
+      "model": "gallifrey:item/sonic_items/10th_sonic"
+    },
+    {
+      "predicate": {
+        "gallifrey:sonic_casing": 0.32
+      },
+      "model": "gallifrey:item/sonic_items/warmaster_sonic"
+    },
+    {
+      "predicate": {
+        "gallifrey:sonic_casing": 0.36
+      },
+      "model": "gallifrey:item/sonic_items/11th_sonic"
     },
     {
       "predicate": {
         "gallifrey:sonic_casing": 0.4
       },
-      "model": "gallifrey:item/sonic_items/sonic_eleventh_cane"
+      "model": "gallifrey:item/sonic_items/sonic_cane"
     },
     {
       "predicate": {
-        "gallifrey:sonic_casing": 0.466666
+        "gallifrey:sonic_casing": 0.44
       },
-      "model": "gallifrey:item/sonic_items/sonic_blue"
+      "model": "gallifrey:item/sonic_items/12th_sonic"
     },
     {
       "predicate": {
-        "gallifrey:sonic_casing": 0.533333
+        "gallifrey:sonic_casing": 0.48
       },
-      "model": "gallifrey:item/sonic_items/sonic_ricks_portal_gun"
+      "model": "gallifrey:item/sonic_items/13th_sonic"
+    },
+    {
+      "predicate": {
+        "gallifrey:sonic_casing": 0.52
+      },
+      "model": "gallifrey:item/sonic_items/14th_sonic"
+    },
+    {
+      "predicate": {
+        "gallifrey:sonic_casing": 0.56
+      },
+      "model": "gallifrey:item/sonic_items/15th_sonic"
     },
     {
       "predicate": {
         "gallifrey:sonic_casing": 0.6
       },
-      "model": "gallifrey:item/sonic_items/sonic_valvue_gun"
+      "model": "gallifrey:item/sonic_items/15th_sonic_green"
     },
     {
       "predicate": {
-        "gallifrey:sonic_casing": 0.666666
+        "gallifrey:sonic_casing": 0.64
       },
-      "model": "gallifrey:item/sonic_items/sonic_deos_portal_gun"
+      "model": "gallifrey:item/sonic_items/15th_sonic_red"
     },
     {
       "predicate": {
-        "gallifrey:sonic_casing": 0.733333
+        "gallifrey:sonic_casing": 0.68
       },
-      "model": "gallifrey:item/sonic_items/sonic_deos_hammer"
+      "model": "gallifrey:item/sonic_items/15th_sonic_yellow"
+    },
+    {
+      "predicate": {
+        "gallifrey:sonic_casing": 0.72
+      },
+      "model": "gallifrey:item/sonic_items/fugitive_sonic"
+    },
+    {
+      "predicate": {
+        "gallifrey:sonic_casing": 0.76
+      },
+      "model": "gallifrey:item/sonic_items/laser_sonic"
     },
     {
       "predicate": {
         "gallifrey:sonic_casing": 0.8
       },
+      "model": "gallifrey:item/sonic_items/ranis_sonic"
+    },
+    {
+      "predicate": {
+        "gallifrey:sonic_casing": 0.84
+      },
       "model": "gallifrey:item/sonic_items/sonic_missys_umbrella"
     },
     {
       "predicate": {
-        "gallifrey:sonic_casing": 0.866666
+        "gallifrey:sonic_casing": 0.88
       },
-      "model": "gallifrey:item/sonic_items/sonic_gamblers"
+      "model": "gallifrey:item/sonic_items/blue_sonic"
     },
     {
       "predicate": {
-        "gallifrey:sonic_casing": 0.933333
+        "gallifrey:sonic_casing": 0.92
       },
       "model": "gallifrey:item/sonic_items/sonic_blunt"
     },
     {
       "predicate": {
-        "gallifrey:sonic_casing": 1
+        "gallifrey:sonic_casing": 0.96
       },
       "model": "gallifrey:item/sonic_items/sonic_alastor_staff"
+    },
+    {
+      "predicate": {
+        "gallifrey:sonic_casing": 1.0
+      },
+      "model": "gallifrey:item/sonic_items/hocotate_sonic"
     }
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "result": {
+    "item": "gallifrey:poplar_shelf",
+    "count": 6
+  },
+  "group": "shelf",
+  "pattern": [
+    "###",
+    "   ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "gallifrey:stripped_poplar_log"
+    }
+  }
+}

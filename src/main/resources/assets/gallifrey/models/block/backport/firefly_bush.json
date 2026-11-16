@@ -1,0 +1,7 @@
+{
+  "parent": "gallifrey:block/backport/cross_emissive",
+  "textures": {
+    "cross": "gallifrey:block/backport/firefly_bush",
+    "cross_emissive": "gallifrey:block/backport/firefly_bush_emissive"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "gallifrey:gallifreyan_trial_chambers",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1963112306,
+    "separation": 12,
+    "spacing": 34
+  }
+}

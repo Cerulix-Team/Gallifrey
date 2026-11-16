@@ -1,0 +1,13 @@
+{
+  "powers": [
+    "gallifrey:dalekanium_casing",
+    "gallifrey:exterminate",
+    "gallifrey:travel_machine",
+    "gallifrey:no_armour_fits"
+  ],
+  "icon": {
+    "item": "gallifrey:dalekanium_ingot"
+  },
+  "order": 1,
+  "impact": 3
+}

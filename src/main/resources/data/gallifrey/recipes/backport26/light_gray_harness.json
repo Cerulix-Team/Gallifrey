@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "result": {
+    "item": "gallifrey:light_gray_harness",
+    "count": 1
+  },
+  "group": "harness",
+  "pattern": [
+    "LLL",
+    "G#G"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:light_gray_wool"
+    },
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  }
+}

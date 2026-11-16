@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "gallifrey:item/tardis"
+    "layer0": "gallifrey:item/tardis_wood/tardis"
   }
 }

@@ -1,0 +1,44 @@
+{
+  "display": {
+    "icon": {
+      "type": "heracles:item",
+      "item": "gallifrey:reinforced_steel_block"
+    },
+    "title": {
+      "translate": "advancement.gallifrey.gallroot.title"
+    },
+    "description": [
+      "Travel to Gallifrey, by vortex manipulator or through a portal of reinforced steel lit with a White Point Star."
+    ],
+    "groups": {
+      "Gallifrey": {
+        "position": [
+          200,
+          150
+        ]
+      }
+    }
+  },
+  "settings": {
+    "hidden": "LOCKED",
+    "unlockNotification": true
+  },
+  "dependencies": [
+    "gallifrey_vortex_manipulator"
+  ],
+  "tasks": {
+    "task": {
+      "type": "heracles:advancement",
+      "advancements": [
+        "gallifrey:gallroot"
+      ]
+    }
+  },
+  "rewards": {
+    "xp": {
+      "type": "heracles:xp",
+      "xptype": "LEVEL",
+      "amount": 5
+    }
+  }
+}

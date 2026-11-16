@@ -1,0 +1,7 @@
+{
+  "parent": "gallifrey:block/backport26/template_shelf_right",
+  "textures": {
+    "all": "gallifrey:block/backport26/gallifreyan_shelf",
+    "particle": "minecraft:block/quartz_block_side"
+  }
+}

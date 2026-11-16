@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:sonic_screwdriver",
+    "gallifrey:sonic_shades",
+    "gallifrey:atrium_core",
+    "gallifrey:dimension_circuit",
+    "gallifrey:music_disk_a",
+    "gallifrey:music_disk_b",
+    "gallifrey:valedecem_disc",
+    "gallifrey:dugga_doo_disc"
+  ]
+}

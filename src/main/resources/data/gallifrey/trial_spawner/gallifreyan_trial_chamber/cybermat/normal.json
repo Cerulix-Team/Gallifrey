@@ -1,0 +1,29 @@
+{
+  "spawn_range": 4,
+  "total_mobs": 6,
+  "total_mobs_added_per_player": 2,
+  "simultaneous_mobs": 3,
+  "simultaneous_mobs_added_per_player": 1,
+  "ticks_between_spawn": 20,
+  "spawn_potentials": [
+    {
+      "data": {
+        "entity": {
+          "id": "gallifrey:cybermat"
+        }
+      },
+      "weight": 1
+    }
+  ],
+  "loot_tables_to_eject": [
+    {
+      "data": "gallifrey:spawners/trial_chamber/consumables",
+      "weight": 1
+    },
+    {
+      "data": "gallifrey:spawners/gallifreyan_trial_chamber/key",
+      "weight": 1
+    }
+  ],
+  "items_to_drop_when_ominous": "gallifrey:spawners/trial_chamber/items_to_drop_when_ominous"
+}

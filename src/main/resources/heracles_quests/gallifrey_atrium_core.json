@@ -1,0 +1,44 @@
+{
+  "display": {
+    "icon": {
+      "type": "heracles:item",
+      "item": "gallifrey:atrium_core"
+    },
+    "title": {
+      "translate": "advancement.gallifrey.atriumcore.title"
+    },
+    "description": [
+      "Combine atrium and energised atrium around a block of redstone."
+    ],
+    "groups": {
+      "Gallifrey": {
+        "position": [
+          100,
+          100
+        ]
+      }
+    }
+  },
+  "settings": {
+    "hidden": "LOCKED",
+    "unlockNotification": true
+  },
+  "dependencies": [
+    "gallifrey_energised_atrium"
+  ],
+  "tasks": {
+    "task": {
+      "type": "heracles:advancement",
+      "advancements": [
+        "gallifrey:atriumcore"
+      ]
+    }
+  },
+  "rewards": {
+    "xp": {
+      "type": "heracles:xp",
+      "xptype": "LEVEL",
+      "amount": 3
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "gallifrey:block/backport26/light_gray_concrete",
+    "side": "gallifrey:block/backport26/light_gray_concrete",
+    "top": "gallifrey:block/backport26/light_gray_concrete"
+  }
+}

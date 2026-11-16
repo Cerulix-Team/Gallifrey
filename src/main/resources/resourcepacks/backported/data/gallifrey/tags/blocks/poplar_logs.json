@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:poplar_log",
+    "gallifrey:poplar_wood",
+    "gallifrey:stripped_poplar_log",
+    "gallifrey:stripped_poplar_wood"
+  ]
+}

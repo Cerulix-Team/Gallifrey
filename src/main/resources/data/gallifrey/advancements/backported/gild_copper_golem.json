@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:gold_block"
+    },
+    "title": {
+      "translate": "advancements.gallifrey.backported.gild_copper_golem.title"
+    },
+    "description": {
+      "translate": "advancements.gallifrey.backported.gild_copper_golem.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "parent": "gallifrey:backported/copper_companion"
+}

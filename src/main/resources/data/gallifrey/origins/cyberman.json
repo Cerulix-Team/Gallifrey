@@ -1,0 +1,13 @@
+{
+  "powers": [
+    "gallifrey:cyber_armour",
+    "gallifrey:upgraded",
+    "gallifrey:mondasian_cold",
+    "gallifrey:gold_weakness"
+  ],
+  "icon": {
+    "item": "gallifrey:metalertanium_ingot"
+  },
+  "order": 2,
+  "impact": 2
+}

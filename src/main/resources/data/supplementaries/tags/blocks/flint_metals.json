@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "gallifrey:steel_block",
+    "gallifrey:reinforced_steel_block",
+    "gallifrey:dalekanium_block",
+    "gallifrey:metalertanium_block",
+    "gallifrey:classic_iron"
+  ]
+}

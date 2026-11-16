@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": {
+    "item": "gallifrey:white_point_star_upgrade_smithing_template"
+  },
+  "base": {
+    "item": "gallifrey:metalertanium_helmet"
+  },
+  "addition": {
+    "item": "gallifrey:white_point_star_residue"
+  },
+  "result": {
+    "item": "gallifrey:white_point_star_helmet"
+  }
+}

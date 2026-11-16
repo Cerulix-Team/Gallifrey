@@ -1,0 +1,7 @@
+{
+  "parent": "gallifrey:block/backport/template_bars_post_ends",
+  "textures": {
+    "bars": "gallifrey:block/backport/copper_bars",
+    "edge": "gallifrey:block/backport/copper_bars"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "gallifrey:block/backport/template_torch_wall",
+  "textures": {
+    "torch": "gallifrey:block/backport/copper_torch"
+  }
+}

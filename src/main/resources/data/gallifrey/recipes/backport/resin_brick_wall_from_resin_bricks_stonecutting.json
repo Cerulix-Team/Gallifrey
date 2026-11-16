@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "gallifrey:resin_bricks"
+  },
+  "result": "gallifrey:resin_brick_wall",
+  "count": 1
+}

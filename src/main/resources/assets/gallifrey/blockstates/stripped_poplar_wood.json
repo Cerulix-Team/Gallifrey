@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "gallifrey:block/backport26/stripped_poplar_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "gallifrey:block/backport26/stripped_poplar_wood"
+    },
+    "axis=z": {
+      "model": "gallifrey:block/backport26/stripped_poplar_wood",
+      "x": 90
+    }
+  }
+}

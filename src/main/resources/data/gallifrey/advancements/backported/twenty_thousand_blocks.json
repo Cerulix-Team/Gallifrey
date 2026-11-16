@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "gallifrey:copper_nautilus_armor"
+    },
+    "title": {
+      "translate": "advancements.gallifrey.backported.twenty_thousand_blocks.title"
+    },
+    "description": {
+      "translate": "advancements.gallifrey.backported.twenty_thousand_blocks.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "rode": {
+      "trigger": "minecraft:started_riding",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "vehicle": {
+                "type": "gallifrey:nautilus"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "parent": "gallifrey:backported/root"
+}

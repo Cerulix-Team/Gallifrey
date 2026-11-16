@@ -1,0 +1,42 @@
+{
+  "name": "White Point Star",
+  "icon": "gallifrey:white_point_star",
+  "category": "gallifrey:materials",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(item)White Point Stars$() come from White Point ore in the Overworld, deep underground and in the Nether. Lighting a portal with one uses it up.$(br2)They are also the key to the strongest gear there is: tools and armour roughly two and a half times as tough as netherite."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "gallifrey:white_point_star_residue",
+      "text": "$(item)Residue$() is boiled down from liquid metalertanium, nether stars and netherite. It's the upgrade material, and repairs the gear."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "gallifrey:white_point_star_upgrade_smithing_template",
+      "recipe2": "gallifrey:white_point_star_upgrade_smithing_template_duplicate"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "The $(item)Upgrade Smithing Template$() takes the three upgrade templates, four armour trim templates and two White Point Stars. Like vanilla templates it's used up, but it can be copied.$(br2)At a smithing table, the template, any $(item)metalertanium$() tool or armour piece and a Residue give its White Point Star version, keeping its enchantments."
+    },
+    {
+      "type": "patchouli:smithing",
+      "recipe": "gallifrey:white_point_star_sword_smithing",
+      "recipe2": "gallifrey:white_point_star_pickaxe_smithing"
+    },
+    {
+      "type": "patchouli:smithing",
+      "recipe": "gallifrey:white_point_star_chestplate_smithing",
+      "recipe2": "gallifrey:white_point_star_boots_smithing"
+    },
+    {
+      "type": "patchouli:spotlight",
+      "item": "gallifrey:white_point_star_chestplate",
+      "title": "Starlight",
+      "text": "White Point Star armour glows with a faint white light: brighter the more pieces you wear. It can be trimmed, and a White Point Star itself makes a trim material."
+    }
+  ]
+}

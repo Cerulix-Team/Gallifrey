@@ -1,0 +1,9 @@
+{
+  "type": "origins:attribute",
+  "modifier": {
+    "name": "Time Lord binary vascular system",
+    "attribute": "minecraft:generic.max_health",
+    "value": 4.0,
+    "operation": "addition"
+  }
+}

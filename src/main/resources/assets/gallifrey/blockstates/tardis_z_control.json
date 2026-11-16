@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,on=false": {
+      "model": "gallifrey:block/tardis_z_control"
+    },
+    "facing=north,on=true": {
+      "model": "gallifrey:block/tardis_z_control_on"
+    },
+    "facing=east,on=false": {
+      "model": "gallifrey:block/tardis_z_control",
+      "y": 90
+    },
+    "facing=east,on=true": {
+      "model": "gallifrey:block/tardis_z_control_on",
+      "y": 90
+    },
+    "facing=south,on=false": {
+      "model": "gallifrey:block/tardis_z_control",
+      "y": 180
+    },
+    "facing=south,on=true": {
+      "model": "gallifrey:block/tardis_z_control_on",
+      "y": 180
+    },
+    "facing=west,on=false": {
+      "model": "gallifrey:block/tardis_z_control",
+      "y": 270
+    },
+    "facing=west,on=true": {
+      "model": "gallifrey:block/tardis_z_control_on",
+      "y": 270
+    }
+  }
+}

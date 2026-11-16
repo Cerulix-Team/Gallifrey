@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "gallifrey:grate_block"
+    }
+  },
+  "result": {
+    "item": "gallifrey:grate_slab",
+    "count": 6
+  }
+}

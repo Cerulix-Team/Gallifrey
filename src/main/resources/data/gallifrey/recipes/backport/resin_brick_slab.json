@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "gallifrey:resin_bricks"
+    }
+  },
+  "result": {
+    "item": "gallifrey:resin_brick_slab",
+    "count": 6
+  }
+}

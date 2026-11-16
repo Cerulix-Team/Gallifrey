@@ -1,0 +1,31 @@
+{
+  "parent": "gallifrey:whitepointroot",
+  "display": {
+    "icon": {
+      "item": "gallifrey:white_point_star_residue"
+    },
+    "title": {
+      "translate": "advancement.gallifrey.white_point_star_residue.title"
+    },
+    "description": {
+      "translate": "advancement.gallifrey.white_point_star_residue.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "has_residue": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gallifrey:white_point_star_residue"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
