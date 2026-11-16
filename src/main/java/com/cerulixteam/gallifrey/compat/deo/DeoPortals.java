@@ -124,7 +124,9 @@ public final class DeoPortals {
             }
             if (portal.getWorld() != world) continue;
             try {
-                if (TARDIS.equals(destWorld.get(portal))) {
+                if (destWorld.get(portal) instanceof RegistryKey<?> dest
+                        && com.cerulixteam.gallifrey.tardis.TardisDimensionManager.isInteriorKey(
+                                RegistryKey.of(RegistryKeys.WORLD, dest.getValue()))) {
                     portal.discard();
                     PORTALS.remove(portal);
                     world.playSound(null, portal.getBlockPos(), SoundEvents.BLOCK_RESPAWN_ANCHOR_DEPLETE.value(),

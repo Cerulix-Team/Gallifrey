@@ -35,13 +35,15 @@ import java.util.List;
 /**
  * TARDIS flight, Dalek Mod style to fly and like the show to look at.
  *
- * Set the destination with the separate control blocks (X/Y/Z, increment, facing, dimension,
- * randomiser, fast return, landing type) or the monitor, release the handbrake and pull the throttle.
+ * Set the destination with the panels (coordinate panel, dimension selector, fast return, randomiser) or
+ * the monitor, make sure the handbrake is off, and pull the flight lever.
  *
- *  1. DEMAT: the take-off sound plays and the box fades away in pulses, in time with the wheeze,
- *     its lamp flashing. Inside, the room shakes as it lifts off.
- *  2. VORTEX: the box is gone. Inside, the flight hum plays and the room gently rocks. The trip takes
- *     longer the further you go (and a little longer between dimensions). Handbrake on = hold here.
+ *  1. DEMAT: the take-off sound plays and the box fades away in pulses, in time with the wheeze, its lamp
+ *     flashing. Inside, the room shakes as it lifts off.
+ *  2. VORTEX: the box is gone. Inside, the flight hum plays and the room gently rocks. The trip takes longer
+ *     the further you go (and a little longer between dimensions). When you've arrived you're told so, and
+ *     the TARDIS waits in the vortex until you pull the flight lever again. You can still change the
+ *     destination in flight; it lands wherever is set when you pull the lever.
  *  3. REMAT: the box fades back in at the destination with the landing sound, then lands with a jolt.
  *
  * While the box is mostly faded it has no collision and can't be used, so you can walk through it.
@@ -54,7 +56,37 @@ public final class TardisFlight {
 
     // ------------------------------------------------------------------ take off
 
-    /** The throttle: take off for the destination. Says why not if it can't. */
+    /** Coordinate step sizes the increment dial turns through. */
+    public static final int[] INCREMENTS = {1, 10, 100, 1000, 10000};
+
+    /**
+     * The flight lever (and the throttle): take off when landed; once you've arrived, land. Otherwise
+     * says what the TARDIS is doing.
+     */
+    public static boolean pullFlightLever(ServerPlayerEntity pilot, TardisExteriorBlockEntity tardis) {
+        switch (tardis.getPhase()) {
+            case LANDED -> {
+                return takeOff(pilot, tardis);
+            }
+            case DEMAT -> pilot.sendMessage(Text.translatable("tardis.gallifrey.msg.dematerialising"), true);
+            case REMAT -> pilot.sendMessage(Text.translatable("tardis.gallifrey.msg.materialising"), true);
+            case VORTEX -> {
+                if (!tardis.canPilot(pilot.getUuid())) {
+                    pilot.sendMessage(Text.translatable("tardis.gallifrey.msg.not_pilot"), true);
+                } else if (tardis.getPhaseAge() < tardis.getVortexTicks()) {
+                    pilot.sendMessage(Text.translatable("tardis.gallifrey.msg.in_flight", tardis.secondsToArrival()), true);
+                } else if (tardis.isHandbrakeOn()) {
+                    pilot.sendMessage(Text.translatable("tardis.gallifrey.msg.handbrake_land"), true);
+                } else if (tardis.getWorld() instanceof ServerWorld world && world.getServer() != null) {
+                    return rematerialise(pilot, world.getServer(), TardisRegistryState.get(world.getServer()), world,
+                            tardis.getPos(), tardis);
+                }
+            }
+        }
+        return false;
+    }
+
+    /** Take off for the destination. Says why not if it can't. */
     public static boolean takeOff(ServerPlayerEntity pilot, TardisExteriorBlockEntity tardis) {
         if (tardis.isFlightPending()) {
             pilot.sendMessage(Text.translatable("tardis.gallifrey.msg.in_flight", tardis.secondsToArrival()), true);
@@ -149,15 +181,16 @@ public final class TardisFlight {
                 }
             }
             case VORTEX -> {
-                if (tardis.isHandbrakeOn()) {
-                    tardis.holdInVortex();
-                    if (age % 40 == 0) shakeInside(tardis, 0.08F, 40);
-                } else if (age >= tardis.getVortexTicks()) {
-                    rematerialise(server, registry, world, pos, tardis);
-                    return;
+                // Arrived: say so (and remind every 30 s); the TARDIS waits until the flight lever is pulled.
+                int waiting = age - tardis.getVortexTicks();
+                if (waiting >= 0 && waiting % 600 == 0) {
+                    for (ServerPlayerEntity player : insidePlayers(tardis)) {
+                        player.sendMessage(Text.translatable("tardis.gallifrey.msg.arrived"), true);
+                        player.playSound(net.minecraft.sound.SoundEvents.BLOCK_NOTE_BLOCK_CHIME.value(), SoundCategory.BLOCKS, 0.8F, 1.2F);
+                    }
                 }
                 if (age > 0 && age % HUM_TICKS == 0) playInside(tardis, GallifreySounds.TYPE70FLIGHT, 0.8F);
-                if (age % 30 == 0) shakeInside(tardis, 0.15F, 30);
+                if (age % 30 == 0) shakeInside(tardis, waiting >= 0 ? 0.08F : 0.15F, 30);
             }
             case REMAT -> {
                 if (age == TardisPhaseCurves.REMAT_TICKS - 30) clearFootprint(world, pos, tardis);
@@ -173,20 +206,27 @@ public final class TardisFlight {
         }
     }
 
-    /** End of the vortex: move the (invisible) box to the destination and start fading it in. */
-    private static void rematerialise(MinecraftServer server, TardisRegistryState registry, ServerWorld source,
-                                      BlockPos sourcePos, TardisExteriorBlockEntity tardis) {
-        ServerWorld target = server.getWorld(RegistryKey.of(RegistryKeys.WORLD, tardis.getFlightWorld()));
-        BlockPos landing = target == null ? null : findLanding(target, tardis.getFlightPos(), tardis.isLandDown());
-        if (target == null || landing == null) {
-            // The destination became impossible mid-flight: come back down where it left.
-            target = source;
-            landing = sourcePos;
+    /**
+     * Landing (the flight lever, once arrived): move the still-invisible box to the destination that's set
+     * now and start fading it in. Says why not and stays in the vortex if it can't land there.
+     */
+    private static boolean rematerialise(ServerPlayerEntity pilot, MinecraftServer server, TardisRegistryState registry,
+                                         ServerWorld source, BlockPos sourcePos, TardisExteriorBlockEntity tardis) {
+        ServerWorld target = server.getWorld(RegistryKey.of(RegistryKeys.WORLD, tardis.getDestinationWorld()));
+        if (target == null || TardisDimensionManager.isInteriorWorld(target)) {
+            pilot.sendMessage(Text.translatable("tardis.gallifrey.msg.bad_dimension"), true);
+            return false;
         }
+        BlockPos landing = findLanding(target, tardis.getDestinationPos(), tardis.isLandDown());
+        if (landing == null) {
+            pilot.sendMessage(Text.translatable("tardis.gallifrey.msg.no_landing"), true);
+            return false;
+        }
+        int rotation = tardis.getDestRotation() >= 0 ? tardis.getDestRotation() : tardis.getFlightRotation();
         TardisExteriorBlockEntity moved = tardis;
         if (target != source || !landing.equals(sourcePos)) {
             BlockState state = tardis.getCachedState()
-                    .with(TardisExteriorBlock.ROTATION, tardis.getFlightRotation())
+                    .with(TardisExteriorBlock.ROTATION, rotation)
                     .with(TardisExteriorBlock.OPEN, false);
             NbtCompound nbt = tardis.createNbt();
             nbt.remove("x");
@@ -196,18 +236,20 @@ public final class TardisFlight {
             source.removeBlockEntity(sourcePos);
             source.setBlockState(sourcePos, net.minecraft.block.Blocks.AIR.getDefaultState(), 3);
             target.setBlockState(landing, state, 3);
-            if (!(target.getBlockEntity(landing) instanceof TardisExteriorBlockEntity placed)) return;
+            if (!(target.getBlockEntity(landing) instanceof TardisExteriorBlockEntity placed)) return false;
             placed.readNbt(nbt);
             moved = placed;
             registry.updateLocation(placed.getTardisId(), target, landing.asLong());
         } else {
-            target.setBlockState(landing, tardis.getCachedState().with(TardisExteriorBlock.ROTATION,
-                    tardis.getFlightRotation()), 3);
+            target.setBlockState(landing, tardis.getCachedState().with(TardisExteriorBlock.ROTATION, rotation), 3);
         }
         moved.setPhase(FlightPhase.REMAT);
         playOutside(target, landing, GallifreySounds.TYPE70MAT, 2.0F);
         playInside(moved, GallifreySounds.TYPE70MAT, 1.0F);
+        shakeInside(moved, 0.6F, 30);
+        pilot.sendMessage(Text.translatable("tardis.gallifrey.msg.materialising"), true);
         refreshMonitors(server, registry, moved);
+        return true;
     }
 
     /** Fully solid again: land with a jolt. */
@@ -267,10 +309,10 @@ public final class TardisFlight {
         return new Vec3d(-Math.sin(angle), 0, Math.cos(angle));
     }
 
-    // ------------------------------------------------------------------ the control blocks
+    // ------------------------------------------------------------------ the panels
 
-    /** A control block was used. direction is +1 normally, -1 when sneaking. */
-    public static void useControl(ServerPlayerEntity player, ServerWorld interior, TardisControl control, int direction) {
+    /** A panel button was pressed. Sneaking turns the increment and rotation dials the other way. */
+    public static void usePanel(ServerPlayerEntity player, ServerWorld interior, TardisPanelAction action, boolean sneaking) {
         TardisExteriorBlockEntity tardis = TardisDimensionManager.findTardisForInterior(interior);
         if (tardis == null) {
             player.sendMessage(Text.translatable("tardis.gallifrey.msg.not_connected"), true);
@@ -280,15 +322,15 @@ public final class TardisFlight {
             player.sendMessage(Text.translatable("tardis.gallifrey.msg.not_pilot"), true);
             return;
         }
-        switch (control) {
+        int direction = sneaking ? -1 : 1;
+        switch (action) {
+            case FLIGHT -> pullFlightLever(player, tardis);
             case HANDBRAKE -> {
                 tardis.setHandbrake(!tardis.isHandbrakeOn());
-                String key = tardis.isHandbrakeOn()
-                        ? (tardis.getPhase() == FlightPhase.VORTEX ? "tardis.gallifrey.msg.handbrake_hold" : "tardis.gallifrey.msg.handbrake_on")
-                        : "tardis.gallifrey.msg.handbrake_off";
-                player.sendMessage(Text.translatable(key), true);
+                player.sendMessage(Text.translatable(tardis.isHandbrakeOn()
+                        ? "tardis.gallifrey.msg.handbrake_on" : "tardis.gallifrey.msg.handbrake_off"), true);
             }
-            case DOOR -> {
+            case DOORS -> {
                 boolean open = !tardis.getCachedState().get(TardisExteriorBlock.OPEN);
                 if (open && tardis.isFlightPending()) {
                     player.sendMessage(Text.translatable("tardis.gallifrey.msg.doors_in_flight"), true);
@@ -299,37 +341,43 @@ public final class TardisFlight {
                     player.sendMessage(Text.translatable(open ? "tardis.gallifrey.msg.doors_open" : "tardis.gallifrey.msg.doors_closed"), true);
                 }
             }
-            case REFUELER -> {
+            case LOCK -> {
+                tardis.setLocked(!tardis.isLocked());
+                if (tardis.isLocked()) setDoors(tardis, false, true);
+                player.sendMessage(Text.translatable(tardis.isLocked() ? "tardis.gallifrey.msg.locked"
+                        : "tardis.gallifrey.msg.unlocked"), true);
+            }
+            case REFUEL -> {
                 tardis.setRefueling(!tardis.isRefueling());
                 player.sendMessage(Text.translatable(tardis.isRefueling() ? "tardis.gallifrey.msg.refuel_on"
                         : "tardis.gallifrey.msg.refuel_off", tardis.getFuel(), TardisExteriorBlockEntity.MAX_FUEL), true);
             }
-            case LANDING_TYPE -> {
+            case FIND_GROUND -> {
                 tardis.setLandDown(!tardis.isLandDown());
                 player.sendMessage(Text.translatable(tardis.isLandDown() ? "tardis.gallifrey.msg.landing_down"
                         : "tardis.gallifrey.msg.landing_up"), true);
             }
-            case X, Y, Z -> {
+            case X_UP, X_DOWN, Y_UP, Y_DOWN, Z_UP, Z_DOWN -> {
                 ensureDestination(tardis);
                 BlockPos d = tardis.getDestinationPos();
-                int step = tardis.getIncrement() * direction;
-                BlockPos moved = switch (control) {
-                    case X -> d.add(step, 0, 0);
-                    case Y -> new BlockPos(d.getX(), MathHelper.clamp(d.getY() + step, -64, 319), d.getZ());
+                int step = tardis.getIncrement() * (action == TardisPanelAction.X_UP || action == TardisPanelAction.Y_UP
+                        || action == TardisPanelAction.Z_UP ? 1 : -1);
+                BlockPos moved = switch (action) {
+                    case X_UP, X_DOWN -> d.add(step, 0, 0);
+                    case Y_UP, Y_DOWN -> new BlockPos(d.getX(), MathHelper.clamp(d.getY() + step, -64, 319), d.getZ());
                     default -> d.add(0, 0, step);
                 };
                 tardis.setDestination(tardis.getDestinationWorld(), clampWorldBorder(moved));
                 sendDestination(player, tardis);
             }
             case INCREMENT -> {
-                int[] steps = TardisControl.INCREMENTS;
                 int index = 0;
-                for (int i = 0; i < steps.length; i++) if (steps[i] == tardis.getIncrement()) index = i;
-                index = Math.floorMod(index + direction, steps.length);
-                tardis.setIncrement(steps[index]);
-                player.sendMessage(Text.translatable("tardis.gallifrey.msg.increment", steps[index]), true);
+                for (int i = 0; i < INCREMENTS.length; i++) if (INCREMENTS[i] == tardis.getIncrement()) index = i;
+                index = Math.floorMod(index + direction, INCREMENTS.length);
+                tardis.setIncrement(INCREMENTS[index]);
+                player.sendMessage(Text.translatable("tardis.gallifrey.msg.increment", INCREMENTS[index]), true);
             }
-            case FACING -> {
+            case ROTATION -> {
                 int current = tardis.getDestRotation() >= 0 ? tardis.getDestRotation()
                         : tardis.getCachedState().get(TardisExteriorBlock.ROTATION);
                 int next = Math.floorMod(current + 2 * direction, 8);
@@ -337,7 +385,7 @@ public final class TardisFlight {
                 player.sendMessage(Text.translatable("tardis.gallifrey.msg.facing",
                         Text.translatable("tardis.gallifrey.facing." + next)), true);
             }
-            case DIMENSION -> {
+            case DIM_PREV, DIM_NEXT -> {
                 ensureDestination(tardis);
                 List<Identifier> worlds = new ArrayList<>();
                 for (ServerWorld w : player.getServer().getWorlds()) {
@@ -345,11 +393,15 @@ public final class TardisFlight {
                 }
                 worlds.sort(Comparator.comparing(Identifier::toString));
                 int index = Math.max(0, worlds.indexOf(tardis.getDestinationWorld()));
-                Identifier next = worlds.get(Math.floorMod(index + direction, worlds.size()));
+                Identifier next = worlds.get(Math.floorMod(index + (action == TardisPanelAction.DIM_NEXT ? 1 : -1), worlds.size()));
                 tardis.setDestination(next, tardis.getDestinationPos());
                 player.sendMessage(Text.translatable("tardis.gallifrey.msg.dimension", dimensionName(next)), true);
             }
-            case RANDOMISER -> {
+            case DIM_SHOW -> {
+                ensureDestination(tardis);
+                sendDestination(player, tardis);
+            }
+            case RANDOMISE -> {
                 ensureDestination(tardis);
                 BlockPos d = tardis.getDestinationPos();
                 int radius = MathHelper.clamp(tardis.getIncrement() * 25, 250, 25000);
@@ -374,13 +426,14 @@ public final class TardisFlight {
         for (ServerPlayerEntity p : insidePlayers(tardis)) TardisMonitorNetworking.sendStateIfOpen(p);
     }
 
-    /** Current state of a LEVER control, so its block can show the right position. */
-    public static boolean leverState(TardisExteriorBlockEntity tardis, TardisControl control) {
-        return switch (control) {
+    /** Where a panel's lever or switch should be, so its block can show it. */
+    public static boolean panelState(TardisExteriorBlockEntity tardis, TardisPanel panel) {
+        return switch (panel) {
+            case FLIGHT_LEVER -> tardis.isFlightPending();
             case HANDBRAKE -> tardis.isHandbrakeOn();
-            case DOOR -> tardis.getCachedState().get(TardisExteriorBlock.OPEN);
             case REFUELER -> tardis.isRefueling();
-            case LANDING_TYPE -> tardis.isLandDown();
+            case LOCK_PANEL -> tardis.isLocked();
+            case COORDINATE_PANEL -> tardis.isLandDown();
             default -> false;
         };
     }

@@ -2423,17 +2423,18 @@ public class GallifreyModBlocks {
     );
 
     /**
-     * The separate TARDIS controls (Dalek Mod style): handbrake, door control, refueller, landing type,
-     * X/Y/Z coordinates, increment, facing, dimension, randomiser and fast return. One block each.
+     * The TARDIS control panels (Dalek Mod style): flight lever, coordinate panel, dimension selector,
+     * fast return, lock panel, plus Gallifrey's handbrake, refueller and randomiser. Each goes on a floor,
+     * wall or ceiling inside a TARDIS.
      */
-    public static final java.util.Map<com.cerulixteam.gallifrey.tardis.TardisControl, Block> TARDIS_CONTROLS = registerTardisControls();
+    public static final java.util.Map<com.cerulixteam.gallifrey.tardis.TardisPanel, Block> TARDIS_PANELS = registerTardisPanels();
 
-    private static java.util.Map<com.cerulixteam.gallifrey.tardis.TardisControl, Block> registerTardisControls() {
-        java.util.Map<com.cerulixteam.gallifrey.tardis.TardisControl, Block> map =
-                new java.util.EnumMap<>(com.cerulixteam.gallifrey.tardis.TardisControl.class);
-        for (com.cerulixteam.gallifrey.tardis.TardisControl control : com.cerulixteam.gallifrey.tardis.TardisControl.values()) {
-            map.put(control, registerBlock(control.blockId(), new TardisControlBlock(control,
-                    FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).strength(1.5f).nonOpaque())));
+    private static java.util.Map<com.cerulixteam.gallifrey.tardis.TardisPanel, Block> registerTardisPanels() {
+        java.util.Map<com.cerulixteam.gallifrey.tardis.TardisPanel, Block> map =
+                new java.util.EnumMap<>(com.cerulixteam.gallifrey.tardis.TardisPanel.class);
+        for (com.cerulixteam.gallifrey.tardis.TardisPanel panel : com.cerulixteam.gallifrey.tardis.TardisPanel.values()) {
+            map.put(panel, registerBlock(panel.blockId(), new TardisPanelBlock(panel,
+                    FabricBlockSettings.copyOf(Blocks.IRON_BLOCK).strength(1.5f).nonOpaque().sounds(net.minecraft.sound.BlockSoundGroup.METAL))));
         }
         return java.util.Collections.unmodifiableMap(map);
     }

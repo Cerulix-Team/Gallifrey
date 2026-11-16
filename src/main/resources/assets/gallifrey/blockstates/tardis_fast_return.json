@@ -1,34 +1,1064 @@
 {
   "variants": {
-    "facing=north,on=false": {
+    "button=0,face=floor,facing=north,on=false": {
       "model": "gallifrey:block/tardis_fast_return"
     },
-    "facing=north,on=true": {
-      "model": "gallifrey:block/tardis_fast_return_on"
+    "button=1,face=floor,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return_p1"
     },
-    "facing=east,on=false": {
+    "button=2,face=floor,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return"
+    },
+    "button=3,face=floor,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return"
+    },
+    "button=4,face=floor,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return"
+    },
+    "button=5,face=floor,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return"
+    },
+    "button=6,face=floor,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return"
+    },
+    "button=7,face=floor,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return"
+    },
+    "button=8,face=floor,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return"
+    },
+    "button=9,face=floor,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return"
+    },
+    "button=0,face=floor,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return"
+    },
+    "button=1,face=floor,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return_p1"
+    },
+    "button=2,face=floor,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return"
+    },
+    "button=3,face=floor,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return"
+    },
+    "button=4,face=floor,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return"
+    },
+    "button=5,face=floor,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return"
+    },
+    "button=6,face=floor,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return"
+    },
+    "button=7,face=floor,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return"
+    },
+    "button=8,face=floor,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return"
+    },
+    "button=9,face=floor,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return"
+    },
+    "button=0,face=floor,facing=east,on=false": {
       "model": "gallifrey:block/tardis_fast_return",
       "y": 90
     },
-    "facing=east,on=true": {
-      "model": "gallifrey:block/tardis_fast_return_on",
+    "button=1,face=floor,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
       "y": 90
     },
-    "facing=south,on=false": {
+    "button=2,face=floor,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 90
+    },
+    "button=3,face=floor,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 90
+    },
+    "button=4,face=floor,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 90
+    },
+    "button=5,face=floor,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 90
+    },
+    "button=6,face=floor,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 90
+    },
+    "button=7,face=floor,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 90
+    },
+    "button=8,face=floor,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 90
+    },
+    "button=9,face=floor,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 90
+    },
+    "button=0,face=floor,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 90
+    },
+    "button=1,face=floor,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "y": 90
+    },
+    "button=2,face=floor,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 90
+    },
+    "button=3,face=floor,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 90
+    },
+    "button=4,face=floor,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 90
+    },
+    "button=5,face=floor,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 90
+    },
+    "button=6,face=floor,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 90
+    },
+    "button=7,face=floor,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 90
+    },
+    "button=8,face=floor,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 90
+    },
+    "button=9,face=floor,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 90
+    },
+    "button=0,face=floor,facing=south,on=false": {
       "model": "gallifrey:block/tardis_fast_return",
       "y": 180
     },
-    "facing=south,on=true": {
-      "model": "gallifrey:block/tardis_fast_return_on",
+    "button=1,face=floor,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
       "y": 180
     },
-    "facing=west,on=false": {
+    "button=2,face=floor,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 180
+    },
+    "button=3,face=floor,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 180
+    },
+    "button=4,face=floor,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 180
+    },
+    "button=5,face=floor,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 180
+    },
+    "button=6,face=floor,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 180
+    },
+    "button=7,face=floor,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 180
+    },
+    "button=8,face=floor,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 180
+    },
+    "button=9,face=floor,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 180
+    },
+    "button=0,face=floor,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 180
+    },
+    "button=1,face=floor,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "y": 180
+    },
+    "button=2,face=floor,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 180
+    },
+    "button=3,face=floor,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 180
+    },
+    "button=4,face=floor,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 180
+    },
+    "button=5,face=floor,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 180
+    },
+    "button=6,face=floor,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 180
+    },
+    "button=7,face=floor,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 180
+    },
+    "button=8,face=floor,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 180
+    },
+    "button=9,face=floor,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 180
+    },
+    "button=0,face=floor,facing=west,on=false": {
       "model": "gallifrey:block/tardis_fast_return",
       "y": 270
     },
-    "facing=west,on=true": {
-      "model": "gallifrey:block/tardis_fast_return_on",
+    "button=1,face=floor,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
       "y": 270
+    },
+    "button=2,face=floor,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 270
+    },
+    "button=3,face=floor,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 270
+    },
+    "button=4,face=floor,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 270
+    },
+    "button=5,face=floor,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 270
+    },
+    "button=6,face=floor,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 270
+    },
+    "button=7,face=floor,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 270
+    },
+    "button=8,face=floor,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 270
+    },
+    "button=9,face=floor,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 270
+    },
+    "button=0,face=floor,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 270
+    },
+    "button=1,face=floor,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "y": 270
+    },
+    "button=2,face=floor,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 270
+    },
+    "button=3,face=floor,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 270
+    },
+    "button=4,face=floor,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 270
+    },
+    "button=5,face=floor,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 270
+    },
+    "button=6,face=floor,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 270
+    },
+    "button=7,face=floor,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 270
+    },
+    "button=8,face=floor,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 270
+    },
+    "button=9,face=floor,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "y": 270
+    },
+    "button=0,face=wall,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90
+    },
+    "button=1,face=wall,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "x": 90
+    },
+    "button=2,face=wall,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90
+    },
+    "button=3,face=wall,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90
+    },
+    "button=4,face=wall,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90
+    },
+    "button=5,face=wall,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90
+    },
+    "button=6,face=wall,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90
+    },
+    "button=7,face=wall,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90
+    },
+    "button=8,face=wall,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90
+    },
+    "button=9,face=wall,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90
+    },
+    "button=0,face=wall,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90
+    },
+    "button=1,face=wall,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "x": 90
+    },
+    "button=2,face=wall,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90
+    },
+    "button=3,face=wall,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90
+    },
+    "button=4,face=wall,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90
+    },
+    "button=5,face=wall,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90
+    },
+    "button=6,face=wall,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90
+    },
+    "button=7,face=wall,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90
+    },
+    "button=8,face=wall,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90
+    },
+    "button=9,face=wall,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90
+    },
+    "button=0,face=wall,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 90
+    },
+    "button=1,face=wall,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "x": 90,
+      "y": 90
+    },
+    "button=2,face=wall,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 90
+    },
+    "button=3,face=wall,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 90
+    },
+    "button=4,face=wall,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 90
+    },
+    "button=5,face=wall,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 90
+    },
+    "button=6,face=wall,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 90
+    },
+    "button=7,face=wall,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 90
+    },
+    "button=8,face=wall,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 90
+    },
+    "button=9,face=wall,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 90
+    },
+    "button=0,face=wall,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 90
+    },
+    "button=1,face=wall,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "x": 90,
+      "y": 90
+    },
+    "button=2,face=wall,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 90
+    },
+    "button=3,face=wall,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 90
+    },
+    "button=4,face=wall,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 90
+    },
+    "button=5,face=wall,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 90
+    },
+    "button=6,face=wall,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 90
+    },
+    "button=7,face=wall,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 90
+    },
+    "button=8,face=wall,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 90
+    },
+    "button=9,face=wall,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 90
+    },
+    "button=0,face=wall,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 180
+    },
+    "button=1,face=wall,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "x": 90,
+      "y": 180
+    },
+    "button=2,face=wall,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 180
+    },
+    "button=3,face=wall,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 180
+    },
+    "button=4,face=wall,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 180
+    },
+    "button=5,face=wall,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 180
+    },
+    "button=6,face=wall,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 180
+    },
+    "button=7,face=wall,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 180
+    },
+    "button=8,face=wall,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 180
+    },
+    "button=9,face=wall,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 180
+    },
+    "button=0,face=wall,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 180
+    },
+    "button=1,face=wall,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "x": 90,
+      "y": 180
+    },
+    "button=2,face=wall,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 180
+    },
+    "button=3,face=wall,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 180
+    },
+    "button=4,face=wall,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 180
+    },
+    "button=5,face=wall,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 180
+    },
+    "button=6,face=wall,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 180
+    },
+    "button=7,face=wall,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 180
+    },
+    "button=8,face=wall,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 180
+    },
+    "button=9,face=wall,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 180
+    },
+    "button=0,face=wall,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 270
+    },
+    "button=1,face=wall,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "x": 90,
+      "y": 270
+    },
+    "button=2,face=wall,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 270
+    },
+    "button=3,face=wall,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 270
+    },
+    "button=4,face=wall,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 270
+    },
+    "button=5,face=wall,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 270
+    },
+    "button=6,face=wall,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 270
+    },
+    "button=7,face=wall,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 270
+    },
+    "button=8,face=wall,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 270
+    },
+    "button=9,face=wall,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 270
+    },
+    "button=0,face=wall,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 270
+    },
+    "button=1,face=wall,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "x": 90,
+      "y": 270
+    },
+    "button=2,face=wall,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 270
+    },
+    "button=3,face=wall,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 270
+    },
+    "button=4,face=wall,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 270
+    },
+    "button=5,face=wall,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 270
+    },
+    "button=6,face=wall,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 270
+    },
+    "button=7,face=wall,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 270
+    },
+    "button=8,face=wall,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 270
+    },
+    "button=9,face=wall,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 90,
+      "y": 270
+    },
+    "button=0,face=ceiling,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 180
+    },
+    "button=1,face=ceiling,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "x": 180,
+      "y": 180
+    },
+    "button=2,face=ceiling,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 180
+    },
+    "button=3,face=ceiling,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 180
+    },
+    "button=4,face=ceiling,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 180
+    },
+    "button=5,face=ceiling,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 180
+    },
+    "button=6,face=ceiling,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 180
+    },
+    "button=7,face=ceiling,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 180
+    },
+    "button=8,face=ceiling,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 180
+    },
+    "button=9,face=ceiling,facing=north,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 180
+    },
+    "button=0,face=ceiling,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 180
+    },
+    "button=1,face=ceiling,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "x": 180,
+      "y": 180
+    },
+    "button=2,face=ceiling,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 180
+    },
+    "button=3,face=ceiling,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 180
+    },
+    "button=4,face=ceiling,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 180
+    },
+    "button=5,face=ceiling,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 180
+    },
+    "button=6,face=ceiling,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 180
+    },
+    "button=7,face=ceiling,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 180
+    },
+    "button=8,face=ceiling,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 180
+    },
+    "button=9,face=ceiling,facing=north,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 180
+    },
+    "button=0,face=ceiling,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 270
+    },
+    "button=1,face=ceiling,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "x": 180,
+      "y": 270
+    },
+    "button=2,face=ceiling,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 270
+    },
+    "button=3,face=ceiling,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 270
+    },
+    "button=4,face=ceiling,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 270
+    },
+    "button=5,face=ceiling,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 270
+    },
+    "button=6,face=ceiling,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 270
+    },
+    "button=7,face=ceiling,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 270
+    },
+    "button=8,face=ceiling,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 270
+    },
+    "button=9,face=ceiling,facing=east,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 270
+    },
+    "button=0,face=ceiling,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 270
+    },
+    "button=1,face=ceiling,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "x": 180,
+      "y": 270
+    },
+    "button=2,face=ceiling,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 270
+    },
+    "button=3,face=ceiling,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 270
+    },
+    "button=4,face=ceiling,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 270
+    },
+    "button=5,face=ceiling,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 270
+    },
+    "button=6,face=ceiling,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 270
+    },
+    "button=7,face=ceiling,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 270
+    },
+    "button=8,face=ceiling,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 270
+    },
+    "button=9,face=ceiling,facing=east,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 270
+    },
+    "button=0,face=ceiling,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180
+    },
+    "button=1,face=ceiling,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "x": 180
+    },
+    "button=2,face=ceiling,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180
+    },
+    "button=3,face=ceiling,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180
+    },
+    "button=4,face=ceiling,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180
+    },
+    "button=5,face=ceiling,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180
+    },
+    "button=6,face=ceiling,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180
+    },
+    "button=7,face=ceiling,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180
+    },
+    "button=8,face=ceiling,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180
+    },
+    "button=9,face=ceiling,facing=south,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180
+    },
+    "button=0,face=ceiling,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180
+    },
+    "button=1,face=ceiling,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "x": 180
+    },
+    "button=2,face=ceiling,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180
+    },
+    "button=3,face=ceiling,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180
+    },
+    "button=4,face=ceiling,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180
+    },
+    "button=5,face=ceiling,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180
+    },
+    "button=6,face=ceiling,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180
+    },
+    "button=7,face=ceiling,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180
+    },
+    "button=8,face=ceiling,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180
+    },
+    "button=9,face=ceiling,facing=south,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180
+    },
+    "button=0,face=ceiling,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 90
+    },
+    "button=1,face=ceiling,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "x": 180,
+      "y": 90
+    },
+    "button=2,face=ceiling,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 90
+    },
+    "button=3,face=ceiling,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 90
+    },
+    "button=4,face=ceiling,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 90
+    },
+    "button=5,face=ceiling,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 90
+    },
+    "button=6,face=ceiling,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 90
+    },
+    "button=7,face=ceiling,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 90
+    },
+    "button=8,face=ceiling,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 90
+    },
+    "button=9,face=ceiling,facing=west,on=false": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 90
+    },
+    "button=0,face=ceiling,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 90
+    },
+    "button=1,face=ceiling,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return_p1",
+      "x": 180,
+      "y": 90
+    },
+    "button=2,face=ceiling,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 90
+    },
+    "button=3,face=ceiling,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 90
+    },
+    "button=4,face=ceiling,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 90
+    },
+    "button=5,face=ceiling,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 90
+    },
+    "button=6,face=ceiling,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 90
+    },
+    "button=7,face=ceiling,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 90
+    },
+    "button=8,face=ceiling,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 90
+    },
+    "button=9,face=ceiling,facing=west,on=true": {
+      "model": "gallifrey:block/tardis_fast_return",
+      "x": 180,
+      "y": 90
     }
   }
 }

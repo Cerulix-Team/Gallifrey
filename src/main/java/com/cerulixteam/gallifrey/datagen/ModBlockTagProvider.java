@@ -28,7 +28,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         // TARDIS throttle, monitor and the separate control blocks
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(GallifreyModBlocks.TARDIS_THROTTLE, GallifreyModBlocks.TARDIS_MONITOR)
-                .add(GallifreyModBlocks.TARDIS_CONTROLS.values().toArray(new net.minecraft.block.Block[0]));
+                .add(GallifreyModBlocks.TARDIS_PANELS.values().toArray(new net.minecraft.block.Block[0]));
 
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
                 .add(GallifreyModBlocks.CLASSIC_LOG, GallifreyModBlocks.CLASSIC_PLANKS, GallifreyModBlocks.CLASSIC_STAIRS, GallifreyModBlocks.CLASSIC_SLAB, GallifreyModBlocks.CLASSIC_FENCE, GallifreyModBlocks.CLASSIC_FENCE_GATE);

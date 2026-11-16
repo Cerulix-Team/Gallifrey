@@ -104,20 +104,18 @@ public class TardisThrottleBlock extends Block implements BlockEntityProvider {
             pilot.sendMessage(Text.literal("The throttle only works inside a TARDIS."), true);
             return ActionResult.CONSUME;
         }
-        if (state.get(PULLED)) {
-            pilot.sendMessage(Text.literal("The TARDIS is in flight. The throttle returns when it lands."), true);
-            return ActionResult.CONSUME;
-        }
         TardisExteriorBlockEntity tardis = TardisDimensionManager.findTardisForInterior(serverWorld);
         if (tardis == null) {
             pilot.sendMessage(Text.literal("This throttle isn't connected to a TARDIS."), true);
             return ActionResult.CONSUME;
         }
 
+        // Works like the flight lever: take off, and once you've arrived pull it again to land.
         world.playSound(null, pos, SoundEvents.BLOCK_LEVER_CLICK, SoundCategory.BLOCKS, 0.6F, 0.6F);
-        if (TardisDimensionManager.launch(pilot, tardis)) {
-            world.setBlockState(pos, state.with(PULLED, true), Block.NOTIFY_ALL);
-        }
+        com.cerulixteam.gallifrey.tardis.TardisFlight.pullFlightLever(pilot, tardis);
+        TardisExteriorBlockEntity now = TardisDimensionManager.findTardisForInterior(serverWorld);
+        boolean flying = now != null && now.isFlightPending();
+        if (state.get(PULLED) != flying) world.setBlockState(pos, state.with(PULLED, flying), Block.NOTIFY_ALL);
         return ActionResult.CONSUME;
     }
 }

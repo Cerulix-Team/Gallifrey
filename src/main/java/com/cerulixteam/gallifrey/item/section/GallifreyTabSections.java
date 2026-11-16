@@ -251,7 +251,7 @@ public final class GallifreyTabSections {
                 entries.add(GallifreyModBlocks.TARDIS_EXTERIOR);
                 entries.add(GallifreyModBlocks.TARDIS_MONITOR);
                 entries.add(GallifreyModBlocks.TARDIS_THROTTLE);
-                for (net.minecraft.block.Block control : GallifreyModBlocks.TARDIS_CONTROLS.values()) entries.add(control);
+                for (net.minecraft.block.Block panel : GallifreyModBlocks.TARDIS_PANELS.values()) entries.add(panel);
                 entries.add(GallifreyModBlocks.TARDIS_INTERIOR_DOOR);
                 entries.add(GallifreyModItems.TARDIS_INTERIOR);
 

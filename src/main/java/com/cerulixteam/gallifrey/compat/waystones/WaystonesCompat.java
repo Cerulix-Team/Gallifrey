@@ -47,7 +47,7 @@ public final class WaystonesCompat {
                     Object destination = getDestination.invoke(event);
                     if (destination == null) return;
                     Object level = getLevel.invoke(destination);
-                    if (!(level instanceof ServerWorld world) || !TARDIS.equals(world.getRegistryKey())) return;
+                    if (!(level instanceof ServerWorld world) || !com.cerulixteam.gallifrey.tardis.TardisDimensionManager.isInteriorKey(world.getRegistryKey())) return;
 
                     setCanceled.invoke(event, true);
                     Object entity = getEntity.invoke(getContext.invoke(event));

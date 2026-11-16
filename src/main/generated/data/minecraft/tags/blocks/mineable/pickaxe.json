@@ -225,17 +225,13 @@
     "gallifrey:sapphire_block",
     "gallifrey:tardis_throttle",
     "gallifrey:tardis_monitor",
+    "gallifrey:tardis_flight_lever",
+    "gallifrey:tardis_coordinate_panel",
+    "gallifrey:tardis_dimension_selector",
+    "gallifrey:tardis_fast_return",
+    "gallifrey:tardis_lock_panel",
     "gallifrey:tardis_handbrake",
-    "gallifrey:tardis_door_control",
     "gallifrey:tardis_refueler",
-    "gallifrey:tardis_landing_type",
-    "gallifrey:tardis_x_control",
-    "gallifrey:tardis_y_control",
-    "gallifrey:tardis_z_control",
-    "gallifrey:tardis_increment",
-    "gallifrey:tardis_facing_control",
-    "gallifrey:tardis_dimension_control",
-    "gallifrey:tardis_randomiser",
-    "gallifrey:tardis_fast_return"
+    "gallifrey:tardis_randomiser"
   ]
 }

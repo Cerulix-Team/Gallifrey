@@ -68,7 +68,7 @@ public final class ThermooCompat {
         if (!GallifreyMod.MOD_ID.equals(world.getNamespace())) return true;
         String path = world.getPath();
 
-        if (path.equals(TARDIS)) return false;
+        if (path.equals(TARDIS) || path.startsWith(TARDIS + "_")) return false;
         if (AIRLESS.contains(path)) {
             if (SpaceSuits.hasFullSuit(player)) return false;
             return change <= 0; // no sunbathing on the Moon

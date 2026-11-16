@@ -20,6 +20,13 @@ repositories {
 		}
 
 	}
+	maven {
+		name = "Modrinth"
+		url = "https://api.modrinth.com/maven"
+		content {
+			includeGroup "maven.modrinth"
+		}
+	}
 	maven {url = "https://maven.kyrptonaught.dev"}
 	maven {url = "https://maven.blamejared.com/"} // JEI
 
@@ -40,6 +47,10 @@ repositories {
 	maven { url = "https://maven.shedaniel.me/" }      // REI
 	maven { url = "https://maven.architectury.dev/" }  // REI's own dependencies
 	maven { url = "https://maven.maxhenkel.de/repository/public" } // Simple Voice Chat API
+	maven {
+		url = "https://maven2.bai.lol" // WTHIT
+		content { includeGroup "lol.bai"; includeGroup "mcp.mobius.waila" }
+	}
 }
 
 loom {
@@ -52,6 +63,18 @@ loom {
 
 fabricApi {
 	configureDataGeneration()
+}
+
+/*
+ * ---------------------------------------------------------
+ * MIXIN REFMAP
+ * ---------------------------------------------------------
+ */
+
+loom {
+	mixin {
+		defaultRefmapName = "gallifrey-refmap.json"
+	}
 }
 
 /*
@@ -102,6 +125,7 @@ dependencies {
 	// Distant Horizons: only its event API is used (foggy dimensions). Not needed to play.
 	modCompileOnly("maven.modrinth:distanthorizons:2.3.6-b-1.20.1") { transitive = false }
 	compileOnly "de.maxhenkel.voicechat:voicechat-api:2.5.0"
+	modCompileOnly "mcp.mobius.waila:wthit-api:fabric-8.21.1"
 }
 
 /*

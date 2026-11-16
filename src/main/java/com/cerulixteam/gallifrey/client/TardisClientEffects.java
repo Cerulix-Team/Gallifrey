@@ -1,11 +1,13 @@
 package com.cerulixteam.gallifrey.client;
 
-import com.cerulixteam.gallifrey.block.TardisControlBlock;
+import com.cerulixteam.gallifrey.block.TardisPanelBlock;
 import com.cerulixteam.gallifrey.block.TardisMonitorBlock;
 import com.cerulixteam.gallifrey.block.TardisThrottleBlock;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import com.cerulixteam.gallifrey.tardis.TardisPanelLayout;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.util.math.MatrixStack;
@@ -17,7 +19,7 @@ import net.minecraft.util.math.RotationAxis;
 /**
  * Client side of TARDIS flight and controls:
  *  - camera shake inside the TARDIS on take-off, in flight and on landing (sent by the server);
- *  - the name of the TARDIS control you're looking at, under the crosshair (Dalek Mod style).
+ *  - the name of the TARDIS panel button you're looking at, under the crosshair (Dalek Mod style).
  */
 public final class TardisClientEffects {
     private TardisClientEffects() {}
@@ -68,22 +70,28 @@ public final class TardisClientEffects {
         if (client.world == null || client.options.hudHidden || client.currentScreen != null) return;
         HitResult hit = client.crosshairTarget;
         if (!(hit instanceof BlockHitResult blockHit) || hit.getType() != HitResult.Type.BLOCK) return;
-        Block block = client.world.getBlockState(blockHit.getBlockPos()).getBlock();
+        BlockState state = client.world.getBlockState(blockHit.getBlockPos());
+        Block block = state.getBlock();
+        Text name;
         String hint;
-        if (block instanceof TardisControlBlock control) {
-            hint = switch (control.getControl()) {
-                case X, Y, Z, INCREMENT, FACING, DIMENSION -> "tardis.gallifrey.hint.number";
-                default -> "tardis.gallifrey.hint.use";
-            };
+        if (block instanceof TardisPanelBlock panel) {
+            TardisPanelLayout.Button button = panel.buttonAt(state, blockHit.getBlockPos(), blockHit.getPos());
+            if (button == null) {
+                name = block.getName();
+                hint = null;
+            } else {
+                name = Text.translatable("tardis.gallifrey.button." + button.id());
+                hint = button.action().cycles() ? "tardis.gallifrey.hint.cycle" : "tardis.gallifrey.hint.use";
+            }
         } else if (block instanceof TardisThrottleBlock || block instanceof TardisMonitorBlock) {
+            name = block.getName();
             hint = "tardis.gallifrey.hint.use";
         } else {
             return;
         }
-        Text name = block.getName();
         int x = context.getScaledWindowWidth() / 2;
         int y = context.getScaledWindowHeight() / 2 + 10;
         context.drawCenteredTextWithShadow(client.textRenderer, name, x, y, 0xFFE8C860);
-        context.drawCenteredTextWithShadow(client.textRenderer, Text.translatable(hint), x, y + 11, 0xFFB0B0B0);
+        if (hint != null) context.drawCenteredTextWithShadow(client.textRenderer, Text.translatable(hint), x, y + 11, 0xFFB0B0B0);
     }
 }

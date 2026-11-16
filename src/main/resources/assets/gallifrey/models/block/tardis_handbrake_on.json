@@ -1,265 +1,162 @@
 {
   "parent": "minecraft:block/block",
   "textures": {
-    "particle": "gallifrey:block/tardis_controls/control_trim",
-    "plinth": "gallifrey:block/tardis_controls/control_plinth",
-    "body": "gallifrey:block/tardis_controls/control_body",
-    "trim": "gallifrey:block/tardis_controls/control_trim",
-    "deck": "gallifrey:block/tardis_controls/handbrake_deck",
-    "brass": "gallifrey:block/tardis_controls/control_brass",
-    "dark": "gallifrey:block/tardis_controls/control_dark",
-    "red": "gallifrey:block/tardis_controls/control_red",
-    "cream": "gallifrey:block/tardis_controls/control_cream",
-    "tank": "gallifrey:block/tardis_controls/control_tank",
-    "hazard": "gallifrey:block/tardis_controls/control_hazard",
-    "accent": "gallifrey:block/tardis_controls/handbrake_accent"
+    "side": "gallifrey:block/tardis_panels/side",
+    "lights": "gallifrey:block/tardis_panels/lights",
+    "screen": "gallifrey:block/tardis_panels/screen",
+    "tank": "gallifrey:block/tardis_panels/tank",
+    "metal": "gallifrey:block/tardis_panels/metal",
+    "red": "gallifrey:block/tardis_panels/red",
+    "red_dark": "gallifrey:block/tardis_panels/red_dark",
+    "black": "gallifrey:block/tardis_panels/black",
+    "white": "gallifrey:block/tardis_panels/white",
+    "gold": "gallifrey:block/tardis_panels/gold",
+    "cyan": "gallifrey:block/tardis_panels/cyan",
+    "base_coordinates": "gallifrey:block/tardis_panels/base_coordinates",
+    "base_dimension": "gallifrey:block/tardis_panels/base_dimension",
+    "base_lock": "gallifrey:block/tardis_panels/base_lock",
+    "base_randomiser": "gallifrey:block/tardis_panels/base_randomiser",
+    "base_handbrake": "gallifrey:block/tardis_panels/base_handbrake",
+    "base_fast_return": "gallifrey:block/tardis_panels/base_fast_return",
+    "base_refueler": "gallifrey:block/tardis_panels/base_refueler",
+    "x_minus": "gallifrey:block/tardis_panels/x_minus",
+    "x_plus": "gallifrey:block/tardis_panels/x_plus",
+    "y_minus": "gallifrey:block/tardis_panels/y_minus",
+    "y_plus": "gallifrey:block/tardis_panels/y_plus",
+    "z_minus": "gallifrey:block/tardis_panels/z_minus",
+    "z_plus": "gallifrey:block/tardis_panels/z_plus",
+    "particle": "gallifrey:block/tardis_panels/side"
   },
   "elements": [
     {
       "from": [
-        1,
+        4,
         0,
-        1
+        3
       ],
       "to": [
-        15,
+        12,
         1,
-        15
+        13
       ],
       "faces": {
         "north": {
-          "texture": "#plinth"
+          "texture": "#side"
         },
         "south": {
-          "texture": "#plinth"
+          "texture": "#side"
         },
         "east": {
-          "texture": "#plinth"
+          "texture": "#side"
         },
         "west": {
-          "texture": "#plinth"
+          "texture": "#side"
         },
         "up": {
-          "texture": "#plinth"
+          "texture": "#side"
         },
         "down": {
-          "texture": "#plinth"
+          "texture": "#side"
         }
       }
     },
     {
       "from": [
-        1.5,
-        1,
-        1.5
-      ],
-      "to": [
-        14.5,
         5,
-        14.5
+        1,
+        5
+      ],
+      "to": [
+        11,
+        3,
+        11
       ],
       "faces": {
         "north": {
-          "texture": "#body"
+          "texture": "#side"
         },
         "south": {
-          "texture": "#body"
+          "texture": "#side"
         },
         "east": {
-          "texture": "#body"
+          "texture": "#side"
         },
         "west": {
-          "texture": "#body"
+          "texture": "#side"
+        },
+        "down": {
+          "texture": "#side"
         }
       }
     },
     {
       "from": [
-        1.5,
         5,
-        8
-      ],
-      "to": [
-        14.5,
-        7,
-        14.5
-      ],
-      "faces": {
-        "south": {
-          "texture": "#body"
-        },
-        "east": {
-          "texture": "#body"
-        },
-        "west": {
-          "texture": "#body"
-        }
-      }
-    },
-    {
-      "from": [
-        1.5,
-        7,
-        12
-      ],
-      "to": [
-        14.5,
-        9,
-        14.5
-      ],
-      "faces": {
-        "south": {
-          "texture": "#body"
-        },
-        "east": {
-          "texture": "#body"
-        },
-        "west": {
-          "texture": "#body"
-        }
-      }
-    },
-    {
-      "from": [
         1,
-        7.25,
-        0.75
+        5
       ],
       "to": [
-        15,
-        8.75,
-        15.25
-      ],
-      "faces": {
-        "north": {
-          "texture": "#trim"
-        },
-        "south": {
-          "texture": "#trim"
-        },
-        "east": {
-          "texture": "#trim"
-        },
-        "west": {
-          "texture": "#trim"
-        },
-        "down": {
-          "texture": "#trim"
-        }
-      },
-      "rotation": {
-        "axis": "x",
-        "angle": -22.5,
-        "origin": [
-          8,
-          8,
-          8
-        ]
-      }
-    },
-    {
-      "from": [
-        1,
-        7.25,
-        0.75
-      ],
-      "to": [
-        15,
-        8.75,
-        15.25
+        11,
+        3,
+        11
       ],
       "faces": {
         "up": {
-          "texture": "#deck"
-        }
-      },
-      "rotation": {
-        "axis": "x",
-        "angle": -22.5,
-        "origin": [
-          8,
-          8,
-          8
-        ]
-      }
-    },
-    {
-      "from": [
-        6.0,
-        7.5,
-        9.0
-      ],
-      "to": [
-        10.0,
-        11.0,
-        13.0
-      ],
-      "faces": {
-        "north": {
-          "texture": "#dark"
-        },
-        "south": {
-          "texture": "#dark"
-        },
-        "east": {
-          "texture": "#dark"
-        },
-        "west": {
-          "texture": "#dark"
-        },
-        "up": {
-          "texture": "#dark"
-        },
-        "down": {
-          "texture": "#dark"
+          "texture": "#base_handbrake"
         }
       }
     },
     {
       "from": [
         7.5,
-        10.0,
-        10.5
+        3,
+        7.5
       ],
       "to": [
         8.5,
-        17.0,
-        11.5
+        10,
+        8.5
       ],
       "faces": {
         "north": {
-          "texture": "#brass"
+          "texture": "#metal"
         },
         "south": {
-          "texture": "#brass"
+          "texture": "#metal"
         },
         "east": {
-          "texture": "#brass"
+          "texture": "#metal"
         },
         "west": {
-          "texture": "#brass"
+          "texture": "#metal"
+        },
+        "up": {
+          "texture": "#metal"
+        },
+        "down": {
+          "texture": "#metal"
         }
       },
       "rotation": {
         "axis": "x",
         "angle": 22.5,
         "origin": [
-          8.0,
-          10.5,
-          11.0
+          8,
+          3,
+          8
         ]
       }
     },
     {
       "from": [
         5.0,
-        16.5,
-        10.25
+        9,
+        7
       ],
       "to": [
         11.0,
-        18.0,
-        11.75
+        11,
+        9
       ],
       "faces": {
         "north": {
@@ -285,9 +182,9 @@
         "axis": "x",
         "angle": 22.5,
         "origin": [
-          8.0,
-          10.5,
-          11.0
+          8,
+          3,
+          8
         ]
       }
     }

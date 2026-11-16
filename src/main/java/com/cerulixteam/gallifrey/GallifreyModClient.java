@@ -177,9 +177,6 @@ public class GallifreyModClient implements ClientModInitializer {
         com.cerulixteam.gallifrey.client.ModClientPackets.register();
         registerRwfControls();
         com.cerulixteam.gallifrey.client.TardisClientEffects.register();
-        // The TARDIS controls have see-through parts (the randomiser's gyroscope rings).
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
-                com.cerulixteam.gallifrey.block.GallifreyModBlocks.TARDIS_CONTROLS.values().toArray(new net.minecraft.block.Block[0]));
 
         EntityRendererRegistry.register(GallifreyEntities.TIME_LORD, com.cerulixteam.gallifrey.entity.client.TimeLordRenderer::new);
         EntityRendererRegistry.register(GallifreyEntities.CAVEMAN, com.cerulixteam.gallifrey.entity.client.CavemanRenderer::new);

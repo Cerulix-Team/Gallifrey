@@ -346,15 +346,23 @@ public class TardisExteriorBlockEntity extends BlockEntity {
     }
 
     /**
-     * Sets out the separate control blocks (Dalek Mod style) in a ring where a console would stand:
-     * throttle, monitor, handbrake, doors, coordinates and the rest. Each faces outwards so you work
-     * it from outside the ring. Players can pick them up and rearrange them however they like.
+     * Sets out the control panels (Dalek Mod style) in a ring where a console would stand: flight lever,
+     * monitor, coordinate panel, dimension selector, fast return, lock panel, handbrake, refueller and
+     * randomiser. Each faces outwards so you work it from outside the ring. Players can pick them up and
+     * put them wherever they like, on floors, walls or ceilings.
      */
     private void installControls(ServerWorld world) {
         java.util.List<net.minecraft.block.Block> controls = new java.util.ArrayList<>();
-        controls.add(com.cerulixteam.gallifrey.block.GallifreyModBlocks.TARDIS_THROTTLE);
+        var panels = com.cerulixteam.gallifrey.block.GallifreyModBlocks.TARDIS_PANELS;
+        controls.add(panels.get(com.cerulixteam.gallifrey.tardis.TardisPanel.FLIGHT_LEVER));
         controls.add(com.cerulixteam.gallifrey.block.GallifreyModBlocks.TARDIS_MONITOR);
-        controls.addAll(com.cerulixteam.gallifrey.block.GallifreyModBlocks.TARDIS_CONTROLS.values());
+        controls.add(panels.get(com.cerulixteam.gallifrey.tardis.TardisPanel.COORDINATE_PANEL));
+        controls.add(panels.get(com.cerulixteam.gallifrey.tardis.TardisPanel.DIMENSION_SELECTOR));
+        controls.add(panels.get(com.cerulixteam.gallifrey.tardis.TardisPanel.FAST_RETURN));
+        controls.add(panels.get(com.cerulixteam.gallifrey.tardis.TardisPanel.LOCK_PANEL));
+        controls.add(panels.get(com.cerulixteam.gallifrey.tardis.TardisPanel.HANDBRAKE));
+        controls.add(panels.get(com.cerulixteam.gallifrey.tardis.TardisPanel.REFUELER));
+        controls.add(panels.get(com.cerulixteam.gallifrey.tardis.TardisPanel.RANDOMISER));
         // Around where the interior's console marker is (the middle of the console room).
         TardisInteriorLayout.Layout layout = TardisInteriorLayout.get(world.getServer().getResourceManager(), interiorStructure);
         BlockPos centre = layout.console() != null
@@ -496,12 +504,12 @@ public class TardisExteriorBlockEntity extends BlockEntity {
     public BlockPos getFlightPos() { return flightPos; }
     public int getFlightRotation() { return flightRotation; }
 
-    /** Seconds until the TARDIS has landed (for messages). */
+    /** Seconds until the TARDIS arrives and can be landed with the flight lever (for messages). */
     public int secondsToArrival() {
         int left = switch (phase) {
             case LANDED -> 0;
-            case DEMAT -> TardisPhaseCurves.DEMAT_TICKS - getPhaseAge() + vortexTicks + TardisPhaseCurves.REMAT_TICKS;
-            case VORTEX -> vortexTicks - getPhaseAge() + TardisPhaseCurves.REMAT_TICKS;
+            case DEMAT -> TardisPhaseCurves.DEMAT_TICKS - getPhaseAge() + vortexTicks;
+            case VORTEX -> vortexTicks - getPhaseAge();
             case REMAT -> TardisPhaseCurves.REMAT_TICKS - getPhaseAge();
         };
         return Math.max(0, left / 20);

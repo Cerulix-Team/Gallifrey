@@ -109,7 +109,8 @@ public final class TempadDoors {
             if (door.getWorld() != world) continue;
             try {
                 Object location = getLocation.invoke(door);
-                if (location == null || !TARDIS.equals(getLevelKey.invoke(location))) continue;
+                if (location == null || !(getLevelKey.invoke(location) instanceof RegistryKey<?> key)
+                        || !com.cerulixteam.gallifrey.tardis.TardisDimensionManager.isInteriorKey(RegistryKey.of(RegistryKeys.WORLD, key.getValue()))) continue;
 
                 setLocation.invoke(door, (Object) null); // cut the link so nothing goes through while it closes
                 close(door);
