@@ -53,6 +53,7 @@
 ],
 "client": [
 "client.TardisCameraShakeMixin",
+"client.TardisInteriorLightMixin",
   "client.SplashTextRendererAccessor",
   "client.SplashPlayerNameMixin",
   "client.LivingEntityRendererAccessor",

@@ -14,6 +14,7 @@ wall or ceiling. Some panels hold several buttons, each used by clicking it:
   handbrake ......... (Gallifrey extra) must be off to take off or land
   refueller ......... (Gallifrey extra) fuel tank and lever: refuel while landed
   randomiser ........ (Gallifrey extra) one big button: pick a random destination nearby
+  light alternator .. (Gallifrey extra) knife switch: main power on/off (off = lights out, no flight)
 
 Everything here is designed in "panel view" coordinates, as you see the panel lying on the floor in front
 of you: u = left to right (0-16), w = near to far (0-16), h = height. The model's near edge is north, so
@@ -313,6 +314,16 @@ def randomiser_model(on, pressed):
                box(6, top, 6, 10, top + 0.5, 10, 'cyan')])
 
 
+def light_alternator_model(on, pressed):
+    """Main power: a knife switch (thrown back = on) and a bulb that lights with the power."""
+    return (slab('base_light_alternator')
+            + [box(3, 2, 2.5, 13, 3, 13.5, 'black'),
+               box(4, 3, 10, 6, 5, 12, 'gold'), box(10, 3, 10, 12, 5, 12, 'gold'),      # contact clips
+               box(1.5, 2, 1.5, 5, 6.5, 5, 'bulb_on' if on else 'bulb_off'),          # the bulb
+               box(1.25, 6.5, 1.25, 5.25, 7.25, 5.25, 'metal')]
+            + lever_handle(8, 4.5, 3, 7, 7, 'black', on))
+
+
 PANELS = [
     # id, is_lever (whole block is one button), buttons, model, has an on/off state
     ('flight_lever', True, [('flight_lever', 'FLIGHT', None)], flight_lever_model, True),
@@ -323,6 +334,7 @@ PANELS = [
     ('handbrake', True, [('handbrake', 'HANDBRAKE', None)], handbrake_model, True),
     ('refueler', True, [('refueler', 'REFUEL', None)], refueler_model, True),
     ('randomiser', False, [('randomise', 'RANDOMISE', (3.5, 2, 3.5, 12.5, 4.5, 12.5))], randomiser_model, False),
+    ('light_alternator', True, [('light_alternator', 'POWER', None)], light_alternator_model, True),
 ]
 
 
@@ -359,6 +371,9 @@ def base_tex(kind):
         for w in range(2, 14):
             t.px(7, w, (235, 190, 30) if (w // 2) % 2 else BLACK)
             t.px(8, w, (235, 190, 30) if (w // 2) % 2 == 0 else BLACK)
+    elif kind == 'light_alternator':
+        bolt = ["..##", ".##.", "####", ".##.", "##.."]
+        t.glyph(11, 2, bolt, GOLD)
     elif kind == 'refueler':
         t.rect(8, 5, 15, 11, GREY_EDGE)
     return t
@@ -374,6 +389,87 @@ ROTATIONS = {
     'wall': {'north': (90, 0), 'east': (90, 90), 'south': (90, 180), 'west': (90, 270)},
     'ceiling': {'north': (180, 180), 'east': (180, 270), 'south': (180, 0), 'west': (180, 90)},
 }
+
+
+# ----------------------------------------------------------------------------- the monitor
+
+def monitor_front_tex():
+    """Front of the monitor as you look at it: grey casing, dark bezel, the screen, knobs underneath."""
+    img = Image.new('RGBA', (16, 16), rgba(GREY))
+    put = lambda x, y, c: img.putpixel((x, y), rgba(c))
+    for x in range(16):
+        for y in range(16):
+            if (x * 7 + y * 13 + x * y) % 17 == 0:
+                put(x, y, shade(GREY, 0.92))
+    for x in range(2, 14):                       # bezel
+        for y in range(2, 11):
+            put(x, y, GREY_EDGE)
+    screen_bg = (8, 30, 24)
+    glow = (110, 240, 170)
+    dim = (40, 120, 90)
+    for x in range(3, 13):                       # screen
+        for y in range(3, 10):
+            put(x, y, screen_bg)
+    for x in range(3, 13):
+        for y in range(3, 10):
+            d = ((x - 5.5) ** 2 + (y - 6.0) ** 2) ** 0.5
+            if 1.6 <= d <= 2.4:
+                put(x, y, glow)                   # Gallifreyan circle
+    put(5, 6, glow)
+    put(7, 4, dim)
+    for (x0, x1, y) in ((9, 12, 4), (9, 11, 6), (9, 12, 8)):
+        for x in range(x0, x1 + 1):
+            put(x, y, dim if (x + y) % 3 == 0 else glow)   # readout lines
+    for x in range(2, 14):                       # top highlight / bottom shadow of the bezel
+        put(x, 2, shade(GREY_EDGE, 1.2))
+        put(x, 10, shade(GREY_EDGE, 0.8))
+    put(4, 12, RED)                              # knobs and lights
+    put(5, 12, RED_DARK)
+    put(7, 12, (230, 190, 40))
+    for x in (10, 12):
+        put(x, 12, WHITE)
+        put(x, 13, GREY_EDGE)
+    return img
+
+
+def casing_tex():
+    """Monitor sides and top: grey with cooling vents."""
+    t = Tex(GREY)
+    for x in range(16):
+        for y in range(16):
+            if y in (0, 15) or x in (0, 15):
+                t.img.putpixel((x, y), rgba(GREY_EDGE))
+    for y in (4, 6, 8, 10):
+        for x in range(4, 12):
+            t.img.putpixel((x, y), rgba(shade(GREY_EDGE, 0.8)))
+    return t
+
+
+def monitor_model():
+    front_uv = None
+    return [
+        box(3, 0, 4, 13, 1, 13, 'side'),                                         # base
+        box(6.5, 1, 7.5, 9.5, 3, 10.5, 'metal'),                                  # neck
+        box(1.5, 3, 4, 14.5, 14, 12, 'casing', ('south', 'east', 'west', 'up', 'down')),
+        box(1.5, 3, 4, 14.5, 14, 12, 'monitor_front', ('north',)),                # casing front
+        box(3, 4.5, 12, 13, 12.5, 15, 'casing'),                                  # CRT back
+        box(7.5, 14, 7.5, 8.5, 15, 8.5, 'red'),                                   # lamp on top
+    ]
+
+
+def write_monitor():
+    monitor_front_tex().save(os.path.join(TEXDIR, 'monitor_front.png'))
+    casing_tex().save('casing')
+    textures = {'particle': TEX + 'casing', 'side': TEX + 'side', 'metal': TEX + 'metal', 'red': TEX + 'red',
+                'casing': TEX + 'casing', 'monitor_front': TEX + 'monitor_front'}
+    elements = monitor_model()
+    # the front texture is painted as you see it, so map the whole 16x16 onto the casing's front face
+    for e in elements:
+        if 'north' in e['faces'] and e['faces']['north']['texture'] == '#monitor_front':
+            e['faces']['north']['uv'] = [0, 0, 16, 16]
+    write(os.path.join(A, 'models/block/tardis_monitor.json'),
+          {'parent': 'minecraft:block/block', 'textures': textures, 'elements': elements})
+    write(os.path.join(A, 'models/item/tardis_monitor.json'), {'parent': NS + ':block/tardis_monitor'})
 
 
 def write(path, obj):
@@ -413,16 +509,20 @@ def main():
     flat(WHITE, edge=GREY_DARK).save('white')
     flat(GOLD, edge=GOLD_DARK).save('gold')
     glow_tex((80, 220, 230)).save('cyan')
+    glow_tex((255, 200, 90)).save('bulb_on')
+    flat((80, 70, 50), edge=(50, 44, 32)).save('bulb_off')
     for axis, c in zip('xyz', AXIS_COLOURS):
         flat(shade(c, 0.55), edge=shade(c, 0.35)).save(axis + '_minus')
         flat(c, edge=shade(c, 0.7)).save(axis + '_plus')
-    for kind in ('coordinates', 'dimension', 'lock', 'randomiser', 'handbrake', 'fast_return', 'refueler'):
+    for kind in ('coordinates', 'dimension', 'lock', 'randomiser', 'handbrake', 'fast_return', 'refueler',
+                 'light_alternator'):
         base_tex(kind).save('base_' + kind)
 
     textures = {n: TEX + n for n in ('side', 'lights', 'screen', 'tank', 'metal', 'red', 'red_dark', 'black',
                                      'white', 'gold', 'cyan', 'base_coordinates', 'base_dimension', 'base_lock',
                                      'base_randomiser', 'base_handbrake', 'base_fast_return', 'base_refueler',
-                                     'x_minus', 'x_plus', 'y_minus', 'y_plus', 'z_minus', 'z_plus')}
+                                     'x_minus', 'x_plus', 'y_minus', 'y_plus', 'z_minus', 'z_plus',
+                                     'base_light_alternator', 'bulb_on', 'bulb_off')}
     textures['particle'] = TEX + 'side'
 
     java_panels = []
@@ -476,6 +576,7 @@ def main():
         java_panels.append((pid, is_lever, btns, shape))
 
     write_java(java_panels)
+    write_monitor()
     print('generated', len(PANELS), 'panels')
 
 

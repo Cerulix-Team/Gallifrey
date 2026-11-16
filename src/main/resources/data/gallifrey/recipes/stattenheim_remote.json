@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " R ",
+    "ICI",
+    "III"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "C": {
+      "item": "gallifrey:refined_sonic_crystal"
+    }
+  },
+  "result": {
+    "item": "gallifrey:stattenheim_remote",
+    "count": 1
+  }
+}

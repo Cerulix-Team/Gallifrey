@@ -226,6 +226,7 @@ public final class TardisDimensionManager {
         ChunkPos chunk = new ChunkPos(tardis.getInteriorOrigin());
         interior.getChunkManager().addTicket(net.minecraft.server.world.ChunkTicketType.POST_TELEPORT, chunk, 2, player.getId());
         markDoorTrip(player);
+        TardisFlight.sendPower(player, tardis.isPowered());
         FabricDimensions.teleport(player, interior,
                 new TeleportTarget(interiorEntry(tardis), Vec3d.ZERO, interiorEntryYaw(tardis), 0.0f));
         return true;

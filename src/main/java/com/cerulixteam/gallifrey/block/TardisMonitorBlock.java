@@ -32,7 +32,7 @@ import net.minecraft.world.World;
  */
 public class TardisMonitorBlock extends Block implements BlockEntityProvider {
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
-    private static final VoxelShape SHAPE = Block.createCuboidShape(1, 0, 1, 15, 13, 15);
+    private static final VoxelShape SHAPE = Block.createCuboidShape(1.5, 0, 1.5, 14.5, 15, 15);
 
     public TardisMonitorBlock(Settings settings) {
         super(settings);
@@ -66,7 +66,8 @@ public class TardisMonitorBlock extends Block implements BlockEntityProvider {
 
     @Override
     public BlockRenderType getRenderType(BlockState state) {
-        return BlockRenderType.ENTITYBLOCK_ANIMATED;
+        // A normal block model (models/block/tardis_monitor.json, made by tools/tardis/control_assets.py).
+        return BlockRenderType.MODEL;
     }
 
     @Override

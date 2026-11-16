@@ -9,7 +9,7 @@ import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache
 import software.bernie.geckolib.core.animation.AnimatableManager;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-/** Holds the GeckoLib model for the TARDIS monitor. Its state lives in the block state. */
+/** The TARDIS monitor's block entity. It is drawn as a normal block model now; this stays so existing monitors keep loading. */
 public class TardisMonitorBlockEntity extends BlockEntity implements GeoBlockEntity {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 

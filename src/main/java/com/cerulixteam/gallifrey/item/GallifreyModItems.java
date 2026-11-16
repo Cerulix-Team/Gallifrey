@@ -235,6 +235,9 @@ public class GallifreyModItems {
     );
     /** Inventory icon representing an installed TARDIS interior. */
     public static final Item TARDIS_INTERIOR = registerItem("tardis_interior", new Item(new FabricItemSettings().maxCount(1)));
+    /** Summons your TARDIS (link it by sneak + right-clicking your TARDIS). */
+    public static final Item STATTENHEIM_REMOTE = registerItem("stattenheim_remote",
+            new com.cerulixteam.gallifrey.item.custom.StattenheimRemoteItem(new FabricItemSettings().maxCount(1)));
 
     public static final Item TARDIS_SIGN = registerItem("tardis_sign",
             new SignItem(new FabricItemSettings().maxCount(16), GallifreyModBlocks.STANDING_TARDIS_SIGN, GallifreyModBlocks.WALL_TARDIS_SIGN));

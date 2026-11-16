@@ -25,6 +25,7 @@ public class ModPackets {
     public static final Identifier TARDIS_MONITOR_REFRESH = new Identifier(GallifreyMod.MOD_ID, "tardis_monitor_refresh");
     /** Server -> client: shake the camera inside a TARDIS (float intensity, varint ticks). */
     public static final Identifier TARDIS_SHAKE = new Identifier(GallifreyMod.MOD_ID, "tardis_shake");
+    public static final Identifier TARDIS_POWER = new Identifier(GallifreyMod.MOD_ID, "tardis_power");
     public static final Identifier TARDIS_CLOSE_CONSOLE = new Identifier(GallifreyMod.MOD_ID, "tardis_close_console");
     public static final Identifier TARDIS_REGISTER_DIMENSION = new Identifier(GallifreyMod.MOD_ID, "tardis_register_dimension");
     public static final Identifier TARDIS_RWF_INPUT = new Identifier(GallifreyMod.MOD_ID, "tardis_rwf_input");

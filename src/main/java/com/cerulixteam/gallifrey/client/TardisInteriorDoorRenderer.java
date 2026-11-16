@@ -34,7 +34,10 @@ public class TardisInteriorDoorRenderer implements BlockEntityRenderer<TardisInt
         matrices.push();
         matrices.translate(0.5F, 1.5F, 0.5F);
         if (blockEntity.getCachedState().contains(TardisInteriorDoorBlock.FACING)) {
-            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(blockEntity.getCachedState().get(TardisInteriorDoorBlock.FACING).asRotation()));
+            // FACING points into the room. From inside you see the back of the police box doors (as in
+            // the show), so the model's front faces away from the room.
+            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(
+                    blockEntity.getCachedState().get(TardisInteriorDoorBlock.FACING).asRotation() + 180.0F));
         }
         matrices.scale(-1.0F, -1.0F, 1.0F);
 

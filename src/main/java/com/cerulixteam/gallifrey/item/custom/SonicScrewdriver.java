@@ -227,7 +227,10 @@ public class SonicScrewdriver extends Item {
 
     /** TARDIS mode is only there with Adventures in Time installed, and not on the Sonic Shades. */
     public static boolean isModeAvailable(ItemStack stack, SonicMode mode) {
-        return mode != SonicMode.TARDIS || com.cerulixteam.gallifrey.compat.ait.AitSonics.canUseTardisMode(stack);
+        // TARDIS mode: for a sonic linked to a Gallifrey TARDIS, or with Adventures in Time installed.
+        return mode != SonicMode.TARDIS
+                || com.cerulixteam.gallifrey.tardis.TardisRemote.linkedTardis(stack) != null
+                || com.cerulixteam.gallifrey.compat.ait.AitSonics.canUseTardisMode(stack);
     }
 
     // =========================================================
@@ -549,6 +552,17 @@ public class SonicScrewdriver extends Item {
         SonicMode mode = getMode(stack);
         SonicCasing casing = getCasing(stack);
 
+        if (mode == SonicMode.TARDIS && com.cerulixteam.gallifrey.tardis.TardisRemote.linkedTardis(stack) != null
+                && player instanceof net.minecraft.server.network.ServerPlayerEntity serverPlayer) {
+            // Linked to a Gallifrey TARDIS: lock/unlock it, or say where it is.
+            if (com.cerulixteam.gallifrey.tardis.TardisRemote.useSonic(serverPlayer, stack, target)) {
+                world.playSound(null, player.getX(), player.getY(), player.getZ(),
+                        getActivationSound(casing), SoundCategory.PLAYERS, 1.0F, 1.0F);
+                consumePower(stack);
+            }
+            return;
+        }
+
         if (mode == SonicMode.TARDIS) {
             // Adventures in Time: call, send off or park the linked TARDIS. AIT shows its own
             // message for what happened, so the power readout below is skipped.
@@ -611,6 +625,24 @@ public class SonicScrewdriver extends Item {
     // =========================================================
     // NIRVANA BLUNT: held like a joint while smoking
     // =========================================================
+
+    /** Sneak + right-click your TARDIS to link this sonic to it (then use TARDIS mode). */
+    @Override
+    public net.minecraft.util.ActionResult useOnBlock(net.minecraft.item.ItemUsageContext context) {
+        net.minecraft.util.ActionResult linked = com.cerulixteam.gallifrey.tardis.TardisRemote.tryLink(
+                context, context.getStack().getItem().getTranslationKey());
+        if (linked != net.minecraft.util.ActionResult.PASS) return linked;
+        return super.useOnBlock(context);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @org.jetbrains.annotations.Nullable World world,
+                              java.util.List<Text> tooltip, net.minecraft.client.item.TooltipContext context) {
+        super.appendTooltip(stack, world, tooltip, context);
+        if (com.cerulixteam.gallifrey.tardis.TardisRemote.linkedTardis(stack) != null) {
+            com.cerulixteam.gallifrey.tardis.TardisRemote.appendLinkTooltip(stack, tooltip);
+        }
+    }
 
     @Override
     public int getMaxUseTime(ItemStack stack) {

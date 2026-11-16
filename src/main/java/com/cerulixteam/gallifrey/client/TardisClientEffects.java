@@ -28,6 +28,19 @@ public final class TardisClientEffects {
     private static int shakeTicks;
     private static int shakeTotal;
     private static int time;
+    /** Whether the TARDIS you're inside has power (sent by the server). Off: its interior goes dark. */
+    private static boolean interiorPowered = true;
+
+    public static void setInteriorPowered(boolean powered) {
+        interiorPowered = powered;
+    }
+
+    /** True while you're inside a TARDIS whose power is off. */
+    public static boolean isInteriorDark() {
+        MinecraftClient client = MinecraftClient.getInstance();
+        return !interiorPowered && client.world != null
+                && com.cerulixteam.gallifrey.tardis.TardisDimensionManager.isInteriorKey(client.world.getRegistryKey());
+    }
 
     public static void register() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {

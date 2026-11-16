@@ -127,6 +127,11 @@ public final class TardisFlight {
             return false;
         }
 
+        if (!tardis.isMainPowerOn()) {
+            pilot.sendMessage(Text.translatable("tardis.gallifrey.msg.power_off_flight"), true);
+            return false;
+        }
+
         double distance = sameWorld ? Math.sqrt(requested.getSquaredDistance(current)) : 0;
         int cost = TardisExteriorBlockEntity.FLIGHT_COST + (int) Math.min(200, distance / 250) + (sameWorld ? 0 : 25);
         if (tardis.getFuel() < cost) {
@@ -171,6 +176,10 @@ public final class TardisFlight {
     public static void tick(MinecraftServer server, TardisRegistryState registry, ServerWorld world, BlockPos pos,
                             TardisExteriorBlockEntity tardis) {
         int age = tardis.getPhaseAge();
+        // Keep everyone inside up to date on the power (e.g. after logging back in inside).
+        if (world.getTime() % 100 == 0) {
+            for (ServerPlayerEntity player : insidePlayers(tardis)) sendPower(player, tardis.isPowered());
+        }
         switch (tardis.getPhase()) {
             case DEMAT -> {
                 if (age % 20 == 0 && age > 40) shakeInside(tardis, 0.25F, 25);
@@ -183,6 +192,11 @@ public final class TardisFlight {
             case VORTEX -> {
                 // Arrived: say so (and remind every 30 s); the TARDIS waits until the flight lever is pulled.
                 int waiting = age - tardis.getVortexTicks();
+                // Summoned by a Stattenheim remote: land straight away on arrival.
+                if (waiting >= 0 && tardis.isAutoLand()) {
+                    if (rematerialise(null, server, registry, world, pos, tardis)) return;
+                    tardis.setAutoLand(false); // can't land there: wait for the pilot instead
+                }
                 if (waiting >= 0 && waiting % 600 == 0) {
                     for (ServerPlayerEntity player : insidePlayers(tardis)) {
                         player.sendMessage(Text.translatable("tardis.gallifrey.msg.arrived"), true);
@@ -210,16 +224,16 @@ public final class TardisFlight {
      * Landing (the flight lever, once arrived): move the still-invisible box to the destination that's set
      * now and start fading it in. Says why not and stays in the vortex if it can't land there.
      */
-    private static boolean rematerialise(ServerPlayerEntity pilot, MinecraftServer server, TardisRegistryState registry,
+    private static boolean rematerialise(@org.jetbrains.annotations.Nullable ServerPlayerEntity pilot, MinecraftServer server, TardisRegistryState registry,
                                          ServerWorld source, BlockPos sourcePos, TardisExteriorBlockEntity tardis) {
         ServerWorld target = server.getWorld(RegistryKey.of(RegistryKeys.WORLD, tardis.getDestinationWorld()));
         if (target == null || TardisDimensionManager.isInteriorWorld(target)) {
-            pilot.sendMessage(Text.translatable("tardis.gallifrey.msg.bad_dimension"), true);
+            if (pilot != null) pilot.sendMessage(Text.translatable("tardis.gallifrey.msg.bad_dimension"), true);
             return false;
         }
         BlockPos landing = findLanding(target, tardis.getDestinationPos(), tardis.isLandDown());
         if (landing == null) {
-            pilot.sendMessage(Text.translatable("tardis.gallifrey.msg.no_landing"), true);
+            if (pilot != null) pilot.sendMessage(Text.translatable("tardis.gallifrey.msg.no_landing"), true);
             return false;
         }
         int rotation = tardis.getDestRotation() >= 0 ? tardis.getDestRotation() : tardis.getFlightRotation();
@@ -247,7 +261,8 @@ public final class TardisFlight {
         playOutside(target, landing, GallifreySounds.TYPE70MAT, 2.0F);
         playInside(moved, GallifreySounds.TYPE70MAT, 1.0F);
         shakeInside(moved, 0.6F, 30);
-        pilot.sendMessage(Text.translatable("tardis.gallifrey.msg.materialising"), true);
+        moved.setAutoLand(false);
+        if (pilot != null) pilot.sendMessage(Text.translatable("tardis.gallifrey.msg.materialising"), true);
         refreshMonitors(server, registry, moved);
         return true;
     }
@@ -325,6 +340,20 @@ public final class TardisFlight {
         int direction = sneaking ? -1 : 1;
         switch (action) {
             case FLIGHT -> pullFlightLever(player, tardis);
+            case POWER -> {
+                if (tardis.isFlightPending() && tardis.isMainPowerOn()) {
+                    player.sendMessage(Text.translatable("tardis.gallifrey.msg.power_in_flight"), true);
+                } else {
+                    tardis.setMainPower(!tardis.isMainPowerOn());
+                    tardis.syncInteriorPower(interior);
+                    interior.playSound(null, player.getBlockPos(), tardis.isMainPowerOn()
+                                    ? net.minecraft.sound.SoundEvents.BLOCK_BEACON_ACTIVATE : net.minecraft.sound.SoundEvents.BLOCK_BEACON_DEACTIVATE,
+                            SoundCategory.BLOCKS, 0.8F, 1.0F);
+                    player.sendMessage(Text.translatable(tardis.isMainPowerOn()
+                            ? (tardis.isPowered() ? "tardis.gallifrey.msg.power_on" : "tardis.gallifrey.msg.power_on_no_fuel")
+                            : "tardis.gallifrey.msg.power_off"), true);
+                }
+            }
             case HANDBRAKE -> {
                 tardis.setHandbrake(!tardis.isHandbrakeOn());
                 player.sendMessage(Text.translatable(tardis.isHandbrakeOn()
@@ -426,6 +455,13 @@ public final class TardisFlight {
         for (ServerPlayerEntity p : insidePlayers(tardis)) TardisMonitorNetworking.sendStateIfOpen(p);
     }
 
+    /** Tells a player inside whether the TARDIS has power, so their lighting can go dark with it. */
+    public static void sendPower(ServerPlayerEntity player, boolean powered) {
+        PacketByteBuf buf = PacketByteBufs.create();
+        buf.writeBoolean(powered);
+        ServerPlayNetworking.send(player, ModPackets.TARDIS_POWER, buf);
+    }
+
     /** Where a panel's lever or switch should be, so its block can show it. */
     public static boolean panelState(TardisExteriorBlockEntity tardis, TardisPanel panel) {
         return switch (panel) {
@@ -434,6 +470,7 @@ public final class TardisFlight {
             case REFUELER -> tardis.isRefueling();
             case LOCK_PANEL -> tardis.isLocked();
             case COORDINATE_PANEL -> tardis.isLandDown();
+            case LIGHT_ALTERNATOR -> tardis.isMainPowerOn();
             default -> false;
         };
     }

@@ -51,6 +51,11 @@ public final class ModClientPackets {
             client.execute(() -> TardisClientEffects.shake(intensity, ticks));
         });
 
+        ClientPlayNetworking.registerGlobalReceiver(ModPackets.TARDIS_POWER, (client, handler, buf, responseSender) -> {
+            boolean powered = buf.readBoolean();
+            client.execute(() -> TardisClientEffects.setInteriorPowered(powered));
+        });
+
         ClientPlayNetworking.registerGlobalReceiver(ModPackets.TARDIS_REGISTER_DIMENSION, (client, handler, buf, responseSender) -> {
             RegistryKey<net.minecraft.world.World> key = RegistryKey.of(RegistryKeys.WORLD, buf.readIdentifier());
             client.execute(() -> client.getNetworkHandler().getWorldKeys().add(key));

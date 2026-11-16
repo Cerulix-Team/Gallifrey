@@ -9,7 +9,7 @@ package com.cerulixteam.gallifrey.tardis;
  *  - Dimension selector: previous / show / next.
  *  - Fast return: sets the destination back to where you last took off from.
  *  - Lock panel: door button (open/close) and key (lock/unlock).
- *  - Handbrake, refueller and randomiser: Gallifrey's own extras.
+ *  - Handbrake, refueller, randomiser and light alternator (main power): Gallifrey's own extras.
  */
 public enum TardisPanel {
     FLIGHT_LEVER("flight_lever"),
@@ -19,7 +19,8 @@ public enum TardisPanel {
     LOCK_PANEL("lock_panel"),
     HANDBRAKE("handbrake"),
     REFUELER("refueler"),
-    RANDOMISER("randomiser");
+    RANDOMISER("randomiser"),
+    LIGHT_ALTERNATOR("light_alternator");
 
     private final String id;
     private TardisPanelLayout.Layout layout;
@@ -38,7 +39,8 @@ public enum TardisPanel {
 
     /** Whether the panel shows an on/off position that follows the TARDIS (levers, the lock key, find-ground). */
     public boolean hasOnState() {
-        return this == FLIGHT_LEVER || this == COORDINATE_PANEL || this == LOCK_PANEL || this == HANDBRAKE || this == REFUELER;
+        return this == FLIGHT_LEVER || this == COORDINATE_PANEL || this == LOCK_PANEL || this == HANDBRAKE || this == REFUELER
+                || this == LIGHT_ALTERNATOR;
     }
 
     /** Whether using it shows a button (or the fast return lever) being pressed for a moment. */

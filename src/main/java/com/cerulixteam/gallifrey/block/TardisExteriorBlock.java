@@ -141,6 +141,13 @@ public class TardisExteriorBlock extends Block implements BlockEntityProvider {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos,
                                PlayerEntity player, Hand hand, net.minecraft.util.hit.BlockHitResult hit) {
+        // A sonic in TARDIS mode is used on the box (to lock or unlock it), so let the sonic have the click.
+        net.minecraft.item.ItemStack held = player.getStackInHand(hand);
+        if (held.getItem() instanceof com.cerulixteam.gallifrey.item.custom.SonicScrewdriver
+                && com.cerulixteam.gallifrey.item.custom.SonicScrewdriver.getMode(held)
+                == com.cerulixteam.gallifrey.sonic.SonicMode.TARDIS) {
+            return ActionResult.PASS;
+        }
         if (world.isClient || !(player instanceof ServerPlayerEntity serverPlayer)) {
             return ActionResult.SUCCESS;
         }

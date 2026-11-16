@@ -253,7 +253,7 @@ public final class GallifreyTabSections {
                 entries.add(GallifreyModBlocks.TARDIS_THROTTLE);
                 for (net.minecraft.block.Block panel : GallifreyModBlocks.TARDIS_PANELS.values()) entries.add(panel);
                 entries.add(GallifreyModBlocks.TARDIS_INTERIOR_DOOR);
-                entries.add(GallifreyModItems.TARDIS_INTERIOR);
+                entries.add(GallifreyModItems.STATTENHEIM_REMOTE);
 
                 //KNIFES = Farmer's Delight only
                 if (com.cerulixteam.gallifrey.compat.farmersdelight.FarmersDelightCompat.STEEL_KNIFE != null) entries.add(FarmersDelightCompat.STEEL_KNIFE);

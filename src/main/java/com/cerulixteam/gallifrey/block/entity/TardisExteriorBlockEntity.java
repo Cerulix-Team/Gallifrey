@@ -44,6 +44,10 @@ public class TardisExteriorBlockEntity extends BlockEntity {
     private boolean locked;
     private boolean antigravity = true;
     private int fuel = 100;
+    /** The main power switch (light alternator panel). Off: no lights, no flight. */
+    private boolean mainPower = true;
+    /** Summoned with a Stattenheim remote: lands by itself on arrival instead of waiting for the flight lever. */
+    private boolean autoLand;
     private BlockPos interiorOrigin = new BlockPos(0, 64, 0);
     private boolean interiorGenerated;
     private String interiorStructure = "70default";
@@ -112,7 +116,20 @@ public class TardisExteriorBlockEntity extends BlockEntity {
     public boolean isLocked() { return locked; }
     public boolean isAntigravityEnabled() { return antigravity; }
     public int getFuel() { return fuel; }
-    public boolean isPowered() { return fuel > 0; }
+    /** Powered while it has fuel and the main power (the light alternator panel) is switched on. */
+    public boolean isPowered() { return fuel > 0 && mainPower; }
+    public boolean isMainPowerOn() { return mainPower; }
+    public boolean isAutoLand() { return autoLand; }
+    public void setAutoLand(boolean autoLand) {
+        this.autoLand = autoLand;
+        markDirty();
+    }
+    public void setMainPower(boolean on) {
+        if (mainPower == on) return;
+        mainPower = on;
+        markDirty();
+        syncClient();
+    }
 
     /** Updates console power and the soft interior ceiling lights when artron power changes. */
     public void syncInteriorPower(ServerWorld interior) {
@@ -120,6 +137,10 @@ public class TardisExteriorBlockEntity extends BlockEntity {
         boolean powered = isPowered();
         if (powered == lastPoweredState && interiorGenerated) return;
         lastPoweredState = powered;
+        // Tell everyone inside, so their lighting goes dark (or comes back) with the power.
+        for (net.minecraft.server.network.ServerPlayerEntity player : interior.getPlayers()) {
+            com.cerulixteam.gallifrey.tardis.TardisFlight.sendPower(player, powered);
+        }
         if (consolePos != null && interior.getBlockEntity(consolePos) instanceof TardisConsoleBlockEntity console) {
             console.setPowered(powered);
         }
@@ -347,8 +368,8 @@ public class TardisExteriorBlockEntity extends BlockEntity {
 
     /**
      * Sets out the control panels (Dalek Mod style) in a ring where a console would stand: flight lever,
-     * monitor, coordinate panel, dimension selector, fast return, lock panel, handbrake, refueller and
-     * randomiser. Each faces outwards so you work it from outside the ring. Players can pick them up and
+     * monitor, coordinate panel, dimension selector, fast return, lock panel, handbrake, refueller,
+     * randomiser and light alternator. Each faces outwards so you work it from outside the ring. Players can pick them up and
      * put them wherever they like, on floors, walls or ceilings.
      */
     private void installControls(ServerWorld world) {
@@ -363,6 +384,7 @@ public class TardisExteriorBlockEntity extends BlockEntity {
         controls.add(panels.get(com.cerulixteam.gallifrey.tardis.TardisPanel.HANDBRAKE));
         controls.add(panels.get(com.cerulixteam.gallifrey.tardis.TardisPanel.REFUELER));
         controls.add(panels.get(com.cerulixteam.gallifrey.tardis.TardisPanel.RANDOMISER));
+        controls.add(panels.get(com.cerulixteam.gallifrey.tardis.TardisPanel.LIGHT_ALTERNATOR));
         // Around where the interior's console marker is (the middle of the console room).
         TardisInteriorLayout.Layout layout = TardisInteriorLayout.get(world.getServer().getResourceManager(), interiorStructure);
         BlockPos centre = layout.console() != null
@@ -558,6 +580,8 @@ public class TardisExteriorBlockEntity extends BlockEntity {
         nbt.putBoolean("Locked", locked);
         nbt.putBoolean("Antigravity", antigravity);
         nbt.putInt("Fuel", fuel);
+        nbt.putBoolean("MainPower", mainPower);
+        nbt.putBoolean("AutoLand", autoLand);
         nbt.putLong("InteriorOrigin", interiorOrigin.asLong());
         nbt.putBoolean("InteriorGenerated", interiorGenerated);
         nbt.putString("InteriorStructure", interiorStructure);
@@ -598,6 +622,8 @@ public class TardisExteriorBlockEntity extends BlockEntity {
         locked = nbt.getBoolean("Locked");
         antigravity = !nbt.contains("Antigravity") || nbt.getBoolean("Antigravity");
         fuel = Math.max(0, Math.min(MAX_FUEL, nbt.getInt("Fuel")));
+        mainPower = !nbt.contains("MainPower") || nbt.getBoolean("MainPower");
+        autoLand = nbt.getBoolean("AutoLand");
         if (nbt.contains("InteriorOrigin")) interiorOrigin = BlockPos.fromLong(nbt.getLong("InteriorOrigin"));
         interiorGenerated = nbt.getBoolean("InteriorGenerated");
         if (nbt.contains("InteriorStructure")) interiorStructure = nbt.getString("InteriorStructure");

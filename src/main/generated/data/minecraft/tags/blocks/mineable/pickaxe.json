@@ -232,6 +232,7 @@
     "gallifrey:tardis_lock_panel",
     "gallifrey:tardis_handbrake",
     "gallifrey:tardis_refueler",
-    "gallifrey:tardis_randomiser"
+    "gallifrey:tardis_randomiser",
+    "gallifrey:tardis_light_alternator"
   ]
 }

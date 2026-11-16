@@ -112,6 +112,19 @@ public final class TardisPanelLayout {
                             new float[]{3.5F, 2.0F, 3.5F, 12.5F, 2.75F, 12.5F},
                             new float[]{5.0F, 2.0F, 5.0F, 11.0F, 4.5F, 11.0F},
                             new float[]{6.0F, 4.5F, 6.0F, 10.0F, 5.0F, 10.0F}));
+            case LIGHT_ALTERNATOR -> new Layout(true,
+                    List.of(
+                            new Button("light_alternator", TardisPanelAction.POWER, 0.0F, 0.0F, 0.0F, 16.0F, 16.0F, 16.0F)),
+                    List.of(
+                            new float[]{0.0F, 0.0F, 0.0F, 16.0F, 2.0F, 16.0F},
+                            new float[]{1.25F, 6.5F, 1.25F, 5.25F, 7.25F, 5.25F},
+                            new float[]{1.5F, 2.0F, 1.5F, 5.0F, 6.5F, 5.0F},
+                            new float[]{2.5F, 9.0F, 2.0F, 13.5F, 11.75F, 7.0F},
+                            new float[]{3.0F, 2.0F, 2.5F, 13.0F, 3.0F, 13.5F},
+                            new float[]{3.0F, 3.0F, 2.5F, 7.0F, 10.75F, 6.5F},
+                            new float[]{4.0F, 3.0F, 10.0F, 6.0F, 5.0F, 12.0F},
+                            new float[]{9.0F, 3.0F, 2.5F, 13.0F, 10.75F, 6.5F},
+                            new float[]{10.0F, 3.0F, 10.0F, 12.0F, 5.0F, 12.0F}));
         };
     }
 }

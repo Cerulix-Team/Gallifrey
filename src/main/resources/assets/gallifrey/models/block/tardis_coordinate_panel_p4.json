@@ -25,6 +25,9 @@
     "y_plus": "gallifrey:block/tardis_panels/y_plus",
     "z_minus": "gallifrey:block/tardis_panels/z_minus",
     "z_plus": "gallifrey:block/tardis_panels/z_plus",
+    "base_light_alternator": "gallifrey:block/tardis_panels/base_light_alternator",
+    "bulb_on": "gallifrey:block/tardis_panels/bulb_on",
+    "bulb_off": "gallifrey:block/tardis_panels/bulb_off",
     "particle": "gallifrey:block/tardis_panels/side"
   },
   "elements": [

@@ -396,8 +396,6 @@ public class GallifreyModClient implements ClientModInitializer {
                 GallifreyModBlockEntities.TARDIS_CONSOLE,
                 TardisConsoleBlockEntityRenderer::new
         );
-        BlockEntityRendererRegistry.register(GallifreyModBlockEntities.TARDIS_MONITOR,
-                com.cerulixteam.gallifrey.client.TardisMonitorRenderer::new);
         BlockEntityRendererRegistry.register(GallifreyModBlockEntities.TARDIS_THROTTLE,
                 com.cerulixteam.gallifrey.client.TardisThrottleRenderer::new);
 
