@@ -67,7 +67,6 @@ public final class WeepingAngelsCompat {
     /** True for dimensions an angel's teleport must not choose. */
     public static boolean isOffLimits(RegistryKey<World> dimension) {
         Identifier id = dimension.getValue();
-        return id.getNamespace().equals(GallifreyMod.MOD_ID)
-                && (NO_TELEPORT.contains(id.getPath()) || id.getPath().startsWith("tardis_"));
+        return id.getNamespace().equals(GallifreyMod.MOD_ID) && NO_TELEPORT.contains(id.getPath());
     }
 }
